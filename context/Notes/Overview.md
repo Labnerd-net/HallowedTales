@@ -159,6 +159,21 @@ matter has coverage, the structured/searchable/filterable treatment doesn't.
   tradition around the object rather than the underlying Bible story. Do not treat this as a
   confirmed pillar — it needs an explicit decision before any content gets drafted.
 
+## Explicitly out of scope (decided 2026-10-03)
+
+- **"Why we do what we do" catechesis — the Mass, the sacraments.** Raised as a possible topic
+  (art origins, prayer origins, symbol origins, explanation of the Mass) and narrowed down:
+  symbol origins, prayer origins, and legendary-art origin stories all fit Pillar 1 (they're
+  "here's the legend behind it" narratives). A general explainer of the Mass or the sacraments
+  does not — it's catechetical ("what this is and why the Church does it"), not narrative lore
+  ("here's the story people tell"), and that's a fundamentally different mode from the rest of
+  the site. It also overlaps territory catechism sites (and the Register's adjacent register-of-
+  fact posture) already cover.
+  - Narrow exception: a *specific* custom attached to the Mass or a sacrament that carries its
+    own folk-legend (e.g. a regional First Communion dress tradition, a baptism custom with a
+    local origin story) can still enter through Pillar 2 — the Mass/sacrament itself just isn't
+    a pillar or section on its own.
+
 ## Open questions (not yet answered)
 
 - Scope: all Catholic lore broadly, or just lore tied to saints/miracles already adjacent to

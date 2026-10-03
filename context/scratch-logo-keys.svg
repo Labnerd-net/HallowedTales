@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <circle cx="120" cy="120" r="112" fill="#fdf6ec" stroke="#8a5a2b" stroke-width="4"/>
+  <g stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- key 1: top-left to bottom-right -->
+    <line x1="65" y1="65" x2="155" y2="155"/>
+    <circle cx="65" cy="65" r="16" fill="#fdf6ec"/>
+    <path d="M155 155 L170 170 M162 148 L177 163 M148 162 L163 177"/>
+
+    <!-- key 2: top-right to bottom-left, crossing -->
+    <line x1="175" y1="65" x2="85" y2="155"/>
+    <circle cx="175" cy="65" r="16" fill="#fdf6ec"/>
+    <path d="M85 155 L70 170 M78 148 L63 163 M92 162 L77 177"/>
+  </g>
+  <text x="120" y="205" font-family="Georgia, serif" font-size="20" fill="#8a5a2b" text-anchor="middle" letter-spacing="2">HALLOWED TALES</text>
+</svg>
