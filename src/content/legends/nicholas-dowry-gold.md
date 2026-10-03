@@ -1,0 +1,85 @@
+---
+title: "The Dowry Gold of Saint Nicholas"
+saints:
+  - nicholas-of-myra
+earliestSource:
+  citation: "Michael the Archimandrite, Life of Saint Nicholas"
+  approxDate: "9th century"
+historicalNote: >
+  Michael the Archimandrite was writing roughly 500 years after Nicholas's
+  lifetime, drawing on earlier oral and written material that no longer
+  survives independently. There is no contemporary record of this episode
+  from Nicholas's own lifetime (4th century).
+variants:
+  - label: "The chimney version"
+    detail: >
+      By the third visit, the windows are shuttered for winter, so Nicholas
+      drops the gold down the chimney instead, where it lands in a stocking
+      drying by the hearth.
+    note: "Widely cited as the root of the Christmas stocking tradition."
+  - label: "The pawnbroker version"
+    detail: >
+      The father is described as a pawnbroker fallen on hard times, rather
+      than a nobleman.
+    note: "Cited as the origin of the pawnbrokers' three-gold-balls symbol, and part of why Nicholas is patron of pawnbrokers."
+relatedLegends: []
+tags:
+  - patronage-origin
+  - christmas-stocking
+  - saint-nicholas-day
+published: false
+---
+
+In the city of Myra, a nobleman who had once lived in comfort fell into such
+poverty that he saw no way to provide dowries for his three daughters. Without
+a dowry, none of them could marry - and the father, in despair, began to
+consider letting his daughters earn their keep in a way that horrified him
+even to think of.
+
+Nicholas, then a young man known already for his quiet generosity, heard of
+the family's plight. He wanted no credit for what he did next, so he waited
+until night had fully fallen over the city before he acted.
+
+Under cover of darkness, Nicholas crept to the window of the man's house and
+tossed in a small bag of gold coins, then hurried away before anyone saw him.
+In the morning, the father found the gold and could hardly believe it - enough,
+at last, for his eldest daughter's dowry. The wedding was arranged, and the
+family's gratitude turned to God, though no one knew whom to thank.
+
+Nicholas returned a second time, under the same cover of night, with a second
+bag of gold for the second daughter. Again he fled before he could be seen -
+but this time, the father was watching for him. Determined to learn the
+identity of his family's benefactor, the father kept watch each night after
+that.
+
+When Nicholas came a third time, the father recognized him at once and ran out
+to catch him before he could slip away. Nicholas, embarrassed to have been
+found out, begged the man to tell no one what he had done. The father agreed -
+though, as the story is usually told, he did not keep that promise for long.
+
+## How this story changed over time
+
+Like most legends that circulate for centuries before anyone writes them
+down, the dowry-gold story was never told just one way. Two variations in
+particular are worth knowing, because each one explains something people
+still do today.
+
+**The chimney version.** In some retellings, the third delivery doesn't go as
+smoothly as the first two. By then it's winter, and the family has shuttered
+their windows against the cold - so Nicholas has to find another way in. He
+climbs to the roof and drops the gold down the chimney instead, where it
+happens to land in a stocking the daughter had hung by the fire to dry. This
+detail is the thread historians most often point to when tracing the origin
+of hanging stockings at Christmas.
+
+**The pawnbroker version.** Other tellings change who the father is - not a
+nobleman who has fallen on hard times, but a pawnbroker struggling to get by.
+This version is tied to Nicholas's patronage of pawnbrokers, and some trace
+the pawnbroker's traditional three-gold-ball sign to the three bags of gold in
+the story.
+
+Neither variant changes the heart of the story - a desperate father, three
+daughters, and a young man who wanted no thanks for his generosity. But each
+one shows how a single legend can grow new branches to explain whatever a
+later audience needed explained, whether that was a chimney full of stockings
+or a sign hanging outside a pawnshop.
