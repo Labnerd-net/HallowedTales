@@ -43,13 +43,15 @@ const { title } = Astro.props;
   </head>
   <body class="font-body">
     <LiturgicalBanner />
-    <nav class="flex items-center gap-6 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft">
+    <nav class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft">
       <BrandMark />
-      <div class="ml-auto flex items-center gap-6">
+      <div class="flex items-center justify-center gap-6">
         <a href="/legends" class="hover:text-ink">Legends</a>
         <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
         <a href="/relics" class="hover:text-ink">Relics</a>
         <a href="/phenomena" class="hover:text-ink">Mystical Phenomena</a>
+      </div>
+      <div class="flex justify-end">
         <ThemeToggle />
       </div>
     </nav>
