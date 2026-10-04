@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import LegendCard from '../../components/LegendCard.astro';
+import { excerptFrom } from '../../lib/excerpt';
 
 const entries = await getCollection('relics');
 ---
@@ -11,7 +12,7 @@ const entries = await getCollection('relics');
     <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h1>
     <div class="grid gap-6 md:grid-cols-3">
       {entries.map((entry) => {
-        const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+        const excerpt = excerptFrom(entry.body);
         const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
         return (
           <LegendCard
