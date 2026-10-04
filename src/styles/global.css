@@ -50,6 +50,7 @@
  * why, and for the "system" resolution logic.
  */
 :root[data-theme='dark'] {
+  --color-hero-deep: #141a33;
   --color-canvas: #1c2340;
   --color-surface: #262f52;
   --color-surface-alt: #343f6e;
