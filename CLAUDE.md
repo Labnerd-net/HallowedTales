@@ -34,6 +34,10 @@ Register. Want the folklore and traditions around them? → HallowedTales."
   tradition," not "creepy unexplained phenomenon."
 - These two rules override any individual content idea — if a specific legend or tradition can't
   be told without crossing one of them, cut it rather than sanitize it into something misleading.
+- **Scope breadth (decided):** all Catholic lore broadly, not just lore tied to saints/miracles
+  already adjacent to the Register's subject matter. Where a legend overlaps a Register case,
+  HallowedTales covers it on its own terms and cross-links out to the Register for the verified
+  record rather than narrowing coverage to avoid the overlap.
 - **Style:** plain hyphens (`-`), never em dashes (`—`), in page copy, UI strings, and any text
   written into content files — matches the Register's convention.
 
@@ -102,8 +106,6 @@ since it fits git-diffable files better than deep nesting, but don't treat that 
 Carried over from initial scoping (`context/Notes/Overview.md`) — resolve before relying on
 them:
 
-- Scope breadth: all Catholic lore broadly, or just lore tied to saints/miracles already
-  adjacent to the Register's subject matter?
 - Data model shape for variants (see Tech Stack section above).
 - Pillar 3 (biblical artifacts/relics): approve, narrow, or drop.
 

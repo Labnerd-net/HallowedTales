@@ -174,10 +174,15 @@ matter has coverage, the structured/searchable/filterable treatment doesn't.
     local origin story) can still enter through Pillar 2 — the Mass/sacrament itself just isn't
     a pillar or section on its own.
 
+## Scope breadth (decided 2026-10-04)
+
+- All Catholic lore broadly, not just lore tied to saints/miracles already adjacent to the
+  Register's subject matter. Where a legend overlaps a Register case, HallowedTales covers it on
+  its own terms and cross-links to the Register for the verified record, rather than narrowing
+  coverage to dodge the overlap.
+
 ## Open questions (not yet answered)
 
-- Scope: all Catholic lore broadly, or just lore tied to saints/miracles already adjacent to
-  the Register's subject matter?
 - Data model shape for "conflicting variants of the same story" — is a variant its own row,
   or a parent legend with child variants?
 - How much, if any, overlap in tech stack / reused code vs. the Register (see prior
