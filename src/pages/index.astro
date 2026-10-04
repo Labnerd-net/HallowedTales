@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import LegendCard from '../components/LegendCard.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
+import { excerptFrom } from '../lib/excerpt';
 
 const legendEntries = await getCollection('legends');
 const traditionEntries = await getCollection('traditions');
@@ -21,76 +22,96 @@ const phenomenaEntries = await getCollection('phenomena');
 
   <main class="mx-auto max-w-5xl px-8 py-16">
     <section>
-      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Legends</h2>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="font-display text-3xl font-semibold text-ink">Legends</h2>
+        <a href="/legends" class="text-sm font-medium text-accent hover:underline">See all →</a>
+      </div>
+      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {legendEntries.map((entry) => {
-          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const excerpt = excerptFrom(entry.body);
           return (
-            <LegendCard
-              href={`/legends/${entry.id}`}
-              badge="Legend"
-              title={entry.data.title}
-              excerpt={excerpt}
-              meta={entry.data.earliestSource.approxDate}
-            />
+            <div class="w-72 flex-shrink-0 snap-start">
+              <LegendCard
+                href={`/legends/${entry.id}`}
+                badge="Legend"
+                title={entry.data.title}
+                excerpt={excerpt}
+                meta={entry.data.earliestSource.approxDate}
+              />
+            </div>
           );
         })}
       </div>
     </section>
 
     <section class="mt-16">
-      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Folk Traditions</h2>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="font-display text-3xl font-semibold text-ink">Folk Traditions</h2>
+        <a href="/traditions" class="text-sm font-medium text-accent hover:underline">See all →</a>
+      </div>
+      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {traditionEntries.map((entry) => {
-          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const excerpt = excerptFrom(entry.body);
           const meta = entry.data.feastDay
             ? `${entry.data.feastDay.month} ${entry.data.feastDay.day}`
             : entry.data.category.replace('-', ' ');
           return (
-            <LegendCard
-              href={`/traditions/${entry.id}`}
-              badge="Folk Tradition"
-              title={entry.data.title}
-              excerpt={excerpt}
-              meta={meta}
-            />
+            <div class="w-72 flex-shrink-0 snap-start">
+              <LegendCard
+                href={`/traditions/${entry.id}`}
+                badge="Folk Tradition"
+                title={entry.data.title}
+                excerpt={excerpt}
+                meta={meta}
+              />
+            </div>
           );
         })}
       </div>
     </section>
 
     <section class="mt-16">
-      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h2>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="font-display text-3xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h2>
+        <a href="/relics" class="text-sm font-medium text-accent hover:underline">See all →</a>
+      </div>
+      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {relicEntries.map((entry) => {
-          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const excerpt = excerptFrom(entry.body);
           const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
           return (
-            <LegendCard
-              href={`/relics/${entry.id}`}
-              badge="Relic & Legend"
-              title={entry.data.title}
-              excerpt={excerpt}
-              meta={meta}
-            />
+            <div class="w-72 flex-shrink-0 snap-start">
+              <LegendCard
+                href={`/relics/${entry.id}`}
+                badge="Relic & Legend"
+                title={entry.data.title}
+                excerpt={excerpt}
+                meta={meta}
+              />
+            </div>
           );
         })}
       </div>
     </section>
 
     <section class="mt-16">
-      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Mystical Phenomena</h2>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="font-display text-3xl font-semibold text-ink">Mystical Phenomena</h2>
+        <a href="/phenomena" class="text-sm font-medium text-accent hover:underline">See all →</a>
+      </div>
+      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {phenomenaEntries.map((entry) => {
-          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const excerpt = excerptFrom(entry.body);
           return (
-            <LegendCard
-              href={`/phenomena/${entry.id}`}
-              badge="Mystical Phenomenon"
-              title={entry.data.title}
-              excerpt={excerpt}
-              meta={entry.data.phenomenonType.replace('-', ' ')}
-            />
+            <div class="w-72 flex-shrink-0 snap-start">
+              <LegendCard
+                href={`/phenomena/${entry.id}`}
+                badge="Mystical Phenomenon"
+                title={entry.data.title}
+                excerpt={excerpt}
+                meta={entry.data.phenomenonType.replace('-', ' ')}
+              />
+            </div>
           );
         })}
       </div>
