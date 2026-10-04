@@ -50,12 +50,12 @@
  * why, and for the "system" resolution logic.
  */
 :root[data-theme='dark'] {
-  --color-canvas: #10131f;
-  --color-surface: #1b2033;
-  --color-surface-alt: #262b42;
+  --color-canvas: #1c2340;
+  --color-surface: #262f52;
+  --color-surface-alt: #343f6e;
   --color-ink: #f3e7d3;
   --color-ink-soft: #c9b79a;
-  --color-accent: #4c72c9;
+  --color-accent: #5d84d9;
   --color-gold: #e3b537;
   --color-ruby: #d1476b;
 
