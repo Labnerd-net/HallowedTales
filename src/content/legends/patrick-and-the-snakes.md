@@ -18,7 +18,7 @@ tags:
   - patrick-of-ireland
   - snake-legend
   - legend-vs-biology
-published: false
+published: true
 ---
 
 According to the legend, Patrick - the 5th-century missionary who became
@@ -34,7 +34,7 @@ the story insists, has been native to Ireland since.
 As it happens, Ireland really has had no native snakes, for a much
 simpler reason than any saint's intervention: the island separated from
 the rest of Europe after the last Ice Age, before snakes were able to
-migrate back north and recolonize the land, and the surrounding sea has
+migrate back north and recolonize the land. The surrounding sea has
 kept them out ever since. Patrick's story doesn't appear in the earliest
 biographies written about him, within a couple of centuries of his own
 5th-century life - it surfaces only in much later medieval accounts. Most

@@ -29,7 +29,7 @@ tags:
   - true-cross
   - st-helena
   - exaltation-of-the-cross
-published: false
+published: true
 ---
 
 In the early 4th century, Helena - mother of the emperor Constantine and

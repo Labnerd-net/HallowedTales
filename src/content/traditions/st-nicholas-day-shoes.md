@@ -26,7 +26,7 @@ tags:
   - christmas-stocking
   - saint-nicholas-day
   - children
-published: false
+published: true
 ---
 
 On the night of December 5th, children across the Netherlands, Belgium, and
@@ -35,15 +35,17 @@ go to bed hoping to wake up to find it filled with small gifts, coins, or
 sweets.
 
 The custom traces itself back to the dowry-gold legend - the story of
-Nicholas secretly tossing bags of gold through a window, and in some
-tellings down a chimney, to save a poor family's daughters. A shoe left out
+Nicholas, the 4th-century bishop of Myra behind the Santa Claus legend,
+secretly tossing bags of gold through a window, and in some tellings
+down a chimney, to save a poor family's daughters. A shoe left out
 overnight stands in for that open window: a small, hopeful gap left for
 generosity to arrive through, unseen and unannounced.
 
 The custom didn't stay still, either. As Dutch and German immigrants
 carried it across the Atlantic, the shoe by the door became the stocking by
-the chimney, and St. Nicholas himself slowly reshaped into Sinterklaas's
-better-known descendant, Santa Claus.
+the chimney, and St. Nicholas's own image slowly reshaped first into
+Sinterklaas, then into Sinterklaas's better-known descendant, Santa
+Claus.
 
 ## Why it still matters
 

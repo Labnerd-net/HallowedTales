@@ -16,13 +16,13 @@ tags:
   - animal-companion-legend
   - legend-migration
   - golden-legend
-published: false
+published: true
 ---
 
-One afternoon, as the story is told, a lion limped into the monastery
-courtyard near Bethlehem where Jerome - the 4th-century scholar who
-translated the Bible into Latin - lived and worked, holding up one paw,
-and the other monks scattered in terror. Jerome alone stayed put, examined the paw, and
+One afternoon, as the story is told, a lion, holding up one paw, limped
+into the monastery courtyard near Bethlehem where Jerome - the
+4th-century scholar who translated the Bible into Latin - lived and
+worked, and the other monks scattered in terror. Jerome alone stayed put, examined the paw, and
 drew out a long thorn lodged deep inside it. Grateful, the lion never
 left. It settled into monastery life, taking on the job of guarding the
 donkey that hauled firewood from the forest each day.

@@ -27,7 +27,7 @@ tags:
   - patronage-origin
   - christmas-stocking
   - saint-nicholas-day
-published: false
+published: true
 ---
 
 In the city of Myra, a nobleman who had once lived in comfort fell into such
@@ -36,9 +36,9 @@ a dowry, none of them could marry - and the father, in despair, began to
 consider letting his daughters earn their keep in a way that horrified him
 even to think of.
 
-Nicholas, then a young man in Myra - the 4th-century bishop who would
-become the saint behind Santa Claus - known already for his quiet
-generosity, heard of the family's plight. He wanted no credit for what he did next, so he waited
+Nicholas - the young man in Myra who would grow up to become the
+4th-century bishop behind the Santa Claus legend - was already known for
+his quiet generosity when he heard of the family's plight. He wanted no credit for what he did next, so he waited
 until night had fully fallen over the city before he acted.
 
 Under cover of darkness, Nicholas crept to the window of the man's house and

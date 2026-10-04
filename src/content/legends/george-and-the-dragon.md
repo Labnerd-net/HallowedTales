@@ -16,7 +16,7 @@ tags:
   - dragon-legend
   - patron-saint-origin
   - golden-legend
-published: false
+published: true
 ---
 
 In the Golden Legend's telling, a dragon had taken up residence near the
@@ -32,7 +32,7 @@ then has the princess loop her girdle around its neck so it follows behind
 her like a leashed dog, entirely subdued. George leads the dragon into the
 city and offers its people a bargain: he will finish the creature off for
 good, if they agree to be baptized. They agree, and by some tellings,
-thousands were baptized that same day.
+thousands are baptized that same day.
 
 ## A legend grafted onto an older saint
 

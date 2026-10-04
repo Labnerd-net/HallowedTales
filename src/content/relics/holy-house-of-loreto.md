@@ -24,7 +24,7 @@ tags:
   - holy-house-of-loreto
   - our-lady-of-loreto
   - marian-shrine
-published: false
+published: true
 ---
 
 According to the legend that gave the shrine its name, the small stone
@@ -58,7 +58,7 @@ Whether the legend grew from a family name that slipped, over generations
 of retelling, into a host of literal angels - or whether the timing of the
 Angeli family's arrival is just a coincidence sitting alongside a genuine
 miracle - isn't a question this site tries to settle. What keeps the
-mystery alive, and part of why the shrine still draws pilgrims by the
-millions each year, is that the house's walls really do rest on open
-ground with no foundation of their own, exactly what you'd expect if a
-structure had been moved rather than built in place.
+mystery alive, and what accounts for part of why the shrine still draws
+pilgrims by the millions each year, is that the house's walls really do
+rest on open ground with no foundation of their own, exactly what you'd
+expect if a structure had been moved rather than built in place.

@@ -18,7 +18,7 @@ relatedLegends: []
 tags:
   - bilocation
   - padre-pio
-published: false
+published: true
 ---
 
 Bilocation is the reported ability to be in two places at once. Padre Pio,

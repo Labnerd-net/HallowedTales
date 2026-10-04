@@ -19,7 +19,7 @@ tags:
   - stag-vision
   - hunters-patron
   - legend-migration
-published: false
+published: true
 ---
 
 Eustace, a Roman general said to have lived under the emperor Trajan or

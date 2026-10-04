@@ -43,16 +43,17 @@ tags:
 published: true
 ---
 
-Two keys, crossed in an X and bound together with a cord, sitting beneath a
-papal tiara: it's one of the most widely reproduced images connected to the
-Catholic Church, stamped on the Vatican flag, carved into the facade of St.
-Peter's Basilica, and worked into papal coats of arms for centuries. The
+Two keys, crossed in an X and bound together with a cord, sit beneath a
+papal tiara. It's one of the most widely reproduced images connected to the
+Catholic Church - stamped on the Vatican flag, carved into the facade of
+St. Peter's Basilica, worked into papal coats of arms for centuries. The
 image traces back to a single line of dialogue.
 
 ## "I will give you the keys"
 
-In Matthew's Gospel, after Peter identifies Jesus as the Christ, Jesus
-responds: "I will give you the keys of the kingdom of heaven. Whatever you
+In Matthew's Gospel, after Peter - the apostle Jesus named the rock of the
+Church - identifies Jesus as the Christ, Jesus responds: "I will give you
+the keys of the kingdom of heaven. Whatever you
 bind on earth shall be bound in heaven, and whatever you loose on earth
 shall be loosed in heaven." The image draws on an older Old Testament role,
 the royal steward entrusted with the literal keys to the house of David,
@@ -64,7 +65,7 @@ plural, but otherwise unspecified.
 
 ## From attribute to emblem
 
-Within a few centuries, Christian art had settled the ambiguity by habit
+Within a few centuries, Christian art settles the ambiguity by habit
 rather than decree. Catacomb paintings and early sarcophagi begin showing
 Peter holding a key, and by the time Peter and Paul become a standard
 paired subject in Western art, Peter is the one holding keys while Paul
@@ -83,7 +84,7 @@ their status by displaying the crossed keys alongside their own facade.
 ## Why it still matters
 
 The keys are one of the rare Catholic symbols that moved fully into
-everyday language outside devotional contexts - "keys to the kingdom" gets
+everyday language outside devotional contexts. "Keys to the kingdom" gets
 used well beyond any religious sense, and "Peter at the pearly gates" is
 common cultural shorthand even for people who couldn't say where it comes
 from. Both trace back to the same single verse, stretched across two

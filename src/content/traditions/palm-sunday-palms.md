@@ -17,7 +17,7 @@ tags:
   - palm-sunday
   - ash-wednesday
   - liturgical-object
-published: false
+published: true
 ---
 
 On Palm Sunday, parishes bless palm branches - or, in places where palms

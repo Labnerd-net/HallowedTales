@@ -16,7 +16,7 @@ tags:
   - francis-of-assisi
   - wolf-legend
   - fioretti
-published: false
+published: true
 ---
 
 The town of Gubbio, the story goes, had been terrorized for some time by a
@@ -41,10 +41,10 @@ it.
 ## A later addition to an old reputation
 
 Francis's reputation for an easy rapport with animals is old and well
-attested, but this particular story is not - it appears for the first
+attested, but this particular story is not. It appears for the first
 time in the Fioretti, compiled around a century after his death, and
 neither Thomas of Celano nor Bonaventure, his two earliest biographers,
-mention a wolf at all. That doesn't make it any less beloved; if anything,
+mentions a wolf at all. That doesn't make it any less beloved; if anything,
 it shows how a saint already known for talking to birds became, over a
 few generations of storytelling, exactly the kind of figure a frightened
 town would imagine negotiating with a wolf.

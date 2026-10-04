@@ -16,7 +16,7 @@ relatedLegends: []
 tags:
   - levitation
   - joseph-of-cupertino
-published: false
+published: true
 ---
 
 Few saints have a reported phenomenon as frequently or as vividly

@@ -21,7 +21,7 @@ relatedLegends: []
 tags:
   - saint-blaise-day
   - liturgical-blessing
-published: false
+published: true
 ---
 
 Each February 3rd, many parishes hold a brief rite where a priest holds two
@@ -29,8 +29,8 @@ candles crossed in an X shape against a person's throat, or sometimes just
 below the chin, and prays for protection from illnesses of the throat.
 
 The custom traces back to a legend about Blaise, a bishop and physician in
-Sebaste, in present-day Turkey. According to the story, a mother brought
-her young son to him, choking on a fishbone and near death. Blaise prayed
+Sebaste, in present-day Turkey. According to the story, a mother brought to him her young son, who was
+choking on a fishbone and near death. Blaise prayed
 over the boy, and the bone came loose. The boy lived - and Blaise became,
 from then on, the saint people turned to for throat trouble.
 

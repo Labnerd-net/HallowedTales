@@ -16,13 +16,13 @@ tags:
   - francis-of-assisi
   - animal-blessing
   - fioretti
-published: false
+published: true
 ---
 
 Walking the road near Bevagna, Francis of Assisi - the 13th-century friar
 who founded the Franciscans - came upon a great flock of birds of
-every kind gathered in the fields and trees along the way - doves, crows,
-and others the story doesn't bother naming. Rather than pass them by, he
+every kind gathered in the fields and trees along the way. There were
+doves, crows, and others the story doesn't bother naming. Rather than pass them by, he
 turned aside and greeted them as he would any crowd, then began to preach,
 inviting them to praise God for the gifts they had been given: wings to
 fly, feathers suited to every climate, the freedom to go wherever they

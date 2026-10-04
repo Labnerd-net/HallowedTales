@@ -16,7 +16,7 @@ tags:
   - stag-vision
   - hunters-patron
   - legend-migration
-published: false
+published: true
 ---
 
 Before he became a bishop in the Belgian city of Liege around the year
@@ -38,7 +38,7 @@ still largely pagan Ardennes region.
 
 Hubert's stag has become one of the most recognizable images connected to
 any saint - it's the reason hunters, trappers, and furriers still claim
-him as their patron. But almost the identical vision, down to the glowing
+him as their patron. But almost exactly the same vision, down to the glowing
 crucifix between the antlers, is told about a much earlier and far more
 legendary figure, the Roman general-turned-martyr Eustace. Historians
 generally regard the Eustace version as the older story and believe it
