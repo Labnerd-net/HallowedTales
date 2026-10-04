@@ -69,9 +69,6 @@ this site, but it still means claims below need a real source pass before publis
 - **Pelican piercing her own breast** — medieval legend that a mother pelican feeds her young
   with her own blood; adopted as a Eucharistic/self-sacrifice symbol, shows up in church
   architecture and hymns (*Adoro Te Devote*).
-- **Keys of St. Peter** — already a leading logo candidate (see branding memory); as content,
-  the origin is Christ's "I will give you the keys of the kingdom" line and its development into
-  the papal symbol.
 - **Tau cross** — associated with St. Francis, who adopted it as a personal signature/seal.
 
 ## Prayer origin stories
@@ -83,7 +80,7 @@ this site, but it still means claims below need a real source pass before publis
   not on demonic imagery.
 - **The Rosary** — legend that Our Lady gave it to St. Dominic; actual historical development is
   more gradual, so this is a good "legend vs. likely real origin" piece in the same vein as the
-  St. Jerome/lion entry above.
+  St. Jerome/lion legend. (That legend is already published — see `jerome-and-the-lion`.)
 - **The Memorare** — traditionally attributed to St. Bernard of Clairvaux, though its popular
   spread traces to a 19th-century French priest. Another "attribution legend vs. actual history"
   candidate.
@@ -91,7 +88,8 @@ this site, but it still means claims below need a real source pass before publis
   St. Francis but first documented in early-20th-century France. A clean, low-stakes "here's the
   legend of authorship and here's what we actually know" piece.
 - **St. Patrick's Breastplate (Lorica)** — protection prayer traditionally attributed to
-  St. Patrick, tied into the same saint-and-legend territory as the snake-banishing story above.
+  St. Patrick, tied into the same saint-and-legend territory as the snake-banishing legend.
+  (That legend is already published — see `patrick-and-the-snakes`.)
 - **Miraculous Medal prayer** — grew out of St. Catherine Labouré's 1830 visions; pairs naturally
   with the medal as a symbol/art entry below.
 

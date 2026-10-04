@@ -47,8 +47,9 @@ list gets long enough.)
   in the house before Lenten fasting began — same impulse as Mardi Gras elsewhere, different
   pastry.
 - **St. Nicholas Day cookies (speculaas/speculoos, Dutch/Belgian)** — spiced cookies, often
-  shaped like the saint himself, handed out alongside the shoe-filling custom (Pillar 2 feast
-  days section / Pillar 1 dowry legend).
+  shaped like the saint himself, handed out alongside the shoe-filling custom. (The shoe-filling
+  custom and the dowry legend are already published — see `st-nicholas-day-shoes` and
+  `nicholas-dowry-gold`.)
 - **St. Lucy's Day saffron buns (lussekatter, Scandinavian)** — already noted under feast days;
   worth cross-listing here since the food item is as central as the candle-crown procession.
 - **Braided Easter breads (Tsoureki — Greek, Paska/Kulich — Slavic, various others)** — enriched
