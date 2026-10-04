@@ -1,5 +1,14 @@
 ---
 title: "The Holy Grail"
+images:
+  - src: "./santo-caliz.jpg"
+    alt: "The Santo Caliz, an agate cup in a gold medieval mounting, displayed in Valencia Cathedral"
+    caption: "The Santo Caliz, Valencia Cathedral"
+    credit: "Zarateman, Wikimedia Commons, CC0"
+  - src: "./sacro-catino.jpg"
+    alt: "The Sacro Catino, a green glass hexagonal dish, displayed in the treasury of Genoa Cathedral"
+    caption: "The Sacro Catino, Genoa Cathedral treasury"
+    credit: "José Luiz Bernardes Ribeiro, Wikimedia Commons, CC BY-SA 3.0"
 cluster: legendary-quest
 claimedLocations:
   - site: "Valencia Cathedral"

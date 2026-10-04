@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
 
 export const prerender = true;
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, cluster, claimedLocations } = entry.data;
+const { title, cluster, claimedLocations, images } = entry.data;
 
 const clusterLabel = cluster.replace('-', ' ');
 ---
@@ -27,6 +28,8 @@ const clusterLabel = cluster.replace('-', ' ');
     meta={[clusterLabel, claimedLocations.map((loc) => loc.site).join(' / ')]}
     note="This is legend and pilgrimage tradition, not a verified archaeological claim."
   />
+
+  <ImageGallery images={images} />
 
   <main class="mx-auto max-w-3xl px-8 pb-20">
     <div class="legend-body font-body text-ink">

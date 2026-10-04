@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
 
 export const prerender = true;
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, phenomenonType, saints, registerSlug } = entry.data;
+const { title, phenomenonType, saints, registerSlug, images } = entry.data;
 ---
 
 <Layout title={title}>
@@ -31,6 +32,8 @@ const { title, phenomenonType, saints, registerSlug } = entry.data;
     noteHref={registerSlug ? '#' : undefined}
     noteLabel={registerSlug ? 'View the Register entry' : undefined}
   />
+
+  <ImageGallery images={images} />
 
   <main class="mx-auto max-w-3xl px-8 pb-20">
     <div class="legend-body font-body text-ink">

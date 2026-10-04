@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
 
 export const prerender = true;
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, saints, earliestSource } = entry.data;
+const { title, saints, earliestSource, images } = entry.data;
 ---
 
 <Layout title={title}>
@@ -27,6 +28,8 @@ const { title, saints, earliestSource } = entry.data;
     noteHref="#"
     noteLabel="Visit The Miracle Register"
   />
+
+  <ImageGallery images={images} />
 
   <main class="mx-auto max-w-3xl px-8 pb-20">
     <div class="legend-body font-body text-ink">

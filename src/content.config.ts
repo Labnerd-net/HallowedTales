@@ -1,10 +1,31 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type ImageFunction } from 'astro:content';
 import { glob } from 'astro/loaders';
+
+// Shared across all four collections: a photo of a relic/location, or a
+// period illustration/artwork for legends and phenomena that have no
+// photographable subject. Images live alongside their entry's content file
+// so Astro's image() helper can validate the path and optimize the output.
+const imagesField = (image: ImageFunction) =>
+  z
+    .array(
+      z.object({
+        src: image(),
+        alt: z.string(),
+        caption: z.string().optional(),
+        // Attribution/license text, e.g. "Wikimedia Commons, public domain"
+        // or "Photo: Jane Doe, CC BY-SA 4.0". Required for anything not
+        // self-authored.
+        credit: z.string().optional(),
+        kind: z.enum(['photo', 'illustration', 'artwork']).default('photo'),
+      })
+    )
+    .optional();
 
 const legends = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/legends' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
+    images: imagesField(image),
     // One legend can involve more than one saint (kept as an array rather
     // than special-casing joint stories later).
     saints: z.array(z.string()).min(1),
@@ -39,8 +60,9 @@ const legends = defineCollection({
 
 const traditions = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/traditions' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
+    images: imagesField(image),
     category: z.enum([
       'feast-day-custom',
       'liturgical-object',
@@ -76,8 +98,9 @@ const traditions = defineCollection({
 
 const relics = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/relics' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
+    images: imagesField(image),
     // See Pillar 3 note: veneration-relic is the confirmed cluster,
     // legendary-quest is evaluated case by case, shrine-legend is the
     // Holy-House-of-Loreto-style biblical-object founding legend.
@@ -115,8 +138,9 @@ const relics = defineCollection({
 
 const phenomena = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/phenomena' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
+    images: imagesField(image),
     phenomenonType: z.enum([
       'bilocation',
       'levitation',

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
 
 export const prerender = true;
 
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, category, feastDay, saints } = entry.data;
+const { title, category, feastDay, saints, images } = entry.data;
 
 const metaItems = [
   category.replace('-', ' '),
@@ -31,6 +32,8 @@ const metaItems = [
     meta={metaItems}
     note="This is a traditional custom and the story told about it, not a verified historical record."
   />
+
+  <ImageGallery images={images} />
 
   <main class="mx-auto max-w-3xl px-8 pb-20">
     <div class="legend-body font-body text-ink">
