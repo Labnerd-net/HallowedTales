@@ -5,6 +5,7 @@ import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findReferencingEntries } from '../../lib/related';
+import { registerSaintHref } from '../../lib/registerLink';
 
 export const prerender = true;
 
@@ -26,6 +27,8 @@ const seen = new Set<string>();
 const related = [...forwardLinks, ...backwardLinks].filter((link) =>
   seen.has(link.href) ? false : (seen.add(link.href), true)
 );
+
+const registerHref = registerSaintHref(saints);
 ---
 
 <Layout title={title}>
@@ -33,9 +36,13 @@ const related = [...forwardLinks, ...backwardLinks].filter((link) =>
     eyebrow="Legend"
     title={title}
     meta={[saints.join(', '), `Earliest source: ${earliestSource.approxDate}`]}
-    note="This is a traditional story, not a verified historical record. Looking for the documented miracle case for this saint instead?"
-    noteHref="#"
-    noteLabel="Visit The Miracle Register"
+    note={
+      registerHref
+        ? 'This is a traditional story, not a verified historical record. Looking for the documented miracle case for this saint instead?'
+        : 'This is a traditional story, not a verified historical record.'
+    }
+    noteHref={registerHref}
+    noteLabel={registerHref ? 'Visit The Miracle Register' : undefined}
   />
 
   <div class="mx-auto max-w-3xl px-8">

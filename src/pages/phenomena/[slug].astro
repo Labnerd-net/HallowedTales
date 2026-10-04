@@ -5,6 +5,7 @@ import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends } from '../../lib/related';
+import { registerMiracleHref } from '../../lib/registerLink';
 
 export const prerender = true;
 
@@ -20,6 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, phenomenonType, saints, registerSlug, images, relatedLegends } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
+const registerHref = registerMiracleHref(registerSlug);
 ---
 
 <Layout title={title}>
@@ -32,7 +34,7 @@ const related = await resolveRelatedLegends(relatedLegends);
         ? 'This same case is also documented on The Miracle Register, written in a voice explicit about the evidence it rests on.'
         : 'This is a traditional account, not a medically or canonically verified record.'
     }
-    noteHref={registerSlug ? '#' : undefined}
+    noteHref={registerHref}
     noteLabel={registerSlug ? 'View the Register entry' : undefined}
   />
 
