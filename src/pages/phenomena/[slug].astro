@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
+import RelatedList from '../../components/RelatedList.astro';
+import { resolveRelatedLegends } from '../../lib/related';
 
 export const prerender = true;
 
@@ -16,7 +18,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, phenomenonType, saints, registerSlug, images } = entry.data;
+const { title, phenomenonType, saints, registerSlug, images, relatedLegends } = entry.data;
+const related = await resolveRelatedLegends(relatedLegends);
 ---
 
 <Layout title={title}>
@@ -42,4 +45,6 @@ const { title, phenomenonType, saints, registerSlug, images } = entry.data;
       <Content />
     </div>
   </main>
+
+  <RelatedList links={related} />
 </Layout>

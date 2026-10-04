@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
+import RelatedList from '../../components/RelatedList.astro';
+import { resolveRelatedLegends, findReferencingEntries } from '../../lib/related';
 
 export const prerender = true;
 
@@ -16,7 +18,14 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, saints, earliestSource, images } = entry.data;
+const { title, saints, earliestSource, images, relatedLegends } = entry.data;
+
+const forwardLinks = await resolveRelatedLegends(relatedLegends);
+const backwardLinks = await findReferencingEntries(entry.id);
+const seen = new Set<string>();
+const related = [...forwardLinks, ...backwardLinks].filter((link) =>
+  seen.has(link.href) ? false : (seen.add(link.href), true)
+);
 ---
 
 <Layout title={title}>
@@ -38,4 +47,6 @@ const { title, saints, earliestSource, images } = entry.data;
       <Content />
     </div>
   </main>
+
+  <RelatedList links={related} />
 </Layout>
