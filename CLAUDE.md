@@ -28,7 +28,11 @@ Register. Want the folklore and traditions around them? → HallowedTales."
 
 - **Catholic only.** No cross-religious syncretism content (Santeria, indigenous-religion
   blending, Day of the Dead as a syncretic case study). Folk traditions covered should be
-  Catholic practice/custom, even where the historical record shows outside influence.
+  Catholic practice/custom, even where the historical record shows outside influence. This does
+  not exclude material with shared pre-Catholic origin (e.g. Old Testament figures/objects also
+  significant to Judaism and Islam) - that's fine as long as the entry is anchored in Catholic
+  veneration/tradition, not just a retelling of the shared source material. See Pillar 3 for the
+  applied case.
 - **Not dark.** No horror framing, no gore, no dwelling on martyrdom detail, no
   exorcism/demonic content. Tone stays warm and devotional/curious — "charming story behind a
   tradition," not "creepy unexplained phenomenon."
@@ -47,7 +51,7 @@ Register. Want the folklore and traditions around them? → HallowedTales."
 |---|---|---|
 | 1 | Legendary biography material (saint-and-creature legends, patronage origin stories, founding/shrine legends, meta-legends about how a cultus forms) | Confirmed |
 | 2 | Catholic folk traditions (feast-day customs, liturgical-object traditions, food traditions, regional patronal festivals, naming traditions, weather folklore) | Confirmed |
-| 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | **Undecided — do not build.** Pseudo-archaeology risk, and pre-Catholic origin sits oddly against the "Catholic only" guardrail. See `context/Notes/Pillar 3 (UNDECIDED) - Biblical Artifacts and Legendary Relics.md` before touching this. |
+| 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | Confirmed for the Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, etc.). Shared-Old-Testament-origin "legendary quest" entries (Ark of the Covenant, Noah's Ark, Grail, Prester John) are not excluded but evaluated case by case. Shroud of Turin / Sudarium of Oviedo stay excluded (too close to the Register's contested-evidence territory). See `context/Notes/Pillar 3 - Biblical Artifacts and Legendary Relics.md`. |
 | 4 | Mystical phenomena from saints' lives (bilocation, levitation, inedia, luminosity, odor of sanctity) | Confirmed. Can overlap with the Register case-by-case (e.g. Padre Pio's bilocation lives on both) — see Pillar 4 note for the rule. |
 
 First-pass content research for each pillar lives in `context/Notes/Pillar N - *.md`. Treat those
@@ -107,7 +111,6 @@ Carried over from initial scoping (`context/Notes/Overview.md`) — resolve befo
 them:
 
 - Data model shape for variants (see Tech Stack section above).
-- Pillar 3 (biblical artifacts/relics): approve, narrow, or drop.
 
 ---
 

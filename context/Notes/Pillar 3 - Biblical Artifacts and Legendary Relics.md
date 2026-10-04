@@ -1,6 +1,19 @@
-STATUS: UNDECIDED — exploratory research only, not yet approved as a pillar. Raised 2026-10-03.
-Do not treat anything in this file as confirmed scope until the open questions below are
-resolved with the user.
+STATUS: Approved 2026-10-04, split decision.
+
+- The "legendary relics with an active Catholic veneration tradition" cluster below (True Cross,
+  Holy Lance, Crown of Thorns, Veil of Veronica, Holy Tunic, Relics of the Magi, Scala Sancta,
+  Holy House of Loreto) is confirmed in scope.
+- The "legendary quests" cluster (Ark of the Covenant, Noah's Ark, Holy Grail, Prester John) is
+  not excluded — shared Old Testament/Hebrew Bible origin is fine as long as the material is
+  directly related to Catholicism (e.g. the Catholic veneration/search tradition around the
+  object), it just isn't blanket-approved either. Evaluate each entry case by case before
+  drafting.
+- The pre-Catholic-origin concern (#2 below) is resolved: this site is not Catholic-exclusive in
+  subject matter, shared-origin material is fine, as long as it's directly tied to Catholic
+  tradition/practice rather than general comparative-religion content. The pseudo-archaeology
+  guardrail (#1 below) still applies to everything in this pillar.
+- Still excluded regardless of cluster: Shroud of Turin and Sudarium of Oviedo (see "borderline"
+  section below) and anything framed in discovery/pseudo-news voice.
 
 ## Why this is different from Pillars 1 & 2
 
@@ -84,12 +97,15 @@ not scripture exegesis) and keeps it anchored in specifically Catholic practice.
 - Anything framed as "and archaeologists recently found..." — keep this pillar in legend/
   tradition voice, not pseudo-news/discovery voice, to avoid the sensationalism risk named above.
 
-## Open questions before this pillar can move forward
+## Resolved questions (2026-10-04)
 
-- Does the "anchor in Catholic veneration tradition, not the Bible story itself" narrowing
-  actually solve the scope concern, or does it still feel like too much of a stretch from
-  saint/folk-tradition lore?
-- Where's the line on Shroud-of-Turin-style objects that have real scientific controversy
-  attached — hard exclude, or fine if framed carefully?
+- The "anchor in Catholic veneration tradition, not the Bible story itself" narrowing is
+  confirmed as the approach for the legendary-quests cluster, evaluated case by case rather than
+  applied as a blanket rule.
+- Shroud-of-Turin-style objects with real scientific controversy attached: hard exclude (too
+  close to the Register's contested-evidence territory regardless of framing).
+
+## Still open
+
 - Does this pillar need its own name/section distinct from "saint lore," given it's about
   objects and biblical figures rather than saints?

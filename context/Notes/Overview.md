@@ -144,20 +144,30 @@ matter has coverage, the structured/searchable/filterable treatment doesn't.
   incorruptibility-level documentation. Flags weeping/bleeding statues and formally-recognized
   private revelations as separate borderline cases still needing their own per-case decision.
 
+## Pillar 3 decision (decided 2026-10-04)
+
+Biblical artifacts and legendary relics (Noah's Ark, Ark of the Covenant, Holy Grail, True
+Cross, etc.) — raised 2026-10-03 as undecided, now approved as a split decision. Full detail in
+`Pillar 3 - Biblical Artifacts and Legendary Relics.md`:
+
+- The Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, Veil
+  of Veronica, Holy Tunic, Relics of the Magi, Scala Sancta, Holy House of Loreto) is confirmed.
+- The "legendary quest" cluster with shared Old Testament/Hebrew Bible origin (Ark of the
+  Covenant, Noah's Ark, Holy Grail, Prester John) is not excluded on origin grounds alone - the
+  site isn't Catholic-exclusive in subject matter, shared pre-Catholic origin is fine as long as
+  the entry is anchored in Catholic veneration/tradition rather than the underlying Bible story.
+  These are evaluated case by case rather than blanket-approved.
+- Shroud of Turin and Sudarium of Oviedo stay excluded (too close to the Register's
+  contested-evidence territory, regardless of framing).
+- Pseudo-archaeology/sensationalism guardrail still applies to everything in this pillar:
+  legend/tradition voice, never discovery/pseudo-news voice.
+
 ## Possible future pillars (not started — need their own scope conversations)
 
 - **Halloween and All Saints'/All Souls' Day** — rich territory (All Hallows' Eve lineage,
   praying for souls in purgatory, Day of the Dead-adjacent Catholic practice) but closer to
   "darker" than the current guardrails allow. Don't draft this until scope is explicitly
   revisited — see parked note at the end of Pillar 2.
-- **UNDECIDED — Biblical artifacts and legendary relics** (Noah's Ark, Ark of the Covenant,
-  Holy Grail, True Cross, etc.) — raised 2026-10-03, explicitly not yet approved. First-pass
-  research in `Pillar 3 (UNDECIDED) - Biblical Artifacts and Legendary Relics.md`. Two open
-  concerns flagged there: (1) pseudo-archaeology/sensationalism risk if not handled carefully,
-  and (2) these stories predate Catholicism (shared Hebrew Bible material), which sits oddly
-  against the "Catholic only" guardrail unless narrowed to the Catholic veneration/pilgrimage
-  tradition around the object rather than the underlying Bible story. Do not treat this as a
-  confirmed pillar — it needs an explicit decision before any content gets drafted.
 
 ## Explicitly out of scope (decided 2026-10-03)
 
