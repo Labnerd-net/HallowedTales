@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/*
+ * Stained Glass theme. Every color below is a semantic role (canvas, surface,
+ * accent, ...) rather than a literal hue name, so swapping the whole palette
+ * later - or adding a second theme - is an edit to this file only, not a
+ * hunt through components.
+ */
+@theme {
+  --color-cream: #fbf4e6;
+  --color-gold-soft: #f0cb6b;
+
+  --color-canvas: #f3e7d3;
+  --color-surface: #fbf4e6;
+  --color-surface-alt: #e8d6b0;
+  --color-ink: #2b1b12;
+  --color-ink-soft: #5c4432;
+  --color-accent: #2b4c8c;
+  --color-accent-deep: #17294f;
+  --color-gold: #d4a017;
+  --color-ruby: #a3203b;
+  /* Always dark, never flips - for text sitting on a gold fill, which stays
+     a bright/warm hue in both modes rather than inverting like accent/ruby. */
+  --color-ink-fixed: #2b1b12;
+
+  /*
+   * Liturgical colors, for the "what's the priest wearing today" accent.
+   * White/gold and red reuse --color-gold and --color-ruby above rather
+   * than duplicating them - violet, green, and rose are the only genuinely
+   * new hues needed.
+   */
+  --color-liturgical-violet: #6b3fa0;
+  --color-liturgical-green: #2f6b4f;
+  --color-liturgical-rose: #d98ba0;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Lora", serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas: #10131f;
+    --color-surface: #1b2033;
+    --color-surface-alt: #262b42;
+    --color-ink: #f3e7d3;
+    --color-ink-soft: #c9b79a;
+    --color-accent: #4c72c9;
+    --color-gold: #e3b537;
+    --color-ruby: #d1476b;
+
+    --color-liturgical-violet: #9b6fd1;
+    --color-liturgical-green: #4fa579;
+    --color-liturgical-rose: #e8a8bc;
+  }
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.legend-body :where(h2) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--color-ink);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.legend-body :where(p) {
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.legend-body :where(strong) {
+  color: var(--color-ink);
+}
+

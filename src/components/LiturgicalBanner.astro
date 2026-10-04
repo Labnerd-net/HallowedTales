@@ -1,0 +1,24 @@
+---
+import { getLiturgicalDay, type LiturgicalColor } from '../lib/liturgical/season';
+
+const { label, color } = getLiturgicalDay(new Date());
+
+// White/gold and red reuse the site's existing gold/ruby tokens rather than
+// separate liturgical ones - see the comment in global.css.
+const barClass: Record<LiturgicalColor, string> = {
+  violet: 'bg-liturgical-violet',
+  green: 'bg-liturgical-green',
+  rose: 'bg-liturgical-rose',
+  white: 'bg-gold',
+  red: 'bg-ruby',
+};
+
+const colorLabel = color[0].toUpperCase() + color.slice(1);
+---
+
+<div>
+  <div class:list={['h-1.5 w-full', barClass[color]]}></div>
+  <p class="px-4 py-1 text-right text-[11px] tracking-wide text-ink-soft uppercase">
+    Today in the Church calendar: {label} &middot; {colorLabel}
+  </p>
+</div>

@@ -1,0 +1,65 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  meta: string[];
+  note?: string;
+  noteHref?: string;
+  noteLabel?: string;
+}
+
+const { eyebrow, title, subtitle, meta, note, noteHref, noteLabel } = Astro.props;
+---
+
+<header
+  class="relative overflow-hidden bg-accent-deep px-8 pt-20 pb-16 text-center text-cream dark:bg-transparent dark:text-ink"
+>
+  <div
+    class="absolute inset-0 opacity-[0.07] dark:opacity-[0.07]"
+    style="background: repeating-linear-gradient(45deg, var(--color-gold) 0 2px, transparent 2px 24px);"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-3xl">
+    <p class="mb-5 font-display text-sm uppercase tracking-[0.25em] text-gold">
+      &#10022; {eyebrow} &#10022;
+    </p>
+
+    <h1 class="font-display text-[3.25rem] leading-tight font-semibold">
+      {title}
+    </h1>
+
+    {subtitle && (
+      <p class="mx-auto mt-6 max-w-xl text-lg text-gold-soft dark:text-ink-soft" style="line-height: 1.6;">
+        {subtitle}
+      </p>
+    )}
+
+    <div class="mt-9 flex items-center justify-center gap-5 text-sm text-cream/80 dark:text-ink-soft">
+      {meta.map((item, i) => (
+        <>
+          {i > 0 && <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>}
+          <span>{item}</span>
+        </>
+      ))}
+    </div>
+  </div>
+</header>
+
+{note && (
+  <div class="mx-auto max-w-3xl px-8 py-8">
+    <div class="flex items-start gap-3 rounded-r-lg border-l-4 border-gold bg-surface p-5">
+      <span class="mt-0.5 font-display text-lg leading-none text-gold">&#10022;</span>
+      <p class="text-sm leading-relaxed text-ink">
+        {note}
+        {noteHref && noteLabel && (
+          <>
+            {' '}
+            <a href={noteHref} class="font-medium text-accent">{noteLabel} &rarr;</a>
+          </>
+        )}
+      </p>
+    </div>
+  </div>
+)}

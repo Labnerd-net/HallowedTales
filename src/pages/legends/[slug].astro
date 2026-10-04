@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('legends');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, saints, earliestSource } = entry.data;
+---
+
+<Layout title={title}>
+  <Hero
+    eyebrow="Legend"
+    title={title}
+    meta={[saints.join(', '), `Earliest source: ${earliestSource.approxDate}`]}
+    note="This is a traditional story, not a verified historical record. Looking for the documented miracle case for this saint instead?"
+    noteHref="#"
+    noteLabel="Visit The Miracle Register"
+  />
+
+  <main class="mx-auto max-w-3xl px-8 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+</Layout>

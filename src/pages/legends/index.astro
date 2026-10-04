@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LegendCard from '../../components/LegendCard.astro';
+
+const entries = await getCollection('legends');
+---
+
+<Layout title="Legends">
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Legends</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => {
+        const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+        return (
+          <LegendCard
+            href={`/legends/${entry.id}`}
+            badge="Legend"
+            title={entry.data.title}
+            excerpt={excerpt}
+            meta={entry.data.earliestSource.approxDate}
+          />
+        );
+      })}
+    </div>
+  </main>
+</Layout>
