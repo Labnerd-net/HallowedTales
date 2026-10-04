@@ -37,4 +37,109 @@ const legends = defineCollection({
   }),
 });
 
-export const collections = { legends };
+const traditions = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/traditions' }),
+  schema: z.object({
+    title: z.string(),
+    category: z.enum([
+      'feast-day-custom',
+      'liturgical-object',
+      'food',
+      'regional-festival',
+      'naming',
+      'weather-lore',
+    ]),
+    saints: z.array(z.string()).optional(),
+    // Not every tradition pins to a fixed calendar date (regional festivals
+    // vary by town), so this stays optional rather than required.
+    feastDay: z
+      .object({
+        month: z.string(),
+        day: z.string(),
+      })
+      .optional(),
+    regions: z.array(z.string()).optional(),
+    earliestSource: z
+      .object({
+        citation: z.string(),
+        approxDate: z.string(),
+      })
+      .optional(),
+    historicalNote: z.string().optional(),
+    // Points at a `legends` entry this custom traces back to (e.g. the St.
+    // Nicholas Day shoe custom -> the dowry-gold legend), not other traditions.
+    relatedLegends: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    published: z.boolean().default(false),
+  }),
+});
+
+const relics = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/relics' }),
+  schema: z.object({
+    title: z.string(),
+    // See Pillar 3 note: veneration-relic is the confirmed cluster,
+    // legendary-quest is evaluated case by case, shrine-legend is the
+    // Holy-House-of-Loreto-style biblical-object founding legend.
+    cluster: z.enum(['veneration-relic', 'legendary-quest', 'shrine-legend']),
+    // Array, not a single site, because the "two places claim the same
+    // relic" pattern (Holy Lance, Holy Tunic) is common enough in this
+    // pillar to need first-class support rather than a workaround.
+    claimedLocations: z
+      .array(
+        z.object({
+          site: z.string(),
+          region: z.string().optional(),
+          note: z.string().optional(),
+        })
+      )
+      .min(1),
+    feastDay: z
+      .object({
+        month: z.string(),
+        day: z.string(),
+      })
+      .optional(),
+    earliestSource: z
+      .object({
+        citation: z.string(),
+        approxDate: z.string(),
+      })
+      .optional(),
+    historicalNote: z.string().optional(),
+    relatedLegends: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    published: z.boolean().default(false),
+  }),
+});
+
+const phenomena = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/phenomena' }),
+  schema: z.object({
+    title: z.string(),
+    phenomenonType: z.enum([
+      'bilocation',
+      'levitation',
+      'inedia',
+      'luminosity',
+      'odor-of-sanctity',
+    ]),
+    saints: z.array(z.string()).min(1),
+    earliestSource: z
+      .object({
+        citation: z.string(),
+        approxDate: z.string(),
+      })
+      .optional(),
+    historicalNote: z.string().optional(),
+    // Set when this saint's case is ALSO published on the Register (the
+    // Padre Pio dual-site case) so the page can link out instead of
+    // duplicating the Register's evidentiary caveat in lore-site voice.
+    registerSlug: z.string().optional(),
+    relatedLegends: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    published: z.boolean().default(false),
+  }),
+});
+
+export const collections = { legends, traditions, relics, phenomena };

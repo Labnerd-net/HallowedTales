@@ -84,11 +84,18 @@ if needed without requiring Postgres.
 | Testing | Vitest (unit); Playwright if/when e2e is warranted |
 | CI/CD | GitHub Actions (typecheck → lint → test → build), Cloudflare Workers Builds connector deploys on push to `main` — same split as the Register |
 
-**Open question (not yet resolved):** data model shape for "conflicting variants of the same
-legend" — is a variant its own content-collection entry with a `variant_of` field pointing at a
-canonical slug, or a parent legend file with child variants nested inside it? Needs a decision
-before the `legends` collection schema is finalized. Lean towards "own entry + `variant_of`"
-since it fits git-diffable files better than deep nesting, but don't treat that as decided.
+**Variant modeling (decided):** two different relationships, two different mechanisms, rather
+than one `variant_of` field trying to cover both —
+- **`variants[]` (inline on the legend entry)** — same throughline, changed detail (the St.
+  Nicholas window/chimney/pawnbroker case). Not independently notable, so they render as a
+  "how this story changed" section on the canonical entry rather than getting their own slug.
+- **`relatedLegends[]` (cross-reference to other entries)** — shared motif or lineage but a
+  distinct, independently real story (the St. Hubert / St. Eustace stag-with-a-cross case).
+  These get full entries of their own and just point at each other.
+
+See `src/content.config.ts` for the implemented schema. Still open: `relatedLegends` is a
+one-directional array of slugs with no validation that the reference exists or is reciprocated —
+decide whether back-links are enforced/derived before the entry count makes asymmetry a problem.
 
 ---
 
@@ -105,15 +112,6 @@ since it fits git-diffable files better than deep nesting, but don't treat that 
 
 ---
 
-## Open Questions
-
-Carried over from initial scoping (`context/Notes/Overview.md`) — resolve before relying on
-them:
-
-- Data model shape for variants (see Tech Stack section above).
-
----
-
 ## Research Notes
 
 Research is confined to `context/Notes/` — check there before starting content work. Pillar
@@ -125,8 +123,8 @@ source, rough date, "what we actually know historically" contrast) before publis
 ## Implementation Order
 
 1. Astro + Cloudflare Workers base
-2. Content Collections schema for Pillars 1, 2, 4 (resolve the variant-modeling open question
-   first)
+2. Content Collections schema for Pillars 1, 2, 4 (Pillar 1 done — see `src/content.config.ts`;
+   variant modeling decided, see Tech Stack section)
 3. Static pages rendering from content collections
 4. Drizzle/D1 setup — only once there's an actual relational need (cross-linking, search,
    tags), not up front

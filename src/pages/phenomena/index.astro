@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LegendCard from '../../components/LegendCard.astro';
+
+const entries = await getCollection('phenomena');
+---
+
+<Layout title="Mystical Phenomena">
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Mystical Phenomena</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => {
+        const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+        return (
+          <LegendCard
+            href={`/phenomena/${entry.id}`}
+            badge="Mystical Phenomenon"
+            title={entry.data.title}
+            excerpt={excerpt}
+            meta={entry.data.phenomenonType.replace('-', ' ')}
+          />
+        );
+      })}
+    </div>
+  </main>
+</Layout>

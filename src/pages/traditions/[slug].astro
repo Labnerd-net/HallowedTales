@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('traditions');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, category, feastDay, saints } = entry.data;
+
+const metaItems = [
+  category.replace('-', ' '),
+  ...(feastDay ? [`${feastDay.month} ${feastDay.day}`] : []),
+  ...(saints?.length ? [saints.join(', ')] : []),
+];
+---
+
+<Layout title={title}>
+  <Hero
+    eyebrow="Folk Tradition"
+    title={title}
+    meta={metaItems}
+    note="This is a traditional custom and the story told about it, not a verified historical record."
+  />
+
+  <main class="mx-auto max-w-3xl px-8 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+</Layout>

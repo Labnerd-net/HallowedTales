@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('phenomena');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, phenomenonType, saints, registerSlug } = entry.data;
+---
+
+<Layout title={title}>
+  <Hero
+    eyebrow="Mystical Phenomenon"
+    title={title}
+    meta={[phenomenonType.replace('-', ' '), saints.join(', ')]}
+    note={
+      registerSlug
+        ? 'This same case is also documented on The Miracle Register, written in a voice explicit about the evidence it rests on.'
+        : 'This is a traditional account, not a medically or canonically verified record.'
+    }
+    noteHref={registerSlug ? '#' : undefined}
+    noteLabel={registerSlug ? 'View the Register entry' : undefined}
+  />
+
+  <main class="mx-auto max-w-3xl px-8 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+</Layout>

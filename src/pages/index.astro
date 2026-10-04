@@ -5,7 +5,10 @@ import Hero from '../components/Hero.astro';
 import LegendCard from '../components/LegendCard.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
 
-const entries = await getCollection('legends');
+const legendEntries = await getCollection('legends');
+const traditionEntries = await getCollection('traditions');
+const relicEntries = await getCollection('relics');
+const phenomenaEntries = await getCollection('phenomena');
 ---
 
 <Layout title="Hallowed Tales">
@@ -20,7 +23,7 @@ const entries = await getCollection('legends');
     <section>
       <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Legends</h2>
       <div class="grid gap-6 md:grid-cols-3">
-        {entries.map((entry) => {
+        {legendEntries.map((entry) => {
           const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
           return (
             <LegendCard
@@ -29,6 +32,64 @@ const entries = await getCollection('legends');
               title={entry.data.title}
               excerpt={excerpt}
               meta={entry.data.earliestSource.approxDate}
+            />
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Folk Traditions</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {traditionEntries.map((entry) => {
+          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const meta = entry.data.feastDay
+            ? `${entry.data.feastDay.month} ${entry.data.feastDay.day}`
+            : entry.data.category.replace('-', ' ');
+          return (
+            <LegendCard
+              href={`/traditions/${entry.id}`}
+              badge="Folk Tradition"
+              title={entry.data.title}
+              excerpt={excerpt}
+              meta={meta}
+            />
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {relicEntries.map((entry) => {
+          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
+          return (
+            <LegendCard
+              href={`/relics/${entry.id}`}
+              badge="Relic & Legend"
+              title={entry.data.title}
+              excerpt={excerpt}
+              meta={meta}
+            />
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Mystical Phenomena</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {phenomenaEntries.map((entry) => {
+          const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+          return (
+            <LegendCard
+              href={`/phenomena/${entry.id}`}
+              badge="Mystical Phenomenon"
+              title={entry.data.title}
+              excerpt={excerpt}
+              meta={entry.data.phenomenonType.replace('-', ' ')}
             />
           );
         })}

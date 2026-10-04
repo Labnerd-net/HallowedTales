@@ -1,7 +1,9 @@
 ---
+type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon';
+
 interface Props {
   href: string;
-  badge: 'Legend' | 'Folk Tradition';
+  badge: Badge;
   title: string;
   excerpt: string;
   meta: string;
@@ -9,25 +11,49 @@ interface Props {
 
 const { href, badge, title, excerpt, meta } = Astro.props;
 
-const accentClass = badge === 'Legend' ? 'accent' : 'ruby';
+const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet'> = {
+  Legend: 'accent',
+  'Folk Tradition': 'ruby',
+  'Relic & Legend': 'liturgical-green',
+  'Mystical Phenomenon': 'liturgical-violet',
+};
+const accentClass = accentByBadge[badge];
+
+const borderClass = {
+  accent: 'border-accent',
+  ruby: 'border-ruby',
+  'liturgical-green': 'border-liturgical-green',
+  'liturgical-violet': 'border-liturgical-violet',
+}[accentClass];
+
+const bgClass = {
+  accent: 'bg-accent',
+  ruby: 'bg-ruby',
+  'liturgical-green': 'bg-liturgical-green',
+  'liturgical-violet': 'bg-liturgical-violet',
+}[accentClass];
+
+const textClass = {
+  accent: 'text-accent',
+  ruby: 'text-ruby',
+  'liturgical-green': 'text-liturgical-green',
+  'liturgical-violet': 'text-liturgical-violet',
+}[accentClass];
 ---
 
 <a
   href={href}
-  class:list={[
-    'block rounded-lg bg-surface p-6 shadow-md transition-transform hover:-translate-y-1 border-t-4',
-    accentClass === 'accent' ? 'border-accent' : 'border-ruby',
-  ]}
+  class:list={['block rounded-lg bg-surface p-6 shadow-md transition-transform hover:-translate-y-1 border-t-4', borderClass]}
 >
   <span
     class:list={[
       'mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium tracking-wide uppercase text-canvas',
-      accentClass === 'accent' ? 'bg-accent' : 'bg-ruby',
+      bgClass,
     ]}
   >
     {badge}
   </span>
   <h3 class="mb-2 font-display text-2xl leading-snug font-semibold text-ink">{title}</h3>
   <p class="mb-4 text-sm leading-relaxed text-ink-soft">{excerpt}</p>
-  <p class:list={['text-xs', accentClass === 'accent' ? 'text-accent' : 'text-ruby']}>{meta}</p>
+  <p class:list={['text-xs', textClass]}>{meta}</p>
 </a>

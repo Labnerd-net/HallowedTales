@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LegendCard from '../../components/LegendCard.astro';
+
+const entries = await getCollection('relics');
+---
+
+<Layout title="Relics & Legendary Artifacts">
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => {
+        const excerpt = entry.body?.trim().split('\n\n')[0] ?? '';
+        const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
+        return (
+          <LegendCard
+            href={`/relics/${entry.id}`}
+            badge="Relic & Legend"
+            title={entry.data.title}
+            excerpt={excerpt}
+            meta={meta}
+          />
+        );
+      })}
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,60 @@
+---
+title: "The Holy Grail"
+cluster: legendary-quest
+claimedLocations:
+  - site: "Valencia Cathedral"
+    region: "Spain"
+    note: "The Santo Caliz, a cup with a medieval mounting around an older agate bowl; the most actively promoted candidate today."
+  - site: "Basilica of San Lorenzo"
+    region: "Genoa, Italy"
+    note: "The Sacro Catino, a green glass dish once thought to be carved from a single emerald."
+earliestSource:
+  citation: "Chretien de Troyes, Perceval, le Conte du Graal"
+  approxDate: "circa late 12th century"
+historicalNote: >
+  The Grail enters the written record as Arthurian romance, not devotional
+  text - Chretien de Troyes's unfinished poem introduces it as a mysterious
+  object in a medieval chivalric story. The identification with the cup of
+  the Last Supper is a layer added by later writers over the following
+  decades, which is part of why this entry sits in the "legendary quest"
+  cluster rather than alongside relics with an unbroken veneration history.
+relatedLegends: []
+tags:
+  - holy-grail
+  - arthurian-legend
+  - last-supper
+published: false
+---
+
+The Grail begins, strangely enough, not as a relic of Christ but as an
+unexplained object in a 12th-century romance. When the poet Chretien de
+Troyes died with his story of the knight Perceval unfinished, he left
+behind a mysterious vessel - a "graal" - carried in procession before a
+wounded king, its full meaning never explained. Later writers, working in
+the decades after, filled that gap by identifying the Grail as the cup
+Christ used at the Last Supper, later said to have caught his blood at the
+crucifixion, and wove it into the wider legend of King Arthur's knights.
+
+From there the legend took on a life very much its own: a sacred object,
+lost to the world, that only the purest knight could find. Over centuries
+the literary quest and devotional longing blurred together, until the
+Grail became as much a Catholic image of grace and purity as a piece of
+Arthurian adventure.
+
+## Two cups, one legend
+
+As with several objects on this site, more than one church claims to hold
+the real thing. The Santo Caliz in Valencia Cathedral - a simple agate cup
+set into an ornate medieval mounting - has a documented trail back to at
+least the medieval period and is the candidate most actively promoted
+today, including a visit from Pope Benedict XVI, who used it to celebrate
+Mass there in 2006. Genoa's Sacro Catino, a green glass dish once believed
+to be a single carved emerald, held its own claim for centuries before
+being shown in the 19th century to be glass, not gemstone - though it is
+still displayed and discussed as part of the city's Grail tradition.
+
+Neither claim settles the question, and this entry isn't trying to. The
+Grail's real power has always been less about which cup is authentic and
+more about the shape of the search itself - which is the same reason it
+keeps showing up in literature and film centuries after Chretien de Troyes
+left the story unfinished.

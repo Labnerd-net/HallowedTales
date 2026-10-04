@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('relics');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, cluster, claimedLocations } = entry.data;
+
+const clusterLabel = cluster.replace('-', ' ');
+---
+
+<Layout title={title}>
+  <Hero
+    eyebrow="Relic & Legend"
+    title={title}
+    meta={[clusterLabel, claimedLocations.map((loc) => loc.site).join(' / ')]}
+    note="This is legend and pilgrimage tradition, not a verified archaeological claim."
+  />
+
+  <main class="mx-auto max-w-3xl px-8 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+</Layout>

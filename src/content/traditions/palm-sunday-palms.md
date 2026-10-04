@@ -1,0 +1,42 @@
+---
+title: "Blessed Palms: From Palm Sunday to Ash Wednesday"
+category: liturgical-object
+feastDay:
+  month: "Apr"
+  day: "varies"
+regions:
+  - Worldwide (Latin Rite parishes)
+historicalNote: >
+  The practice of blessing and distributing palms on Palm Sunday is
+  well-documented liturgical history. The folk layer covered here - weaving
+  them into crosses, keeping them behind a holy image, burning last year's
+  for this year's ashes - is custom built up around that rite rather than
+  part of the rite itself.
+relatedLegends: []
+tags:
+  - palm-sunday
+  - ash-wednesday
+  - liturgical-object
+published: false
+---
+
+On Palm Sunday, parishes bless palm branches - or, in places where palms
+aren't available, branches of local greenery like olive, boxwood, or yew -
+and distribute them to the congregation in memory of the crowd that waved
+palm branches at Jesus's entry into Jerusalem.
+
+What happens to that palm after Mass is where the folk tradition takes
+over. In many households, it doesn't just go in a drawer. It gets woven,
+often by hand and often by someone who learned the fold from a parent or
+grandparent, into a small cross or more elaborate shapes, then tucked
+behind a crucifix or holy image on the wall, where it stays for the rest of
+the year.
+
+## The cycle completes itself
+
+The most quietly satisfying detail in this tradition is what happens to
+that palm roughly a year later. The ashes used for the following year's Ash
+Wednesday service are traditionally made by burning the previous year's
+blessed palms. The same object that opened Holy Week one year becomes, in
+burnt form, the mark placed on foreheads at the start of Lent the next -
+"remember that you are dust" literalized in the material itself.

@@ -23,6 +23,13 @@ const { title } = Astro.props;
   </head>
   <body class="font-body">
     <LiturgicalBanner />
+    <nav class="flex justify-center gap-6 bg-surface-alt py-3 text-sm font-medium text-ink-soft">
+      <a href="/" class="hover:text-ink">Home</a>
+      <a href="/legends" class="hover:text-ink">Legends</a>
+      <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
+      <a href="/relics" class="hover:text-ink">Relics</a>
+      <a href="/phenomena" class="hover:text-ink">Mystical Phenomena</a>
+    </nav>
     <slot />
   </body>
 </html>

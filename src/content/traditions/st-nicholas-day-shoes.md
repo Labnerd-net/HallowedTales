@@ -1,0 +1,55 @@
+---
+title: "Shoes by the Door on St. Nicholas Day"
+category: feast-day-custom
+saints:
+  - nicholas-of-myra
+feastDay:
+  month: "Dec"
+  day: "6"
+regions:
+  - Netherlands
+  - Belgium
+  - Germany
+  - Central Europe
+earliestSource:
+  citation: "Folk custom, attested in European sources from the late medieval period"
+  approxDate: "circa 14th-15th century"
+historicalNote: >
+  The custom is folk practice rather than a documented church rite, so it
+  doesn't have a single traceable origin point the way a liturgical text
+  would. It's grouped here with the dowry-gold legend because that's the
+  explanation people tell for it, not because the link is documented
+  history.
+relatedLegends:
+  - nicholas-dowry-gold
+tags:
+  - christmas-stocking
+  - saint-nicholas-day
+  - children
+published: false
+---
+
+On the night of December 5th, children across the Netherlands, Belgium, and
+parts of Germany set a shoe by the door, or sometimes by the fireplace, and
+go to bed hoping to wake up to find it filled with small gifts, coins, or
+sweets.
+
+The custom traces itself back to the dowry-gold legend - the story of
+Nicholas secretly tossing bags of gold through a window, and in some
+tellings down a chimney, to save a poor family's daughters. A shoe left out
+overnight stands in for that open window: a small, hopeful gap left for
+generosity to arrive through, unseen and unannounced.
+
+The custom didn't stay still, either. As Dutch and German immigrants
+carried it across the Atlantic, the shoe by the door became the stocking by
+the chimney, and St. Nicholas himself slowly reshaped into Sinterklaas's
+better-known descendant, Santa Claus.
+
+## Why it still matters
+
+Most children who leave a shoe out today have never heard the dowry-gold
+story in full. But the shape of the custom - a quiet gift, given without
+asking for credit, discovered the next morning - is a direct echo of it.
+That's the thread this site keeps pulling on: the legend explains the
+custom, and the custom keeps the legend alive, long after most people have
+forgotten where it came from.
