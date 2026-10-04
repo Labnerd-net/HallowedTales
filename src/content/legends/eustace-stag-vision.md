@@ -22,12 +22,10 @@ tags:
 published: false
 ---
 
-Long before Hubert's version of the story took shape, a nearly identical
-vision was already being told about Eustace, a Roman general said to have
-lived under the emperor Trajan or Hadrian in the 2nd century. Out hunting
-one day, Eustace pursued a magnificent stag deep into the forest, until
-the animal turned to face him and he saw a crucifix shining between its
-antlers. A voice called out from the vision, identifying itself as
+Eustace, a Roman general said to have lived under the emperor Trajan or
+Hadrian in the 2nd century, was out hunting one day when he pursued a
+magnificent stag deep into the forest, until the animal turned to face
+him and he saw a crucifix shining between its antlers. A voice called out from the vision, identifying itself as
 Christ, and asked Eustace why he was pursuing it rather than seeking it
 out directly.
 
@@ -48,4 +46,4 @@ even as local devotion to him continued. What's most interesting about
 Eustace today may be less his own disputed biography than what happened
 to his signature vision afterward: centuries later, the same glowing stag
 reappeared, almost unchanged, in the far better documented life of St.
-Hubert.
+Hubert, the bishop of Liege who became the patron saint of hunters.
