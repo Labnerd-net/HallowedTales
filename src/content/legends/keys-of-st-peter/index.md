@@ -1,0 +1,91 @@
+---
+title: "The Keys of St. Peter"
+images:
+  - src: "./perugino-delivery-of-keys.jpg"
+    alt: "Fresco of Christ handing a pair of keys to a kneeling St. Peter, surrounded by the apostles"
+    caption: "Christ Handing the Keys to St. Peter, Pietro Perugino, Sistine Chapel (1481-82)"
+    credit: "Pietro Perugino, Wikimedia Commons, public domain"
+    kind: artwork
+  - src: "./vatican-flag.png"
+    alt: "Flag of Vatican City: a gold field and a white field bearing the crossed gold-and-silver keys beneath a papal tiara"
+    caption: "The crossed keys and tiara on the flag of Vatican City"
+    credit: "Goran tek-en, Wikimedia Commons, public domain"
+    kind: illustration
+saints:
+  - peter-the-apostle
+earliestSource:
+  citation: "Gospel of Matthew 16:19"
+  approxDate: "1st century AD (text); paired gold-and-silver key heraldry develops by the 13th-14th century"
+historicalNote: >
+  The Gospel line itself names "the keys of the kingdom of heaven" without
+  specifying a number or a material. Peter holding a single key becomes a
+  standard attribute in Christian art by around the 4th-5th century. The
+  specific image most people picture today - two keys, crossed, one gold
+  and one silver - is a later heraldic development, not something read
+  directly off the biblical text.
+variants:
+  - label: "What the two keys mean"
+    detail: >
+      The most common reading holds that the gold key represents spiritual
+      authority (power in heaven) and the silver key temporal authority
+      (power on earth).
+    note: >
+      An older and equally common reading ties the two keys instead to
+      Christ's words that follow immediately in the same verse - "whatever
+      you bind... whatever you loose" - making them keys of binding and
+      loosing rather than heaven and earth. Church heraldry has never fully
+      settled on one explanation over the other.
+relatedLegends: []
+tags:
+  - papal-symbol
+  - symbol-origin
+  - heraldry
+published: true
+---
+
+Two keys, crossed in an X and bound together with a cord, sitting beneath a
+papal tiara: it's one of the most widely reproduced images connected to the
+Catholic Church, stamped on the Vatican flag, carved into the facade of St.
+Peter's Basilica, and worked into papal coats of arms for centuries. The
+image traces back to a single line of dialogue.
+
+## "I will give you the keys"
+
+In Matthew's Gospel, after Peter identifies Jesus as the Christ, Jesus
+responds: "I will give you the keys of the kingdom of heaven. Whatever you
+bind on earth shall be bound in heaven, and whatever you loose on earth
+shall be loosed in heaven." The image draws on an older Old Testament role,
+the royal steward entrusted with the literal keys to the house of David,
+who alone could open or shut its doors on the king's authority. Handing
+Peter the keys cast him as that steward for the Church.
+
+The Gospel text gives no count and no material. It's simply "the keys" -
+plural, but otherwise unspecified.
+
+## From attribute to emblem
+
+Within a few centuries, Christian art had settled the ambiguity by habit
+rather than decree. Catacomb paintings and early sarcophagi begin showing
+Peter holding a key, and by the time Peter and Paul become a standard
+paired subject in Western art, Peter is the one holding keys while Paul
+holds a sword. It becomes his identifying attribute the way a staff
+identifies a bishop or a wheel identifies St. Catherine.
+
+The specific two-key, crossed, gold-and-silver version is a later layer,
+built up through medieval and early modern heraldry rather than appearing
+fully formed. By the time the symbol settles into the form still used
+today - crossed keys beneath a tiara - it has become an emblem of the
+papal office itself, not just a personal attribute of Peter. That's the
+version on the Vatican flag adopted in 1929, on the coats of arms of
+individual popes, and on papal basilicas around the world, which mark
+their status by displaying the crossed keys alongside their own facade.
+
+## Why it still matters
+
+The keys are one of the rare Catholic symbols that moved fully into
+everyday language outside devotional contexts - "keys to the kingdom" gets
+used well beyond any religious sense, and "Peter at the pearly gates" is
+common cultural shorthand even for people who couldn't say where it comes
+from. Both trace back to the same single verse, stretched across two
+thousand years from a line about a steward's keys to a fixture of folk
+imagery about the afterlife.
