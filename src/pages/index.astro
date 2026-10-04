@@ -26,7 +26,7 @@ const phenomenaEntries = await getCollection('phenomena');
         <h2 class="font-display text-3xl font-semibold text-ink">Legends</h2>
         <a href="/legends" class="text-sm font-medium text-accent hover:underline">See all →</a>
       </div>
-      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
+      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {legendEntries.map((entry) => {
           const excerpt = excerptFrom(entry.body);
           return (
@@ -49,7 +49,7 @@ const phenomenaEntries = await getCollection('phenomena');
         <h2 class="font-display text-3xl font-semibold text-ink">Folk Traditions</h2>
         <a href="/traditions" class="text-sm font-medium text-accent hover:underline">See all →</a>
       </div>
-      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
+      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {traditionEntries.map((entry) => {
           const excerpt = excerptFrom(entry.body);
           const meta = entry.data.feastDay
@@ -75,7 +75,7 @@ const phenomenaEntries = await getCollection('phenomena');
         <h2 class="font-display text-3xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h2>
         <a href="/relics" class="text-sm font-medium text-accent hover:underline">See all →</a>
       </div>
-      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
+      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {relicEntries.map((entry) => {
           const excerpt = excerptFrom(entry.body);
           const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
@@ -99,7 +99,7 @@ const phenomenaEntries = await getCollection('phenomena');
         <h2 class="font-display text-3xl font-semibold text-ink">Mystical Phenomena</h2>
         <a href="/phenomena" class="text-sm font-medium text-accent hover:underline">See all →</a>
       </div>
-      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
+      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
         {phenomenaEntries.map((entry) => {
           const excerpt = excerptFrom(entry.body);
           return (
