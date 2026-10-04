@@ -7,7 +7,7 @@ interface GalleryImage {
   alt: string;
   caption?: string;
   credit?: string;
-  kind: 'photo' | 'illustration' | 'artwork';
+  kind?: 'photo' | 'illustration' | 'artwork';
 }
 
 interface Props {
@@ -18,31 +18,29 @@ const { images } = Astro.props;
 ---
 
 {images && images.length > 0 && (
-  <div class="mx-auto max-w-3xl px-8">
-    <div
-      class:list={[
-        'grid gap-5',
-        images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2',
-      ]}
-    >
-      {images.map((img) => (
-        <figure class="overflow-hidden rounded-lg border border-gold/30 bg-surface">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            width={640}
-            class="h-64 w-full object-cover"
-          />
-          {(img.caption || img.credit) && (
-            <figcaption class="px-4 py-3 text-sm text-ink-soft">
-              {img.caption && <span>{img.caption}</span>}
-              {img.credit && (
-                <span class="mt-1 block text-xs text-ink-soft/70">{img.credit}</span>
-              )}
-            </figcaption>
-          )}
-        </figure>
-      ))}
-    </div>
+  <div
+    class:list={[
+      'my-6 grid gap-5',
+      images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2',
+    ]}
+  >
+    {images.map((img) => (
+      <figure class="overflow-hidden rounded-lg border border-gold/30 bg-surface">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          width={640}
+          class="h-64 w-full object-cover"
+        />
+        {(img.caption || img.credit) && (
+          <figcaption class="px-4 py-3 text-sm text-ink-soft">
+            {img.caption && <span>{img.caption}</span>}
+            {img.credit && (
+              <span class="mt-1 block text-xs text-ink-soft/70">{img.credit}</span>
+            )}
+          </figcaption>
+        )}
+      </figure>
+    ))}
   </div>
 )}
