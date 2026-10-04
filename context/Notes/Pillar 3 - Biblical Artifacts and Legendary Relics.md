@@ -43,9 +43,6 @@ not scripture exegesis) and keeps it anchored in specifically Catholic practice.
 
 ### Legendary relics with an active Catholic veneration tradition
 
-- **True Cross fragments** — legend of discovery by St. Helena (mother of Constantine) in
-  Jerusalem; fragments distributed across hundreds of churches in medieval Europe; Feast of the
-  Exaltation of the Holy Cross (Sept 14) ties directly to this legend.
 - **Holy Lance / Spear of Destiny** — the lance said to have pierced Christ's side; multiple
   rival claimed lances (Vatican, Vienna, Echmiadzin in Armenia) — good "more than one place
   claims this relic" story, a recurring pattern worth naming as its own mini-genre.
@@ -73,19 +70,9 @@ not scripture exegesis) and keeps it anchored in specifically Catholic practice.
   references earlier accounts), through medieval pilgrim reports, to modern expeditions. Good
   "here's a 2,000-year-old tradition of looking for it" angle rather than endorsing any
   particular claimed finding.
-- **Holy Grail** — medieval legend (Arthurian material fused with Catholic imagery) of the cup
-  from the Last Supper; multiple churches claim to hold it (notably the Valencia Cathedral
-  chalice, and Genoa's Sacro Catino). Very rich "legend genre" content — this one is already
-  as much literary/medieval-romance tradition as devotional.
 - **Prester John** — medieval legend of a lost Christian king/kingdom beyond the Islamic world,
   fueling centuries of European expeditions and hope during the Crusades era. Less an object,
   more a legendary-geography story — good fit for the "legendary quest" framing.
-
-### Founding/shrine legends with a biblical-object flavor
-
-- **Holy House of Loreto** — legend that angels transported Mary's house from Nazareth to
-  Loreto, Italy, ahead of Islamic conquest. Same genre as the Pillar 1 "founding/shrine legend"
-  category, just with a biblical rather than saint-era origin.
 
 ## Candidates I'd flag as borderline / likely out of scope even if this pillar is approved
 

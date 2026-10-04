@@ -1,0 +1,51 @@
+---
+title: "Saint Eustace and the Stag of the Vision"
+saints:
+  - eustace-of-rome
+earliestSource:
+  citation: "Greek Passio of St. Eustace"
+  approxDate: "likely composed by the 9th-10th century, set in the 2nd century"
+historicalNote: >
+  Eustace's historicity is doubted by most scholars - no contemporary
+  record of a Roman general by this name and story survives, and the
+  account reads as a later devotional composition set centuries before it
+  was written. The stag vision later attached itself to the historically
+  real St. Hubert as well - see the related entry. Eustace was removed
+  from the Church's universal calendar in 1969 pending further evidence of
+  his historical existence, though local devotion continues.
+relatedLegends:
+  - hubert-stag-vision
+tags:
+  - stag-vision
+  - hunters-patron
+  - legend-migration
+published: false
+---
+
+Long before Hubert's version of the story took shape, a nearly identical
+vision was already being told about Eustace, a Roman general said to have
+lived under the emperor Trajan or Hadrian in the 2nd century. Out hunting
+one day, Eustace pursued a magnificent stag deep into the forest, until
+the animal turned to face him and he saw a crucifix shining between its
+antlers. A voice called out from the vision, identifying itself as
+Christ, and asked Eustace why he was pursuing it rather than seeking it
+out directly.
+
+Eustace converted on the spot, had himself and his entire household
+baptized, and - in the fuller version of his legend - went on to endure a
+string of dramatic reversals of fortune that cost him his wealth,
+separated him from his family for years, and eventually led to his
+martyrdom alongside his wife and sons.
+
+## The older half of a shared vision
+
+Scholars generally treat Eustace's story as legendary rather than
+historical - no outside record confirms a Roman general of this name
+living this life, and the earliest surviving text telling his story dates
+many centuries after the events it claims to describe. That uncertainty
+is also why the Church removed him from its universal calendar in 1969,
+even as local devotion to him continued. What's most interesting about
+Eustace today may be less his own disputed biography than what happened
+to his signature vision afterward: centuries later, the same glowing stag
+reappeared, almost unchanged, in the far better documented life of St.
+Hubert.

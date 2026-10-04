@@ -1,0 +1,64 @@
+---
+title: "The Holy House of Loreto"
+cluster: shrine-legend
+claimedLocations:
+  - site: "Basilica della Santa Casa"
+    region: "Loreto, Italy"
+    note: "The house stands enclosed within a marble shrine designed by Bramante and other Renaissance architects, inside the basilica built around it."
+feastDay:
+  month: "Dec"
+  day: "10"
+earliestSource:
+  citation: "Teramano, Translatio miraculosa ecclesiae Beatae Virginis Mariae de Loreto"
+  approxDate: "circa 1472"
+historicalNote: >
+  The angel-transport legend is first recorded in writing roughly 180 years
+  after the events it describes. A separate historical thread - a Byzantine
+  noble family named Angeli fleeing the same 1291 Crusader collapse and
+  marrying into a local Italian family around the same years - offers a more
+  earthbound explanation for how the house's stones crossed the Adriatic,
+  though it doesn't fully account for the structure's foundation-less
+  construction.
+relatedLegends: []
+tags:
+  - holy-house-of-loreto
+  - our-lady-of-loreto
+  - marian-shrine
+published: false
+---
+
+According to the legend that gave the shrine its name, the small stone
+house in which Mary lived in Nazareth - the same house, tradition holds,
+where the Archangel Gabriel appeared to her at the Annunciation - did not
+stay in the Holy Land forever. In 1291, as the last Crusader strongholds in
+the region fell, the house is said to have lifted from its foundation and
+been carried by angels across the Mediterranean, setting down first on a
+hillside above Tersatto, in present-day Croatia.
+
+Three years later, in 1294, the house moved again - lifted once more and
+carried across the Adriatic to a laurel wood near the Italian town of
+Recanati. It didn't stay even there for long: after disputes among local
+landowners over who would control the growing stream of pilgrims, the
+house is said to have relocated twice more before settling on a public
+road outside Loreto, where it has remained ever since, its walls resting
+directly on the open ground with no foundation beneath them.
+
+## Angels, or a family named Angeli?
+
+The angel-transport story is the one tradition tells, and the Translation
+of the Holy House is still kept every December 10th. But historians
+researching the legend centuries later turned up a different thread: a
+noble Byzantine family named Angeli - despots of Epirus - fled the same
+1291 Crusader collapse and are documented marrying into the Chiarelli
+family of Recanati around the years the house is said to have arrived. The
+Angeli family had both the means and the occasion to ship stones out of a
+contested region, and "Angeli" means, simply, "angels."
+
+Whether the legend grew from a family name that slipped, over generations
+of retelling, into a host of literal angels - or whether the timing of the
+Angeli family's arrival is just a coincidence sitting alongside a genuine
+miracle - isn't a question this site tries to settle. What keeps the
+mystery alive, and part of why the shrine still draws pilgrims by the
+millions each year, is that the house's walls really do rest on open
+ground with no foundation of their own, exactly what you'd expect if a
+structure had been moved rather than built in place.

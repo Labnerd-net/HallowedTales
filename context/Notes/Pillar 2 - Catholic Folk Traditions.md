@@ -4,9 +4,6 @@ legend/story behind why.
 
 ## Feast-day customs
 
-- **St. Nicholas Day (Dec 6)** — children leave shoes or stockings out the night before to be
-  filled with small gifts/coins, tracing back to the dowry-gold legend (Pillar 1). Root of the
-  Sinterklaas → Santa Claus line — strong anchor piece, very recognizable hook.
 - **St. Lucy's Day (Dec 13)** — in Scandinavia, a daughter wears a crown of candles and leads a
   procession of light; saffron "Lucia buns" are baked. Ties to her name (Lucia = light) and
   the darkest point of the old Julian calendar year.
@@ -14,8 +11,6 @@ legend/story behind why.
   elaborate food displays shared with the community; fava beans kept as "lucky beans" tied to
   a legend of the bean crop surviving a famine when other crops failed; zeppole di San
   Giuseppe pastries.
-- **St. Blaise Day (Feb 3)** — blessing of throats with two crossed candles, tied to a legend
-  of him saving a choking child from a fishbone.
 - **St. Martin's Day / Martinmas (Nov 11)** — children's lantern processions in parts of
   Europe; goose dinners, tied to a legend that Martin hid in a goose pen to avoid being made
   bishop and was given away by the geese's noise.
@@ -29,10 +24,6 @@ legend/story behind why.
 
 ## Liturgical-object traditions
 
-- **Palm Sunday palms** — blessed palms taken home, often woven into crosses, kept behind a
-  crucifix or holy image until the following year.
-- **Ash Wednesday ashes** — tradition of burning the previous year's blessed palms to produce
-  the ashes used for that year's service — a nice "the cycle completes itself" detail.
 - **Candlemas candles** — household candles blessed for the year, historically kept on hand for
   storms/sickness/comfort at a deathbed.
 

@@ -7,27 +7,10 @@ this site, but it still means claims below need a real source pass before publis
 - **St. Christopher carrying the Christ Child** — ferryman carries a heavy child across a
   river, child turns out to be Christ "bearing the weight of the world." Origin of the name
   Christopher ("Christ-bearer"). Core material for the patron-of-travelers angle.
-- **St. George and the Dragon** — knight rescues a princess from a dragon in exchange for the
-  town converting to Christianity. Likely Cappadocian in origin, popularized in the West via
-  the Crusades and the *Golden Legend*.
-- **St. Patrick and the snakes** — banishes all snakes from Ireland. (Ireland has had no native
-  snakes since the last Ice Age — good "here's the legend vs. here's the biology" beat.)
-  Commonly read as allegory for driving out paganism, worth mentioning as the traditional
-  interpretation without overstating it as settled fact.
-- **St. Francis of Assisi** — Sermon to the Birds; taming the Wolf of Gubbio (wolf terrorizing
-  a town agrees to stop in exchange for the town feeding it). Two of the most reproduced saint
-  legends in art.
-- **St. Jerome and the lion** — removes a thorn from a lion's paw, lion becomes his devoted
-  companion. (Worth a sidebar: this story originally belonged to St. Gerasimus and was
-  transferred to Jerome by medieval confusion — a nice example of how legends migrate between
-  saints, which is itself good content for this site.)
 - **St. Blaise and the wolf** — returns a widow's pig after it's taken by a wolf. Separate from
   (but often paired with) the throat-blessing legend under Pillar 2.
 - **St. Giles and the hind** — hermit shelters a wounded deer from a king's hunting party; the
   king founds a monastery on the spot out of respect.
-- **St. Hubert** and **St. Eustace** — near-identical legend of a stag appearing with a
-  crucifix between its antlers, prompting conversion. Worth covering together as a "shared
-  motif" case study — same story, two saints, centuries apart.
 - **St. Margaret of Antioch** — swallowed by a dragon, escapes by bursting out using the cross
   she carries. Stays inside "not dark" if told briefly and symbolically rather than graphically.
 - **St. Martha and the Tarasque** — tames a dragon-like river monster terrorizing Provence
@@ -35,9 +18,8 @@ this site, but it still means claims below need a real source pass before publis
 
 ## Patronage origin stories
 
-- **St. Nicholas** → sailors, children, pawnbrokers: the secret dowry gift (gold tossed through
-  a window / down a chimney into stockings left to dry) and calming a storm at sea. The root of
-  the Santa Claus tradition — strong crossover content with Pillar 2.
+- **St. Nicholas** → sailors: calming a storm at sea. (The dowry-gift/pawnbroker patronage
+  legend is already published — see `nicholas-dowry-gold`.)
 - **St. Cecilia** → musicians: tradition holds she "sang in her heart to God" at her wedding;
   patronage likely grew from a line in her Acts rather than her having been a musician herself
   — a good "here's how a patronage actually forms" example.

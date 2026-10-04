@@ -22,12 +22,6 @@ implying it carries the same weight as stigmata or incorruptibility. Decide case
 
 ### Bilocation (being in two places at once)
 
-- **St. Padre Pio** — the case that prompted this pillar. **RESOLVED, dual-site 2026-10-03:**
-  now published on the Register as `bilocation-of-padre-pio` (General Cadorna's 1917 account,
-  WWII bomber pilots over San Giovanni Rotondo), with a closing paragraph there explicitly
-  noting the evidence is eyewitness testimony only, unlike his medically-examined stigmata. The
-  lore-site version can reuse the same two anecdotes and sources (EWTN, padrepio.org) but tell
-  them in pure narrative voice, no evidentiary caveat needed.
 - **St. Martin de Porres** — reported bilocating to China, Japan, and Africa to help the poor
 - **St. Francis Xavier** — reported preaching ashore while physically at sea
 - **St. Anthony of Padua** — reported preaching in two places simultaneously
@@ -36,9 +30,6 @@ implying it carries the same weight as stigmata or incorruptibility. Decide case
 
 ### Levitation
 
-- **St. Joseph of Cupertino** — far and away the most famous; dozens of reported incidents
-  during Mass and prayer, reportedly rising high enough that others had to pull him down. Great
-  anchor story for this category.
 - **St. Teresa of Avila**, **St. John of the Cross**, **St. Francis of Assisi**,
   **St. Philip Neri** (reportedly into tree branches — a nice specific detail), **St. Alphonsus
   Liguori**, **St. Gemma Galgani**, **Bl. Anne Catherine Emmerich**
