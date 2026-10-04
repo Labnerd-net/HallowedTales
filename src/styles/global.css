@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Repoints Tailwind's `dark:` variant at the `data-theme` attribute instead
+   of its `prefers-color-scheme` default, so components using `dark:` utilities
+   (Hero.astro) follow the ThemeToggle override instead of the raw OS setting. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 /*
  * Stained Glass theme. Every color below is a semantic role (canvas, surface,
  * accent, ...) rather than a literal hue name, so swapping the whole palette
@@ -37,21 +42,26 @@
   --font-body: "Lora", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-canvas: #10131f;
-    --color-surface: #1b2033;
-    --color-surface-alt: #262b42;
-    --color-ink: #f3e7d3;
-    --color-ink-soft: #c9b79a;
-    --color-accent: #4c72c9;
-    --color-gold: #e3b537;
-    --color-ruby: #d1476b;
+/*
+ * Keyed off a `data-theme` attribute on <html> rather than
+ * `prefers-color-scheme` directly, so the ThemeToggle component can
+ * override the OS preference (light/dark/system). The attribute is set
+ * by an inline script in Layout.astro before first paint - see there for
+ * why, and for the "system" resolution logic.
+ */
+:root[data-theme='dark'] {
+  --color-canvas: #10131f;
+  --color-surface: #1b2033;
+  --color-surface-alt: #262b42;
+  --color-ink: #f3e7d3;
+  --color-ink-soft: #c9b79a;
+  --color-accent: #4c72c9;
+  --color-gold: #e3b537;
+  --color-ruby: #d1476b;
 
-    --color-liturgical-violet: #9b6fd1;
-    --color-liturgical-green: #4fa579;
-    --color-liturgical-rose: #e8a8bc;
-  }
+  --color-liturgical-violet: #9b6fd1;
+  --color-liturgical-green: #4fa579;
+  --color-liturgical-rose: #e8a8bc;
 }
 
 body {

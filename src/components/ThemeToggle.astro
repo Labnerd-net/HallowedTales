@@ -1,0 +1,102 @@
+---
+// Three explicit choices rather than a single light/dark switch, since
+// "system" is a real third state (follow the OS) distinct from "light" -
+// collapsing them loses the ability to say "stop overriding, go back to
+// following my OS setting."
+const choices = [
+  { value: 'light', label: 'Light theme' },
+  { value: 'dark', label: 'Dark theme' },
+  { value: 'system', label: 'Match system theme' },
+] as const;
+---
+
+<div class="theme-toggle inline-flex items-center gap-0.5 rounded-full bg-surface-alt p-1" role="group" aria-label="Color theme">
+  {choices.map(({ value, label }) => (
+    <button type="button" class="theme-toggle-btn" data-theme-choice={value} aria-label={label} aria-pressed="false">
+      {value === 'light' && (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+      )}
+      {value === 'dark' && (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      )}
+      {value === 'system' && (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="13" rx="1.5"></rect>
+          <path d="M8 20h8M12 17v3"></path>
+        </svg>
+      )}
+    </button>
+  ))}
+</div>
+
+<style>
+  .theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 9999px;
+    color: var(--color-ink-soft);
+  }
+  .theme-toggle-btn svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .theme-toggle-btn[aria-pressed='true'] {
+    background: var(--color-surface);
+    color: var(--color-accent);
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'theme';
+  type ThemeChoice = 'light' | 'dark' | 'system';
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function getStoredChoice(): ThemeChoice {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+  }
+
+  function resolve(choice: ThemeChoice): 'light' | 'dark' {
+    return choice === 'system' ? (media.matches ? 'dark' : 'light') : choice;
+  }
+
+  function applyResolved(resolved: 'light' | 'dark') {
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.style.colorScheme = resolved;
+  }
+
+  function syncButtons(choice: ThemeChoice) {
+    document.querySelectorAll<HTMLButtonElement>('.theme-toggle-btn').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.themeChoice === choice));
+    });
+  }
+
+  function setChoice(choice: ThemeChoice) {
+    localStorage.setItem(STORAGE_KEY, choice);
+    applyResolved(resolve(choice));
+    syncButtons(choice);
+  }
+
+  syncButtons(getStoredChoice());
+
+  document.querySelectorAll<HTMLButtonElement>('.theme-toggle-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const choice = btn.dataset.themeChoice as ThemeChoice;
+      setChoice(choice);
+    });
+  });
+
+  // Keep "system" live if the OS theme flips while the choice is still "system".
+  media.addEventListener('change', () => {
+    if (getStoredChoice() === 'system') applyResolved(resolve('system'));
+  });
+</script>
