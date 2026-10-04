@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import LiturgicalBanner from '../components/LiturgicalBanner.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import BrandMark from '../components/BrandMark.astro';
 
 interface Props {
   title: string;
@@ -42,13 +43,13 @@ const { title } = Astro.props;
   </head>
   <body class="font-body">
     <LiturgicalBanner />
-    <nav class="relative flex justify-center gap-6 bg-surface-alt py-3 text-sm font-medium text-ink-soft">
-      <a href="/" class="hover:text-ink">Home</a>
-      <a href="/legends" class="hover:text-ink">Legends</a>
-      <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
-      <a href="/relics" class="hover:text-ink">Relics</a>
-      <a href="/phenomena" class="hover:text-ink">Mystical Phenomena</a>
-      <div class="absolute right-4 top-1/2 -translate-y-1/2">
+    <nav class="flex items-center gap-6 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft">
+      <BrandMark />
+      <div class="ml-auto flex items-center gap-6">
+        <a href="/legends" class="hover:text-ink">Legends</a>
+        <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
+        <a href="/relics" class="hover:text-ink">Relics</a>
+        <a href="/phenomena" class="hover:text-ink">Mystical Phenomena</a>
         <ThemeToggle />
       </div>
     </nav>
