@@ -19,7 +19,8 @@ tags:
 published: false
 ---
 
-Walking the road near Bevagna, Francis came upon a great flock of birds of
+Walking the road near Bevagna, Francis of Assisi - the 13th-century friar
+who founded the Franciscans - came upon a great flock of birds of
 every kind gathered in the fields and trees along the way - doves, crows,
 and others the story doesn't bother naming. Rather than pass them by, he
 turned aside and greeted them as he would any crowd, then began to preach,

@@ -19,9 +19,9 @@ tags:
 published: false
 ---
 
-Before he became a bishop, Hubert was, by every account, a nobleman
-wholly devoted to hunting, to the point of neglecting his religious
-duties entirely. The turning point came on a Good Friday, of all days,
+Before he became a bishop in the Belgian city of Liege around the year
+700, Hubert was, by every account, a nobleman wholly devoted to hunting,
+to the point of neglecting his religious duties entirely. The turning point came on a Good Friday, of all days,
 when Hubert rode into the forest of the Ardennes after a magnificent stag
 while the rest of the faithful were at prayer.
 

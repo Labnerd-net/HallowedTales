@@ -21,8 +21,10 @@ tags:
 published: false
 ---
 
-Padre Pio rarely left the friary at San Giovanni Rotondo in the decades he
-spent there. And yet, by multiple separate accounts, people who should
+Bilocation is the reported ability to be in two places at once. Padre Pio,
+a 20th-century Capuchin friar in southern Italy, rarely left the friary at
+San Giovanni Rotondo in the decades he spent there. And yet, by multiple
+separate accounts, people who should
 have had no way of encountering him there reported seeing him - or being
 helped by him - in places he never physically traveled to.
 

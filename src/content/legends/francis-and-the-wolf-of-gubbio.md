@@ -22,8 +22,10 @@ published: false
 The town of Gubbio, the story goes, had been terrorized for some time by a
 wolf so large and vicious that it had taken to killing not just livestock
 but people who crossed its path, until no one dared leave the town walls
-unarmed. When Francis arrived and heard of it, he decided to go out and
-meet the wolf himself, over the frightened objections of the townspeople.
+unarmed. When Francis of Assisi - the 13th-century friar who founded the
+Franciscans and is remembered for his love of animals and the poor -
+arrived and heard of it, he decided to go out and meet the wolf himself,
+over the frightened objections of the townspeople.
 
 He found the wolf in the woods, and when it charged him, Francis made the
 sign of the cross and addressed it as "Brother Wolf," ordering it in

@@ -21,7 +21,8 @@ tags:
 published: false
 ---
 
-According to the legend, Patrick spent forty days fasting atop a mountain
+According to the legend, Patrick - the 5th-century missionary who became
+the patron saint of Ireland - spent forty days fasting atop a mountain
 now known as Croagh Patrick, and partway through his fast, he was set
 upon by snakes determined to drive him off. Rather than retreat, Patrick
 drove them back instead, chasing every snake in Ireland before him down

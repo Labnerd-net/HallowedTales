@@ -25,8 +25,9 @@ demanding a steady tribute of sheep to stay away from the town. When the
 sheep ran out, the town turned to drawing lots among its own children, and
 the lot eventually fell to the king's own daughter.
 
-George happens upon the princess waiting for the dragon, already resigned
-to her fate. He challenges the beast directly, wounds it with his lance,
+Into this scene rides George, a soldier and martyr of the early Church
+who later became the patron saint of England. He happens upon the
+princess waiting for the dragon, already resigned to her fate. He challenges the beast directly, wounds it with his lance,
 then has the princess loop her girdle around its neck so it follows behind
 her like a leashed dog, entirely subdued. George leads the dragon into the
 city and offers its people a bargain: he will finish the creature off for
