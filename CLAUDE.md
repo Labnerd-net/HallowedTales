@@ -93,9 +93,18 @@ than one `variant_of` field trying to cover both —
   distinct, independently real story (the St. Hubert / St. Eustace stag-with-a-cross case).
   These get full entries of their own and just point at each other.
 
-See `src/content.config.ts` for the implemented schema. Still open: `relatedLegends` is a
-one-directional array of slugs with no validation that the reference exists or is reciprocated —
-decide whether back-links are enforced/derived before the entry count makes asymmetry a problem.
+See `src/content.config.ts` for the implemented schema. `relatedLegends` is still hand-authored
+and one-directional in frontmatter (no validation that the reference exists), but back-links are
+derived rather than requiring a second edit on the target entry — see
+`findReferencingEntries` in `src/lib/related.ts`.
+
+**Same-saint cross-linking** is a separate, fully-derived mechanism from `relatedLegends`: every
+entry with a `saints` field (legends, traditions, phenomena — relics has no `saints` field) that
+shares a saint slug with the current entry gets surfaced in a "More about this saint" section,
+computed from `saints` rather than curated per pair. This is deliberately distinct from
+`relatedLegends`, which is scoped to shared motif/lineage (Hubert/Eustace), not merely "same
+saint" — two unrelated stories about the same saint (the two St. Francis legends) belong in the
+same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.ts`.
 
 ---
 

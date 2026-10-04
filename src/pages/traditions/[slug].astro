@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
-import { resolveRelatedLegends } from '../../lib/related';
+import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 
 export const prerender = true;
 
@@ -20,6 +20,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, category, feastDay, saints, images, relatedLegends } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
+const sameSaint = await findBySaint(saints, 'traditions', entry.id);
 
 const metaItems = [
   category.replace('-', ' '),
@@ -46,5 +47,6 @@ const metaItems = [
     </div>
   </main>
 
+  <RelatedList links={sameSaint} heading="More about this saint" />
   <RelatedList links={related} />
 </Layout>

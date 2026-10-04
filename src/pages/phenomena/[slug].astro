@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
-import { resolveRelatedLegends } from '../../lib/related';
+import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 import { registerMiracleHref } from '../../lib/registerLink';
 
 export const prerender = true;
@@ -21,6 +21,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const { title, phenomenonType, saints, registerSlug, images, relatedLegends } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
+const sameSaint = await findBySaint(saints, 'phenomena', entry.id);
 const registerHref = registerMiracleHref(registerSlug);
 ---
 
@@ -48,5 +49,6 @@ const registerHref = registerMiracleHref(registerSlug);
     </div>
   </main>
 
+  <RelatedList links={sameSaint} heading="More about this saint" />
   <RelatedList links={related} />
 </Layout>

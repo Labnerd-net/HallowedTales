@@ -49,3 +49,33 @@ export async function findReferencingEntries(legendSlug: string): Promise<Relate
   }
   return results;
 }
+
+// Collections that carry a `saints` field. Relics is excluded - a relic's
+// identity is its claimed locations/cluster, not a saint it belongs to.
+const SAINT_COLLECTIONS = ['legends', 'traditions', 'phenomena'] as const;
+
+// Other entries, in any saint-bearing collection, that cite at least one of
+// the same saint slugs - the "two Francis legends should point at each
+// other" case. Derived from the `saints` field each entry already has
+// rather than hand-curated, so it stays complete as entries are added
+// instead of needing a relatedLegends edit for every same-saint pair.
+export async function findBySaint(
+  saintSlugs: string[] | undefined,
+  currentCollection: Collection,
+  currentId: string
+): Promise<RelatedLink[]> {
+  if (!saintSlugs || saintSlugs.length === 0) return [];
+  const saintSet = new Set(saintSlugs);
+  const results: RelatedLink[] = [];
+  for (const collection of SAINT_COLLECTIONS) {
+    const entries = await getCollection(collection);
+    for (const entry of entries) {
+      if (collection === currentCollection && entry.id === currentId) continue;
+      const entrySaints = (entry.data as { saints?: string[] }).saints;
+      if (entrySaints?.some((slug) => saintSet.has(slug))) {
+        results.push({ href: hrefFor(collection, entry.id), title: entry.data.title, collection });
+      }
+    }
+  }
+  return results;
+}
