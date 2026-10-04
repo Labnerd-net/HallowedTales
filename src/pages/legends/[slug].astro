@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const entries = await getCollection('legends');
   return entries.map((entry) => ({
