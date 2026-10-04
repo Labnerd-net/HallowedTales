@@ -20,12 +20,12 @@ published: true
 ---
 
 Few saints have a reported phenomenon as frequently or as vividly
-documented as Joseph of Cupertino's levitation. By the accounts gathered
-during his lifetime and after, Joseph - a 17th-century Franciscan friar
-known for his clumsiness and simplicity as much as his devotion - would
-rise into the air during moments of intense prayer or at Mass, sometimes
-drifting toward a statue or altar, sometimes rising high enough that
-witnesses described needing to pull him back down by his habit.
+documented as Joseph of Cupertino's levitation. Joseph was a 17th-century
+Franciscan friar, known as much for his clumsiness and simplicity as for
+his devotion. By the accounts gathered during his lifetime and after, he
+would rise into the air during intense prayer or at Mass. Sometimes he
+drifted toward a statue or altar, and sometimes he rose high enough that
+witnesses described pulling him back down by his habit.
 
 The incidents reportedly happened often enough, and in front of enough
 witnesses, including visiting dignitaries, that his superiors eventually
