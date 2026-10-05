@@ -38,7 +38,7 @@ migrate back north and recolonize the land. The surrounding sea has
 kept them out ever since. Patrick's story doesn't appear in the earliest
 biographies written about him, within a couple of centuries of his own
 5th-century life - it surfaces only in much later medieval accounts. Most
-historians read it today as symbolic rather than literal, a traditional
+historians read it today as symbolic rather than literal - a traditional
 stand-in for Patrick's role in displacing pre-Christian druidic practice
-across Ireland, with the island's very real snake-free biology lending
-the allegory an extra, if coincidental, layer of believability.
+across Ireland. The island's very real snake-free biology just lends the
+allegory an extra, if coincidental, layer of believability.

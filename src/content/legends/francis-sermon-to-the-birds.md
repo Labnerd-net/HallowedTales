@@ -28,7 +28,7 @@ inviting them to praise God for the gifts they had been given: wings to
 fly, feathers suited to every climate, the freedom to go wherever they
 liked without needing to sow or reap. As he spoke, the birds stayed put,
 stretching their necks and opening their beaks toward him, and didn't
-scatter until he had finished, blessed them, and given them leave to go.
+scatter until he had finished, blessed them, and sent them on their way.
 
 ## Part of a larger pattern
 

@@ -70,7 +70,7 @@ rather than decree. Catacomb paintings and early sarcophagi begin showing
 Peter holding a key, and by the time Peter and Paul become a standard
 paired subject in Western art, Peter is the one holding keys while Paul
 holds a sword. It becomes his identifying attribute the way a staff
-identifies a bishop or a wheel identifies St. Catherine.
+identifies a bishop.
 
 The specific two-key, crossed, gold-and-silver version is a later layer,
 built up through medieval and early modern heraldry rather than appearing
