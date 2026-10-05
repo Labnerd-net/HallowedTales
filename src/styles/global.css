@@ -91,9 +91,9 @@ body {
 /* Rubricated initial, the way a manuscript's opening letter was picked out
    in red ink - hence ruby rather than gold or ink here. */
 .legend-body > p:first-of-type::first-letter {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 4rem;
+  font-family: "Berkshire Swash", var(--font-display);
+  font-weight: 400;
+  font-size: 5rem;
   line-height: 0.8;
   float: left;
   padding-right: 0.5rem;
