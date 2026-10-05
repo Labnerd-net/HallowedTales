@@ -9,13 +9,15 @@ const sample =
 
 const candidates = [
   { name: 'Berkshire Swash (current)', family: 'Berkshire Swash', weight: 400 },
-  { name: 'Pirata One', family: 'Pirata One', weight: 400 },
-  { name: 'UnifrakturMaguntia', family: 'UnifrakturMaguntia', weight: 400 },
-  { name: 'Cardo (bold)', family: 'Cardo', weight: 700 },
   { name: 'MedievalSharp', family: 'MedievalSharp', weight: 400 },
   { name: 'Metamorphous', family: 'Metamorphous', weight: 400 },
-  { name: 'Almendra Display', family: 'Almendra Display', weight: 400 },
-  { name: 'Tangerine (bold)', family: 'Tangerine', weight: 700 },
+  { name: 'Pirata One', family: 'Pirata One', weight: 400 },
+  {
+    name: 'Almendra Display (synthetic bold - no real bold weight exists)',
+    family: 'Almendra Display',
+    weight: 400,
+    stroke: true,
+  },
 ];
 
 const fontQuery = candidates
@@ -39,13 +41,13 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       <section class="mb-14">
         <h2 class="font-display text-lg text-accent mb-3">{c.name}</h2>
         <div
-          class="dropcap-sample legend-body font-body text-ink"
+          class:list={['dropcap-sample', 'legend-body', 'font-body', 'text-ink', { 'dropcap-sample--stroke': c.stroke }]}
           style={`--cap-font: '${c.family}'; --cap-weight: ${c.weight};`}
         >
           <p>{sample}</p>
         </div>
         <div
-          class="alphabet-row text-ruby"
+          class:list={['alphabet-row', 'text-ruby', { 'alphabet-row--stroke': c.stroke }]}
           style={`font-family: '${c.family}'; font-weight: ${c.weight};`}
         >
           {alphabet.map((letter) => <span>{letter}</span>)}
@@ -74,5 +76,13 @@ const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     font-size: 2.25rem;
     line-height: 1;
     margin-top: 0.75rem;
+  }
+
+  .dropcap-sample--stroke > p:first-of-type::first-letter {
+    -webkit-text-stroke: 1.25px var(--color-ruby);
+  }
+
+  .alphabet-row--stroke {
+    -webkit-text-stroke: 1px var(--color-ruby);
   }
 </style>
