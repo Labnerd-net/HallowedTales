@@ -26,7 +26,7 @@ tags:
 published: true
 ---
 
-import ImageGallery from '../../../components/ImageGallery.astro';
+import InlineImage from '../../../components/InlineImage.astro';
 import santoCaliz from './santo-caliz.jpg';
 import sacroCatino from './sacro-catino.jpg';
 
@@ -52,29 +52,32 @@ Arthurian adventure.
 As with several objects on this site, more than one church claims to hold
 the real thing.
 
-<ImageGallery images={[
-  {
-    src: santoCaliz,
-    alt: "The Santo Caliz, an agate cup in a gold medieval mounting, displayed in Valencia Cathedral",
-    caption: "The Santo Caliz, Valencia Cathedral",
-    credit: "Zarateman, Wikimedia Commons, CC0",
-  },
-  {
-    src: sacroCatino,
-    alt: "The Sacro Catino, a green glass hexagonal dish, displayed in the treasury of Genoa Cathedral",
-    caption: "The Sacro Catino, Genoa Cathedral treasury",
-    credit: "José Luiz Bernardes Ribeiro, Wikimedia Commons, CC BY-SA 3.0",
-  },
-]} />
+<InlineImage
+  src={santoCaliz}
+  alt="The Santo Caliz, an agate cup in a gold medieval mounting, displayed in Valencia Cathedral"
+  caption="The Santo Caliz, Valencia Cathedral"
+  credit="Zarateman, Wikimedia Commons, CC0"
+  side="right"
+/>
 
 The Santo Caliz in Valencia Cathedral - a simple agate cup set into an
 ornate medieval mounting - has a documented trail back to at least the
 medieval period and is the candidate most actively promoted today,
 including a visit from Pope Benedict XVI, who used it to celebrate Mass
-there in 2006. Genoa's Sacro Catino, a green glass dish once believed to
-be a single carved emerald, held its own claim for centuries before being
-shown in the 19th century to be glass, not gemstone - though it is still
-displayed and discussed as part of the city's Grail tradition.
+there in 2006.
+
+<InlineImage
+  src={sacroCatino}
+  alt="The Sacro Catino, a green glass hexagonal dish, displayed in the treasury of Genoa Cathedral"
+  caption="The Sacro Catino, Genoa Cathedral treasury"
+  credit="José Luiz Bernardes Ribeiro, Wikimedia Commons, CC BY-SA 3.0"
+  side="left"
+/>
+
+Genoa's Sacro Catino, a green glass dish once believed to be a single
+carved emerald, held its own claim for centuries before being shown in
+the 19th century to be glass, not gemstone - though it is still displayed
+and discussed as part of the city's Grail tradition.
 
 Neither claim settles the question, and this entry isn't trying to. The
 Grail's real power has always been less about which cup is authentic and

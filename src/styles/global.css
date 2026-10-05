@@ -78,6 +78,9 @@ body {
   color: var(--color-ink);
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
+  /* Always start on its own full-width line, even after a floated
+     InlineImage - a heading sitting beside a picture reads as a layout bug. */
+  clear: both;
 }
 
 .legend-body :where(p) {

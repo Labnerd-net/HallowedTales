@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  credit?: string;
+  figureClass?: string;
+  thumbClass?: string;
+}
+
+const { src, alt, caption, credit, figureClass = '', thumbClass = '' } = Astro.props;
+const dialogId = `gallery-dialog-${crypto.randomUUID()}`;
+---
+
+<figure class:list={['overflow-hidden rounded-lg border border-gold/30 bg-surface', figureClass]}>
+  <button
+    type="button"
+    class:list={['block w-full cursor-zoom-in', thumbClass]}
+    data-gallery-open={dialogId}
+    aria-label={`Enlarge image: ${alt}`}
+  >
+    <Image src={src} alt={alt} width={640} class="h-full w-full object-cover" />
+  </button>
+  {(caption || credit) && (
+    <figcaption class="px-4 py-3 text-sm text-ink-soft">
+      {caption && <span>{caption}</span>}
+      {credit && <span class="mt-1 block text-xs text-ink-soft/70">{credit}</span>}
+    </figcaption>
+  )}
+
+  <dialog id={dialogId} class="gallery-dialog max-h-[90vh] max-w-[90vw] rounded-lg bg-surface p-0">
+    <div class="relative">
+      <button
+        type="button"
+        data-gallery-close
+        aria-label="Close enlarged image"
+        class="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-ink/70 text-lg text-white hover:bg-ink"
+      >
+        &times;
+      </button>
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        class="max-h-[90vh] max-w-[90vw] object-contain"
+      />
+      {(caption || credit) && (
+        <figcaption class="px-4 py-3 text-sm text-ink-soft">
+          {caption && <span>{caption}</span>}
+          {credit && <span class="mt-1 block text-xs text-ink-soft/70">{credit}</span>}
+        </figcaption>
+      )}
+    </div>
+  </dialog>
+</figure>
+
+<style>
+  .gallery-dialog::backdrop {
+    background: rgb(0 0 0 / 0.75);
+  }
+
+  .gallery-dialog {
+    margin: auto;
+  }
+</style>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+
+    const openTrigger = target.closest<HTMLElement>('[data-gallery-open]');
+    if (openTrigger) {
+      const id = openTrigger.dataset.galleryOpen;
+      const dialog = id && document.getElementById(id);
+      if (dialog instanceof HTMLDialogElement) dialog.showModal();
+      return;
+    }
+
+    const closeTrigger = target.closest('[data-gallery-close]');
+    if (closeTrigger) {
+      closeTrigger.closest('dialog')?.close();
+      return;
+    }
+
+    if (target instanceof HTMLDialogElement && target.open) {
+      target.close();
+    }
+  });
+</script>

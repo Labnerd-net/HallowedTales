@@ -1,16 +1,5 @@
 ---
 title: "The Keys of St. Peter"
-images:
-  - src: "./perugino-delivery-of-keys.jpg"
-    alt: "Fresco of Christ handing a pair of keys to a kneeling St. Peter, surrounded by the apostles"
-    caption: "Christ Handing the Keys to St. Peter, Pietro Perugino, Sistine Chapel (1481-82)"
-    credit: "Pietro Perugino, Wikimedia Commons, public domain"
-    kind: artwork
-  - src: "./vatican-flag.png"
-    alt: "Flag of Vatican City: a gold field and a white field bearing the crossed gold-and-silver keys beneath a papal tiara"
-    caption: "The crossed keys and tiara on the flag of Vatican City"
-    credit: "Goran tek-en, Wikimedia Commons, public domain"
-    kind: illustration
 saints:
   - peter-the-apostle
 earliestSource:
@@ -43,6 +32,10 @@ tags:
 published: true
 ---
 
+import InlineImage from '../../../components/InlineImage.astro';
+import peruginoFresco from './perugino-delivery-of-keys.jpg';
+import vaticanFlag from './vatican-flag.png';
+
 Two keys, crossed in an X and bound together with a cord, sit beneath a
 papal tiara. It's one of the most widely reproduced images connected to the
 Catholic Church - stamped on the Vatican flag, carved into the facade of
@@ -50,6 +43,14 @@ St. Peter's Basilica, worked into papal coats of arms for centuries. The
 image traces back to a single line of dialogue.
 
 ## "I will give you the keys"
+
+<InlineImage
+  src={peruginoFresco}
+  alt="Fresco of Christ handing a pair of keys to a kneeling St. Peter, surrounded by the apostles"
+  caption="Christ Handing the Keys to St. Peter, Pietro Perugino, Sistine Chapel (1481-82)"
+  credit="Pietro Perugino, Wikimedia Commons, public domain"
+  side="right"
+/>
 
 In Matthew's Gospel, after Peter - the apostle Jesus named the rock of the
 Church - identifies Jesus as the Christ, Jesus responds: "I will give you
@@ -82,6 +83,14 @@ individual popes, and on papal basilicas around the world, which mark
 their status by displaying the crossed keys alongside their own facade.
 
 ## Why it still matters
+
+<InlineImage
+  src={vaticanFlag}
+  alt="Flag of Vatican City: a gold field and a white field bearing the crossed gold-and-silver keys beneath a papal tiara"
+  caption="The crossed keys and tiara on the flag of Vatican City"
+  credit="Goran tek-en, Wikimedia Commons, public domain"
+  side="left"
+/>
 
 The keys are one of the rare Catholic symbols that moved fully into
 everyday language outside devotional contexts. "Keys to the kingdom" gets
