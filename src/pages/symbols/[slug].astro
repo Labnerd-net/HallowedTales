@@ -6,6 +6,7 @@ import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findReferencingEntries, findBySaint } from '../../lib/related';
 import { registerSaintHref } from '../../lib/registerLink';
+import { formatSaints } from '../../lib/saints';
 
 export const prerender = true;
 
@@ -34,9 +35,9 @@ const sameSaint = (await findBySaint(saints, 'symbols', entry.id)).filter(
 
 const registerHref = registerSaintHref(saints);
 
+const saintNames = formatSaints(saints);
 const meta = [
-  meaning,
-  ...(saints && saints.length > 0 ? [saints.join(', ')] : []),
+  ...(saintNames ? [saintNames] : []),
   ...(earliestSource ? [`Earliest source: ${earliestSource.approxDate}`] : []),
 ];
 ---
@@ -45,6 +46,7 @@ const meta = [
   <Hero
     eyebrow="Symbol"
     title={title}
+    subtitle={meaning}
     meta={meta}
     note={
       registerHref

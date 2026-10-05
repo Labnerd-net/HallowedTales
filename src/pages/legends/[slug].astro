@@ -6,6 +6,7 @@ import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findReferencingEntries, findBySaint } from '../../lib/related';
 import { registerSaintHref } from '../../lib/registerLink';
+import { formatSaints } from '../../lib/saints';
 
 export const prerender = true;
 
@@ -39,7 +40,7 @@ const registerHref = registerSaintHref(saints);
   <Hero
     eyebrow="Legend"
     title={title}
-    meta={[saints.join(', '), `Earliest source: ${earliestSource.approxDate}`]}
+    meta={[formatSaints(saints)!, `Earliest source: ${earliestSource.approxDate}`]}
     note={
       registerHref
         ? "This saint also has a documented miracle case on The Miracle Register."
