@@ -70,6 +70,11 @@ const traditions = defineCollection({
       'regional-festival',
       'naming',
       'weather-lore',
+      // "Traditions born of persecution / concealment" section of Pillar 2
+      // (Mass rocks, priest holes, ring rosaries) - customs that exist
+      // specifically because open Catholic worship was banned, not tied to
+      // a feast day or object the way the other categories are.
+      'persecution-custom',
     ]),
     saints: z.array(z.string()).optional(),
     // Not every tradition pins to a fixed calendar date (regional festivals

@@ -21,12 +21,11 @@ of that decision.
   arriving by boat covered in shells. Strong crossover with the regional-pilgrimage material in
   Pillar 2. Also a logo candidate (see memory: `hallowedtales-logo-options`) - same note as the
   keys above.
-- **Chi-Rho / "In Hoc Signo Vinces"** — Constantine's vision before the Milvian Bridge. Sits
-  right at the edge of "Catholic vs. just early Christian/Roman history" — frame it through how
-  the symbol was adopted into later Catholic use (catacombs, sarcophagi, the Paschal candle),
-  not as a standalone Constantine biography. Full source pass already done — see
-  `context/Notes/Chi-Rho Symbol - Source Pass.md`, including vetted Wikimedia Commons image
-  candidates and license info. Next entry to draft.
+- **Chi-Rho / "In Hoc Signo Vinces"** — Constantine's vision before the Milvian Bridge. Already
+  published — see `chi-rho`. Sits right at the edge of "Catholic vs. just early
+  Christian/Roman history" — the published entry resolves that by framing it through how the
+  symbol was adopted into later Catholic use (catacombs, sarcophagi, the Paschal candle), not as
+  a standalone Constantine biography.
 - **Sacred Heart** — image revealed to St. Margaret Mary Alacoque in 17th-century visions; good
   devotion-origin piece, same "private revelation" shape as Divine Mercy (Pillar 1, Devotional
   art origin stories).

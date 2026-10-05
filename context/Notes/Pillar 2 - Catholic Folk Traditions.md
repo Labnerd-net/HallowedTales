@@ -93,10 +93,9 @@ the cultural flavor varies a lot by country.
 "Persecution-era legends" section in Pillar 1 and the catacomb-symbol material in Pillar 5. Keep
 watching for more candidates here.)
 
-- **Mass rocks (Ireland)** — during the Penal Laws (17th-18th c.), when Catholic worship was
-  banned, Mass was said secretly outdoors on remote boulders in the countryside, with lookouts
-  posted to watch for soldiers. Strong "custom people still visit today + the history behind it"
-  shape; many Mass rocks are still marked and visited as local pilgrimage sites.
+- **Mass rocks (Ireland)** — already published, see `mass-rocks-ireland`. New `traditions`
+  category value `persecution-custom` was added to `src/content.config.ts` for this entry and
+  the two below.
 - **Priest holes (recusant England)** — Catholic households under Elizabethan/Jacobean
   persecution built hidden chambers into manor houses to conceal priests during raids. More
   architecture-and-history than a single legend, but rich "how the faith survived" material.
