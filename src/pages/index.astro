@@ -5,11 +5,13 @@ import Hero from '../components/Hero.astro';
 import LegendCard from '../components/LegendCard.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
 import { excerptFrom } from '../lib/excerpt';
+import { getUpcomingFeastDays } from '../lib/feastDays';
 
 const legendEntries = await getCollection('legends');
 const traditionEntries = await getCollection('traditions');
 const relicEntries = await getCollection('relics');
 const phenomenaEntries = await getCollection('phenomena');
+const upcomingFeastDays = await getUpcomingFeastDays(3);
 ---
 
 <Layout title="Hallowed Tales">
@@ -120,9 +122,16 @@ const phenomenaEntries = await getCollection('phenomena');
     <section class="mt-16">
       <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Upcoming Feast Days</h2>
       <div class="flex flex-wrap gap-5">
-        <FeastDayTile month="Feb" day="3" saint="St. Blaise" custom="Blessing of the throats" fill="gold" />
-        <FeastDayTile month="Dec" day="6" saint="St. Nicholas" custom="Shoes by the door, coins and sweets" fill="accent" />
-        <FeastDayTile month="Mar" day="17" saint="St. Patrick" custom="Shamrocks and the driving-out of snakes" fill="gold" />
+        {upcomingFeastDays.map((feastDay, i) => (
+          <FeastDayTile
+            href={feastDay.href}
+            month={feastDay.month}
+            day={feastDay.day}
+            title={feastDay.title}
+            excerpt={feastDay.excerpt}
+            fill={i % 2 === 0 ? 'gold' : 'accent'}
+          />
+        ))}
       </div>
     </section>
   </main>

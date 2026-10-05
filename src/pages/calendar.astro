@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getFixedFeasts, getMovableFeastsInMonth } from '../lib/feasts';
+import { getContentFeastDaysInMonth } from '../lib/feastDays';
+
+const MONTH_NAMES = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+const DOW_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const now = new Date();
+const todayYear = now.getUTCFullYear();
+const todayMonth = now.getUTCMonth() + 1;
+const todayDay = now.getUTCDate();
+
+const rawMonth = Astro.url.searchParams.get('month');
+const rawYear = Astro.url.searchParams.get('year');
+
+let month = rawMonth ? parseInt(rawMonth, 10) : todayMonth;
+let year = rawYear ? parseInt(rawYear, 10) : todayYear;
+if (isNaN(month) || month < 1 || month > 12) month = todayMonth;
+if (isNaN(year) || year < 2020 || year > 2099) year = todayYear;
+
+const prevMonth = month === 1 ? 12 : month - 1;
+const prevYear = month === 1 ? year - 1 : year;
+const nextMonth = month === 12 ? 1 : month + 1;
+const nextYear = month === 12 ? year + 1 : year;
+
+const monthName = MONTH_NAMES[month - 1];
+
+const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+const firstDayOfWeek = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
+
+const movableThisMonth = getMovableFeastsInMonth(year, month);
+const contentThisMonth = await getContentFeastDaysInMonth(year, month);
+
+interface DayCell {
+  feasts: string[];
+  content: { href: string; title: string }[];
+}
+const cells = new Map<number, DayCell>();
+function getCell(day: number): DayCell {
+  if (!cells.has(day)) cells.set(day, { feasts: [], content: [] });
+  return cells.get(day)!;
+}
+
+for (let day = 1; day <= daysInMonth; day++) {
+  for (const feast of getFixedFeasts(month, day)) {
+    getCell(day).feasts.push(feast.name);
+  }
+}
+for (const feast of movableThisMonth) {
+  getCell(feast.day).feasts.push(feast.name);
+}
+for (const entry of contentThisMonth) {
+  getCell(entry.day).content.push({ href: entry.href, title: entry.title });
+}
+
+const totalCells = 42;
+const grid: (number | null)[] = Array(firstDayOfWeek).fill(null);
+for (let d = 1; d <= daysInMonth; d++) grid.push(d);
+while (grid.length < totalCells) grid.push(null);
+
+const isCurrentMonth = year === todayYear && month === todayMonth;
+const agendaDays = Array.from({ length: daysInMonth }, (_, i) => i + 1).filter((d) => cells.has(d));
+---
+
+<Layout title={`${monthName} ${year} Feast Day Calendar`}>
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <div class="mb-8 flex items-center justify-between gap-4">
+      <a
+        href={`/calendar?month=${prevMonth}&year=${prevYear}`}
+        class="px-3 py-2 text-ink-soft hover:text-ink"
+        aria-label="Previous month"
+      >
+        &larr;
+      </a>
+      <div class="text-center">
+        <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">Feast Day Calendar</p>
+        <h1 class="font-display text-3xl font-semibold text-ink">{monthName} {year}</h1>
+      </div>
+      <a
+        href={`/calendar?month=${nextMonth}&year=${nextYear}`}
+        class="px-3 py-2 text-ink-soft hover:text-ink"
+        aria-label="Next month"
+      >
+        &rarr;
+      </a>
+    </div>
+
+    <!-- Mobile agenda -->
+    <div class="flex flex-col divide-y divide-surface-alt md:hidden">
+      {agendaDays.map((day) => {
+        const cell = cells.get(day)!;
+        const dow = DOW_NAMES[(firstDayOfWeek + day - 1) % 7];
+        const isToday = isCurrentMonth && day === todayDay;
+        return (
+          <div class:list={['flex gap-4 py-3', isToday && 'bg-surface-alt px-2']}>
+            <div class="flex w-10 shrink-0 flex-col items-center">
+              <span class:list={['text-lg font-semibold', isToday ? 'text-accent' : 'text-ink']}>{day}</span>
+              <span class="text-[10px] tracking-wide text-ink-soft uppercase">{dow}</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              {cell.content.map((c) => (
+                <a href={c.href} class="text-sm font-medium text-accent hover:underline">{c.title}</a>
+              ))}
+              {cell.feasts.map((f) => (
+                <span class="text-sm text-ink-soft">{f}</span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Desktop grid -->
+    <div class="hidden grid-cols-7 border-t border-l border-surface-alt md:grid">
+      {DOW_NAMES.map((d) => (
+        <div class="border-r border-b border-surface-alt px-3 py-2 text-xs font-medium tracking-wide text-ink-soft uppercase">
+          {d}
+        </div>
+      ))}
+      {grid.map((day) => {
+        if (day === null) return <div class="min-h-28 border-r border-b border-surface-alt bg-surface-alt/40" />;
+        const cell = cells.get(day);
+        const isToday = isCurrentMonth && day === todayDay;
+        return (
+          <div class:list={['min-h-28 border-r border-b border-surface-alt p-2', isToday && 'bg-surface-alt']}>
+            <span class:list={['mb-1 block text-xs font-medium', isToday ? 'text-accent' : 'text-ink-soft']}>{day}</span>
+            <div class="flex flex-col gap-0.5">
+              {cell?.content.map((c) => (
+                <a href={c.href} class="text-[11px] leading-tight font-medium text-accent hover:underline">{c.title}</a>
+              ))}
+              {cell?.feasts.map((f) => (
+                <span class="text-[11px] leading-tight text-ink-soft">{f}</span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <div class="mt-6 flex gap-6 border-t border-surface-alt pt-4 text-xs">
+      <span class="font-medium text-accent">A HallowedTales entry</span>
+      <span class="text-ink-soft">Liturgical feast (reference only)</span>
+    </div>
+  </main>
+</Layout>

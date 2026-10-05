@@ -78,6 +78,9 @@ const traditions = defineCollection({
       .object({
         month: z.string(),
         day: z.string(),
+        // Days from Easter Sunday, for movable feasts (Palm Sunday = -7)
+        // where `day` is a placeholder like "varies" rather than a number.
+        easterOffset: z.number().optional(),
       })
       .optional(),
     regions: z.array(z.string()).optional(),
@@ -121,6 +124,7 @@ const relics = defineCollection({
       .object({
         month: z.string(),
         day: z.string(),
+        easterOffset: z.number().optional(),
       })
       .optional(),
     earliestSource: z

@@ -4,6 +4,7 @@ category: liturgical-object
 feastDay:
   month: "Apr"
   day: "varies"
+  easterOffset: -7
 regions:
   - Worldwide (Latin Rite parishes)
 historicalNote: >

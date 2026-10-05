@@ -1,16 +1,20 @@
 ---
 interface Props {
+  href: string;
   month: string;
   day: string;
-  saint: string;
-  custom: string;
+  title: string;
+  excerpt: string;
   fill?: 'gold' | 'accent';
 }
 
-const { month, day, saint, custom, fill = 'gold' } = Astro.props;
+const { href, month, day, title, excerpt, fill = 'gold' } = Astro.props;
 ---
 
-<div class="flex w-72 items-center gap-4 rounded-lg bg-surface p-4 shadow-md">
+<a
+  href={href}
+  class="flex w-72 items-center gap-4 rounded-lg bg-surface p-4 shadow-md transition-transform hover:-translate-y-1"
+>
   <div
     class:list={[
       'flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-md font-display',
@@ -21,7 +25,7 @@ const { month, day, saint, custom, fill = 'gold' } = Astro.props;
     <span class="text-2xl leading-none font-semibold">{day}</span>
   </div>
   <div>
-    <p class="font-display text-lg leading-tight font-semibold text-ink">{saint}</p>
-    <p class="text-xs text-ink-soft">{custom}</p>
+    <p class="font-display text-lg leading-tight font-semibold text-ink">{title}</p>
+    <p class="text-xs text-ink-soft">{excerpt}</p>
   </div>
-</div>
+</a>
