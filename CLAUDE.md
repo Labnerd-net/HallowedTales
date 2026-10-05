@@ -53,6 +53,7 @@ Register. Want the folklore and traditions around them? → HallowedTales."
 | 2 | Catholic folk traditions (feast-day customs, liturgical-object traditions, food traditions, regional patronal festivals, naming traditions, weather folklore) | Confirmed |
 | 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | Confirmed for the Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, etc.). Shared-Old-Testament-origin "legendary quest" entries (Ark of the Covenant, Noah's Ark, Grail, Prester John) are not excluded but evaluated case by case. Shroud of Turin / Sudarium of Oviedo stay excluded (too close to the Register's contested-evidence territory). See `context/Notes/Pillar 3 - Biblical Artifacts and Legendary Relics.md`. |
 | 4 | Mystical phenomena from saints' lives (bilocation, levitation, inedia, luminosity, odor of sanctity) | Confirmed. Can overlap with the Register case-by-case (e.g. Padre Pio's bilocation lives on both) — see Pillar 4 note for the rule. |
+| 5 | Catholic symbols (Chi-Rho, scallop shell, crossed keys, Sacred Heart, pelican, Tau cross, etc.) — meaning, origin, and how usage changed across eras | Confirmed. Split out from Pillar 1 rather than folded into legends: some entries anchor to one saint's experience (scallop shell, keys of St. Peter) and would fit the `legends` shape, but others (fish/ichthys, Chi-Rho, the pelican) have no single saint to anchor to, and the content is "what it means + how it's been used over time," not a narrative with retellings. See `context/Notes/Pillar 5 - Symbols.md`. |
 
 First-pass content research for each pillar lives in `context/Notes/Pillar N - *.md`. Treat those
 as a working list, not a final content plan — every entry still needs a real source pass before
@@ -99,12 +100,14 @@ derived rather than requiring a second edit on the target entry — see
 `findReferencingEntries` in `src/lib/related.ts`.
 
 **Same-saint cross-linking** is a separate, fully-derived mechanism from `relatedLegends`: every
-entry with a `saints` field (legends, traditions, phenomena — relics has no `saints` field) that
-shares a saint slug with the current entry gets surfaced in a "More about this saint" section,
-computed from `saints` rather than curated per pair. This is deliberately distinct from
+entry with a `saints` field (legends, traditions, phenomena, symbols — relics has no `saints`
+field) that shares a saint slug with the current entry gets surfaced in a "More about this saint"
+section, computed from `saints` rather than curated per pair. This is deliberately distinct from
 `relatedLegends`, which is scoped to shared motif/lineage (Hubert/Eustace), not merely "same
 saint" — two unrelated stories about the same saint (the two St. Francis legends) belong in the
-same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.ts`.
+same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.ts`. Unlike
+`legends`/`phenomena`, `saints` is optional on `symbols` — a symbol with no single saint behind it
+(the fish, the pelican) just sits out of this section rather than forcing a tag.
 
 ---
 
@@ -132,8 +135,8 @@ source, rough date, "what we actually know historically" contrast) before publis
 ## Implementation Order
 
 1. Astro + Cloudflare Workers base
-2. Content Collections schema for Pillars 1, 2, 4 (Pillar 1 done — see `src/content.config.ts`;
-   variant modeling decided, see Tech Stack section)
+2. Content Collections schema for Pillars 1, 2, 4, 5 (Pillars 1 and 5 done — see
+   `src/content.config.ts`; variant modeling decided, see Tech Stack section)
 3. Static pages rendering from content collections
 4. Drizzle/D1 setup — only once there's an actual relational need (cross-linking, search,
    tags), not up front

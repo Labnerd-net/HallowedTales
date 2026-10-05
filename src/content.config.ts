@@ -173,11 +173,10 @@ const phenomena = defineCollection({
 // Symbol-origin-story entries (Chi-Rho, scallop shell, Sacred Heart, crossed keys, ...).
 // Deliberately its own collection rather than folded into `legends`: some of these
 // entries anchor to one saint's experience and look like a legend (scallop shell,
-// Sacred Heart), but others (fish/ichthys, Chi-Rho, the pelican) have no single saint
-// to require, and what the entry needs to say is "what it means + how its use
-// evolved across eras," not "a story and its narrative retellings" (`variants`).
-// `saints` stays optional here for that reason, unlike `legends`/`phenomena` where
-// it's required.
+// keys of St. Peter), but others (fish/ichthys, Chi-Rho, the pelican) have no single
+// saint to require, and what the entry needs to say is "what it means + how its use
+// evolved across eras," not purely a narrative. `saints` stays optional here for
+// that reason, unlike `legends`/`phenomena` where it's required.
 const symbols = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/symbols' }),
   schema: ({ image }) => z.object({
@@ -193,6 +192,18 @@ const symbols = defineCollection({
       })
       .optional(),
     historicalNote: z.string().optional(),
+    // Different readings of the symbol (the keys' gold/silver meaning) or small
+    // differences in how its origin is told - same shape as `legends.variants`,
+    // reused here for interpretive variants as much as narrative ones.
+    variants: z
+      .array(
+        z.object({
+          label: z.string(),
+          detail: z.string(),
+          note: z.string().optional(),
+        })
+      )
+      .optional(),
     // How the symbol's use changed across eras - the "catacombs -> labarum ->
     // sarcophagi -> Paschal candle -> heraldry" shape, not narrative variants.
     usageTimeline: z

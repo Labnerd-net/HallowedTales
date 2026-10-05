@@ -1,6 +1,6 @@
 Source pass for the Chi-Rho entry listed under "Symbol origin stories" in
-`Pillar 1 - Legendary Biography Material.md`. Not published content - this is the
-research/sourcing step the README calls for before drafting.
+`Pillar 5 - Symbols.md`. Not published content - this is the research/sourcing step the
+README calls for before drafting.
 
 ## The legend as usually told
 
@@ -63,26 +63,21 @@ This is the part worth building the piece around, rather than a Constantine biog
 
 ## Guardrail note
 
-Already flagged in the Pillar 1 doc as sitting at the edge of "Catholic vs. just early-
+Already flagged in the Pillar doc as sitting at the edge of "Catholic vs. just early-
 Christian/Roman-history." Given the research above, the fix is in the framing: lead with the
 vision-legend as the hook, keep Constantine's biography brief, and spend the back half on the
 symbol's actual life in Catholic art and liturgy (sarcophagi, Paschal candle, heraldry) rather
 than Roman military history.
 
-## Schema snag to resolve before drafting
+## Schema snag - resolved
 
-The `legends` collection schema requires `saints: array, min 1`
-(`src/content.config.ts`). Constantine is not a canonized saint in the Catholic Church
-(he's venerated as a saint in Eastern Orthodoxy/Eastern Catholic calendars, commemorated with
-St. Helena on May 21, but not in the Latin rite's canon). Options, not decided here:
-
-1. Tag `saints: [helena]` - Helena is canonized, already appears via `true-cross.md`, and is
-   closely tied to Constantine's broader story, even though she isn't a character in the
-   vision legend itself.
-2. Tag `saints: [constantine]` anyway, leaning on the Eastern Catholic veneration as the
-   justification (similar precedent to how the Pillar 3 note handles shared-origin material).
-3. Revisit whether symbol-origin entries without a venerated-saint anchor need a schema
-   change rather than forcing a fit.
+This entry is the reason the `symbols` collection (`src/content.config.ts`) has `saints` as
+optional rather than required like `legends`/`phenomena`: Constantine isn't a canonized saint in
+the Catholic Church (he's venerated as a saint in Eastern Orthodoxy/Eastern Catholic calendars,
+commemorated with St. Helena on May 21, but not in the Latin rite's canon), so there's no saint
+slug this entry is obligated to carry. At drafting time, either leave `saints` off entirely, or
+set `saints: [helena]` if the piece ends up discussing her role in Constantine's story - that's
+a content call for the draft, not a schema blocker anymore.
 
 ## Image candidates (Wikimedia Commons, vetted for license)
 
@@ -103,5 +98,5 @@ St. Helena on May 21, but not in the Latin rite's canon). Options, not decided h
    Chi-Rho. Don't use without visually confirming the actual symbol in the photo.
 
 None require purchase or formal clearance. Files have not been downloaded into the repo yet -
-that's a drafting-time step (`src/content/legends/<slug>/` images, per `imagesField` in
+that's a drafting-time step (`src/content/symbols/chi-rho/` images, per `imagesField` in
 `src/content.config.ts`, with `credit` set from the license info above).

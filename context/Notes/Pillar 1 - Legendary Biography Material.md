@@ -52,25 +52,6 @@ this site, but it still means claims below need a real source pass before publis
   Italian for "shipped") mistaken for a saint's name. Fun, light, explicitly a legend-about-a-
   legend — a good way to show the site's own honesty about how folklore works.
 
-## Symbol origin stories
-
-- **Fish / ichthys** — early Christians' secret identifier; the Greek acronym (Iesous Christos
-  Theou Yios Soter), catacomb graffiti use. Historically pre-dates the Catholic/Protestant
-  split, so it's fair Pillar 1 material even though it was ruled out as the site's own logo mark
-  (reads evangelical/bumper-sticker-coded today — a branding call, not a content one).
-- **Scallop shell** — St. James/Camino de Santiago pilgrimage symbol; legend ties it to his body
-  arriving by boat covered in shells. Strong crossover with the regional-pilgrimage material in
-  Pillar 2.
-- **Chi-Rho / "In Hoc Signo Vinces"** — Constantine's vision before the Milvian Bridge. Sits
-  right at the edge of "Catholic vs. just early Christian/Roman history" — frame it through how
-  the symbol was adopted into later Catholic use, not as a standalone Constantine biography.
-- **Sacred Heart** — image revealed to St. Margaret Mary Alacoque in 17th-century visions; good
-  devotion-origin piece, same "private revelation" shape as Divine Mercy below.
-- **Pelican piercing her own breast** — medieval legend that a mother pelican feeds her young
-  with her own blood; adopted as a Eucharistic/self-sacrifice symbol, shows up in church
-  architecture and hymns (*Adoro Te Devote*).
-- **Tau cross** — associated with St. Francis, who adopted it as a personal signature/seal.
-
 ## Prayer origin stories
 
 - **St. Michael Prayer** — composed by Pope Leo XIII, traditionally said to follow a vision or
