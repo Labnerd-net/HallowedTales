@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+// Berkshire Swash already loaded by Layout.astro
+import '@fontsource/medievalsharp/400.css';
+import '@fontsource/metamorphous/400.css';
+import '@fontsource/pirata-one/400.css';
+import '@fontsource/almendra-display/400.css';
 
 const sample =
   "This story comes from The Golden Legend, a 13th-century collection of " +
@@ -20,15 +25,10 @@ const candidates = [
   },
 ];
 
-const fontQuery = candidates
-  .map((c) => `family=${c.family.replace(/ /g, '+')}${c.weight !== 400 ? `:wght@${c.weight}` : ''}`)
-  .join('&');
-
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 ---
 
 <Layout title="Drop cap preview (temp)">
-  <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?${fontQuery}&display=swap`} />
   <meta name="robots" content="noindex" />
 
   <main class="mx-auto max-w-2xl px-8 py-12">
