@@ -7,6 +7,13 @@
     "binding": "ASSETS",
     "directory": "./dist/client"
   },
+  "kv_namespaces": [
+    {
+      "binding": "SESSION",
+      "id": "f2a58ca978ca4dc5810c898d587ea3ea",
+      "preview_id": "45747f7e85e24d69bae09e212c5cc477"
+    }
+  ],
   "observability": {
     "enabled": true
   }
