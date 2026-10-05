@@ -88,6 +88,19 @@ body {
   margin-bottom: 1.25rem;
 }
 
+/* Rubricated initial, the way a manuscript's opening letter was picked out
+   in red ink - hence ruby rather than gold or ink here. */
+.legend-body > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 0.8;
+  float: left;
+  padding-right: 0.5rem;
+  padding-top: 0.3rem;
+  color: var(--color-ruby);
+}
+
 .legend-body :where(strong) {
   color: var(--color-ink);
 }
