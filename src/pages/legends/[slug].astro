@@ -42,8 +42,8 @@ const registerHref = registerSaintHref(saints);
     meta={[saints.join(', '), `Earliest source: ${earliestSource.approxDate}`]}
     note={
       registerHref
-        ? 'This is a traditional story, not a verified historical record. Looking for the documented miracle case for this saint instead?'
-        : 'This is a traditional story, not a verified historical record.'
+        ? "This saint also has a documented miracle case on The Miracle Register."
+        : undefined
     }
     noteHref={registerHref}
     noteLabel={registerHref ? 'Visit The Miracle Register' : undefined}
