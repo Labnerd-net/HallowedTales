@@ -92,3 +92,13 @@ body {
   color: var(--color-ink);
 }
 
+/* Contains floated InlineImages so the body's own height accounts for them -
+   otherwise a float trailing the last paragraph rides into whatever follows
+   the body (the disclaimer footer), since floats don't add to parent height
+   on their own. */
+.legend-body::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
