@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sample =
+  "This story comes from The Golden Legend, a 13th-century collection of " +
+  "saints' lives that became one of the most widely read books of the " +
+  "Middle Ages. According to that telling, a dragon had taken up residence " +
+  "near the city of Silene, poisoning the surrounding countryside with its breath.";
+
+const candidates = [
+  { name: 'Berkshire Swash (current)', family: 'Berkshire Swash', weight: 400 },
+  { name: 'Pirata One', family: 'Pirata One', weight: 400 },
+  { name: 'UnifrakturMaguntia', family: 'UnifrakturMaguntia', weight: 400 },
+  { name: 'Cardo (bold)', family: 'Cardo', weight: 700 },
+  { name: 'MedievalSharp', family: 'MedievalSharp', weight: 400 },
+  { name: 'Metamorphous', family: 'Metamorphous', weight: 400 },
+  { name: 'Almendra Display', family: 'Almendra Display', weight: 400 },
+  { name: 'Tangerine (bold)', family: 'Tangerine', weight: 700 },
+];
+
+const fontQuery = candidates
+  .map((c) => `family=${c.family.replace(/ /g, '+')}${c.weight !== 400 ? `:wght@${c.weight}` : ''}`)
+  .join('&');
+---
+
+<Layout title="Drop cap preview (temp)">
+  <link rel="stylesheet" href={`https://fonts.googleapis.com/css2?${fontQuery}&display=swap`} />
+  <meta name="robots" content="noindex" />
+
+  <main class="mx-auto max-w-2xl px-8 py-12">
+    <h1 class="font-display text-3xl text-ink mb-2">Drop cap options</h1>
+    <p class="text-ink-soft mb-10">
+      Temp page for comparing drop-cap fonts on real body copy. Delete before merging.
+    </p>
+
+    {candidates.map((c) => (
+      <section class="mb-14">
+        <h2 class="font-display text-lg text-accent mb-3">{c.name}</h2>
+        <div
+          class="dropcap-sample legend-body font-body text-ink"
+          style={`--cap-font: '${c.family}'; --cap-weight: ${c.weight};`}
+        >
+          <p>{sample}</p>
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout>
+
+<style>
+  .dropcap-sample > p:first-of-type::first-letter {
+    font-family: var(--cap-font), var(--font-display);
+    font-weight: var(--cap-weight);
+    font-size: 5rem;
+    line-height: 0.8;
+    float: left;
+    padding-right: 0.5rem;
+    padding-top: 0.3rem;
+    color: var(--color-ruby);
+  }
+</style>
