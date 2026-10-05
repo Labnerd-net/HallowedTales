@@ -21,18 +21,22 @@ const colorLabel = color[0].toUpperCase() + color.slice(1);
 
 <div>
   <div class:list={['h-1.5 w-full', barClass[color]]}></div>
-  <p class="px-4 py-1 text-right text-[11px] tracking-wide text-ink-soft uppercase">
-    Today in the Church calendar: {label} &middot; {colorLabel}
-    {feasts.length > 0 && (
-      <>
-        {' '}&middot;{' '}
-        {feasts.map((feast, i) => (
-          <>
-            {i > 0 && ', '}
-            {feast.href ? <a href={feast.href} class="text-accent hover:underline">{feast.label}</a> : feast.label}
-          </>
-        ))}
-      </>
-    )}
-  </p>
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-1 text-[11px] tracking-wide text-ink-soft uppercase">
+    <p class="text-left">
+      {feasts.length > 0 && (
+        <>
+          Today's Feasts:{' '}
+          {feasts.map((feast, i) => (
+            <>
+              {i > 0 && ', '}
+              {feast.href ? <a href={feast.href} class="text-accent hover:underline">{feast.label}</a> : feast.label}
+            </>
+          ))}
+        </>
+      )}
+    </p>
+    <p class="text-right">
+      Today in the Church calendar: {label} &middot; {colorLabel}
+    </p>
+  </div>
 </div>
