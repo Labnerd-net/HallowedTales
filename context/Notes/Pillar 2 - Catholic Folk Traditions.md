@@ -32,9 +32,9 @@ legend/story behind why.
 (Flagged by the user as a favorite angle — good candidate to grow into its own file once this
 list gets long enough.)
 
-- **King Cake (Epiphany / Mardi Gras season)** — hidden bean or baby figurine baked inside;
-  whoever finds it has a role the following year (luck, or hosting duties, depending on
-  region). Ties to the Magi's visit on Epiphany.
+- **King Cake (Epiphany / Mardi Gras season)** — already published, see `king-cake-epiphany`.
+  Covers all three living variants (French galette/gâteau des rois, Spanish/Latin American
+  rosca de reyes, Louisiana Mardi Gras king cake) in one entry rather than splitting by region.
 - **Pretzels in Lent** — traditional shape said to represent arms crossed in prayer; original
   recipe (flour, water, salt only) matched strict Lenten fasting rules.
 - **Fish on Fridays** — the abstinence-from-meat practice and its folk knock-on effects (the
