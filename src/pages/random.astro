@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+
+Astro.response.headers.set('Cache-Control', 'no-store');
+
+const pillars = ['legends', 'traditions', 'relics', 'phenomena'] as const;
+const pillar = pillars[Math.floor(Math.random() * pillars.length)];
+
+const entries = (await getCollection(pillar)).filter((entry) => entry.data.published);
+const entry = entries[Math.floor(Math.random() * entries.length)];
+
+if (entry) {
+  return Astro.redirect(`/${pillar}/${entry.id}`);
+}
+
+return Astro.redirect('/');
+---
