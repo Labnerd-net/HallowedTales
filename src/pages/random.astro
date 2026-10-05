@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 
 Astro.response.headers.set('Cache-Control', 'no-store');
 
-const pillars = ['legends', 'traditions', 'relics', 'phenomena'] as const;
+const pillars = ['legends', 'traditions', 'relics', 'phenomena', 'symbols'] as const;
 const pillar = pillars[Math.floor(Math.random() * pillars.length)];
 
 const entries = (await getCollection(pillar)).filter((entry) => entry.data.published);

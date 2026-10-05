@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-const COLLECTIONS = ['legends', 'traditions', 'relics', 'phenomena'] as const;
+const COLLECTIONS = ['legends', 'traditions', 'relics', 'phenomena', 'symbols'] as const;
 type Collection = (typeof COLLECTIONS)[number];
 
 export const COLLECTION_LABELS: Record<Collection, string> = {
@@ -8,6 +8,7 @@ export const COLLECTION_LABELS: Record<Collection, string> = {
   traditions: 'Folk Tradition',
   relics: 'Relic & Legend',
   phenomena: 'Mystical Phenomenon',
+  symbols: 'Symbol',
 };
 
 export interface RelatedLink {
@@ -52,7 +53,9 @@ export async function findReferencingEntries(legendSlug: string): Promise<Relate
 
 // Collections that carry a `saints` field. Relics is excluded - a relic's
 // identity is its claimed locations/cluster, not a saint it belongs to.
-const SAINT_COLLECTIONS = ['legends', 'traditions', 'phenomena'] as const;
+// Symbols carries `saints` too, but optionally - entries with no saint (the
+// fish, the pelican) just won't show up on either side of this lookup.
+const SAINT_COLLECTIONS = ['legends', 'traditions', 'phenomena', 'symbols'] as const;
 
 // Other entries, in any saint-bearing collection, that cite at least one of
 // the same saint slugs - the "two Francis legends should point at each

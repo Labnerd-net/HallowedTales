@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+import RelatedList from '../../components/RelatedList.astro';
+import { resolveRelatedLegends, findReferencingEntries, findBySaint } from '../../lib/related';
+import { registerSaintHref } from '../../lib/registerLink';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('symbols');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, meaning, saints, earliestSource, images, relatedLegends } = entry.data;
+
+const forwardLinks = await resolveRelatedLegends(relatedLegends);
+const backwardLinks = await findReferencingEntries(entry.id);
+const seen = new Set<string>();
+const related = [...forwardLinks, ...backwardLinks].filter((link) =>
+  seen.has(link.href) ? false : (seen.add(link.href), true)
+);
+
+const sameSaint = (await findBySaint(saints, 'symbols', entry.id)).filter(
+  (link) => seen.has(link.href) ? false : (seen.add(link.href), true)
+);
+
+const registerHref = registerSaintHref(saints);
+
+const meta = [
+  meaning,
+  ...(saints && saints.length > 0 ? [saints.join(', ')] : []),
+  ...(earliestSource ? [`Earliest source: ${earliestSource.approxDate}`] : []),
+];
+---
+
+<Layout title={title}>
+  <Hero
+    eyebrow="Symbol"
+    title={title}
+    meta={meta}
+    note={
+      registerHref
+        ? "This saint also has a documented miracle case on The Miracle Register."
+        : undefined
+    }
+    noteHref={registerHref}
+    noteLabel={registerHref ? 'Visit The Miracle Register' : undefined}
+  />
+
+  <div class="mx-auto max-w-3xl px-8 pt-10">
+    <ImageGallery images={images} />
+  </div>
+
+  <main class="mx-auto max-w-3xl px-8 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+
+  <RelatedList links={sameSaint} heading="More about this saint" />
+  <RelatedList links={related} />
+</Layout>

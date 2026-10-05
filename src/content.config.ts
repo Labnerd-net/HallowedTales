@@ -170,4 +170,43 @@ const phenomena = defineCollection({
   }),
 });
 
-export const collections = { legends, traditions, relics, phenomena };
+// Symbol-origin-story entries (Chi-Rho, scallop shell, Sacred Heart, crossed keys, ...).
+// Deliberately its own collection rather than folded into `legends`: some of these
+// entries anchor to one saint's experience and look like a legend (scallop shell,
+// Sacred Heart), but others (fish/ichthys, Chi-Rho, the pelican) have no single saint
+// to require, and what the entry needs to say is "what it means + how its use
+// evolved across eras," not "a story and its narrative retellings" (`variants`).
+// `saints` stays optional here for that reason, unlike `legends`/`phenomena` where
+// it's required.
+const symbols = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/symbols' }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    images: imagesField(image),
+    // Short "what it represents" line, distinct from the longer body copy.
+    meaning: z.string(),
+    saints: z.array(z.string()).optional(),
+    earliestSource: z
+      .object({
+        citation: z.string(),
+        approxDate: z.string(),
+      })
+      .optional(),
+    historicalNote: z.string().optional(),
+    // How the symbol's use changed across eras - the "catacombs -> labarum ->
+    // sarcophagi -> Paschal candle -> heraldry" shape, not narrative variants.
+    usageTimeline: z
+      .array(
+        z.object({
+          era: z.string(),
+          note: z.string(),
+        })
+      )
+      .optional(),
+    relatedLegends: z.array(z.string()).optional(),
+    tags: z.array(z.string()).optional(),
+    published: z.boolean().default(false),
+  }),
+});
+
+export const collections = { legends, traditions, relics, phenomena, symbols };

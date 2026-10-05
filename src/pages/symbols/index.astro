@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LegendCard from '../../components/LegendCard.astro';
+import { excerptFrom } from '../../lib/excerpt';
+
+const entries = await getCollection('symbols');
+---
+
+<Layout title="Symbols">
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Symbols</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => {
+        const excerpt = excerptFrom(entry.body);
+        return (
+          <LegendCard
+            href={`/symbols/${entry.id}`}
+            badge="Symbol"
+            title={entry.data.title}
+            excerpt={excerpt}
+            meta={entry.data.meaning}
+          />
+        );
+      })}
+    </div>
+  </main>
+</Layout>

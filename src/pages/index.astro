@@ -10,6 +10,7 @@ import { getUpcomingFeastDays } from '../lib/feastDays';
 const legendEntries = await getCollection('legends');
 const traditionEntries = await getCollection('traditions');
 const relicEntries = await getCollection('relics');
+const symbolEntries = await getCollection('symbols');
 const phenomenaEntries = await getCollection('phenomena');
 const upcomingFeastDays = await getUpcomingFeastDays(3);
 ---
@@ -19,7 +20,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
     eyebrow="Hallowed Tales"
     title="The Stories Behind the Saints"
     subtitle="Catholic legend, folk tradition, and the charming history behind the customs people still keep today."
-    meta={['Legendary biography', 'Folk traditions', 'Mystical phenomena']}
+    meta={['Legendary biography', 'Folk traditions', 'Symbols', 'Mystical phenomena']}
   />
 
   <main class="mx-auto max-w-5xl px-8 py-16">
@@ -89,6 +90,29 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
                 title={entry.data.title}
                 excerpt={excerpt}
                 meta={meta}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="font-display text-3xl font-semibold text-ink">Symbols</h2>
+        <a href="/symbols" class="text-sm font-medium text-accent hover:underline">See all →</a>
+      </div>
+      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
+        {symbolEntries.map((entry) => {
+          const excerpt = excerptFrom(entry.body);
+          return (
+            <div class="w-72 flex-shrink-0 snap-start">
+              <LegendCard
+                href={`/symbols/${entry.id}`}
+                badge="Symbol"
+                title={entry.data.title}
+                excerpt={excerpt}
+                meta={entry.data.meaning}
               />
             </div>
           );

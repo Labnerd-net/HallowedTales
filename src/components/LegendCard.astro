@@ -1,5 +1,5 @@
 ---
-type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon';
+type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon' | 'Symbol';
 
 interface Props {
   href: string;
@@ -11,11 +11,12 @@ interface Props {
 
 const { href, badge, title, excerpt, meta } = Astro.props;
 
-const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet'> = {
+const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet' | 'gold'> = {
   Legend: 'accent',
   'Folk Tradition': 'ruby',
   'Relic & Legend': 'liturgical-green',
   'Mystical Phenomenon': 'liturgical-violet',
+  Symbol: 'gold',
 };
 const accentClass = accentByBadge[badge];
 
@@ -24,6 +25,7 @@ const borderClass = {
   ruby: 'border-ruby',
   'liturgical-green': 'border-liturgical-green',
   'liturgical-violet': 'border-liturgical-violet',
+  gold: 'border-gold',
 }[accentClass];
 
 const bgClass = {
@@ -31,6 +33,7 @@ const bgClass = {
   ruby: 'bg-ruby',
   'liturgical-green': 'bg-liturgical-green',
   'liturgical-violet': 'bg-liturgical-violet',
+  gold: 'bg-gold',
 }[accentClass];
 
 const textClass = {
@@ -38,7 +41,13 @@ const textClass = {
   ruby: 'text-ruby',
   'liturgical-green': 'text-liturgical-green',
   'liturgical-violet': 'text-liturgical-violet',
+  gold: 'text-gold',
 }[accentClass];
+
+// Gold's a bright/warm fill in both themes (see global.css), so it needs the
+// fixed dark ink used elsewhere on gold fills rather than the light canvas
+// text the other three badges use.
+const badgeTextClass = accentClass === 'gold' ? 'text-ink-fixed' : 'text-canvas';
 ---
 
 <a
@@ -47,7 +56,8 @@ const textClass = {
 >
   <span
     class:list={[
-      'mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium tracking-wide uppercase text-canvas',
+      'mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium tracking-wide uppercase',
+      badgeTextClass,
       bgClass,
     ]}
   >
