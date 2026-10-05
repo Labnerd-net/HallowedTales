@@ -87,6 +87,23 @@ the cultural flavor varies a lot by country.
 - Keep this category small and clearly folkloric/charming (almanac-style), not drifting toward
   unrelated folk-magic or weather-magic material.
 
+## Traditions born of persecution / concealment
+
+(User flagged interest in how the Church survived persecution — same thread as the new
+"Persecution-era legends" section in Pillar 1 and the catacomb-symbol material in Pillar 5. Keep
+watching for more candidates here.)
+
+- **Mass rocks (Ireland)** — during the Penal Laws (17th-18th c.), when Catholic worship was
+  banned, Mass was said secretly outdoors on remote boulders in the countryside, with lookouts
+  posted to watch for soldiers. Strong "custom people still visit today + the history behind it"
+  shape; many Mass rocks are still marked and visited as local pilgrimage sites.
+- **Priest holes (recusant England)** — Catholic households under Elizabethan/Jacobean
+  persecution built hidden chambers into manor houses to conceal priests during raids. More
+  architecture-and-history than a single legend, but rich "how the faith survived" material.
+- **Ring rosaries / "soldier's rosary"** — a ring with ten bumps or knots around the band, so a
+  decade of Hail Marys could be prayed discreetly without carrying a visible rosary. Ties
+  naturally into the existing liturgical-object section above.
+
 ## Parked for later (explicitly out of scope for now)
 
 - User flagged interest in eventually covering **Halloween and All Saints' / All Souls' Day**

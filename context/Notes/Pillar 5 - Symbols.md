@@ -35,6 +35,13 @@ of that decision.
   architecture and hymns (*Adoro Te Devote*). No saint to anchor `saints` to - a clean example of
   why that field is optional on this collection.
 - **Tau cross** — associated with St. Francis, who adopted it as a personal signature/seal.
+- **Catacomb concealment symbols (anchor, dove, peacock)** — chosen partly because they read as
+  plain decoration to outsiders while carrying Christian meaning to believers: the anchor hides
+  a cross in its shape (and doubles as a hope symbol), the dove signals peace/the Holy Spirit,
+  the peacock was tied to incorruptibility/resurrection. Natural companion piece to the existing
+  fish/ichthys entry above - same secret-identifier-under-persecution theme, worth covering as a
+  set rather than splitting into three separate entries. Part of the persecution-survival thread
+  the user flagged across Pillars 1, 2, and here - keep watching for more.
 
 ## Research notes
 

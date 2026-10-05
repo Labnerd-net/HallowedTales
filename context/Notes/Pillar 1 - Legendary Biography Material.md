@@ -52,6 +52,26 @@ this site, but it still means claims below need a real source pass before publis
   Italian for "shipped") mistaken for a saint's name. Fun, light, explicitly a legend-about-a-
   legend — a good way to show the site's own honesty about how folklore works.
 
+## Persecution-era legends
+
+(User flagged interest in how the Church survived under persecution — good recurring thread
+across this pillar, Pillar 2, and Pillar 5. Keep watching for more entries here.)
+
+- **"12 Days of Christmas" as secret catechism** — popular legend that the song's gifts were
+  coded references to Catholic doctrine, taught to children under English Penal Laws so the
+  faith could be passed on without written catechisms. Widely circulated but historians find no
+  evidence predating the 1990s — a clean "legend vs. what we actually know" piece in the same
+  vein as St. Philomena/St. Expeditus above, and a good fit for this site specifically since the
+  Register wouldn't touch a debunked claim like this at all.
+- **Kakure Kirishitan (Japan's "Hidden Christians")** — after Catholicism was banned in 1614,
+  Japanese Catholics practiced in secret for over 200 years, disguising Mary as the Buddhist
+  Kannon ("Maria Kannon" statues) and passing down prayers (*orasho*) orally. Powerful survival
+  story, but flag before drafting: the concealment method itself was syncretic (Buddhist
+  iconography standing in for Catholic devotion), which is structurally the same problem the
+  Day of the Dead case raises under the Catholic-only guardrail (see Overview.md). Case-by-case,
+  not a default yes — would need to be framed carefully around the Catholic core rather than the
+  blended iconography to fit this site's scope.
+
 ## Prayer origin stories
 
 - **St. Michael Prayer** — composed by Pope Leo XIII, traditionally said to follow a vision or
