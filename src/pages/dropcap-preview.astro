@@ -21,6 +21,8 @@ const candidates = [
 const fontQuery = candidates
   .map((c) => `family=${c.family.replace(/ /g, '+')}${c.weight !== 400 ? `:wght@${c.weight}` : ''}`)
   .join('&');
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 ---
 
 <Layout title="Drop cap preview (temp)">
@@ -42,6 +44,12 @@ const fontQuery = candidates
         >
           <p>{sample}</p>
         </div>
+        <div
+          class="alphabet-row text-ruby"
+          style={`font-family: '${c.family}'; font-weight: ${c.weight};`}
+        >
+          {alphabet.map((letter) => <span>{letter}</span>)}
+        </div>
       </section>
     ))}
   </main>
@@ -57,5 +65,14 @@ const fontQuery = candidates
     padding-right: 0.5rem;
     padding-top: 0.3rem;
     color: var(--color-ruby);
+  }
+
+  .alphabet-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    font-size: 2.25rem;
+    line-height: 1;
+    margin-top: 0.75rem;
   }
 </style>
