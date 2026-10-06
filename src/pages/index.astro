@@ -74,15 +74,26 @@ const phenomenaEntries = await getCollection('phenomena');
 const featured = legendEntries.find((entry) => entry.data.featured) ?? legendEntries[0];
 const featuredExcerpt = featured ? excerptFrom(featured.body) : '';
 
-// Sidebar mixes the other four pillars' first entry each, plus one more
-// legend (whichever isn't already the featured pick).
-const otherLegend = legendEntries.find((entry) => entry.id !== featured?.id);
+// Same pick-one-at-random approach as /random.astro, re-rolled on every
+// request since this page isn't prerendered (astro.config.mjs output: 'server').
+function pickRandom<T>(items: T[]): T | undefined {
+  return items.length ? items[Math.floor(Math.random() * items.length)] : undefined;
+}
+
+// Sidebar mixes a random entry from the other four pillars, plus one more
+// random legend (excluding whichever is the featured pick).
+const randomLegend = pickRandom(legendEntries.filter((entry) => entry.data.published && entry.id !== featured?.id));
+const randomTradition = pickRandom(traditionEntries.filter((entry) => entry.data.published));
+const randomRelic = pickRandom(relicEntries.filter((entry) => entry.data.published));
+const randomSymbol = pickRandom(symbolEntries.filter((entry) => entry.data.published));
+const randomPhenomenon = pickRandom(phenomenaEntries.filter((entry) => entry.data.published));
+
 const sidebarStories = [
-  traditionEntries[0] && { entry: traditionEntries[0], collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
-  relicEntries[0] && { entry: relicEntries[0], collection: 'relics', pillarKey: 'relics' as const, badge: 'Relic & Legend' },
-  symbolEntries[0] && { entry: symbolEntries[0], collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
-  phenomenaEntries[0] && { entry: phenomenaEntries[0], collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
-  otherLegend && { entry: otherLegend, collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
+  randomTradition && { entry: randomTradition, collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
+  randomRelic && { entry: randomRelic, collection: 'relics', pillarKey: 'relics' as const, badge: 'Relic & Legend' },
+  randomSymbol && { entry: randomSymbol, collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
+  randomPhenomenon && { entry: randomPhenomenon, collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
+  randomLegend && { entry: randomLegend, collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
 ]
   .filter((s): s is NonNullable<typeof s> => Boolean(s))
   .map((s) => ({ ...s, accentClass: pillarFor(s.pillarKey).accentClass }));
