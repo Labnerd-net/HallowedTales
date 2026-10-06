@@ -2,16 +2,45 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import LegendCard from '../components/LegendCard.astro';
+import PillarGlyph from '../components/PillarGlyph.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
 import { excerptFrom } from '../lib/excerpt';
 import { getUpcomingFeastDays } from '../lib/feastDays';
+import { PILLARS } from '../lib/pillarMeta';
+
+const countByPillar: Record<string, number> = {};
+for (const pillar of PILLARS) {
+  countByPillar[pillar.key] = (await getCollection(pillar.key as any)).length;
+}
+
+// Tailwind's scanner needs literal class strings, not `text-${var}` -
+// same pattern LegendCard.astro uses for its badge accent lookup.
+const countTextClass: Record<string, string> = {
+  accent: 'text-accent',
+  ruby: 'text-ruby',
+  'liturgical-green': 'text-liturgical-green',
+  gold: 'text-gold',
+  'liturgical-violet': 'text-liturgical-violet',
+};
 
 const legendEntries = await getCollection('legends');
 const traditionEntries = await getCollection('traditions');
 const relicEntries = await getCollection('relics');
 const symbolEntries = await getCollection('symbols');
 const phenomenaEntries = await getCollection('phenomena');
+
+const featured = legendEntries[0];
+const featuredExcerpt = featured ? excerptFrom(featured.body) : '';
+
+// Sidebar mixes the other four pillars' first entry each.
+const sidebarStories = [
+  traditionEntries[0] && { entry: traditionEntries[0], collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
+  relicEntries[0] && { entry: relicEntries[0], collection: 'relics', pillarKey: 'relics' as const, badge: 'Relic & Legend' },
+  symbolEntries[0] && { entry: symbolEntries[0], collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
+  phenomenaEntries[0] && { entry: phenomenaEntries[0], collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
+  legendEntries[1] && { entry: legendEntries[1], collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
+].filter((s): s is NonNullable<typeof s> => Boolean(s));
+
 const upcomingFeastDays = await getUpcomingFeastDays(3);
 ---
 
@@ -24,127 +53,68 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
   />
 
   <main class="mx-auto max-w-5xl px-8 py-16">
-    <section>
-      <div class="mb-6 flex items-baseline justify-between">
-        <h2 class="font-display text-3xl font-semibold text-ink">Legends</h2>
-        <a href="/legends" class="text-sm font-medium text-accent hover:underline">See all →</a>
-      </div>
-      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
-        {legendEntries.map((entry) => {
-          const excerpt = excerptFrom(entry.body);
-          return (
-            <div class="w-72 flex-shrink-0 snap-start">
-              <LegendCard
-                href={`/legends/${entry.id}`}
-                badge="Legend"
-                title={entry.data.title}
-                excerpt={excerpt}
-                meta={entry.data.earliestSource.approxDate}
-              />
+    <section class="grid gap-8 lg:grid-cols-3">
+      {featured && (
+        <a
+          href={`/legends/${featured.id}`}
+          class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 lg:col-span-2"
+        >
+          <PillarGlyph pillarKey="legends" size="lg" />
+          <div class="p-8">
+            <span class="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-medium tracking-wide text-canvas uppercase">
+              Featured Legend
+            </span>
+            <h2 class="mb-3 font-display text-3xl leading-snug font-semibold text-ink">{featured.data.title}</h2>
+            <p class="mb-4 text-base leading-relaxed text-ink-soft">{featuredExcerpt}</p>
+            <p class="text-sm font-medium text-accent group-hover:underline">Read the story &rarr;</p>
+          </div>
+        </a>
+      )}
+
+      <div class="flex flex-col gap-4">
+        <h2 class="font-display text-xl font-semibold text-ink">Read More</h2>
+        {sidebarStories.map(({ entry, collection, pillarKey, badge }) => (
+          <a
+            href={`/${collection}/${entry.id}`}
+            class="flex items-center gap-4 rounded-lg bg-surface p-3 shadow-sm transition-transform hover:-translate-y-0.5"
+          >
+            <PillarGlyph pillarKey={pillarKey} size="sm" />
+            <div class="min-w-0">
+              <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">{badge}</p>
+              <p class="line-clamp-2 font-display text-base leading-tight font-semibold text-ink">{entry.data.title}</p>
             </div>
-          );
-        })}
+          </a>
+        ))}
       </div>
     </section>
 
-    <section class="mt-16">
-      <div class="mb-6 flex items-baseline justify-between">
-        <h2 class="font-display text-3xl font-semibold text-ink">Folk Traditions</h2>
-        <a href="/traditions" class="text-sm font-medium text-accent hover:underline">See all →</a>
+    <section class="mt-14 border-t border-surface-alt pt-10">
+      <div class="mb-6">
+        <h2 class="font-display text-3xl font-semibold text-ink">Explore by Category</h2>
+        <p class="mt-2 text-sm text-ink-soft">Five ways into the lore - start wherever pulls you in.</p>
       </div>
-      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
-        {traditionEntries.map((entry) => {
-          const excerpt = excerptFrom(entry.body);
-          const meta = entry.data.feastDay
-            ? `${entry.data.feastDay.month} ${entry.data.feastDay.day}`
-            : entry.data.category.replace('-', ' ');
-          return (
-            <div class="w-72 flex-shrink-0 snap-start">
-              <LegendCard
-                href={`/traditions/${entry.id}`}
-                badge="Folk Tradition"
-                title={entry.data.title}
-                excerpt={excerpt}
-                meta={meta}
-              />
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {PILLARS.map((pillar) => (
+          <a
+            href={pillar.href}
+            class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1"
+          >
+            <PillarGlyph pillarKey={pillar.key} size="lg" />
+            <div class="p-6">
+              <h3 class="mb-2 font-display text-2xl font-semibold text-ink">{pillar.label}</h3>
+              <p class="mb-4 text-sm leading-relaxed text-ink-soft">{pillar.description}</p>
+              <p class:list={['text-xs font-medium', countTextClass[pillar.accentClass]]}>
+                {countByPillar[pillar.key]} {countByPillar[pillar.key] === 1 ? 'story' : 'stories'}
+                <span class="ml-2 group-hover:underline">Explore &rarr;</span>
+              </p>
             </div>
-          );
-        })}
+          </a>
+        ))}
       </div>
     </section>
 
-    <section class="mt-16">
-      <div class="mb-6 flex items-baseline justify-between">
-        <h2 class="font-display text-3xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h2>
-        <a href="/relics" class="text-sm font-medium text-accent hover:underline">See all →</a>
-      </div>
-      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
-        {relicEntries.map((entry) => {
-          const excerpt = excerptFrom(entry.body);
-          const meta = entry.data.claimedLocations.map((loc) => loc.site).join(' / ');
-          return (
-            <div class="w-72 flex-shrink-0 snap-start">
-              <LegendCard
-                href={`/relics/${entry.id}`}
-                badge="Relic & Legend"
-                title={entry.data.title}
-                excerpt={excerpt}
-                meta={meta}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </section>
-
-    <section class="mt-16">
-      <div class="mb-6 flex items-baseline justify-between">
-        <h2 class="font-display text-3xl font-semibold text-ink">Symbols</h2>
-        <a href="/symbols" class="text-sm font-medium text-accent hover:underline">See all →</a>
-      </div>
-      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
-        {symbolEntries.map((entry) => {
-          const excerpt = excerptFrom(entry.body);
-          return (
-            <div class="w-72 flex-shrink-0 snap-start">
-              <LegendCard
-                href={`/symbols/${entry.id}`}
-                badge="Symbol"
-                title={entry.data.title}
-                excerpt={excerpt}
-                meta={entry.data.meaning}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </section>
-
-    <section class="mt-16">
-      <div class="mb-6 flex items-baseline justify-between">
-        <h2 class="font-display text-3xl font-semibold text-ink">Mystical Phenomena</h2>
-        <a href="/phenomena" class="text-sm font-medium text-accent hover:underline">See all →</a>
-      </div>
-      <div class="flex gap-6 overflow-x-auto pt-2 pb-2 snap-x snap-mandatory [scrollbar-width:thin]">
-        {phenomenaEntries.map((entry) => {
-          const excerpt = excerptFrom(entry.body);
-          return (
-            <div class="w-72 flex-shrink-0 snap-start">
-              <LegendCard
-                href={`/phenomena/${entry.id}`}
-                badge="Mystical Phenomenon"
-                title={entry.data.title}
-                excerpt={excerpt}
-                meta={entry.data.phenomenonType.replace('-', ' ')}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </section>
-
-    <section class="mt-16">
-      <h2 class="mb-6 font-display text-3xl font-semibold text-ink">Upcoming Feast Days</h2>
+    <section class="mt-14 border-t border-surface-alt pt-10">
+      <h2 class="mb-6 font-display text-xl font-semibold text-ink">Upcoming Feast Days</h2>
       <div class="flex flex-wrap gap-5">
         {upcomingFeastDays.map((feastDay, i) => (
           <FeastDayTile
