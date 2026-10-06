@@ -35,7 +35,11 @@ Register. Want the folklore and traditions around them? → HallowedTales."
   applied case.
 - **Not dark.** No horror framing, no gore, no dwelling on martyrdom detail, no
   exorcism/demonic content. Tone stays warm and devotional/curious — "charming story behind a
-  tradition," not "creepy unexplained phenomenon."
+  tradition," not "creepy unexplained phenomenon." This excludes horror framing specifically, not
+  mortality as a subject - memento mori art, the Poor Souls/purgatory devotion, All Souls' Day
+  cemetery customs, soul cakes/souling, and similar death-aware-but-devotional material (Pillars 1
+  and 2's Halloween/All Saints/All Souls cluster) are in scope as long as they stay in "why this
+  tradition exists and what it means" territory rather than dwelling on suffering, decay, or fear.
 - These two rules override any individual content idea — if a specific legend or tradition can't
   be told without crossing one of them, cut it rather than sanitize it into something misleading.
 - **Scope breadth (decided):** all Catholic lore broadly, not just lore tied to saints/miracles
