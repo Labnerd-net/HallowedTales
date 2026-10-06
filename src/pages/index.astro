@@ -6,7 +6,7 @@ import PillarGlyph from '../components/PillarGlyph.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
 import { excerptFrom } from '../lib/excerpt';
 import { getUpcomingFeastDays } from '../lib/feastDays';
-import { PILLARS } from '../lib/pillarMeta';
+import { PILLARS, pillarFor } from '../lib/pillarMeta';
 
 const countByPillar: Record<string, number> = {};
 for (const pillar of PILLARS) {
@@ -21,6 +21,13 @@ const countTextClass: Record<string, string> = {
   'liturgical-green': 'text-liturgical-green',
   gold: 'text-gold',
   'liturgical-violet': 'text-liturgical-violet',
+};
+const borderClass: Record<string, string> = {
+  accent: 'border-accent',
+  ruby: 'border-ruby',
+  'liturgical-green': 'border-liturgical-green',
+  gold: 'border-gold',
+  'liturgical-violet': 'border-liturgical-violet',
 };
 
 const legendEntries = await getCollection('legends');
@@ -39,7 +46,9 @@ const sidebarStories = [
   symbolEntries[0] && { entry: symbolEntries[0], collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
   phenomenaEntries[0] && { entry: phenomenaEntries[0], collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
   legendEntries[1] && { entry: legendEntries[1], collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
-].filter((s): s is NonNullable<typeof s> => Boolean(s));
+]
+  .filter((s): s is NonNullable<typeof s> => Boolean(s))
+  .map((s) => ({ ...s, accentClass: pillarFor(s.pillarKey).accentClass }));
 
 const upcomingFeastDays = await getUpcomingFeastDays(3);
 ---
@@ -57,7 +66,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
       {featured && (
         <a
           href={`/legends/${featured.id}`}
-          class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 lg:col-span-2"
+          class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 lg:col-span-2 border-t-4 border-accent"
         >
           <PillarGlyph pillarKey="legends" size="lg" />
           <div class="p-8">
@@ -73,10 +82,10 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
 
       <div class="flex flex-col gap-4">
         <h2 class="font-display text-xl font-semibold text-ink">Read More</h2>
-        {sidebarStories.map(({ entry, collection, pillarKey, badge }) => (
+        {sidebarStories.map(({ entry, collection, pillarKey, badge, accentClass }) => (
           <a
             href={`/${collection}/${entry.id}`}
-            class="flex items-center gap-4 rounded-lg bg-surface p-3 shadow-sm transition-transform hover:-translate-y-0.5"
+            class:list={['flex items-center gap-4 rounded-lg bg-surface p-3 shadow-sm transition-transform hover:-translate-y-0.5 border-t-4', borderClass[accentClass]]}
           >
             <PillarGlyph pillarKey={pillarKey} size="sm" />
             <div class="min-w-0">
@@ -97,7 +106,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
         {PILLARS.map((pillar) => (
           <a
             href={pillar.href}
-            class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1"
+            class:list={['group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 border-t-4', borderClass[pillar.accentClass]]}
           >
             <PillarGlyph pillarKey={pillar.key} size="lg" />
             <div class="p-6">
