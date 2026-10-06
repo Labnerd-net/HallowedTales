@@ -71,6 +71,15 @@ across this pillar, Pillar 2, and Pillar 5. Keep watching for more entries here.
   Day of the Dead case raises under the Catholic-only guardrail (see Overview.md). Case-by-case,
   not a default yes — would need to be framed carefully around the Catholic core rather than the
   blended iconography to fit this site's scope.
+- **Fumi-e refusal (Japan)** — the "step on the image" tests used by Japanese authorities to root
+  out hidden Christians; lore centers on believers who refused at fatal risk rather than trample a
+  depiction of Christ or Mary. Unlike the Kakure Kirishitan entry above, this one is clean on the
+  syncretism question — it's an act of resistance, not a blended practice — though it sits right
+  next to that material and the two would likely be drafted together or cross-linked.
+- **Cristero War Mexico (1926-29)** — a 20th-century persecution case rather than the usual
+  medieval/early-modern ones: priests said Mass in homes in disguise, "¡Viva Cristo Rey!" became
+  the movement's cry, and coded signals passed word of where Mass would be held. Good contrast
+  piece for showing this isn't just a Reformation-era phenomenon.
 
 ## Prayer origin stories
 
@@ -112,6 +121,11 @@ across this pillar, Pillar 2, and Pillar 5. Keep watching for more entries here.
   Flag: this edges toward Pillar 3 (relics) territory rather than pure devotional art — hold off
   until Pillar 3 is resolved, or narrow it strictly to the veil's role in the Stations of the
   Cross devotion if it's wanted sooner.
+- **Memento mori in Catholic saint portraiture** — skulls included in traditional portraits of
+  St. Jerome and St. Francis as a "remember you will die" spiritual discipline, not decoration;
+  good "why this symbol keeps showing up in saint art" piece. Part of the Halloween/All
+  Saints/All Souls cluster unparked in Pillar 2 — tell as devotional practice, not horror imagery
+  (see the "Not dark" guardrail note in Overview.md).
 
 ## Research notes
 

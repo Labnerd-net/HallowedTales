@@ -102,12 +102,43 @@ watching for more candidates here.)
 - **Ring rosaries / "soldier's rosary"** — a ring with ten bumps or knots around the band, so a
   decade of Hail Marys could be prayed discreetly without carrying a visible rosary. Ties
   naturally into the existing liturgical-object section above.
+- **Penal crosses / "famine crosses" (Ireland)** — crude crucifixes with simplified, flattened
+  figures, cheap and fast to carve so they could be made and hidden quickly under the Penal Laws'
+  restrictions on Catholic worship. Pairs naturally with the Mass rocks entry.
+- **Portable altar stones** — recusant priests in England carried small consecrated stone slabs
+  so Mass could be said on any table and the evidence packed away again afterward. Same
+  priest-concealment thread as priest holes, more object-focused.
+- **Agnus Dei wax medallions** — blessed wax discs small enough to sew into clothing or hide in a
+  locket, carried as a discreet devotional object under Elizabethan-era persecution.
+- **Hedge schools (Ireland)** — informal outdoor schools that kept Catholic education and
+  catechism alive after the Penal Laws banned Catholic teachers. Broader than catechism alone,
+  but overlaps the "12 Days of Christmas" legend in Pillar 1.
+- **Non-juring priests (Revolutionary France)** — clergy who refused the Civil Constitution oath
+  said clandestine Masses in attics and barns, sheltered by sympathetic households in the Vendée.
+  A French parallel to the English recusant/priest-holes material above.
 
-## Parked for later (explicitly out of scope for now)
+## Halloween / All Saints' / All Souls' cluster
 
-- User flagged interest in eventually covering **Halloween and All Saints' / All Souls' Day**
-  — genuinely rich territory (All Hallows' Eve → Halloween lineage, Day of the Dead-adjacent
-  Catholic practices, praying for souls in purgatory) but it sits closer to the "darker" edge
-  the current guardrails exclude. Needs its own scope conversation before drafting — in
-  particular, deciding how to handle the overlap with non-Catholic Halloween customs and how
-  much of the purgatory/death theology to include while staying "warm, not dark."
+(Previously parked pending a scope conversation on the "not dark" guardrail — resolved: see
+Overview.md, mortality-aware devotional material is in scope, horror framing/gore/exorcism is
+still out. Unparked.)
+
+- **All Hallows' Eve origins** — "Halloween" is a contraction of "All Hallows' Even," the vigil
+  before All Saints' Day (Nov 1); frame around the vigil-before-feast structure Catholic
+  liturgical life uses elsewhere (Christmas Eve, Holy Saturday) rather than treating Halloween
+  as a freestanding spooky holiday.
+- **Soul cakes / souling** — medieval English/Irish custom of going door-to-door on All
+  Souls'/All Saints' offering prayers for the dead in exchange for small spiced cakes; the direct
+  devotional ancestor of trick-or-treating, and a clean "here's where the modern custom actually
+  comes from" piece.
+- **All Souls' Day cemetery traditions (Nov 2)** — grave-tending and candlelit cemetery visits as
+  a living Catholic practice, strongest today in Poland (Zaduszki), the Philippines (Undas), and
+  parts of Latin America's Catholic strand distinct from the syncretic Día de los Muertos already
+  excluded under the Catholic-only guardrail. Frame as family devotion and continuity, not as
+  spooky atmosphere.
+- **Poor Souls / Purgatory devotion** — praying and offering indulgences for souls in purgatory,
+  concentrated in the Nov 1-8 octave; core Catholic doctrine on intercession for the dead, told
+  through the practice and its meaning rather than any depiction of suffering.
+- **Patron saints of a happy death (*Ars moriendi* tradition)** — St. Joseph as the traditional
+  patron invoked for a peaceful death, tied to the broader medieval *Ars moriendi* ("art of
+  dying") devotional tradition; pairs naturally with the memento mori art entry added to Pillar 1.
