@@ -86,7 +86,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
             <PillarGlyph pillarKey={pillarKey} size="sm" />
             <div class="min-w-0">
               <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">{badge}</p>
-              <p class="truncate font-display text-base leading-tight font-semibold text-ink">{entry.data.title}</p>
+              <p class="line-clamp-2 font-display text-base leading-tight font-semibold text-ink">{entry.data.title}</p>
             </div>
           </a>
         ))}
