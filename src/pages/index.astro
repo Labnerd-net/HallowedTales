@@ -116,7 +116,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
           href={`/legends/${featured.id}`}
           class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 lg:col-span-2 border-t-4 border-accent"
         >
-          <CardThumb images={featured.data.images} pillarKey="legends" size="lg" />
+          <CardThumb images={featured.data.images} featuredImageIndex={featured.data.featuredImageIndex} size="lg" />
           <div class="p-8">
             <span class="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-medium tracking-wide text-canvas uppercase">
               Featured Legend
@@ -130,12 +130,12 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
 
       <div class="flex flex-col gap-4">
         <h2 class="font-display text-xl font-semibold text-ink">Read More</h2>
-        {sidebarStories.map(({ entry, collection, pillarKey, badge, accentClass }) => (
+        {sidebarStories.map(({ entry, collection, badge, accentClass }) => (
           <a
             href={`/${collection}/${entry.id}`}
             class:list={['flex items-center gap-4 rounded-lg bg-surface p-3 shadow-sm transition-transform hover:-translate-y-0.5 border-t-4', borderClass[accentClass]]}
           >
-            <CardThumb images={entry.data.images} pillarKey={pillarKey} size="sm" />
+            <CardThumb images={entry.data.images} featuredImageIndex={entry.data.featuredImageIndex} size="sm" />
             <div class="min-w-0">
               <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">{badge}</p>
               <p class="line-clamp-2 font-display text-base leading-tight font-semibold text-ink">{entry.data.title}</p>

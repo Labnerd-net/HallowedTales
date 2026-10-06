@@ -1,4 +1,7 @@
 ---
+import CardThumb from './CardThumb.astro';
+import type { EntryImage } from '../lib/images';
+
 type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon' | 'Symbol';
 
 interface Props {
@@ -7,9 +10,11 @@ interface Props {
   title: string;
   excerpt: string;
   meta: string;
+  images: EntryImage[];
+  featuredImageIndex?: number;
 }
 
-const { href, badge, title, excerpt, meta } = Astro.props;
+const { href, badge, title, excerpt, meta, images, featuredImageIndex } = Astro.props;
 
 const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet' | 'gold'> = {
   Legend: 'accent',
@@ -52,18 +57,21 @@ const badgeTextClass = accentClass === 'gold' ? 'text-ink-fixed' : 'text-canvas'
 
 <a
   href={href}
-  class:list={['block rounded-lg bg-surface p-6 shadow-md transition-transform hover:-translate-y-1 border-t-4', borderClass]}
+  class:list={['block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 border-t-4', borderClass]}
 >
-  <span
-    class:list={[
-      'mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium tracking-wide uppercase',
-      badgeTextClass,
-      bgClass,
-    ]}
-  >
-    {badge}
-  </span>
-  <h3 class="mb-2 font-display text-2xl leading-snug font-semibold text-ink">{title}</h3>
-  <p class="mb-4 text-sm leading-relaxed text-ink-soft">{excerpt}</p>
-  <p class:list={['text-xs', textClass]}>{meta}</p>
+  <CardThumb images={images} featuredImageIndex={featuredImageIndex} size="lg" />
+  <div class="p-6">
+    <span
+      class:list={[
+        'mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium tracking-wide uppercase',
+        badgeTextClass,
+        bgClass,
+      ]}
+    >
+      {badge}
+    </span>
+    <h3 class="mb-2 font-display text-2xl leading-snug font-semibold text-ink">{title}</h3>
+    <p class="mb-4 text-sm leading-relaxed text-ink-soft">{excerpt}</p>
+    <p class:list={['text-xs', textClass]}>{meta}</p>
+  </div>
 </a>
