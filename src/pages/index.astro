@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import PillarGlyph from '../components/PillarGlyph.astro';
+import CardThumb from '../components/CardThumb.astro';
 import FeastDayTile from '../components/FeastDayTile.astro';
 import { excerptFrom } from '../lib/excerpt';
 import { getUpcomingFeastDays } from '../lib/feastDays';
@@ -68,7 +69,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
           href={`/legends/${featured.id}`}
           class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 lg:col-span-2 border-t-4 border-accent"
         >
-          <PillarGlyph pillarKey="legends" size="lg" />
+          <CardThumb images={featured.data.images} pillarKey="legends" size="lg" />
           <div class="p-8">
             <span class="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-medium tracking-wide text-canvas uppercase">
               Featured Legend
@@ -87,7 +88,7 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
             href={`/${collection}/${entry.id}`}
             class:list={['flex items-center gap-4 rounded-lg bg-surface p-3 shadow-sm transition-transform hover:-translate-y-0.5 border-t-4', borderClass[accentClass]]}
           >
-            <PillarGlyph pillarKey={pillarKey} size="sm" />
+            <CardThumb images={entry.data.images} pillarKey={pillarKey} size="sm" />
             <div class="min-w-0">
               <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">{badge}</p>
               <p class="line-clamp-2 font-display text-base leading-tight font-semibold text-ink">{entry.data.title}</p>

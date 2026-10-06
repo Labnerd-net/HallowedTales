@@ -1,0 +1,29 @@
+---
+// Homepage card art: a real entry photo when one exists, falling back to
+// the PillarGlyph placeholder plate otherwise. Policy is every entry gets
+// at least one image eventually (see pillarMeta.ts images[0] note), but
+// the fallback stays so a late-added entry never renders broken art.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import PillarGlyph from './PillarGlyph.astro';
+import type { PillarKey } from '../lib/pillarMeta';
+
+interface Props {
+  images?: { src: ImageMetadata; alt: string }[];
+  pillarKey: PillarKey;
+  size?: 'lg' | 'sm';
+}
+
+const { images, pillarKey, size = 'lg' } = Astro.props;
+const image = images?.[0];
+
+const dimensionClass = size === 'lg' ? 'h-36 w-full' : 'h-14 w-14 shrink-0';
+---
+
+{image ? (
+  <div class:list={['overflow-hidden rounded-md', dimensionClass]}>
+    <Image src={image.src} alt={image.alt} width={size === 'lg' ? 640 : 112} class="h-full w-full object-cover" />
+  </div>
+) : (
+  <PillarGlyph pillarKey={pillarKey} size={size} />
+)}
