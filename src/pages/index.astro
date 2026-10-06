@@ -71,16 +71,18 @@ const relicEntries = await getCollection('relics');
 const symbolEntries = await getCollection('symbols');
 const phenomenaEntries = await getCollection('phenomena');
 
-const featured = legendEntries[0];
+const featured = legendEntries.find((entry) => entry.data.featured) ?? legendEntries[0];
 const featuredExcerpt = featured ? excerptFrom(featured.body) : '';
 
-// Sidebar mixes the other four pillars' first entry each.
+// Sidebar mixes the other four pillars' first entry each, plus one more
+// legend (whichever isn't already the featured pick).
+const otherLegend = legendEntries.find((entry) => entry.id !== featured?.id);
 const sidebarStories = [
   traditionEntries[0] && { entry: traditionEntries[0], collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
   relicEntries[0] && { entry: relicEntries[0], collection: 'relics', pillarKey: 'relics' as const, badge: 'Relic & Legend' },
   symbolEntries[0] && { entry: symbolEntries[0], collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
   phenomenaEntries[0] && { entry: phenomenaEntries[0], collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
-  legendEntries[1] && { entry: legendEntries[1], collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
+  otherLegend && { entry: otherLegend, collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
 ]
   .filter((s): s is NonNullable<typeof s> => Boolean(s))
   .map((s) => ({ ...s, accentClass: pillarFor(s.pillarKey).accentClass }));

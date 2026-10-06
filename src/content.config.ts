@@ -55,6 +55,9 @@ const legends = defineCollection({
     relatedLegends: z.array(z.string()).optional(),
     tags: z.array(z.string()).optional(),
     published: z.boolean().default(false),
+    // Homepage hero pick. At most one entry should set this - if more than
+    // one does, index.astro just takes the first match.
+    featured: z.boolean().optional(),
   }),
 });
 
