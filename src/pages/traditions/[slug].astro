@@ -2,7 +2,6 @@
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
-import ImageGallery from '../../components/ImageGallery.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 import { formatSaints } from '../../lib/saints';
@@ -19,7 +18,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, category, feastDay, saints, images, relatedLegends } = entry.data;
+const { title, category, feastDay, saints, relatedLegends } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
 const sameSaint = await findBySaint(saints, 'traditions', entry.id);
 
@@ -37,11 +36,7 @@ const metaItems = [
     meta={metaItems}
   />
 
-  <div class="mx-auto max-w-3xl px-8 pt-10">
-    <ImageGallery images={images} />
-  </div>
-
-  <main class="mx-auto max-w-3xl px-8 pb-20">
+  <main class="mx-auto max-w-3xl px-8 pt-10 pb-20">
     <div class="legend-body font-body text-ink">
       <Content />
     </div>
