@@ -1,0 +1,208 @@
+---
+// Temp/unlinked preview page - not part of the site nav. Every entry
+// already has real art sourced for its inline body images (see
+// InlineImage usage in each MDX file); none of it is wired into the
+// `images` frontmatter that CardThumb reads, so every homepage card still
+// falls back to the PillarGlyph plate. This page reuses those existing,
+// already-credited images to preview what real art looks like in the
+// CardThumb crop, grouped by pillar, before doing the frontmatter rollout
+// across all entries. Delete once a direction is picked.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Layout from '../layouts/Layout.astro';
+import { PILLARS } from '../lib/pillarMeta';
+
+import wolfOfGubbio from '../content/legends/francis-and-the-wolf-of-gubbio/wolf-of-gubbio.jpg';
+import uccelloGeorgeDragon from '../content/legends/george-and-the-dragon/uccello-george-dragon.jpg';
+import durerJeromeAndLion from '../content/legends/jerome-and-the-lion/durer-jerome-and-the-lion.jpg';
+
+import sinterklaasShoe from '../content/traditions/st-nicholas-day-shoes/sinterklaas-shoe-by-stove.jpg';
+import kingCake from '../content/traditions/king-cake-epiphany/manny-randazzo-king-cake.jpg';
+import palmSundayProcession from '../content/traditions/palm-sunday-palms/palm-sunday-procession.jpg';
+
+import findingOfTrueCross from '../content/relics/true-cross/piero-della-francesca-true-cross.jpg';
+import santoCaliz from '../content/relics/holy-grail/santo-caliz.jpg';
+import loretoFacade from '../content/relics/holy-house-of-loreto/santuario-di-loreto-facade.jpg';
+
+import constantineLabarumCoin from '../content/symbols/chi-rho/constantine-labarum-coin.jpg';
+import hintonStMaryChiRho from '../content/symbols/chi-rho/hinton-st-mary-chi-rho.jpg';
+import peruginoFresco from '../content/symbols/keys-of-st-peter/perugino-delivery-of-keys.jpg';
+
+import cupertinoLevitation from '../content/phenomena/joseph-of-cupertino-levitation/cupertino-levitation-engraving.jpg';
+import padrePio1944 from '../content/phenomena/padre-pio-bilocation/padre-pio-1944.jpg';
+
+interface Candidate {
+  src: ImageMetadata;
+  alt: string;
+  entryTitle: string;
+  entryHref: string;
+  credit: string;
+}
+
+const candidatesByPillar: Record<string, Candidate[]> = {
+  legends: [
+    {
+      src: wolfOfGubbio,
+      alt: 'Painting of Saint Francis standing before a kneeling wolf with the townspeople of Gubbio watching from a distance',
+      entryTitle: 'Francis and the Wolf of Gubbio',
+      entryHref: '/legends/francis-and-the-wolf-of-gubbio',
+      credit: 'Christopher John SSF, Wikimedia Commons, CC BY 2.0',
+    },
+    {
+      src: uccelloGeorgeDragon,
+      alt: 'Painting of Saint George on horseback spearing the dragon while the princess holds it on a leash made from her girdle',
+      entryTitle: 'George and the Dragon',
+      entryHref: '/legends/george-and-the-dragon',
+      credit: 'Paolo Uccello, Wikimedia Commons, public domain',
+    },
+    {
+      src: durerJeromeAndLion,
+      alt: 'Engraving of Saint Jerome kneeling at a crucifix inside a rocky grotto, with a lion resting peacefully beside him',
+      entryTitle: 'Jerome and the Lion',
+      entryHref: '/legends/jerome-and-the-lion',
+      credit: 'After Albrecht Dürer, Wikimedia Commons, public domain',
+    },
+  ],
+  traditions: [
+    {
+      src: sinterklaasShoe,
+      alt: 'Historical photo of children setting a shoe by a stove for Sinterklaas',
+      entryTitle: 'St. Nicholas Day Shoes',
+      entryHref: '/traditions/st-nicholas-day-shoes',
+      credit: 'Wim van Rossem for Anefo, Nationaal Archief, CC0',
+    },
+    {
+      src: kingCake,
+      alt: 'A braided ring-shaped king cake with white icing and purple, green, and gold sprinkles, draped with Mardi Gras beads and coins',
+      entryTitle: 'King Cake and Epiphany',
+      entryHref: '/traditions/king-cake-epiphany',
+      credit: 'Office of Rep. David Schweikert, public domain',
+    },
+    {
+      src: palmSundayProcession,
+      alt: 'Photo of a priest in red vestments walking down an aisle of parishioners holding tall woven palm fronds during a Palm Sunday procession',
+      entryTitle: 'Palm Sunday Palms',
+      entryHref: '/traditions/palm-sunday-palms',
+      credit: 'LMP 2001, Wikimedia Commons, CC BY-SA 4.0',
+    },
+  ],
+  relics: [
+    {
+      src: findingOfTrueCross,
+      alt: 'Fresco of Saint Helena and attendants kneeling around three excavated crosses as a dead man is revived by touching one of them',
+      entryTitle: 'The True Cross',
+      entryHref: '/relics/true-cross',
+      credit: 'Piero della Francesca, Wikimedia Commons, public domain',
+    },
+    {
+      src: santoCaliz,
+      alt: 'The Santo Caliz, an agate cup in a gold medieval mounting, displayed in Valencia Cathedral',
+      entryTitle: 'The Holy Grail',
+      entryHref: '/relics/holy-grail',
+      credit: 'Zarateman, Wikimedia Commons, CC0',
+    },
+    {
+      src: loretoFacade,
+      alt: 'Photo of the Renaissance facade of the Basilica della Santa Casa in Loreto, Italy',
+      entryTitle: 'The Holy House of Loreto',
+      entryHref: '/relics/holy-house-of-loreto',
+      credit: 'Sailko, Wikimedia Commons, CC BY 3.0',
+    },
+  ],
+  symbols: [
+    {
+      src: constantineLabarumCoin,
+      alt: 'Bronze Roman coin; the reverse shows a military standard topped with a christogram spearing a serpent',
+      entryTitle: 'The Chi-Rho',
+      entryHref: '/symbols/chi-rho',
+      credit: 'Classical Numismatic Group, Wikimedia Commons, CC BY-SA 3.0',
+    },
+    {
+      src: hintonStMaryChiRho,
+      alt: 'Mosaic roundel showing a bust of a man flanked by a Chi-Rho symbol and two pomegranates',
+      entryTitle: 'The Chi-Rho',
+      entryHref: '/symbols/chi-rho',
+      credit: 'Wikimedia Commons, public domain',
+    },
+    {
+      src: peruginoFresco,
+      alt: 'Fresco of Christ handing a pair of keys to a kneeling St. Peter, surrounded by the apostles',
+      entryTitle: 'Keys of St. Peter',
+      entryHref: '/symbols/keys-of-st-peter',
+      credit: 'Pietro Perugino, Wikimedia Commons, public domain',
+    },
+  ],
+  phenomena: [
+    {
+      src: cupertinoLevitation,
+      alt: 'Engraving of Saint Joseph of Cupertino levitating above a group of onlookers, arms outstretched, during prayer',
+      entryTitle: 'Joseph of Cupertino and Levitation',
+      entryHref: '/phenomena/joseph-of-cupertino-levitation',
+      credit: 'Helvio ricina, Wikimedia Commons, CC BY-SA 4.0',
+    },
+    {
+      src: padrePio1944,
+      alt: 'Black and white photo of Padre Pio celebrating Mass in Italy',
+      entryTitle: 'Padre Pio and Bilocation',
+      entryHref: '/phenomena/padre-pio-bilocation',
+      credit: 'Presumably Federico Abresch, Wikimedia Commons, public domain',
+    },
+  ],
+};
+
+const borderClass: Record<string, string> = {
+  accent: 'border-accent',
+  ruby: 'border-ruby',
+  'liturgical-green': 'border-liturgical-green',
+  gold: 'border-gold',
+  'liturgical-violet': 'border-liturgical-violet',
+};
+---
+
+<Layout title="Category Art Preview">
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="font-display text-3xl font-semibold text-ink">Category Art Preview</h1>
+    <p class="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft">
+      Unlinked, temporary page. Every entry already has real art sourced for its inline body
+      images - none of it is wired into the <code>images</code> frontmatter that homepage cards
+      read from, so every card currently falls back to the <code>PillarGlyph</code> plate. These
+      are that existing art, cropped the same way <code>CardThumb</code> would crop it, grouped by
+      pillar so a direction can be picked per category before rolling frontmatter out to all
+      entries. The "Explore by Category" grid itself keeps its glyphs either way - this is only
+      about the per-entry card art (featured story, "Read More" sidebar, and pillar index pages).
+    </p>
+
+    {PILLARS.map((pillar) => (
+      <section class="mt-14 border-t border-surface-alt pt-10">
+        <h2 class="font-display text-2xl font-semibold text-ink">{pillar.label}</h2>
+        <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {candidatesByPillar[pillar.key].map((candidate) => (
+            <div class:list={['overflow-hidden rounded-lg bg-surface shadow-md border-t-4', borderClass[pillar.accentClass]]}>
+              <div class="h-36 w-full overflow-hidden rounded-md">
+                <Image src={candidate.src} alt={candidate.alt} width={640} class="h-full w-full object-cover" />
+              </div>
+              <div class="p-4">
+                <a href={candidate.entryHref} class="font-display text-base font-semibold text-ink hover:underline">
+                  {candidate.entryTitle}
+                </a>
+                <p class="mt-1 text-xs text-ink-soft">{candidate.credit}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-6 text-xs tracking-wide text-ink-soft uppercase">Sidebar crop ("sm" size)</p>
+        <div class="mt-3 flex flex-wrap gap-4">
+          {candidatesByPillar[pillar.key].map((candidate) => (
+            <div class:list={['flex items-center gap-3 rounded-lg bg-surface p-3 shadow-sm border-t-4', borderClass[pillar.accentClass]]}>
+              <div class="h-14 w-14 shrink-0 overflow-hidden rounded-md">
+                <Image src={candidate.src} alt={candidate.alt} width={112} class="h-full w-full object-cover" />
+              </div>
+              <p class="max-w-[12rem] text-sm font-medium text-ink">{candidate.entryTitle}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</Layout>
