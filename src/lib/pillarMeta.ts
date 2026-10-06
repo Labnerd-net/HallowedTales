@@ -20,7 +20,7 @@ export const PILLARS: PillarMeta[] = [
     label: 'Legends',
     badge: 'Legend',
     description:
-      'Saint-and-creature tales, patronage origin stories, and the legends behind how devotion to a saint begins.',
+      'Saint-and-creature tales, patronage origin stories, and the legends behind how devotions begin.',
     href: '/legends',
     accentVar: '--color-accent',
     accentClass: 'accent',
