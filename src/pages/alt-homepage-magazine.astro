@@ -11,6 +11,21 @@ import { excerptFrom } from '../lib/excerpt';
 import { getUpcomingFeastDays } from '../lib/feastDays';
 import { PILLARS } from '../lib/pillarMeta';
 
+const countByPillar: Record<string, number> = {};
+for (const pillar of PILLARS) {
+  countByPillar[pillar.key] = (await getCollection(pillar.key as any)).length;
+}
+
+// Tailwind's scanner needs literal class strings, not `text-${var}` -
+// same pattern LegendCard.astro uses for its badge accent lookup.
+const countTextClass: Record<string, string> = {
+  accent: 'text-accent',
+  ruby: 'text-ruby',
+  'liturgical-green': 'text-liturgical-green',
+  gold: 'text-gold',
+  'liturgical-violet': 'text-liturgical-violet',
+};
+
 const legendEntries = await getCollection('legends');
 const traditionEntries = await getCollection('traditions');
 const relicEntries = await getCollection('relics');
@@ -79,15 +94,25 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
     </section>
 
     <section class="mt-14 border-t border-surface-alt pt-10">
-      <h2 class="mb-5 font-display text-xl font-semibold text-ink">Browse by Pillar</h2>
-      <div class="flex flex-wrap gap-3">
+      <div class="mb-6">
+        <h2 class="font-display text-3xl font-semibold text-ink">Explore by Pillar</h2>
+        <p class="mt-2 text-sm text-ink-soft">Five ways into the lore - start wherever pulls you in.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {PILLARS.map((pillar) => (
           <a
             href={pillar.href}
-            class="flex items-center gap-3 rounded-full bg-surface px-4 py-2 shadow-sm transition-transform hover:-translate-y-0.5"
+            class="group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1"
           >
-            <PillarGlyph pillarKey={pillar.key} size="sm" />
-            <span class="font-display text-sm font-semibold text-ink">{pillar.label}</span>
+            <PillarGlyph pillarKey={pillar.key} size="lg" />
+            <div class="p-6">
+              <h3 class="mb-2 font-display text-2xl font-semibold text-ink">{pillar.label}</h3>
+              <p class="mb-4 text-sm leading-relaxed text-ink-soft">{pillar.description}</p>
+              <p class:list={['text-xs font-medium', countTextClass[pillar.accentClass]]}>
+                {countByPillar[pillar.key]} {countByPillar[pillar.key] === 1 ? 'story' : 'stories'}
+                <span class="ml-2 group-hover:underline">Explore &rarr;</span>
+              </p>
+            </div>
           </a>
         ))}
       </div>
