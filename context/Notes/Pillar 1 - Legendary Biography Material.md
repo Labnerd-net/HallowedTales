@@ -18,8 +18,7 @@ this site, but it still means claims below need a real source pass before publis
 
 ## Patronage origin stories
 
-- **St. Nicholas** → sailors: calming a storm at sea. (The dowry-gift/pawnbroker patronage
-  legend is already published — see `nicholas-dowry-gold`.)
+- **St. Nicholas** → sailors: calming a storm at sea.
 - **St. Cecilia** → musicians: tradition holds she "sang in her heart to God" at her wedding;
   patronage likely grew from a line in her Acts rather than her having been a musician herself
   — a good "here's how a patronage actually forms" example.
@@ -31,8 +30,44 @@ this site, but it still means claims below need a real source pass before publis
 - **St. Martin of Tours** → beggars/soldiers: cuts his military cloak in half to share with a
   freezing beggar, who he later realizes was Christ.
 
+## Archangel legendary deeds
+
+(Folded in from the retired Pillar 6 angels proposal, 2026-10-07 — decided these read as
+Pillar 1 entries that happen to feature an angel instead of a saint, not a distinct category.)
+
+- **Raphael in the Book of Tobit** — deuterocanonical, but canonical to Catholics, same
+  "shared-origin material anchored in Catholic tradition" logic that lets Old Testament relic
+  entries into Pillar 3.
+- **Gabriel at the Annunciation** — told from the angelic-messenger angle rather than re-treading
+  Marian ground that other sources already cover.
+
+## Angelic interventions in saints' lives
+
+- Angels reportedly bringing Communion to saints in prison or illness.
+- Angelic choirs reportedly heard at a saint's death.
+- Angels reportedly defending a besieged city or army — **flag for careful handling**: easy to
+  drift into "miraculous battle" framing that reads closer to Register-coded verification
+  territory than lore-coded storytelling. Keep the framing on "here's the story told about this,"
+  not "here's evidence this happened."
+
 ## Founding / shrine legends
 
+- **St. Michael at Monte Gargano** — the bull/cave founding legend (Italy), one of the oldest
+  Michael shrine traditions in the West.
+- **St. Michael at Mont-Saint-Michel** — the bishop Aubert vision (France), parallel shrine-
+  founding shape to Monte Gargano above.
+- **St. Michael's vision to Pope Gregory the Great** — atop what's now Castel Sant'Angelo in
+  Rome, reportedly ending a plague; the castle's name and the bronze angel statue on top come
+  from this legend.
+- **Flag (the three Michael entries above):** spiritual-warfare / angel-vs-demon framing is out
+  of scope under the "not dark" guardrail (see Overview.md). Michael is traditionally tied to
+  that framing in a lot of popular material — keep the published version anchored to the
+  shrine/apparition legend itself, not battle-with-the-devil imagery. Same risk applies to the
+  besieged-city intervention entries above; default to the softest, most devotional telling
+  available.
+- **Our Lady of the Angels (Los Angeles' namesake)** — the city's founding name traces to a
+  Franciscan mission dedication to Mary "Queen of the Angels," not to an angel apparition itself;
+  the angel-adjacent entry in this cluster rather than a true angel-founded shrine.
 - **St. Brigid of Kildare** — claims land for her monastery by spreading her cloak on the
   ground, which miraculously expands to cover the needed area; also the legend of her
   perpetual flame at Kildare.
@@ -101,7 +136,7 @@ across this pillar, Pillar 2, and Pillar 5. Keep watching for more entries here.
   not on demonic imagery.
 - **The Rosary** — legend that Our Lady gave it to St. Dominic; actual historical development is
   more gradual, so this is a good "legend vs. likely real origin" piece in the same vein as the
-  St. Jerome/lion legend. (That legend is already published — see `jerome-and-the-lion`.)
+  St. Jerome/lion legend.
 - **The Memorare** — traditionally attributed to St. Bernard of Clairvaux, though its popular
   spread traces to a 19th-century French priest. Another "attribution legend vs. actual history"
   candidate.
@@ -110,9 +145,10 @@ across this pillar, Pillar 2, and Pillar 5. Keep watching for more entries here.
   legend of authorship and here's what we actually know" piece.
 - **St. Patrick's Breastplate (Lorica)** — protection prayer traditionally attributed to
   St. Patrick, tied into the same saint-and-legend territory as the snake-banishing legend.
-  (That legend is already published — see `patrick-and-the-snakes`.)
 - **Miraculous Medal prayer** — grew out of St. Catherine Labouré's 1830 visions; pairs naturally
   with the medal as a symbol/art entry below.
+- **"Angel of God" prayer** — the guardian angel devotional staple, especially for children;
+  history and spread. Folded in from the retired Pillar 6 angels proposal (2026-10-07).
 
 ## Devotional art origin stories
 
