@@ -57,9 +57,9 @@ const { title, draft = false } = Astro.props;
       </div>
     )}
     <LiturgicalBanner />
-    <nav class="relative z-50 flex items-center justify-between gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft md:grid md:grid-cols-[1fr_auto_1fr]">
+    <nav class="relative z-50 flex items-center justify-between gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft lg:grid lg:grid-cols-[1fr_auto_1fr]">
       <BrandMark />
-      <div class="hidden items-center justify-center gap-6 md:flex">
+      <div class="hidden items-center justify-center gap-6 lg:flex">
         <a href="/legends" class="hover:text-ink">Legends</a>
         <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
         <a href="/relics" class="hover:text-ink">Relics</a>
@@ -68,12 +68,12 @@ const { title, draft = false } = Astro.props;
         <a href="/tags" class="hover:text-ink">Tags</a>
         <a href="/random" class="hover:text-ink">Random</a>
       </div>
-      <div class="flex items-center gap-3 md:justify-end">
+      <div class="flex items-center gap-3 lg:justify-end">
         <ThemeToggle />
         <button
           type="button"
           id="nav-menu-toggle"
-          class="flex h-8 w-8 items-center justify-center rounded-md text-ink-soft hover:text-ink md:hidden"
+          class="flex h-8 w-8 items-center justify-center rounded-md text-ink-soft hover:text-ink lg:hidden"
           aria-expanded="false"
           aria-controls="nav-menu"
           aria-label="Toggle navigation menu"
@@ -88,7 +88,7 @@ const { title, draft = false } = Astro.props;
       </div>
       <div
         id="nav-menu"
-        class="absolute inset-x-0 top-full hidden flex-col gap-1 border-t border-surface bg-surface-alt px-4 py-3 md:hidden"
+        class="absolute inset-x-0 top-full hidden flex-col gap-1 border-t border-surface bg-surface-alt px-4 py-3 lg:hidden"
       >
         <a href="/legends" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Legends</a>
         <a href="/traditions" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Folk Traditions</a>
