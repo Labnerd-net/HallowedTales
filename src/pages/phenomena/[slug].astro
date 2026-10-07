@@ -6,6 +6,7 @@ import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 import { registerMiracleHref } from '../../lib/registerLink';
 import { formatSaints } from '../../lib/saints';
+import { tagLabel } from '../../lib/tags';
 
 export const prerender = true;
 
@@ -32,7 +33,7 @@ const registerHref = registerMiracleHref(registerSlug);
   <Hero
     eyebrow="Mystical Phenomenon"
     title={title}
-    meta={[phenomenonType.replace('-', ' '), formatSaints(saints)!]}
+    meta={[tagLabel(phenomenonType), formatSaints(saints)!]}
     note={
       registerSlug
         ? 'This same case is also documented on The Miracle Register, written in a voice explicit about the evidence it rests on.'

@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends } from '../../lib/related';
+import { titleCaseSlug } from '../../lib/labels';
 
 export const prerender = true;
 
@@ -23,7 +24,7 @@ const { Content } = await render(entry);
 const { title, cluster, claimedLocations, relatedLegends } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
 
-const clusterLabel = cluster.replace('-', ' ');
+const clusterLabel = titleCaseSlug(cluster);
 ---
 
 <Layout title={title} draft={!entry.data.published}>

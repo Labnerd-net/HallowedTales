@@ -5,6 +5,7 @@ import Hero from '../../components/Hero.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 import { formatSaints } from '../../lib/saints';
+import { titleCaseSlug } from '../../lib/labels';
 
 export const prerender = true;
 
@@ -26,7 +27,7 @@ const related = await resolveRelatedLegends(relatedLegends);
 const sameSaint = await findBySaint(saints, 'traditions', entry.id);
 
 const metaItems = [
-  category.replace('-', ' '),
+  titleCaseSlug(category),
   ...(feastDay ? [`${feastDay.month} ${feastDay.day}`] : []),
   ...(formatSaints(saints) ? [formatSaints(saints)!] : []),
 ];

@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import LegendCard from '../../components/LegendCard.astro';
 import { excerptFrom } from '../../lib/excerpt';
 import { isPublished } from '../../lib/published';
+import { tagLabel } from '../../lib/tags';
 
 const entries = (await getCollection('phenomena')).filter(isPublished);
 ---
@@ -20,7 +21,7 @@ const entries = (await getCollection('phenomena')).filter(isPublished);
             badge="Mystical Phenomenon"
             title={entry.data.title}
             excerpt={excerpt}
-            meta={entry.data.phenomenonType.replace('-', ' ')}
+            meta={tagLabel(entry.data.phenomenonType)}
             images={entry.data.images}
             featuredImageIndex={entry.data.featuredImageIndex}
           />
