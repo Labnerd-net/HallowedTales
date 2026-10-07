@@ -136,9 +136,99 @@ still out. Unparked.)
   parts of Latin America's Catholic strand distinct from the syncretic Día de los Muertos already
   excluded under the Catholic-only guardrail. Frame as family devotion and continuity, not as
   spooky atmosphere.
-- **Poor Souls / Purgatory devotion** — praying and offering indulgences for souls in purgatory,
-  concentrated in the Nov 1-8 octave; core Catholic doctrine on intercession for the dead, told
-  through the practice and its meaning rather than any depiction of suffering.
+- **Poor Souls / Purgatory devotion** — praying and offering indulgences for souls in purgatory.
+  Two distinct, both-real grants rather than one loose popularization of the other: a whole-month
+  indulgence (documented by the 1911 Catholic Encyclopedia, tracing to St. Odilo of Cluny's 998
+  monastic commemoration) and a narrower Nov 1-8 cemetery-visit plenary indulgence (Benedict XV,
+  c. 1917, wartime). See "Monthly devotions" below — November gets the full write-up, anchored on
+  this reconciliation.
 - **Patron saints of a happy death (*Ars moriendi* tradition)** — St. Joseph as the traditional
   patron invoked for a peaceful death, tied to the broader medieval *Ars moriendi* ("art of
   dying") devotional tradition; pairs naturally with the memento mori art entry added to Pillar 1.
+
+## Monthly devotions
+
+Catholic popular piety traditionally assigns each calendar month to a devotion. Source pass done
+(Oct 2026) against the 1913 Catholic Encyclopedia's "Special Devotions for Months" article and
+the 1957 Raccolta (the Church's official indulgenced-prayers book) as the baseline for which
+months ever had real institutional backing versus which are later popular-calendar filler. New
+`traditions` category `monthly-devotion` and scalar `month` field (1-12) added to
+`src/content.config.ts` for this cluster — see Tech Stack note in `CLAUDE.md`.
+
+Four of the eight "full entry" months below have a genuine persecution/survival angle (the user's
+flagged favorite thread, see the section above and Pillar 1/5) — worth leading with where it's
+the strongest hook rather than treating it as a footnote:
+
+- **January — Holy Name of Jesus.** Devotional root is medieval (the *Jesu dulcis memoria* hymn,
+  disputed 12th-c. attribution to St. Bernard of Clairvaux; Richard Rolle's 14th-c. writing;
+  Bernardine of Siena's 15th-c. preaching tours with a wooden IHS sign). The *month-long* practice
+  is surprisingly recent — Leo XIII's indulgence brief, Dec. 21, 1901. **Full entry** — clean
+  three-stage arc, good "ancient devotion, barely-125-year-old month" twist.
+- **February — Holy Family.** Real 17th-c. roots (Montreal association 1663, Paris 1674, Leo
+  XIII's 1893 feast) but no document ever assigned the *month* to it — absent from both the 1913
+  Encyclopedia and 1957 Raccolta lists. The "because of Candlemas" reasoning is folk inference,
+  not a decree. **Banner blurb only.**
+- **March — St. Joseph.** Strongest of the four winter/spring months: 8th-c. martyrology mention
+  → 9th-c. Reichenau calendar → Sixtus IV's 15th-c. Roman Calendar entry → 17th-c. confraternity
+  boom → Pius IX's 1865 month-indulgence rescript → *Quemadmodum Deus* (1870, naming Joseph
+  Patron of the Universal Church, issued the same year Rome fell and the Papal States ended —
+  persecution/survival angle). **Full entry.**
+- **April — Blessed Sacrament (contested; some sources say Holy Spirit).** No papal document at
+  all, absent from both baseline lists, and sources don't even agree what April is for. Reads as
+  a modern grid-filling retrofit. **Banner blurb only**, worded cautiously ("popularly held to
+  be...").
+- **May — Mary / May crowning.** Real chain: Gregory III's 8th-c. image-crowning at St. Peter's →
+  17th-18th-c. Italian "whole month" practice (Grezzano 1739, Genoa 1747) → Fr. Latomia's
+  Jesuit-college vow (late 1700s, the actual ancestor of today's custom) → Muzzarelli's 1785
+  devotional manual → Pius VII's 1815 indulgence. **Flag:** the popular "Christianized the Roman
+  Floralia" claim has no documented mechanism bridging it to this chain — real pagan-adjacent
+  secular May Day customs exist, but the Church's May-crowning history is a separate, later,
+  fully-documented institutional thread. Treat the same way the King Cake entry treats the
+  Saturnalia claim. **Full entry.**
+- **June — Sacred Heart of Jesus.** The strongest-documented month. Margaret Mary Alacoque's
+  apparitions at Paray-le-Monial (1673-75, authenticated in writing by her confessor Claude La
+  Colombière) → Fr. Alexandre Lanfant's 1790 pamphlet, the actual origin of the *month-long*
+  (not just feast-day) custom → **Lanfant killed in the September 1792 Massacres**, beatified —
+  persecution/survival angle → Leo XIII's 1899 *Annum Sacrum* world-consecration, prompted by
+  Sr. Mary of the Divine Heart's letters, who died June 8, 1899 (the Feast of the Sacred Heart
+  itself) two days before the consecration she'd asked for. **Full entry.**
+- **July — Precious Blood of Jesus.** Confraternity founded Rome 1808; Pius IX extended the feast
+  universally in 1849 (decree *Redempti sumus*, while in exile at Gaeta during the 1848-49
+  revolutions) — but the popular "Merlini prophesied his return if he vowed the feast" story is
+  under-sourced (traces to Precious Blood congregation hagiography, not a primary document), and
+  there's no separate record of *why* it became a whole month rather than just the July 1 feast.
+  **Banner blurb only.**
+- **August — Immaculate Heart of Mary.** Two eras stitched under one name with a real gap between
+  them: St. John Eudes' 1648 Autun feast (predating Margaret Mary's Sacred Heart visions by
+  decades) and Pius XII's 1942 wartime world-consecration + Aug. 22, 1944 universal feast,
+  explicitly invoking the 1917 Fatima apparitions during WWII. **Full entry**, framed honestly as
+  two separate stories (Eudes' local 17th-c. feast; Pius XII's WWII-era consecration) rather than
+  one continuous thread — lead with the WWII/Fatima half as the stronger hook.
+- **September — Our Lady of Sorrows.** Devotion traced to 12th-c. monastic writers (Anselm,
+  Bernard), formalized as a Servite-order feast (1233), granted locally 1692 (Innocent XII), and
+  extended to the whole Church by **Pius VII on Sept. 18, 1814 — explicitly in thanksgiving for
+  his own release from Napoleonic captivity that year** (persecution/survival angle, and the
+  strongest hook here by far). The month-long framing itself was never separately decreed.
+  **Full entry, kept short** (anchor tightly on the 1814 Pius VII moment rather than the full
+  12th-to-20th-c. sweep — closer to `st-blaise-day-throat-blessing` length than `king-cake`).
+- **October — Holy Rosary.** Best primary-source month: Leo XIII's encyclical *Supremi
+  Apostolatus Officio* (Sept. 1, 1883) explicitly consecrates the month, quotable directly from
+  vatican.va. Behind it: Pius V's 1572 "Our Lady of Victory" feast after Lepanto (Oct. 7, 1571),
+  renamed "Holy Rosary" by Gregory XIII in 1573. **Flag:** the popular "Pius V had a vision at a
+  window and knew of the victory before any messenger" story is hagiographic (written after his
+  death, building his sanctity case) and contradicted by the plain fact that news of the victory
+  didn't reach Rome until Oct. 26 — a clean "popular story vs. record" gap, King-Cake-style.
+  **Full entry.**
+- **November — Holy Souls in Purgatory.** Richest of the twelve. St. Odilo of Cluny's monastic
+  commemoration (998) → medieval Roman purgatorial confraternities (1448, 1538) → Clement XII's
+  1736 brief indulgencing an evening bell-and-prayer custom → 19th-c. spread (Roman archconfrat.
+  to England/N. America 1841; La Chapelle-Montligeon, France, 1884) → Benedict XV's WWI-era
+  interventions (three Masses allowed on All Souls' Day itself, 1915; the Nov 1-8 cemetery
+  indulgence, c. 1917 — flagged as needing a primary-source double-check before hard-citing the
+  exact document). Reconciles the whole-month vs. Nov 1-8 octave framing above. **Full entry.**
+- **December — Immaculate Conception (or the Christ Child — genuinely unsettled).** The 1913
+  Catholic Encyclopedia itself hedges between the two and says outright that neither practice is
+  "formally approved... nor enriched with indulgences" — the most explicit "this was never
+  official" statement found for any month. The dogma (1854, *Ineffabilis Deus*) and the Dec. 8
+  holy day (1708) have real history, but that's the feast's story, not the month-devotion's.
+  **Banner blurb only.**

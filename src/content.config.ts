@@ -87,6 +87,11 @@ const traditions = defineCollection({
       // specifically because open Catholic worship was banned, not tied to
       // a feast day or object the way the other categories are.
       'persecution-custom',
+      // The custom of dedicating an entire calendar month to a devotion
+      // (May = Mary, June = the Sacred Heart, October = the Rosary, etc.) -
+      // spans a whole month rather than pinning to one day, so it gets its
+      // own category rather than stretching `feastDay`.
+      'monthly-devotion',
     ]),
     saints: z.array(z.string()).optional(),
     // Not every tradition pins to a fixed calendar date (regional festivals
@@ -100,6 +105,10 @@ const traditions = defineCollection({
         easterOffset: z.number().optional(),
       })
       .optional(),
+    // For category: 'monthly-devotion' entries - which calendar month (1-12)
+    // the devotion belongs to. Separate from `feastDay`, which models a single
+    // date, not a whole-month custom.
+    month: z.number().int().min(1).max(12).optional(),
     regions: z.array(z.string()).optional(),
     earliestSource: z
       .object({
