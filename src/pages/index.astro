@@ -176,11 +176,11 @@ const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 
         <h2 class="font-display text-3xl font-semibold text-ink">Explore by Category</h2>
         <p class="mt-2 text-sm text-ink-soft">Five ways into the lore - start wherever pulls you in.</p>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="flex flex-wrap justify-center gap-6">
         {PILLARS.map((pillar) => (
           <a
             href={pillar.href}
-            class:list={['group block overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 border-t-4', borderClass[pillar.accentClass]]}
+            class:list={['group block w-full overflow-hidden rounded-lg bg-surface shadow-md transition-transform hover:-translate-y-1 border-t-4 sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]', borderClass[pillar.accentClass]]}
           >
             <div class="h-36 w-full overflow-hidden rounded-md">
               <Image
