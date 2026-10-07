@@ -29,6 +29,7 @@ export interface UpcomingFeastDay {
   excerpt: string;
   month: string;
   day: string;
+  daysUntil: number;
 }
 
 export interface ContentFeastDay {
@@ -102,6 +103,7 @@ function truncate(text: string, maxLen: number): string {
 // soon each one's next occurrence falls from `from`.
 export async function getUpcomingFeastDays(limit: number, from = new Date()): Promise<UpcomingFeastDay[]> {
   const entries = await getFeastDayEntries();
+  const fromUTC = Date.UTC(from.getUTCFullYear(), from.getUTCMonth(), from.getUTCDate());
 
   const withDates = entries.map((entry) => ({
     ...entry,
@@ -115,6 +117,7 @@ export async function getUpcomingFeastDays(limit: number, from = new Date()): Pr
     excerpt: truncate(entry.excerpt, 70),
     month: MONTH_ABBR[entry.nextDate.getUTCMonth()],
     day: String(entry.nextDate.getUTCDate()),
+    daysUntil: Math.round((entry.nextDate.getTime() - fromUTC) / 86_400_000),
   }));
 }
 

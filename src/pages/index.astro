@@ -101,6 +101,10 @@ const sidebarStories = [
   .map((s) => ({ ...s, accentClass: pillarFor(s.pillarKey).accentClass }));
 
 const upcomingFeastDays = await getUpcomingFeastDays(3);
+// Surface the nearest feast as a banner right under the hero once it's close
+// enough to matter; otherwise it just sits in the "Upcoming Feast Days"
+// section at the bottom like the rest of the list.
+const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 14);
 ---
 
 <Layout title="Hallowed Tales">
@@ -110,6 +114,26 @@ const upcomingFeastDays = await getUpcomingFeastDays(3);
     subtitle="Catholic legend, folk tradition, and the charming history behind the customs people still keep today."
     meta={['Legendary biography', 'Folk traditions', 'Symbols', 'Mystical phenomena']}
   />
+
+  {nearFeastDay && (
+    <div class="mx-auto max-w-5xl px-8 pt-8">
+      <a
+        href={nearFeastDay.href}
+        class="flex items-center gap-4 rounded-lg border-l-4 border-gold bg-surface p-4 shadow-sm transition-transform hover:-translate-y-0.5"
+      >
+        <div class="flex h-14 w-14 shrink-0 flex-col items-center justify-center rounded-md bg-gold font-display text-ink-fixed">
+          <span class="text-xs leading-none uppercase">{nearFeastDay.month}</span>
+          <span class="text-xl leading-none font-semibold">{nearFeastDay.day}</span>
+        </div>
+        <div class="min-w-0">
+          <p class="text-xs font-medium tracking-wide text-gold uppercase">Coming up soon</p>
+          <p class="truncate font-display text-lg font-semibold text-ink">{nearFeastDay.title}</p>
+          <p class="truncate text-sm text-ink-soft">{nearFeastDay.excerpt}</p>
+        </div>
+        <span class="ml-auto shrink-0 text-sm font-medium text-accent">Read more &rarr;</span>
+      </a>
+    </div>
+  )}
 
   <main class="mx-auto max-w-5xl px-8 py-16">
     <section class="grid gap-8 lg:grid-cols-3">
