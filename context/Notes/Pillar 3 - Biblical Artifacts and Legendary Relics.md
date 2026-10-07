@@ -41,25 +41,6 @@ not scripture exegesis) and keeps it anchored in specifically Catholic practice.
 
 ## First-pass research: what would fit if this pillar is approved
 
-### Legendary relics with an active Catholic veneration tradition
-
-- **Holy Lance / Spear of Destiny** — the lance said to have pierced Christ's side; multiple
-  rival claimed lances (Vatican, Vienna, Echmiadzin in Armenia) — good "more than one place
-  claims this relic" story, a recurring pattern worth naming as its own mini-genre.
-- **Crown of Thorns** — venerated at Notre-Dame de Paris; legend of its medieval acquisition by
-  King Louis IX from Constantinople.
-- **Veil of Veronica** — legend of a woman wiping Christ's face on the way to Calvary, image
-  miraculously imprinted on the cloth; claimed veil kept at St. Peter's Basilica. Strong
-  overlap with the "image not made by human hands" (acheiropoieta) angle already noted in
-  Pillar 1.
-- **Holy Tunic (Seamless Robe)** — rival claims at Trier, Germany and Argenteuil, France — same
-  "two places, one relic" pattern as the Holy Lance.
-- **Relics of the Magi** — housed at Cologne Cathedral; legend of their journey from
-  Constantinople to Milan to Cologne.
-- **Scala Sancta (Holy Stairs, Rome)** — tradition holds these are the staircase Christ climbed
-  to Pontius Pilate's praetorium, brought to Rome by St. Helena; pilgrims still ascend on their
-  knees.
-
 ### Legendary quests / "what happened to it" lore
 
 - **Ark of the Covenant** — biblical account ends with it disappearing; later traditions fill
