@@ -36,11 +36,11 @@ const { eyebrow, title, subtitle, meta, note, noteHref, noteLabel } = Astro.prop
       </p>
     )}
 
-    <div class="mt-9 flex items-center justify-center gap-5 text-sm text-cream/80 dark:text-ink-soft">
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-cream/80 sm:gap-x-5 sm:text-sm dark:text-ink-soft">
       {meta.map((item, i) => (
         <>
-          {i > 0 && <span class="h-1.5 w-1.5 rounded-full bg-gold"></span>}
-          <span>{item}</span>
+          {i > 0 && <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>}
+          <span class="whitespace-nowrap">{item}</span>
         </>
       ))}
     </div>
