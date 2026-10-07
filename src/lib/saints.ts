@@ -4,6 +4,7 @@
 // show verbatim - this is the one place that turns a slug back into prose.
 const SAINT_NAMES: Record<string, string> = {
   'blaise-of-sebaste': 'Blaise of Sebaste',
+  'catherine-of-siena': 'Catherine of Siena',
   'eustace-of-rome': 'Eustace of Rome',
   'francis-of-assisi': 'Francis of Assisi',
   'george-of-lydda': 'George of Lydda',
@@ -14,6 +15,7 @@ const SAINT_NAMES: Record<string, string> = {
   'padre-pio': 'Padre Pio',
   'patrick-of-ireland': 'Patrick of Ireland',
   'peter-the-apostle': 'Peter the Apostle',
+  'teresa-of-avila': 'Teresa of Avila',
 };
 
 const LOWERCASE_WORDS = new Set(['of', 'the', 'van', 'von', 'der', 'da', 'de']);
