@@ -10,7 +10,10 @@ legend/story behind why.
 - **St. Joseph's Day (Mar 19)** — St. Joseph's Table/Altar tradition (Sicilian-American),
   elaborate food displays shared with the community; fava beans kept as "lucky beans" tied to
   a legend of the bean crop surviving a famine when other crops failed; zeppole di San
-  Giuseppe pastries.
+  Giuseppe pastries. Louisiana (New Orleans and the River Parishes, via the state's own
+  Sicilian-immigrant history) is one of the strongest living examples today — public, open-door
+  altars people travel to visit — worth featuring as the modern-practice anchor rather than
+  treating the tradition as purely historical.
 - **St. Martin's Day / Martinmas (Nov 11)** — children's lantern processions in parts of
   Europe; goose dinners, tied to a legend that Martin hid in a goose pen to avoid being made
   bishop and was given away by the geese's noise.
@@ -67,6 +70,11 @@ list gets long enough.)
   "most intense version of this genre" example.
 - **Irish pattern days** ("patron" days) — local pilgrimage/festival days tied to a parish or
   holy well's patron saint.
+- **Blessing of the Fleet** — a priest blesses the fishing/shrimping fleet at the start of the
+  season, a custom carried by Catholic fishing communities worldwide (Mediterranean villages,
+  Portuguese-American New England towns, Louisiana's Gulf Coast parishes like Chauvin and
+  Delcambre). Frame as "this is what Catholic fishing towns do," with Louisiana as one vivid
+  regional example rather than the whole story.
 
 Frame this whole section as "how Catholic communities localize devotion to a shared saint,"
 not as a comparative-religion piece — keeps it inside the Catholic-only guardrail even though
@@ -135,7 +143,8 @@ still out. Unparked.)
   a living Catholic practice, strongest today in Poland (Zaduszki), the Philippines (Undas), and
   parts of Latin America's Catholic strand distinct from the syncretic Día de los Muertos already
   excluded under the Catholic-only guardrail. Frame as family devotion and continuity, not as
-  spooky atmosphere.
+  spooky atmosphere. New Orleans' above-ground cemeteries (tomb whitewashing ahead of Nov. 1-2,
+  candlelit All Souls' visits) are a good American example to add to this list.
 - **Poor Souls / Purgatory devotion** — praying and offering indulgences for souls in purgatory.
   Two distinct, both-real grants rather than one loose popularization of the other: a whole-month
   indulgence (documented by the 1911 Catholic Encyclopedia, tracing to St. Odilo of Cluny's 998

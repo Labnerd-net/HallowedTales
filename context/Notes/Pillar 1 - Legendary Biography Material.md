@@ -41,6 +41,12 @@ this site, but it still means claims below need a real source pass before publis
 - **Golden Legend-style "appeared on this spot" stories** generally — a recurring medieval
   pattern (image found in a tree, vision at a well, etc.) worth covering as its own genre piece
   rather than saint-by-saint.
+- **Our Lady of Prompt Succor (New Orleans)** — Ursuline nuns' patroness, with a real
+  founding-legend arc: a statue/devotion brought from France, a 1810 convent-fire prayer
+  answered, and a widely-told story that the sisters' novena before the 1815 Battle of New
+  Orleans is why the city was spared. Good patroness-of-a-place piece, Louisiana flavor but not
+  Louisiana-exclusive (feast day Jan. 9, recognized devotion beyond the city). Needs a real
+  source pass on the Battle of New Orleans claim specifically before publishing.
 
 ## Meta-legends (how a cultus forms) — good "behind the scenes" content
 
@@ -50,7 +56,12 @@ this site, but it still means claims below need a real source pass before publis
   told factually/respectfully, not as a "gotcha."
 - **St. Expeditus** — popular legend that the cultus began from a mislabeled crate ("expedito,"
   Italian for "shipped") mistaken for a saint's name. Fun, light, explicitly a legend-about-a-
-  legend — a good way to show the site's own honesty about how folklore works.
+  legend — a good way to show the site's own honesty about how folklore works. **Flag:** New
+  Orleans has a distinct living St. Expedite devotion (statue at Our Lady of Guadalupe Church,
+  candle offerings for urgent requests) that overlaps with Voodoo/Hoodoo folk practice in the
+  city — same syncretism problem as the Kakure Kirishitan entry below. The mislabeled-crate
+  origin legend above is clean and Catholic-only; the New Orleans devotional-practice angle
+  specifically would need case-by-case framing (or exclusion) to stay inside the guardrail.
 
 ## Persecution-era legends
 
