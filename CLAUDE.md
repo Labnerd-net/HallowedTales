@@ -48,6 +48,14 @@ Register. Want the folklore and traditions around them? → HallowedTales."
   record rather than narrowing coverage to avoid the overlap.
 - **Style:** plain hyphens (`-`), never em dashes (`—`), in page copy, UI strings, and any text
   written into content files — matches the Register's convention.
+- **Stories stand alone (decided):** no entry's prose or frontmatter prose fields
+  (`historicalNote`, `variants[].detail`/`.note`, etc.) may refer back to "this site," "this
+  page," "this entry," a content cluster/pillar name, or any other site-structure/editorial
+  framing. A story gets shared out of context (screenshot, copy-paste, read on its own) and
+  anything that only makes sense next to the site around it breaks on the way out. Legitimate
+  references to *other stories* (`relatedLegends`, same-saint cross-links, or naming The Miracle
+  Register by name as a separate site) are fine — the rule is about the narrative not leaning on
+  this site's own scaffolding to make sense, not about isolating entries from each other.
 
 ## Content Pillars
 

@@ -86,6 +86,15 @@ Quote the sentence and suggest where it would split.
   this repo's internal `CLAUDE.md` structure; flag it and suggest "category"
   or a rephrase. Don't flag genuine uses of "pillar" describing an actual
   physical column.
+- Self-referential site/editorial framing - "this site," "this page," "this
+  entry," a cluster/pillar name, or any other phrasing that only makes sense
+  because the reader is looking at this site's scaffolding (e.g. "isn't a
+  question this site tries to settle," "this entry sits in the legendary
+  quest cluster"). Stories need to read the same if screenshotted or copied
+  out of context. Flag and suggest a rephrase that states the fact on its
+  own terms. This does not cover naming another story (`relatedLegends`,
+  same-saint links) or naming The Miracle Register by name as a separate
+  site - those are fine.
 
 Don't flag things `CLAUDE.md` explicitly allows (e.g. shared Old Testament
 origin material anchored in Catholic veneration) - this is a writing-quality
