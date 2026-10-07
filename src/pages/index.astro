@@ -102,7 +102,7 @@ const sidebarStories = [
 
 const upcomingFeastDays = await getUpcomingFeastDays(3);
 // Surface the nearest feast as a banner right under the hero once it's close
-// enough to matter; otherwise it just sits in the "Upcoming Feast Days"
+// enough to matter; otherwise it just sits in the "Next Feast Days"
 // section at the bottom like the rest of the list.
 const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 14);
 ---
@@ -204,7 +204,7 @@ const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 
     </section>
 
     <section class="mt-14 border-t border-surface-alt pt-10">
-      <h2 class="mb-6 font-display text-xl font-semibold text-ink">Upcoming Feast Days</h2>
+      <h2 class="mb-6 font-display text-xl font-semibold text-ink">Next Feast Days</h2>
       <div class="flex flex-wrap gap-5">
         {upcomingFeastDays.map((feastDay, i) => (
           <FeastDayTile
