@@ -1,5 +1,10 @@
 import { defineCollection, z, type ImageFunction } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { TAG_SLUGS } from './lib/tags';
+
+// Shared across all five collections - see src/lib/tags.ts for why this is
+// a closed enum rather than z.array(z.string()).
+const tagsField = z.array(z.enum(TAG_SLUGS)).optional();
 
 // Shared across all five collections: a photo of a relic/location, or a
 // period illustration/artwork for legends and phenomena that have no
@@ -61,7 +66,7 @@ const legends = defineCollection({
     // Links to OTHER full entries that share a motif or lineage but are
     // their own complete narrative — the St. Hubert / St. Eustace case.
     relatedLegends: z.array(z.string()).optional(),
-    tags: z.array(z.string()).optional(),
+    tags: tagsField,
     published: z.boolean().default(false),
     // Homepage hero pick. At most one entry should set this - if more than
     // one does, index.astro just takes the first match.
@@ -120,7 +125,7 @@ const traditions = defineCollection({
     // Points at a `legends` entry this custom traces back to (e.g. the St.
     // Nicholas Day shoe custom -> the dowry-gold legend), not other traditions.
     relatedLegends: z.array(z.string()).optional(),
-    tags: z.array(z.string()).optional(),
+    tags: tagsField,
     published: z.boolean().default(false),
   }),
 });
@@ -162,7 +167,7 @@ const relics = defineCollection({
       .optional(),
     historicalNote: z.string().optional(),
     relatedLegends: z.array(z.string()).optional(),
-    tags: z.array(z.string()).optional(),
+    tags: tagsField,
     published: z.boolean().default(false),
   }),
 });
@@ -193,7 +198,7 @@ const phenomena = defineCollection({
     // duplicating the Register's evidentiary caveat in lore-site voice.
     registerSlug: z.string().optional(),
     relatedLegends: z.array(z.string()).optional(),
-    tags: z.array(z.string()).optional(),
+    tags: tagsField,
     published: z.boolean().default(false),
   }),
 });
@@ -244,7 +249,7 @@ const symbols = defineCollection({
       )
       .optional(),
     relatedLegends: z.array(z.string()).optional(),
-    tags: z.array(z.string()).optional(),
+    tags: tagsField,
     published: z.boolean().default(false),
   }),
 });
