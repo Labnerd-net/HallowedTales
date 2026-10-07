@@ -80,6 +80,12 @@ Quote the sentence and suggest where it would split.
   detail, exorcism/demonic content) - flag even a mild lean in that
   direction, since the guardrail is explicit about cutting rather than
   softening.
+- Internal taxonomy jargon leaking into reader-facing prose - "pillar" used
+  to mean a content pillar/category (e.g. "unlike most objects in this
+  pillar") rather than a literal architectural pillar. Readers don't know
+  this repo's internal `CLAUDE.md` structure; flag it and suggest "category"
+  or a rephrase. Don't flag genuine uses of "pillar" describing an actual
+  physical column.
 
 Don't flag things `CLAUDE.md` explicitly allows (e.g. shared Old Testament
 origin material anchored in Catholic veneration) - this is a writing-quality
