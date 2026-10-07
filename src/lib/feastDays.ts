@@ -2,6 +2,7 @@ import { getCollection } from 'astro:content';
 import { getEaster } from './liturgical/easter';
 import { excerptFrom } from './excerpt';
 import { getFixedFeasts, getMovableFeastsInMonth } from './feasts';
+import { isPublished } from './published';
 
 const MONTH_INDEX: Record<string, number> = {
   Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
@@ -44,7 +45,7 @@ async function getFeastDayEntries(): Promise<FeastDayEntry[]> {
   const results: FeastDayEntry[] = [];
 
   for (const collection of collections) {
-    const entries = await getCollection(collection);
+    const entries = (await getCollection(collection)).filter(isPublished);
     for (const entry of entries) {
       const feastDay = entry.data.feastDay;
       if (!feastDay) continue;

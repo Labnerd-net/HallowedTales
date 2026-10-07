@@ -9,6 +9,7 @@ import FeastDayTile from '../components/FeastDayTile.astro';
 import { excerptFrom } from '../lib/excerpt';
 import { getUpcomingFeastDays } from '../lib/feastDays';
 import { PILLARS, pillarFor, type PillarKey } from '../lib/pillarMeta';
+import { isPublished } from '../lib/published';
 
 import georgeAndDragon from '../content/legends/george-and-the-dragon/uccello-george-dragon.jpg';
 import palmSundayProcession from '../content/traditions/palm-sunday-palms/palm-sunday-procession.jpg';
@@ -45,7 +46,7 @@ const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string }>
 
 const countByPillar: Record<string, number> = {};
 for (const pillar of PILLARS) {
-  countByPillar[pillar.key] = (await getCollection(pillar.key as any)).length;
+  countByPillar[pillar.key] = (await getCollection(pillar.key as any)).filter((e: any) => e.data.published).length;
 }
 
 // Tailwind's scanner needs literal class strings, not `text-${var}` -
@@ -71,7 +72,8 @@ const relicEntries = await getCollection('relics');
 const symbolEntries = await getCollection('symbols');
 const phenomenaEntries = await getCollection('phenomena');
 
-const featured = legendEntries.find((entry) => entry.data.featured) ?? legendEntries[0];
+const publishedLegends = legendEntries.filter(isPublished);
+const featured = publishedLegends.find((entry) => entry.data.featured) ?? publishedLegends[0];
 const featuredExcerpt = featured ? excerptFrom(featured.body) : '';
 
 // Same pick-one-at-random approach as /random.astro, re-rolled on every
@@ -82,11 +84,11 @@ function pickRandom<T>(items: T[]): T | undefined {
 
 // Sidebar mixes a random entry from the other four pillars, plus one more
 // random legend (excluding whichever is the featured pick).
-const randomLegend = pickRandom(legendEntries.filter((entry) => entry.data.published && entry.id !== featured?.id));
-const randomTradition = pickRandom(traditionEntries.filter((entry) => entry.data.published));
-const randomRelic = pickRandom(relicEntries.filter((entry) => entry.data.published));
-const randomSymbol = pickRandom(symbolEntries.filter((entry) => entry.data.published));
-const randomPhenomenon = pickRandom(phenomenaEntries.filter((entry) => entry.data.published));
+const randomLegend = pickRandom(publishedLegends.filter((entry) => entry.id !== featured?.id));
+const randomTradition = pickRandom(traditionEntries.filter(isPublished));
+const randomRelic = pickRandom(relicEntries.filter(isPublished));
+const randomSymbol = pickRandom(symbolEntries.filter(isPublished));
+const randomPhenomenon = pickRandom(phenomenaEntries.filter(isPublished));
 
 const sidebarStories = [
   randomTradition && { entry: randomTradition, collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },

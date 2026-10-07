@@ -7,6 +7,9 @@ import { resolveRelatedLegends } from '../../lib/related';
 
 export const prerender = true;
 
+// Every entry gets a real static page here, published or not - this is what
+// makes a draft's own URL shareable. Discovery (listings, related links,
+// feast lookups) is gated separately via `isPublished`; this file is not.
 export async function getStaticPaths() {
   const entries = await getCollection('relics');
   return entries.map((entry) => ({
@@ -23,7 +26,7 @@ const related = await resolveRelatedLegends(relatedLegends);
 const clusterLabel = cluster.replace('-', ' ');
 ---
 
-<Layout title={title}>
+<Layout title={title} draft={!entry.data.published}>
   <Hero
     eyebrow="Relic & Legend"
     title={title}

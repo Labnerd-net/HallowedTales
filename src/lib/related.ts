@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { isPublished } from './published';
 
 const COLLECTIONS = ['legends', 'traditions', 'relics', 'phenomena', 'symbols'] as const;
 type Collection = (typeof COLLECTIONS)[number];
@@ -24,7 +25,7 @@ const hrefFor = (collection: Collection, id: string) => `/${collection}/${id}`;
 // for the St. Hubert / St. Eustace peer case).
 export async function resolveRelatedLegends(slugs: string[] | undefined): Promise<RelatedLink[]> {
   if (!slugs || slugs.length === 0) return [];
-  const legends = await getCollection('legends');
+  const legends = (await getCollection('legends')).filter(isPublished);
   const bySlug = new Map(legends.map((e) => [e.id, e]));
   return slugs
     .map((slug) => bySlug.get(slug))
@@ -39,7 +40,7 @@ export async function resolveRelatedLegends(slugs: string[] | undefined): Promis
 export async function findReferencingEntries(legendSlug: string): Promise<RelatedLink[]> {
   const results: RelatedLink[] = [];
   for (const collection of COLLECTIONS) {
-    const entries = await getCollection(collection);
+    const entries = (await getCollection(collection)).filter(isPublished);
     for (const entry of entries) {
       if (collection === 'legends' && entry.id === legendSlug) continue;
       const related = (entry.data as { relatedLegends?: string[] }).relatedLegends;
@@ -71,7 +72,7 @@ export async function findBySaint(
   const saintSet = new Set(saintSlugs);
   const results: RelatedLink[] = [];
   for (const collection of SAINT_COLLECTIONS) {
-    const entries = await getCollection(collection);
+    const entries = (await getCollection(collection)).filter(isPublished);
     for (const entry of entries) {
       if (collection === currentCollection && entry.id === currentId) continue;
       const entrySaints = (entry.data as { saints?: string[] }).saints;

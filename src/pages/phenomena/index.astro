@@ -3,8 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import LegendCard from '../../components/LegendCard.astro';
 import { excerptFrom } from '../../lib/excerpt';
+import { isPublished } from '../../lib/published';
 
-const entries = await getCollection('phenomena');
+const entries = (await getCollection('phenomena')).filter(isPublished);
 ---
 
 <Layout title="Mystical Phenomena">

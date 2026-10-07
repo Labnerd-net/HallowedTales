@@ -14,9 +14,13 @@ import BrandMark from '../components/BrandMark.astro';
 
 interface Props {
   title: string;
+  // Set when rendering an unpublished entry's own detail page - the page
+  // still gets a real URL (so it's shareable for review) but shouldn't be
+  // indexed or mistaken for a live page.
+  draft?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, draft = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +28,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {draft && <meta name="robots" content="noindex, nofollow" />}
     <title>{title} - Hallowed Tales</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -46,6 +51,11 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="font-body">
+    {draft && (
+      <div class="bg-gold px-4 py-2 text-center text-sm font-medium text-ink-fixed">
+        Draft - not yet published. This page isn't linked from anywhere else on the site.
+      </div>
+    )}
     <LiturgicalBanner />
     <nav class="relative z-50 flex items-center justify-between gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft md:grid md:grid-cols-[1fr_auto_1fr]">
       <BrandMark />
