@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LegendCard from '../../components/LegendCard.astro';
+import { tagsInUse, entriesForTag } from '../../lib/tagArchive';
+import { tagLabel } from '../../lib/tags';
+
+export const prerender = true;
+
+// Only tags with at least one published entry get a page - see tagsInUse()
+// for why an unused registry tag shouldn't get a dead archive page.
+export async function getStaticPaths() {
+  const tags = await tagsInUse();
+  return tags.map((tag) => ({
+    params: { slug: tag.slug },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const entries = await entriesForTag(tag.slug);
+---
+
+<Layout title={`Tagged: ${tagLabel(tag.slug)}`}>
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <p class="mb-2 font-display text-sm uppercase tracking-wide text-gold">Tag</p>
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">{tagLabel(tag.slug)}</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => (
+        <LegendCard
+          href={entry.href}
+          badge={entry.badge}
+          title={entry.title}
+          excerpt={entry.excerpt}
+          meta={entry.meta}
+          images={entry.images}
+          featuredImageIndex={entry.featuredImageIndex}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import RelatedList from '../../components/RelatedList.astro';
+import TagList from '../../components/TagList.astro';
 import { resolveRelatedLegends, findBySaint } from '../../lib/related';
 import { registerMiracleHref } from '../../lib/registerLink';
 import { formatSaints } from '../../lib/saints';
@@ -23,7 +24,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
-const { title, phenomenonType, saints, registerSlug, relatedLegends } = entry.data;
+const { title, phenomenonType, saints, registerSlug, relatedLegends, tags } = entry.data;
 const related = await resolveRelatedLegends(relatedLegends);
 const sameSaint = await findBySaint(saints, 'phenomena', entry.id);
 const registerHref = registerMiracleHref(registerSlug);
@@ -49,6 +50,7 @@ const registerHref = registerMiracleHref(registerSlug);
     </div>
   </main>
 
+  <TagList tags={tags} />
   <RelatedList links={sameSaint} heading="More about this saint" />
   <RelatedList links={related} />
 </Layout>

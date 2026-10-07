@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { tagsInUse } from '../../lib/tagArchive';
+
+const tags = await tagsInUse();
+---
+
+<Layout title="Browse by Tag">
+  <main class="mx-auto max-w-3xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Browse by Tag</h1>
+    <ul class="flex flex-wrap gap-3">
+      {tags.map((tag) => (
+        <li>
+          <a
+            href={`/tags/${tag.slug}`}
+            class="inline-flex items-center gap-2 rounded-full bg-surface-alt px-4 py-2 text-sm font-medium text-ink-soft hover:bg-gold hover:text-ink-fixed"
+          >
+            {tag.label}
+            <span class="text-xs opacity-70">{tag.count}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>
