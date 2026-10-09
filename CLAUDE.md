@@ -142,15 +142,14 @@ same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.
 **Publishing workflow (decided 2026-10-09):** research and drafting happens in the sibling
 `catholic-research` repo (`../catholic-research/HallowedTales/Notes/`,
 `github.com/Labnerd-net/catholic-research` — if the sibling-directory path doesn't resolve, clone
-from there), not here. This repo's own `context/Notes/` no longer holds research content — it was
-removed (2026-10-09) now that `catholic-research` is the single source of truth and can be kept
+from there), not here. This repo has no `context/Notes/` and should not get one (removed
+2026-10-09) now that `catholic-research` is the single source of truth and can be kept
 private, unlike this repo (public, for portfolio/resume purposes). Pillar drafts in
 `catholic-research` are first-pass and unsourced; each entry needs a real source pass (earliest
 known written source, rough date, "what we actually know historically" contrast) before it
 becomes a content file in this repo, reviewed via a normal PR (see `catholic-research/CLAUDE.md`
-→ Publishing). The `proofread` skill's dated reports (`context/Notes/proofreading-*.md`) still
-write here — that's an audit of this repo's own already-*live* `src/content/`, not drafting
-material, so it stays.
+→ Publishing). The `proofread` skill's dated reports also write to
+`../catholic-research/HallowedTales/Notes/proofreading-*.md`, not here.
 
 ---
 

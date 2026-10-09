@@ -1,6 +1,6 @@
 ---
 name: proofread
-description: Proofreads prose in `src/content/{legends,traditions,relics,phenomena}/**` for spelling, grammar, run-on sentences, structural issues (paragraph length, repetitive sentence openers, passive-voice overuse, pacing), and this repo's specific style rules (plain hyphens not em dashes, saints/terms introduced at first mention, warm/devotional tone rather than clinical or dark framing). Use when asked to proofread, copyedit, check writing quality, check for run-ons, or review tone/voice/structure on one or more content entries. Produces a dated report under `context/Notes/` - never edits content files itself.
+description: Proofreads prose in `src/content/{legends,traditions,relics,phenomena}/**` for spelling, grammar, run-on sentences, structural issues (paragraph length, repetitive sentence openers, passive-voice overuse, pacing), and this repo's specific style rules (plain hyphens not em dashes, saints/terms introduced at first mention, warm/devotional tone rather than clinical or dark framing). Use when asked to proofread, copyedit, check writing quality, check for run-ons, or review tone/voice/structure on one or more content entries. Produces a dated report under `../catholic-research/HallowedTales/Notes/` - never edits content files itself.
 ---
 
 # proofread
@@ -102,8 +102,8 @@ pass, not a scope-guardrail audit.
 
 ## Writing the report
 
-Write to `context/Notes/proofreading-<YYYY-MM-DD>.md` (today's date; create
-`context/Notes/` if it doesn't exist). Structure:
+Write to `../catholic-research/HallowedTales/Notes/proofreading-<YYYY-MM-DD>.md`
+(today's date; never create a `context/Notes/` in this repo). Structure:
 
 1. **Summary** - entries checked, scope, and a one-line count per category
    (e.g. "6 entries checked: 2 run-ons, 1 em dash, 3 first-mention misses,
