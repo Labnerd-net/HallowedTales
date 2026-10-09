@@ -1,41 +1,13 @@
+import { REGISTER_MIRACLE_SLUGS, REGISTER_SAINT_SLUGS } from '../data/registerSlugs';
+
 const SITE = 'https://themiracleregister.org';
 
-// Snapshot of TMR's published saint slugs, taken from TMR_sitemap.xml on
-// 2026-10-04. TMR only covers modern causes with medically-documented
-// miracle claims, so most HallowedTales saints won't appear here - that's
-// the two sites' differing scope, not a gap to fill. Refresh this list by
-// re-checking the sitemap rather than guessing slugs; there's no live
-// lookup (see CLAUDE.md: this repo doesn't read TMR's database).
-const REGISTER_SAINT_SLUGS = new Set([
-  'andre-bessette',
-  'bernadette-soubirous',
-  'carlo-acutis',
-  'catherine-laboure',
-  'damien-of-molokai',
-  'edith-stein',
-  'elizabeth-ann-seton',
-  'faustina-kowalska',
-  'francisco-marto',
-  'fulton-sheen',
-  'gianna-beretta-molla',
-  'jacinta-marto',
-  'john-henry-newman',
-  'john-neumann',
-  'john-paul-ii',
-  'john-xxiii',
-  'josemaria-escriva',
-  'josephine-bakhita',
-  'juan-diego',
-  'kateri-tekakwitha',
-  'louis-martin',
-  'maximilian-kolbe',
-  'mother-teresa',
-  'oscar-romero',
-  'padre-pio',
-  'pier-giorgio-frassati',
-  'therese-of-lisieux',
-  'zelie-martin',
-]);
+// The sets of published Register slugs are generated, not hand-edited - see
+// src/data/registerSlugs.ts. TMR only covers modern causes with
+// medically-documented miracle claims, so most HallowedTales saints won't
+// appear there - that's the two sites' differing scope, not a gap to fill.
+// There's no live lookup (see CLAUDE.md: this repo doesn't read TMR's
+// database).
 
 // First of this entry's saints (by HallowedTales slug) that also has a
 // Register saint page, resolved to that page's URL - or undefined if none
@@ -47,5 +19,5 @@ export function registerSaintHref(saintSlugs: string[] | undefined): string | un
 }
 
 export function registerMiracleHref(registerSlug: string | undefined): string | undefined {
-  return registerSlug ? `${SITE}/miracles/${registerSlug}` : undefined;
+  return registerSlug && REGISTER_MIRACLE_SLUGS.has(registerSlug) ? `${SITE}/miracles/${registerSlug}` : undefined;
 }

@@ -137,6 +137,12 @@ same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.
 
 ### Generated reference data
 
+`src/data/registerSlugs.ts` is **generated** from the Register's published saints and miracles
+(read-only DB query) - do not edit by hand. After the Register publishes or unpublishes records,
+run `npm run -s register:sync` in `../catholic-research` (`-- --check` reports drift and any
+`registerSlug` frontmatter pointing at an unpublished miracle) and commit the result here via PR.
+Used by `lib/registerLink.ts`; still a vendored copy, not a runtime dependency.
+
 `src/data/feastDays.ts` and `src/data/monthlyDevotionFacts.ts` are **generated** from
 `../catholic-research/Shared/` (`feast-days.json`, `monthly-devotions.json`) - do not edit them
 by hand. Change the master there, then from `../catholic-research` run
