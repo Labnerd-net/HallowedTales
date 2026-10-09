@@ -1,6 +1,5 @@
-// Shared pillar metadata for the homepage-mockup pages (alt-homepage-*.astro).
-// Not used by the live site yet - if one of these layouts gets adopted,
-// this is the natural place to keep pulling from.
+// Shared pillar metadata (labels, badges, hrefs, accent colors) used by the
+// homepage's "Explore by Category" grid and sidebar.
 export type PillarKey = 'legends' | 'traditions' | 'relics' | 'symbols' | 'phenomena';
 
 export interface PillarMeta {

@@ -20,7 +20,7 @@ import padrePio1944 from '../content/phenomena/padre-pio-bilocation/padre-pio-19
 // Picked from a set of candidates on a temp preview page - see commit
 // history for the comparison. One representative image per category for
 // the "Explore by Category" grid, distinct from CardThumb's per-entry
-// `images` frontmatter (still unpopulated on every entry).
+// `images` frontmatter.
 const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string }> = {
   legends: {
     src: georgeAndDragon,
@@ -44,11 +44,6 @@ const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string }>
   },
 };
 
-const countByPillar: Record<string, number> = {};
-for (const pillar of PILLARS) {
-  countByPillar[pillar.key] = (await getCollection(pillar.key as any)).filter((e: any) => e.data.published).length;
-}
-
 // Tailwind's scanner needs literal class strings, not `text-${var}` -
 // same pattern LegendCard.astro uses for its badge accent lookup.
 const countTextClass: Record<string, string> = {
@@ -66,13 +61,20 @@ const borderClass: Record<string, string> = {
   'liturgical-violet': 'border-liturgical-violet',
 };
 
-const legendEntries = await getCollection('legends');
-const traditionEntries = await getCollection('traditions');
-const relicEntries = await getCollection('relics');
-const symbolEntries = await getCollection('symbols');
-const phenomenaEntries = await getCollection('phenomena');
+const publishedLegends = (await getCollection('legends')).filter(isPublished);
+const publishedTraditions = (await getCollection('traditions')).filter(isPublished);
+const publishedRelics = (await getCollection('relics')).filter(isPublished);
+const publishedSymbols = (await getCollection('symbols')).filter(isPublished);
+const publishedPhenomena = (await getCollection('phenomena')).filter(isPublished);
 
-const publishedLegends = legendEntries.filter(isPublished);
+const countByPillar: Record<PillarKey, number> = {
+  legends: publishedLegends.length,
+  traditions: publishedTraditions.length,
+  relics: publishedRelics.length,
+  symbols: publishedSymbols.length,
+  phenomena: publishedPhenomena.length,
+};
+
 const featured = publishedLegends.find((entry) => entry.data.featured) ?? publishedLegends[0];
 const featuredExcerpt = featured ? excerptFrom(featured.body) : '';
 
@@ -85,10 +87,10 @@ function pickRandom<T>(items: T[]): T | undefined {
 // Sidebar mixes a random entry from the other four pillars, plus one more
 // random legend (excluding whichever is the featured pick).
 const randomLegend = pickRandom(publishedLegends.filter((entry) => entry.id !== featured?.id));
-const randomTradition = pickRandom(traditionEntries.filter(isPublished));
-const randomRelic = pickRandom(relicEntries.filter(isPublished));
-const randomSymbol = pickRandom(symbolEntries.filter(isPublished));
-const randomPhenomenon = pickRandom(phenomenaEntries.filter(isPublished));
+const randomTradition = pickRandom(publishedTraditions);
+const randomRelic = pickRandom(publishedRelics);
+const randomSymbol = pickRandom(publishedSymbols);
+const randomPhenomenon = pickRandom(publishedPhenomena);
 
 const sidebarStories = [
   randomTradition && { entry: randomTradition, collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
