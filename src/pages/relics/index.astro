@@ -3,12 +3,13 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import LegendCard from '../../components/LegendCard.astro';
 import { excerptFrom } from '../../lib/excerpt';
+import { pillarFor } from '../../lib/pillarMeta';
 import { isPublished } from '../../lib/published';
 
 const entries = (await getCollection('relics')).filter(isPublished);
 ---
 
-<Layout title="Relics & Legendary Artifacts">
+<Layout title="Relics & Legendary Artifacts" description={pillarFor('relics').description}>
   <main class="mx-auto max-w-5xl px-8 py-16">
     <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Relics &amp; Legendary Artifacts</h1>
     <div class="grid gap-6 md:grid-cols-3">

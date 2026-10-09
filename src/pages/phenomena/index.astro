@@ -3,13 +3,14 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import LegendCard from '../../components/LegendCard.astro';
 import { excerptFrom } from '../../lib/excerpt';
+import { pillarFor } from '../../lib/pillarMeta';
 import { isPublished } from '../../lib/published';
 import { tagLabel } from '../../lib/tags';
 
 const entries = (await getCollection('phenomena')).filter(isPublished);
 ---
 
-<Layout title="Mystical Phenomena">
+<Layout title="Mystical Phenomena" description={pillarFor('phenomena').description}>
   <main class="mx-auto max-w-5xl px-8 py-16">
     <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Mystical Phenomena</h1>
     <div class="grid gap-6 md:grid-cols-3">

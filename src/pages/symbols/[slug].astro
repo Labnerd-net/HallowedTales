@@ -1,6 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { excerptFrom } from '../../lib/excerpt';
+import { featuredImage } from '../../lib/images';
+import { metaDescription } from '../../lib/seo';
 import Hero from '../../components/Hero.astro';
 import RelatedList from '../../components/RelatedList.astro';
 import TagList from '../../components/TagList.astro';
@@ -45,7 +48,13 @@ const meta = [
 ];
 ---
 
-<Layout title={title} draft={!entry.data.published}>
+<Layout
+  title={title}
+  draft={!entry.data.published}
+  type="article"
+  description={metaDescription(excerptFrom(entry.body))}
+  image={featuredImage(entry.data.images, entry.data.featuredImageIndex).src}
+>
   <Hero
     eyebrow="Symbol"
     title={title}

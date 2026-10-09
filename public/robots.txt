@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /random
+
+Sitemap: https://hallowedtales.com/sitemap.xml
