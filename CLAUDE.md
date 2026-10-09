@@ -48,6 +48,11 @@ Register. Want the folklore and traditions around them? → HallowedTales."
   record rather than narrowing coverage to avoid the overlap.
 - **Style:** plain hyphens (`-`), never em dashes (`—`), in page copy, UI strings, and any text
   written into content files — matches the Register's convention.
+- **"Saint," spelled out (decided 2026-10-09):** never abbreviate to "St." or "St" — in saint
+  titles ("Saint Francis") and in saint-named institutions/places alike ("Saint Peter's
+  Basilica"). Same rule as the Register's. Exception: a real place name that is never rendered
+  "Saint" in English usage (e.g. the Dorset village "Hinton St Mary") stays as-is. Normalized
+  across existing content on 2026-10-09.
 - **Stories stand alone (decided):** no entry's prose or frontmatter prose fields
   (`historicalNote`, `variants[].detail`/`.note`, etc.) may refer back to "this site," "this
   page," "this entry," a content cluster/pillar name, or any other site-structure/editorial
