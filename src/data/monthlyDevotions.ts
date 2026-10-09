@@ -6,23 +6,35 @@
 // for the full research notes, including which months have real
 // institutional backing vs. which are later popular-calendar filler (worded
 // more cautiously below).
+//
+// The month/name facts are generated from catholic-research's
+// `Shared/monthly-devotions.json` (see `./monthlyDevotionFacts.ts`); only the
+// banner blurbs below are written here, since their wording is HallowedTales' own.
+import { MONTHLY_DEVOTION_FACTS } from './monthlyDevotionFacts';
+
 export type MonthlyDevotionEntry = {
   month: number;
   name: string;
   blurb: string;
 };
 
-export const MONTHLY_DEVOTIONS: MonthlyDevotionEntry[] = [
-  { month: 1, name: 'the Holy Name of Jesus', blurb: 'January: the Holy Name of Jesus' },
-  { month: 2, name: 'the Holy Family', blurb: 'February: the Holy Family' },
-  { month: 3, name: 'St. Joseph', blurb: 'March: St. Joseph' },
-  { month: 4, name: 'the Blessed Sacrament', blurb: 'April: popularly held to be the Blessed Sacrament' },
-  { month: 5, name: 'Mary', blurb: 'May: the month of Mary' },
-  { month: 6, name: 'the Sacred Heart of Jesus', blurb: 'June: the Sacred Heart of Jesus' },
-  { month: 7, name: 'the Precious Blood of Jesus', blurb: 'July: the Precious Blood of Jesus' },
-  { month: 8, name: 'the Immaculate Heart of Mary', blurb: 'August: the Immaculate Heart of Mary' },
-  { month: 9, name: 'Our Lady of Sorrows', blurb: 'September: Our Lady of Sorrows' },
-  { month: 10, name: 'the Holy Rosary', blurb: 'October: the Holy Rosary' },
-  { month: 11, name: 'the Holy Souls in Purgatory', blurb: 'November: the Holy Souls in Purgatory' },
-  { month: 12, name: 'the Immaculate Conception', blurb: 'December: popularly held to be the Immaculate Conception' },
-];
+const BLURBS: Record<number, string> = {
+  1: 'January: the Holy Name of Jesus',
+  2: 'February: the Holy Family',
+  3: 'March: St. Joseph',
+  4: 'April: popularly held to be the Blessed Sacrament',
+  5: 'May: the month of Mary',
+  6: 'June: the Sacred Heart of Jesus',
+  7: 'July: the Precious Blood of Jesus',
+  8: 'August: the Immaculate Heart of Mary',
+  9: 'September: Our Lady of Sorrows',
+  10: 'October: the Holy Rosary',
+  11: 'November: the Holy Souls in Purgatory',
+  12: 'December: popularly held to be the Immaculate Conception',
+};
+
+export const MONTHLY_DEVOTIONS: MonthlyDevotionEntry[] = MONTHLY_DEVOTION_FACTS.map((f) => ({
+  month: f.month,
+  name: f.name,
+  blurb: BLURBS[f.month],
+}));
