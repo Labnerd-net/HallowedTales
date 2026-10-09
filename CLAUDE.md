@@ -135,6 +135,15 @@ same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.
   research is TMR's, not duplicated here — if a competitive-landscape check is needed for this
   site, it gets its own note in `../catholic-research/HallowedTales/Notes/`.
 
+### Generated reference data
+
+`src/data/feastDays.ts` and `src/data/monthlyDevotionFacts.ts` are **generated** from
+`../catholic-research/Shared/` (`feast-days.json`, `monthly-devotions.json`) - do not edit them
+by hand. Change the master there, then from `../catholic-research` run
+`npm run feasts:sync -- ht` and commit the result here via PR (`-- ht --check` reports drift).
+This is a vendored copy, not a runtime dependency. Devotion banner blurbs
+(`src/data/monthlyDevotions.ts`) stay hand-written here, since their wording is this site's own.
+
 ---
 
 ## Research Notes
