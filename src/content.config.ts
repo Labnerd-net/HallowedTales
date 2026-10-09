@@ -49,7 +49,8 @@ const legends = defineCollection({
       approxDate: z.string(),
     }),
     // "What we actually know historically" contrast line, per the
-    // provenance-over-verdict framing in context/Notes/Pillar 1.
+    // provenance-over-verdict framing in
+    // ../catholic-research/HallowedTales/Notes/Pillar 1.
     historicalNote: z.string().optional(),
     // Minor retellings of THIS story (changed detail, same throughline) —
     // the St. Nicholas window/chimney/pawnbroker case. Rendered as a

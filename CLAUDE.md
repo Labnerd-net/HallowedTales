@@ -63,11 +63,12 @@ Register. Want the folklore and traditions around them? → HallowedTales."
 |---|---|---|
 | 1 | Legendary biography material (saint-and-creature legends, patronage origin stories, founding/shrine legends, meta-legends about how a cultus forms) | Confirmed |
 | 2 | Catholic folk traditions (feast-day customs, liturgical-object traditions, food traditions, regional patronal festivals, naming traditions, weather folklore) | Confirmed |
-| 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | Confirmed for the Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, etc.). Shared-Old-Testament-origin "legendary quest" entries (Ark of the Covenant, Noah's Ark, Grail, Prester John) are not excluded but evaluated case by case. Shroud of Turin / Sudarium of Oviedo stay excluded (too close to the Register's contested-evidence territory). See `context/Notes/Pillar 3 - Biblical Artifacts and Legendary Relics.md`. |
+| 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | Confirmed for the Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, etc.). Shared-Old-Testament-origin "legendary quest" entries (Ark of the Covenant, Noah's Ark, Grail, Prester John) are not excluded but evaluated case by case. Shroud of Turin / Sudarium of Oviedo stay excluded (too close to the Register's contested-evidence territory). See `../catholic-research/HallowedTales/Notes/Pillar 3 - Biblical Artifacts and Legendary Relics.md`. |
 | 4 | Mystical phenomena from saints' lives (bilocation, levitation, inedia, luminosity, odor of sanctity) | Confirmed. Can overlap with the Register case-by-case (e.g. Padre Pio's bilocation lives on both) — see Pillar 4 note for the rule. |
-| 5 | Catholic symbols (Chi-Rho, scallop shell, crossed keys, Sacred Heart, pelican, Tau cross, etc.) — meaning, origin, and how usage changed across eras | Confirmed. Split out from Pillar 1 rather than folded into legends: some entries anchor to one saint's experience (scallop shell, keys of St. Peter) and would fit the `legends` shape, but others (fish/ichthys, Chi-Rho, the pelican) have no single saint to anchor to, and the content is "what it means + how it's been used over time," not a narrative with retellings. See `context/Notes/Pillar 5 - Symbols.md`. |
+| 5 | Catholic symbols (Chi-Rho, scallop shell, crossed keys, Sacred Heart, pelican, Tau cross, etc.) — meaning, origin, and how usage changed across eras | Confirmed. Split out from Pillar 1 rather than folded into legends: some entries anchor to one saint's experience (scallop shell, keys of St. Peter) and would fit the `legends` shape, but others (fish/ichthys, Chi-Rho, the pelican) have no single saint to anchor to, and the content is "what it means + how it's been used over time," not a narrative with retellings. See `../catholic-research/HallowedTales/Notes/Pillar 5 - Symbols.md`. |
 
-First-pass content research for each pillar lives in `context/Notes/Pillar N - *.md`. Treat those
+First-pass content research for each pillar lives in
+`../catholic-research/HallowedTales/Notes/Pillar N - *.md`. Treat those
 as a working list, not a final content plan — every entry still needs a real source pass before
 publishing.
 
@@ -130,17 +131,26 @@ same-saint section, not `relatedLegends`. See `findBySaint` in `src/lib/related.
   schema. This site's entire premise is that it does *not* hold itself to that bar.
 - Saint identity (slugs, names) should stay compatible enough to cross-link cleanly, but this
   repo does not read from or write to the Register's database.
-- `context/Notes/Existing Miracle Websites.md`-style competitive research is TMR's, not
-  duplicated here — if a competitive-landscape check is needed for this site, it gets its own
-  note in this repo's `context/Notes/`.
+- `../catholic-research/TheMiracleRegister/Notes/Existing Miracle Websites.md`-style competitive
+  research is TMR's, not duplicated here — if a competitive-landscape check is needed for this
+  site, it gets its own note in `../catholic-research/HallowedTales/Notes/`.
 
 ---
 
 ## Research Notes
 
-Research is confined to `context/Notes/` — check there before starting content work. Pillar
-drafts are first-pass and unsourced; each entry needs a real source pass (earliest known written
-source, rough date, "what we actually know historically" contrast) before publishing.
+**Publishing workflow (decided 2026-10-09):** research and drafting happens in the sibling
+`catholic-research` repo (`../catholic-research/HallowedTales/Notes/`,
+`github.com/Labnerd-net/catholic-research` — if the sibling-directory path doesn't resolve, clone
+from there), not here. This repo's own `context/Notes/` no longer holds research content — it was
+removed (2026-10-09) now that `catholic-research` is the single source of truth and can be kept
+private, unlike this repo (public, for portfolio/resume purposes). Pillar drafts in
+`catholic-research` are first-pass and unsourced; each entry needs a real source pass (earliest
+known written source, rough date, "what we actually know historically" contrast) before it
+becomes a content file in this repo, reviewed via a normal PR (see `catholic-research/CLAUDE.md`
+→ Publishing). The `proofread` skill's dated reports (`context/Notes/proofreading-*.md`) still
+write here — that's an audit of this repo's own already-*live* `src/content/`, not drafting
+material, so it stays.
 
 ---
 

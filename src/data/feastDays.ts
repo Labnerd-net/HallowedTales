@@ -1,5 +1,5 @@
 // Reference calendar, not a HallowedTales-specific list: sourced from
-// TheMiracleRegister's `context/Notes/Research/Catholic Feast Day
+// `../catholic-research/TheMiracleRegister/Notes/Research/Catholic Feast Day
 // Reference.md` (General Roman Calendar, Martyrologium Romanum, USCCB),
 // copied in full since this site has no saints DB to cross-reference
 // against like TMR does. Kept in sync by hand - the two sites are separate

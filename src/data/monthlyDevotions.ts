@@ -1,7 +1,8 @@
 // Catholic popular piety traditionally assigns each calendar month to a
 // devotion. Source pass against the 1913 Catholic Encyclopedia's "Special
 // Devotions for Months" article and the 1957 Raccolta - see the "Monthly
-// devotions" section of `context/Notes/Pillar 2 - Catholic Folk Traditions.md`
+// devotions" section of
+// `../catholic-research/HallowedTales/Notes/Pillar 2 - Catholic Folk Traditions.md`
 // for the full research notes, including which months have real
 // institutional backing vs. which are later popular-calendar filler (worded
 // more cautiously below).
