@@ -79,9 +79,10 @@ export function getLiturgicalDay(date: Date): LiturgicalDay {
   const year = day.getUTCFullYear();
   const month = day.getUTCMonth() + 1;
 
-  // December: Christmas Day onward belongs to the Christmas season; before
+  // November/December: Advent 1 can fall as early as Nov 27, so November is
+  // checked too. Christmas Day onward belongs to the Christmas season; before
   // that, if we're within Advent, color by which Advent Sunday we're past.
-  if (month === 12) {
+  if (month >= 11) {
     const christmas = utcDate(year, 12, 25);
     if (day.getTime() >= christmas.getTime()) {
       return { label: 'Christmas', color: 'white' };
@@ -119,10 +120,7 @@ export function getLiturgicalDay(date: Date): LiturgicalDay {
   if (offsetDays === pentecost) {
     return { label: 'Pentecost', color: 'red' };
   }
-  if (offsetDays > 0 && offsetDays < pentecost) {
-    return { label: 'Easter', color: 'white' };
-  }
-  if (offsetDays === 0) {
+  if (offsetDays >= 0 && offsetDays < pentecost) {
     return { label: 'Easter', color: 'white' };
   }
   if (offsetDays === goodFriday) {
@@ -140,10 +138,6 @@ export function getLiturgicalDay(date: Date): LiturgicalDay {
   if (day.getTime() >= ashWednesday.getTime() && offsetDays <= -1) {
     return { label: 'Lent', color: 'violet' };
   }
-  if (offsetDays > pentecost) {
-    return { label: 'Ordinary Time', color: 'green' };
-  }
-
-  // Between Baptism of the Lord and Ash Wednesday.
+  // Between Baptism of the Lord and Ash Wednesday, and after Pentecost.
   return { label: 'Ordinary Time', color: 'green' };
 }

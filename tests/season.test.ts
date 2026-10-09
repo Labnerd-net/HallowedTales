@@ -58,6 +58,24 @@ describe('getLiturgicalDay - 2026 (Easter April 5)', () => {
   it('late November, before Advent starts, is still Ordinary Time', () => {
     expect(getLiturgicalDay(d(2026, 11, 20))).toEqual({ label: 'Ordinary Time', color: 'green' });
   });
+  it('the day before Advent 1 (Nov 28) is Ordinary Time', () => {
+    expect(getLiturgicalDay(d(2026, 11, 28))).toEqual({ label: 'Ordinary Time', color: 'green' });
+  });
+  it('Advent 1 falling in November (Nov 29) is violet', () => {
+    expect(getLiturgicalDay(d(2026, 11, 29))).toEqual({ label: 'Advent', color: 'violet' });
+  });
+  it('Nov 30 is Advent, violet', () => {
+    expect(getLiturgicalDay(d(2026, 11, 30))).toEqual({ label: 'Advent', color: 'violet' });
+  });
+});
+
+describe('getLiturgicalDay - 2025 (Advent 1 on Nov 30)', () => {
+  it('Nov 29 is Ordinary Time', () => {
+    expect(getLiturgicalDay(d(2025, 11, 29))).toEqual({ label: 'Ordinary Time', color: 'green' });
+  });
+  it('Nov 30 is Advent, violet', () => {
+    expect(getLiturgicalDay(d(2025, 11, 30))).toEqual({ label: 'Advent', color: 'violet' });
+  });
 });
 
 describe('getLiturgicalDay - 2024 (Easter March 31)', () => {
