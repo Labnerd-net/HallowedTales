@@ -1,9 +1,6 @@
-// Reference calendar, not a HallowedTales-specific list: sourced from
-// `../catholic-research/TheMiracleRegister/Notes/Research/Catholic Feast Day
-// Reference.md` (General Roman Calendar, Martyrologium Romanum, USCCB),
-// copied in full since this site has no saints DB to cross-reference
-// against like TMR does. Kept in sync by hand - the two sites are separate
-// deploys with no shared dependency.
+// Generated from catholic-research/Shared/feast-days.json by scripts/sync-feasts.ts
+// (General Roman Calendar, Martyrologium Romanum, USCCB). Do not edit by hand -
+// change the master list there and re-run the sync.
 export type FeastScope =
   | 'universal'
   | 'us'
@@ -420,10 +417,7 @@ export const FIXED_FEASTS: FixedFeastEntry[] = [
   { month: 12, day: 31, name: 'Saint Sylvester I' },
 ];
 
-// Days from Easter Sunday; negative = before Easter, positive = after.
-// Palm Sunday isn't in TMR's reference note (its movable list starts at
-// Divine Mercy Sunday) but is added here since this site has its own
-// Palm Sunday tradition entry to link to.
+// Days from Easter Sunday; negative = before Easter, positive = after
 export const MOVABLE_FEASTS: MovableFeastEntry[] = [
   { easterOffset: -7, name: 'Palm Sunday' },
   { easterOffset: 7, name: 'Divine Mercy Sunday' },
