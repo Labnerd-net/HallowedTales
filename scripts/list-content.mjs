@@ -28,5 +28,5 @@ for (const collection of collections) {
   const rows = unpublishedOnly ? entries.filter((e) => !e.published) : entries;
   if (unpublishedOnly && rows.length === 0) continue;
   console.log(`\n${collection} (${rows.length}${unpublishedOnly ? " unpublished" : ""}):`);
-  for (const e of rows) console.log(`  [${e.published ? "x" : " "}] ${e.slug} — ${e.title}`);
+  for (const e of rows) console.log(`  [${e.published ? "x" : " "}] ${e.slug} - ${e.title}`);
 }

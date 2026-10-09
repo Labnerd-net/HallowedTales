@@ -26,7 +26,7 @@ const LOWERCASE_WORDS = new Set(['of', 'the', 'van', 'von', 'der', 'da', 'de']);
 function humanize(slug: string): string {
   return slug
     .split('-')
-    .map((word, i) => (i > 0 && LOWERCASE_WORDS.has(word) ? word : word[0].toUpperCase() + word.slice(1)))
+    .map((word, i) => (i > 0 && LOWERCASE_WORDS.has(word) ? word : word.charAt(0).toUpperCase() + word.slice(1)))
     .join(' ');
 }
 
