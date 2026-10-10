@@ -1,6 +1,5 @@
-import { getCollection } from 'astro:content';
 import { MONTHLY_DEVOTIONS } from '../data/monthlyDevotions';
-import { isPublished } from './published';
+import { getPublished } from './collections';
 
 export interface MonthlyDevotion {
   label: string;
@@ -15,10 +14,8 @@ export async function getMonthlyDevotion(date: Date): Promise<MonthlyDevotion> {
   const fallback = MONTHLY_DEVOTIONS.find((d) => d.month === month);
   const label = fallback?.blurb ?? '';
 
-  const entries = await getCollection('traditions');
-  const match = entries.find(
-    (entry) => entry.data.category === 'monthly-devotion' && entry.data.month === month && isPublished(entry),
-  );
+  const entries = await getPublished('traditions');
+  const match = entries.find((entry) => entry.data.category === 'monthly-devotion' && entry.data.month === month);
   if (!match) return { label };
 
   return { label, href: `/traditions/${match.id}` };

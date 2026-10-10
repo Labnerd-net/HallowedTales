@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegendCard from './LegendCard.astro';
+import type { Badge } from './LegendCard.astro';
+import { getPublished, hrefFor, type Collection } from '../lib/collections';
+import { cardMeta } from '../lib/entryPage';
+import { excerptFrom } from '../lib/excerpt';
+import { pillarFor } from '../lib/pillarMeta';
+import { COLLECTION_LABELS } from '../lib/related';
+
+interface Props {
+  collection: Collection;
+}
+
+const { collection } = Astro.props;
+const pillar = pillarFor(collection);
+const entries = await getPublished(collection);
+---
+
+<Layout title={pillar.label} description={pillar.description}>
+  <main class="mx-auto max-w-5xl px-8 py-16">
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">{pillar.label}</h1>
+    <div class="grid gap-6 md:grid-cols-3">
+      {entries.map((entry) => (
+        <LegendCard
+          href={hrefFor(collection, entry.id)}
+          badge={COLLECTION_LABELS[collection] as Badge}
+          title={entry.data.title}
+          excerpt={excerptFrom(entry.body)}
+          meta={cardMeta(entry)}
+          images={entry.data.images}
+          featuredImageIndex={entry.data.featuredImageIndex}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>

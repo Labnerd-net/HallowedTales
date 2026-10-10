@@ -1,8 +1,7 @@
-import { getCollection } from 'astro:content';
 import { getEaster } from './liturgical/easter';
 import { excerptFrom } from './excerpt';
 import { getFixedFeasts, getMovableFeastsInMonth } from './feasts';
-import { isPublished } from './published';
+import { getPublished, hrefFor } from './collections';
 
 const MONTH_INDEX: Record<string, number> = {
   Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
@@ -16,10 +15,13 @@ interface FeastDay {
   easterOffset?: number;
 }
 
+// Deliberately carries `body` rather than a pre-computed excerpt: most callers
+// (the banner, the calendar) never show one, so it is only derived for the
+// few entries that actually get rendered.
 interface FeastDayEntry {
   href: string;
   title: string;
-  excerpt: string;
+  body: string | undefined;
   feastDay: FeastDay;
 }
 
@@ -42,24 +44,17 @@ export interface ContentFeastDay {
 // collection-scan done once so both the homepage "upcoming" list and the
 // calendar page's month lookup can share it.
 async function getFeastDayEntries(): Promise<FeastDayEntry[]> {
-  const collections = ['traditions', 'relics'] as const;
-  const results: FeastDayEntry[] = [];
-
-  for (const collection of collections) {
-    const entries = (await getCollection(collection)).filter(isPublished);
-    for (const entry of entries) {
-      const feastDay = entry.data.feastDay;
-      if (!feastDay) continue;
-      results.push({
-        href: `/${collection}/${entry.id}`,
-        title: entry.data.title,
-        excerpt: excerptFrom(entry.body),
-        feastDay,
-      });
-    }
-  }
-
-  return results;
+  const [traditions, relics] = await Promise.all([getPublished('traditions'), getPublished('relics')]);
+  return [...traditions, ...relics].flatMap((entry) =>
+    entry.data.feastDay
+      ? [{
+          href: hrefFor(entry.collection, entry.id),
+          title: entry.data.title,
+          body: entry.body,
+          feastDay: entry.data.feastDay,
+        }]
+      : []
+  );
 }
 
 // Next calendar occurrence of a feast day on or after `from`, rolling over
@@ -114,7 +109,7 @@ export async function getUpcomingFeastDays(limit: number, from = new Date()): Pr
   return withDates.slice(0, limit).map((entry) => ({
     href: entry.href,
     title: entry.title,
-    excerpt: truncate(entry.excerpt, 70),
+    excerpt: truncate(excerptFrom(entry.body), 70),
     month: MONTH_ABBR[entry.nextDate.getUTCMonth()],
     day: String(entry.nextDate.getUTCDate()),
     daysUntil: Math.round((entry.nextDate.getTime() - fromUTC) / 86_400_000),

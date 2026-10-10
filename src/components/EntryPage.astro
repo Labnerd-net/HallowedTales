@@ -1,0 +1,50 @@
+---
+import { render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Hero from './Hero.astro';
+import RelatedList from './RelatedList.astro';
+import TagList from './TagList.astro';
+import type { AnyEntry } from '../lib/collections';
+import { heroData } from '../lib/entryPage';
+import { excerptFrom } from '../lib/excerpt';
+import { featuredImage } from '../lib/images';
+import { COLLECTION_LABELS, buildRelatedSections } from '../lib/related';
+import { metaDescription } from '../lib/seo';
+
+interface Props {
+  entry: AnyEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { related, sameSaint } = await buildRelatedSections(entry);
+const hero = heroData(entry);
+---
+
+<Layout
+  title={entry.data.title}
+  draft={!entry.data.published}
+  type="article"
+  description={metaDescription(excerptFrom(entry.body))}
+  image={featuredImage(entry.data.images, entry.data.featuredImageIndex).src}
+>
+  <Hero
+    eyebrow={COLLECTION_LABELS[entry.collection]}
+    title={entry.data.title}
+    subtitle={hero.subtitle}
+    meta={hero.meta}
+    note={hero.note}
+    noteHref={hero.noteHref}
+    noteLabel={hero.noteLabel}
+  />
+
+  <main class="mx-auto max-w-3xl px-8 pt-10 pb-20">
+    <div class="legend-body font-body text-ink">
+      <Content />
+    </div>
+  </main>
+
+  <TagList tags={entry.data.tags} />
+  <RelatedList links={sameSaint} heading="More about this saint" />
+  <RelatedList links={related} />
+</Layout>

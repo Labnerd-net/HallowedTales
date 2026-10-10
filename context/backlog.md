@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #3, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -22,7 +22,7 @@ _None identified._
 ## Bugs
 
 ### High
-- **#3 [src/layouts/Layout.astro:59, src/components/LiturgicalBanner.astro:6-9]**: All `[slug]` pages and `tags/[slug]` are `prerender = true`, but each renders `LiturgicalBanner`, which calls `new Date()`. Today's feasts, monthly devotion, and liturgical color are frozen at build time on those pages. Fix: render the banner as a server island (`server:defer`), compute client-side, or drop prerender on those pages.
+_None._
 
 ### Medium
 - **#5 [src/content.config.ts:105-112,156-162, src/lib/feastDays.ts:79-93]**: `feastDay.month`/`day` are free `z.string()`. A typo ("Sept") yields an Invalid Date, breaks the sort comparator, and silently drops the entry from the calendar with no build error. Fix: `z.enum` of Jan..Dec for month, numeric 1-31 refinement for day unless `easterOffset` is set; define the object once.
@@ -35,11 +35,9 @@ _None identified._
 ## Performance
 
 ### High
-- **#14 [astro.config.mjs:8; src/pages/{legends,traditions,relics,symbols,phenomena}/index.astro, tags/index.astro]**: Whole site is `output: 'server'`, so static listing pages run `getCollection` + `excerptFrom` per request on the Worker. Add `prerender = true` to the listings and `/tags` (or flip to `output: 'static'` and mark only `/`, `/random`, `/calendar` dynamic). Depends on #3 for the banner.
+_None._
 
 ### Medium
-- **#15 [src/lib/feastDays.ts:44-63,126-158]**: `getFeastsForDate` loads two collections and computes excerpts for every dated entry on each SSR request just to get today's titles. Split out a lightweight loader without excerpts.
-- **#17 [src/lib/related.ts, tagArchive.ts, feastDays.ts, random.astro, index.astro]**: Repeated per-page collection reads (O(pages x collections)). Add a memoized `getAllPublished()` in `lib/collections.ts`.
 - **#18 [src/components/CardThumb.astro, LightboxFigure.astro]**: `<Image>` sets only `width`; add `widths`/`sizes` for responsive srcset and audit lazy/fetchpriority.
 
 ### Low
@@ -50,7 +48,6 @@ _None identified._
 ## Improvements & Refactors
 
 ### High
-- **#20 [src/pages/*/[slug].astro, */index.astro]**: Five detail pages are near-duplicates (relics vs phenomena differ by ~10 lines) including `getStaticPaths`, related/same-saint de-duplication, Register link, Hero/TagList/RelatedList composition; five listing pages are ~30 lines each of the same grid. Extract `EntryPage.astro` / `getEntryPageData` / `PillarIndex.astro` driven by `pillarMeta.ts`, plus a `buildRelatedSections` helper in `lib/related.ts`.
 - **#21 [src/content.config.ts:45-241]**: `earliestSource`, `feastDay`, `variants`, `historicalNote` copy-pasted across collections. Extract shared Zod fragments and add refinements: `featuredImageIndex` in bounds, `images[].alt` `.min(1)`, `month` required for `monthly-devotion`, at most one `featured`. Pair with a content-integrity Vitest test (#42).
 
 ### Medium
@@ -97,8 +94,8 @@ _None identified._
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
 | Security | 0 | 1 | 1 | 2 |
-| Bugs | 1 | 1 | 1 | 3 |
-| Performance | 1 | 3 | 1 | 5 |
-| Improvements & Refactors | 2 | 8 | 4 | 14 |
+| Bugs | 0 | 1 | 1 | 2 |
+| Performance | 0 | 1 | 1 | 2 |
+| Improvements & Refactors | 1 | 8 | 4 | 13 |
 | Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 6 | 19 | 10 | 35 |
+| **Total** | 3 | 17 | 10 | 30 |

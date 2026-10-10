@@ -1,20 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import { isPublished } from '../lib/published';
+import { getAllPublished, hrefFor } from '../lib/collections';
 
 Astro.response.headers.set('Cache-Control', 'no-store');
 
-const pillars = ['legends', 'traditions', 'relics', 'phenomena', 'symbols'] as const;
-
 // One flat pool so every published story is equally likely, rather than
 // picking a pillar first (which over-weights the smaller pillars).
-const pool = (
-  await Promise.all(
-    pillars.map(async (pillar) =>
-      (await getCollection(pillar)).filter(isPublished).map((entry) => `/${pillar}/${entry.id}`)
-    )
-  )
-).flat();
+const pool = (await getAllPublished()).map((entry) => hrefFor(entry.collection, entry.id));
 
 if (pool.length > 0) {
   return Astro.redirect(pool[Math.floor(Math.random() * pool.length)]);
