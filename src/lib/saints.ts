@@ -2,19 +2,27 @@
 // legends/traditions/phenomena/symbols. Slugs are the cross-linking key (see
 // CLAUDE.md on saint identity staying Register-compatible), not something to
 // show verbatim - this is the one place that turns a slug back into prose.
-const SAINT_NAMES: Record<string, string> = {
+export const SAINT_NAMES: Record<string, string> = {
+  'anthony-of-padua': 'Anthony of Padua',
   'blaise-of-sebaste': 'Blaise of Sebaste',
   'catherine-of-siena': 'Catherine of Siena',
   'eustace-of-rome': 'Eustace of Rome',
   'francis-of-assisi': 'Francis of Assisi',
   'george-of-lydda': 'George of Lydda',
   'hubert-of-liege': 'Hubert of Liège',
+  'james-the-great': 'James the Great',
   'jerome-of-stridon': 'Jerome of Stridon',
+  'john-eudes': 'John Eudes',
+  'joseph-husband-of-mary': 'Joseph, Husband of Mary',
   'joseph-of-cupertino': 'Joseph of Cupertino',
+  'margaret-mary-alacoque': 'Margaret Mary Alacoque',
+  'mary-mother-of-god': 'Mary, Mother of God',
+  'nicholas-of-flue': 'Nicholas of Flue',
   'nicholas-of-myra': 'Nicholas of Myra',
   'padre-pio': 'Padre Pio',
   'patrick-of-ireland': 'Patrick of Ireland',
   'peter-the-apostle': 'Peter the Apostle',
+  'philip-neri': 'Philip Neri',
   'teresa-of-avila': 'Teresa of Avila',
 };
 
