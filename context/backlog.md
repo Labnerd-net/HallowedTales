@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20, #21 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -48,7 +48,6 @@ _None._
 ## Improvements & Refactors
 
 ### High
-- **#21 [src/content.config.ts:45-241]**: `earliestSource`, `feastDay`, `variants`, `historicalNote` copy-pasted across collections. Extract shared Zod fragments and add refinements: `featuredImageIndex` in bounds, `images[].alt` `.min(1)`, `month` required for `monthly-devotion`, at most one `featured`. Pair with a content-integrity Vitest test (#42).
 
 ### Medium
 - **#22 [src/lib/pillarMeta.ts, related.ts:4,59, tagArchive.ts:9, random.astro:6, index.astro]**: Pillar/collection metadata and the collection-name list are defined in 4+ places. Consolidate into `pillarMeta.ts` with one exported `COLLECTIONS`; fix stale comments (pillarMeta.ts header references nonexistent `alt-homepage-*.astro`; index.astro:20-23 says images are unpopulated).
@@ -80,7 +79,7 @@ _None._
 - **#39 [src/pages/*/index.astro]**: Listing filters/sorts from unused schema fields (`traditions.category`, `phenomena.phenomenonType`, `relics.cluster`, `regions`); sort traditions by calendar month.
 - **#40 [src/lib/related.ts, TagList.astro]**: Tag-based "similar entries" ranking and prev/next within a pillar; tags currently only link to archives.
 - **#41 [detail pages]**: `earliestSource`/`historicalNote` rendered inconsistently; add a shared `SourceNote` component.
-- **#42 [tests/]**: Only `season.test.ts` and `content-rules.test.ts` exist. Add tests for `easter.ts`, `feasts.ts` (easterOffset), `feastDays.ts` (year wrap), `excerpt.ts`, `saints.ts`, `registerLink.ts`, `tags.ts`, `related.ts`, plus the content-integrity test from #21 (needs `getViteConfig` or mocks for `astro:content`).
+- **#42 [tests/]**: (done 2026-10-10: `easter.ts`, `feasts.ts`, `feastDays.ts`, at-most-one-featured check; schema refinements replace the old featuredImageIndex test.) Remaining: tests for `excerpt.ts`, `saints.ts`, `registerLink.ts`, `tags.ts`, `related.ts` (mock `astro:content` as in `tests/feastDays.test.ts`).
 
 ### Low
 - **#43 [public/]**: Web manifest (icon-512.png exists but is unreferenced).
@@ -96,6 +95,6 @@ _None._
 | Security | 0 | 0 | 1 | 1 |
 | Bugs | 0 | 0 | 1 | 1 |
 | Performance | 0 | 1 | 1 | 2 |
-| Improvements & Refactors | 1 | 8 | 4 | 13 |
+| Improvements & Refactors | 0 | 8 | 4 | 12 |
 | Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 3 | 15 | 10 | 28 |
+| **Total** | 2 | 15 | 10 | 27 |
