@@ -8,3 +8,4 @@ _No active feature._
 - 2026-10-09 - Homepage fetches each collection once and drops `any` casts in `index.astro` (backlog #16, part of #25); fixed stale comments in `index.astro` and `pillarMeta.ts`.
 - 2026-10-09 - Small cleanups: symbols same-saint heading (#9), `charAt` in slug humanizers (#11), removed unused pirata-one font package (part of #19), hyphen instead of em dash in `list-content.mjs` output (part of #30).
 - 2026-10-09 - SEO layer (#35): meta description, canonical, Open Graph/Twitter tags, Article JSON-LD, hand-built sitemap (drafts excluded), robots.txt, 404 page. Umami website ID now read from `PUBLIC_UMAMI_ID` with fallback (#46). Dedicated og-default.png still open.
+- 2026-10-09 - `/random` picks from one flat pool of published entries (#6); `TagList` only links tags that have an archive page (#10).
