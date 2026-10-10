@@ -84,20 +84,20 @@ publishing.
 Mirrors TheMiracleRegister's stack for operational consistency (same deploy target, shared
 conventions), with two deliberate splits: lore content is authored as files, not DB rows, because
 the content model here is "narrative pieces with possible variants," not "one verified row per
-case"; and relational data uses Cloudflare D1 rather than TMR's Neon/Postgres, since this site's
-relational needs (saint index, tags, search metadata) are small and read-heavy, D1 is co-located
-with the Worker with no separate provider to manage, and D1's FTS5 support covers full-text search
-if needed without requiring Postgres.
+case"; and there is **no database**. This site's relational needs (saint index, tags, back-links,
+same-saint sections) are small and computed at build time from the content files, so none of
+the rows below marked "not built" exist. If a real runtime relational need appears, D1 (co-located
+with the Worker, FTS5 for search) is the planned option rather than Neon/Postgres.
 
 | Layer | Choice |
 |---|---|
 | Language | TypeScript (full stack) |
 | Frontend | Astro with Cloudflare adapter |
 | Lore content | Astro **Content Collections** — Markdown/MDX with Zod-validated frontmatter, lives in the repo (`src/content/`) |
-| API layer | Hono (mounted as Cloudflare Worker at `/api/v1/*`), only if/when an API is actually needed |
+| API layer | **Not built.** Hono (mounted at `/api/v1/*`) only if/when a public API is actually wanted |
 | Hosting | Cloudflare Workers (with static assets) |
-| Relational data | Cloudflare D1 (SQLite) via Drizzle (`drizzle-orm/d1`) — for anything genuinely relational: saint index, cross-pillar tags, search metadata. Not a home for prose content. Co-located with the Worker; no separate DB provider needed. |
-| Search | Pagefind — static, build-time search index over rendered Content Collection pages, served client-side from Cloudflare's CDN. No DB in the loop. D1's FTS5 extension is available if structured search over relational metadata (tags, saint index) is ever needed. |
+| Relational data | **Not built; no DB.** Tags, saint index, and cross-links are derived at build time from content files. If a runtime relational need arises: Cloudflare D1 (SQLite) via Drizzle (`drizzle-orm/d1`), never a home for prose content. |
+| Search | **Not built.** Planned: Pagefind — static, build-time search index over rendered Content Collection pages, served client-side from Cloudflare's CDN. No DB in the loop. D1's FTS5 extension is available if structured search over relational metadata (tags, saint index) is ever needed. |
 | Validation + types | Zod — shared between content collection schemas and any API routes |
 | Styling | Tailwind v4 |
 | Testing | Vitest (unit); Playwright if/when e2e is warranted |
@@ -179,8 +179,6 @@ becomes a content file in this repo, reviewed via a normal PR (see `catholic-res
 2. Content Collections schema for Pillars 1, 2, 4, 5 (Pillars 1 and 5 done — see
    `src/content.config.ts`; variant modeling decided, see Tech Stack section)
 3. Static pages rendering from content collections
-4. Drizzle/D1 setup — only once there's an actual relational need (cross-linking, search,
-   tags), not up front
-5. Hono API layer — only if/when a public API is actually wanted
-6. Vitest unit tests
-7. GitHub Actions CI/CD
+4. Vitest unit tests (done)
+5. GitHub Actions CI/CD (done: typecheck, vitest)
+6. Deferred, not built, only if a real need appears: search (Pagefind), Drizzle/D1, Hono API
