@@ -57,16 +57,6 @@ const dialogId = `gallery-dialog-${crypto.randomUUID()}`;
   </dialog>
 </figure>
 
-<style>
-  .gallery-dialog::backdrop {
-    background: rgb(0 0 0 / 0.75);
-  }
-
-  .gallery-dialog {
-    margin: auto;
-  }
-</style>
-
 <script>
   document.addEventListener('click', (event) => {
     const target = event.target as HTMLElement;

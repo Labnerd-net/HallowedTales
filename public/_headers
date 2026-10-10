@@ -1,0 +1,7 @@
+# Static assets and prerendered pages. On-demand responses get the same
+# headers from src/middleware.ts (values live in src/lib/securityHeaders.ts).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'

@@ -115,3 +115,14 @@ body {
   clear: both;
 }
 
+
+/* Lightbox <dialog> (LightboxFigure.astro). Lives here rather than in a
+   component <style> because the component's scoped style is emitted inline
+   per page and isn't covered by the CSP style hashes on MDX-rendered pages. */
+.gallery-dialog::backdrop {
+  background: rgb(0 0 0 / 0.75);
+}
+
+.gallery-dialog {
+  margin: auto;
+}
