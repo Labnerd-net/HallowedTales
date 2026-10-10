@@ -1,33 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import LegendCard from '../../components/LegendCard.astro';
-import { excerptFrom } from '../../lib/excerpt';
-import { pillarFor } from '../../lib/pillarMeta';
-import { isPublished } from '../../lib/published';
-import { tagLabel } from '../../lib/tags';
+import PillarIndex from '../../components/PillarIndex.astro';
 
-const entries = (await getCollection('phenomena')).filter(isPublished);
+export const prerender = true;
 ---
 
-<Layout title="Mystical Phenomena" description={pillarFor('phenomena').description}>
-  <main class="mx-auto max-w-5xl px-8 py-16">
-    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">Mystical Phenomena</h1>
-    <div class="grid gap-6 md:grid-cols-3">
-      {entries.map((entry) => {
-        const excerpt = excerptFrom(entry.body);
-        return (
-          <LegendCard
-            href={`/phenomena/${entry.id}`}
-            badge="Mystical Phenomenon"
-            title={entry.data.title}
-            excerpt={excerpt}
-            meta={tagLabel(entry.data.phenomenonType)}
-            images={entry.data.images}
-            featuredImageIndex={entry.data.featuredImageIndex}
-          />
-        );
-      })}
-    </div>
-  </main>
-</Layout>
+<PillarIndex collection="phenomena" />

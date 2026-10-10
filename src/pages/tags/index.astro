@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import { tagsInUse } from '../../lib/tagArchive';
 
+export const prerender = true;
+
 const tags = await tagsInUse();
 ---
 

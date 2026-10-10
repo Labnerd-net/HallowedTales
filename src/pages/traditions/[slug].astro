@@ -1,15 +1,6 @@
 ---
-import { getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import { excerptFrom } from '../../lib/excerpt';
-import { featuredImage } from '../../lib/images';
-import { metaDescription } from '../../lib/seo';
-import Hero from '../../components/Hero.astro';
-import RelatedList from '../../components/RelatedList.astro';
-import TagList from '../../components/TagList.astro';
-import { resolveRelatedLegends, findBySaint } from '../../lib/related';
-import { formatSaints } from '../../lib/saints';
-import { titleCaseSlug } from '../../lib/labels';
+import { getCollection } from 'astro:content';
+import EntryPage from '../../components/EntryPage.astro';
 
 export const prerender = true;
 
@@ -25,38 +16,6 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
-const { title, category, feastDay, saints, relatedLegends, tags } = entry.data;
-const related = await resolveRelatedLegends(relatedLegends);
-const sameSaint = await findBySaint(saints, 'traditions', entry.id);
-
-const metaItems = [
-  titleCaseSlug(category),
-  ...(feastDay ? [`${feastDay.month} ${feastDay.day}`] : []),
-  ...(formatSaints(saints) ? [formatSaints(saints)!] : []),
-];
 ---
 
-<Layout
-  title={title}
-  draft={!entry.data.published}
-  type="article"
-  description={metaDescription(excerptFrom(entry.body))}
-  image={featuredImage(entry.data.images, entry.data.featuredImageIndex).src}
->
-  <Hero
-    eyebrow="Folk Tradition"
-    title={title}
-    meta={metaItems}
-  />
-
-  <main class="mx-auto max-w-3xl px-8 pt-10 pb-20">
-    <div class="legend-body font-body text-ink">
-      <Content />
-    </div>
-  </main>
-
-  <TagList tags={tags} />
-  <RelatedList links={sameSaint} heading="More about this saint" />
-  <RelatedList links={related} />
-</Layout>
+<EntryPage entry={entry} />
