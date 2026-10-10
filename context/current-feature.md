@@ -4,6 +4,7 @@ _No active feature._
 
 ## History
 
+- 2026-10-10 - Security headers and CSP (#1): Astro `security.csp` meta (hashed bundled scripts/styles, theme-init script hashed from `lib/themeInit.ts`, Umami allowed), `nosniff`/Referrer-Policy/X-Frame-Options/frame-ancestors via `public/_headers` (static) and `src/middleware.ts` (on-demand). Hero inline styles became Tailwind classes; lightbox CSS moved to `global.css`.
 - 2026-10-10 - Validate `feastDay` (#5): shared `feastDayField` in `content.config.ts`; `month` is an enum of Jan-Dec and `day` must be valid for the month unless `easterOffset` is set, so typos fail the build instead of silently dropping the entry from the calendar.
 - 2026-10-10 - Perf and entry-page refactor (#14, #15, #17, #20, plus #3): shared memoized `getAllPublished()`/`getPublished()` in `lib/collections.ts`; feast-day loader skips excerpts; detail pages use `EntryPage.astro` + `lib/entryPage.ts` + `buildRelatedSections`, listings use `PillarIndex.astro`; listings and `/tags` prerendered; `LiturgicalBanner` is a server island so it stays live on prerendered pages. Related and same-saint lists are now de-duplicated on every pillar.
 - 2026-10-09 - Fix Advent start detection (backlog #4) and remove dead branches in `getLiturgicalDay` (#31). Advent is now detected in late November (Advent 1 can fall Nov 27 - Dec 3); added tests for Nov 28-30, 2026 and Nov 29-30, 2025.

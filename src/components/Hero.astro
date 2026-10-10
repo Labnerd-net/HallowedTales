@@ -16,8 +16,7 @@ const { eyebrow, title, subtitle, meta, note, noteHref, noteLabel } = Astro.prop
   class="relative m-3 overflow-hidden rounded-xl border border-gold/55 bg-accent-deep px-8 pt-20 pb-16 text-center text-cream dark:bg-[linear-gradient(180deg,var(--color-hero-deep),var(--color-canvas))] dark:text-ink"
 >
   <div
-    class="absolute inset-0 opacity-[0.07] dark:opacity-[0.07]"
-    style="background: repeating-linear-gradient(45deg, var(--color-gold) 0 2px, transparent 2px 24px);"
+    class="absolute inset-0 bg-[repeating-linear-gradient(45deg,var(--color-gold)_0_2px,transparent_2px_24px)] opacity-[0.07] dark:opacity-[0.07]"
   >
   </div>
 
@@ -31,7 +30,7 @@ const { eyebrow, title, subtitle, meta, note, noteHref, noteLabel } = Astro.prop
     </h1>
 
     {subtitle && (
-      <p class="mx-auto mt-6 max-w-xl text-lg text-gold-soft dark:text-ink-soft" style="line-height: 1.6;">
+      <p class="mx-auto mt-6 max-w-xl text-lg leading-[1.6] text-gold-soft dark:text-ink-soft">
         {subtitle}
       </p>
     )}

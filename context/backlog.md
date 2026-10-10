@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #3, #5, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -12,7 +12,7 @@
 _None identified._
 
 ### Medium
-- **#1 [public/_headers (missing), src/layouts/Layout.astro:37]**: No CSP, `X-Content-Type-Options`, `Referrer-Policy`, or frame protections; third-party Umami script is unrestricted. Add `public/_headers` with a CSP (`'self'`, the Umami host, hash for the inline theme script), `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: DENY`.
+_None._
 
 ### Low
 - **#2 [src/pages/*/[slug].astro getStaticPaths]**: Unpublished entries are built and reachable at guessable URLs, protected only by `noindex`. Fine if drafts are not sensitive (repo is public anyway); otherwise include them only when `import.meta.env.DEV`. See also #29.
@@ -93,9 +93,9 @@ _None._
 
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
-| Security | 0 | 1 | 1 | 2 |
+| Security | 0 | 0 | 1 | 1 |
 | Bugs | 0 | 0 | 1 | 1 |
 | Performance | 0 | 1 | 1 | 2 |
 | Improvements & Refactors | 1 | 8 | 4 | 13 |
 | Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 3 | 16 | 10 | 29 |
+| **Total** | 3 | 15 | 10 | 28 |
