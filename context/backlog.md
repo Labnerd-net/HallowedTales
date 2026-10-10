@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #9, #10, #11, #16, #31, #46 (2026-10-09). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09). Item numbers are not renumbered.
 
 ---
 
@@ -29,8 +29,6 @@ _None identified._
 - **#7 [src/content.config.ts relatedLegends, saints]**: `relatedLegends` slugs and `saints` slugs are not validated against real entries / `SAINT_NAMES`. Fix: use `reference('legends')` for `relatedLegends`; add a content-integrity test for `saints`, `registerSlug`, and `featuredImageIndex` bounds (see #21).
 
 ### Low
-- **#8 [src/components/LiturgicalBanner.astro:6, src/pages/calendar.astro:12]**: "Today" is computed in UTC; evening US visitors see tomorrow's feast. Document it or resolve client-side.
-- **#12 [src/lib/excerpt.ts:5-14]**: Excerpt heuristic doesn't skip headings, strip Markdown, or handle CRLF; truncation lives only in `feastDays.ts`. Latent (no current entry triggers it). See #27.
 - **#13 [src/pages/calendar.astro:60-63,83-86]**: Grid always padded to 42 cells (blank sixth row on 5-week months); "next" past Dec 2099 silently clamps. Pad to a multiple of 7; disable the link at year bounds.
 
 ---
@@ -100,8 +98,8 @@ _None identified._
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
 | Security | 0 | 1 | 1 | 2 |
-| Bugs | 1 | 2 | 3 | 6 |
+| Bugs | 1 | 2 | 1 | 4 |
 | Performance | 1 | 3 | 1 | 5 |
 | Improvements & Refactors | 2 | 8 | 4 | 14 |
 | Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 6 | 20 | 12 | 38 |
+| **Total** | 6 | 20 | 10 | 36 |
