@@ -1,23 +1,30 @@
 ---
 import { tagLabel } from '../lib/tags';
+import { tagsInUse } from '../lib/tagArchive';
 
 interface Props {
   tags: string[] | undefined;
 }
 
 const { tags } = Astro.props;
+
+// A tag only has an archive page once a published entry uses it, so a draft
+// whose tags are all draft-only would otherwise link to 404s.
+const linkable = new Set((await tagsInUse()).map((t) => t.slug));
+const chipClass = 'inline-block rounded-full bg-surface-alt px-3 py-1 text-xs font-medium text-ink-soft';
 ---
 
 {tags && tags.length > 0 && (
   <ul class="mx-auto flex max-w-3xl flex-wrap gap-2 px-8 pb-12">
     {tags.map((tag) => (
       <li>
-        <a
-          href={`/tags/${tag}`}
-          class="inline-block rounded-full bg-surface-alt px-3 py-1 text-xs font-medium text-ink-soft hover:bg-gold hover:text-ink-fixed"
-        >
-          {tagLabel(tag)}
-        </a>
+        {linkable.has(tag) ? (
+          <a href={`/tags/${tag}`} class={`${chipClass} hover:bg-gold hover:text-ink-fixed`}>
+            {tagLabel(tag)}
+          </a>
+        ) : (
+          <span class={chipClass}>{tagLabel(tag)}</span>
+        )}
       </li>
     ))}
   </ul>
