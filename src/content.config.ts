@@ -4,6 +4,35 @@ import { TAG_SLUGS } from './lib/tags';
 
 // Shared across all five collections - see src/lib/tags.ts for why this is
 // a closed enum rather than z.array(z.string()).
+const FEAST_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
+// Feb allows 29 since the feast recurs every year, not in one specific one.
+const DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+// A typo here ("Sept", "31" for June) would otherwise become an Invalid Date
+// downstream and silently drop the entry from the calendar, so it fails the
+// build instead.
+const feastDayField = z
+  .object({
+    month: z.enum(FEAST_MONTHS),
+    day: z.string(),
+    // Days from Easter Sunday, for movable feasts (Palm Sunday = -7)
+    // where `day` is a placeholder like "varies" rather than a number.
+    easterOffset: z.number().optional(),
+  })
+  .superRefine((feast, ctx) => {
+    if (feast.easterOffset !== undefined) return;
+    const day = Number(feast.day);
+    const max = DAYS_IN_MONTH[FEAST_MONTHS.indexOf(feast.month)];
+    if (!Number.isInteger(day) || day < 1 || day > max) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['day'],
+        message: `day must be a whole number from 1 to ${max} for ${feast.month} (or set easterOffset for a movable feast)`,
+      });
+    }
+  })
+  .optional();
+
 const tagsField = z.array(z.enum(TAG_SLUGS)).optional();
 
 // Shared across all five collections: a photo of a relic/location, or a
@@ -102,15 +131,7 @@ const traditions = defineCollection({
     saints: z.array(z.string()).optional(),
     // Not every tradition pins to a fixed calendar date (regional festivals
     // vary by town), so this stays optional rather than required.
-    feastDay: z
-      .object({
-        month: z.string(),
-        day: z.string(),
-        // Days from Easter Sunday, for movable feasts (Palm Sunday = -7)
-        // where `day` is a placeholder like "varies" rather than a number.
-        easterOffset: z.number().optional(),
-      })
-      .optional(),
+    feastDay: feastDayField,
     // For category: 'monthly-devotion' entries - which calendar month (1-12)
     // the devotion belongs to. Separate from `feastDay`, which models a single
     // date, not a whole-month custom.
@@ -153,13 +174,7 @@ const relics = defineCollection({
         })
       )
       .min(1),
-    feastDay: z
-      .object({
-        month: z.string(),
-        day: z.string(),
-        easterOffset: z.number().optional(),
-      })
-      .optional(),
+    feastDay: feastDayField,
     earliestSource: z
       .object({
         citation: z.string(),

@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #3, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #3, #5, #14, #15, #17, #20 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -25,7 +25,7 @@ _None identified._
 _None._
 
 ### Medium
-- **#5 [src/content.config.ts:105-112,156-162, src/lib/feastDays.ts:79-93]**: `feastDay.month`/`day` are free `z.string()`. A typo ("Sept") yields an Invalid Date, breaks the sort comparator, and silently drops the entry from the calendar with no build error. Fix: `z.enum` of Jan..Dec for month, numeric 1-31 refinement for day unless `easterOffset` is set; define the object once.
+_None._
 
 ### Low
 - **#13 [src/pages/calendar.astro:60-63,83-86]**: Grid always padded to 42 cells (blank sixth row on 5-week months); "next" past Dec 2099 silently clamps. Pad to a multiple of 7; disable the link at year bounds.
@@ -94,8 +94,8 @@ _None._
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
 | Security | 0 | 1 | 1 | 2 |
-| Bugs | 0 | 1 | 1 | 2 |
+| Bugs | 0 | 0 | 1 | 1 |
 | Performance | 0 | 1 | 1 | 2 |
 | Improvements & Refactors | 1 | 8 | 4 | 13 |
 | Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 3 | 17 | 10 | 30 |
+| **Total** | 3 | 16 | 10 | 29 |
