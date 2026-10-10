@@ -3,6 +3,8 @@ import { getLiturgicalDay, type LiturgicalColor } from '../lib/liturgical/season
 import { getFeastsForDate } from '../lib/feastDays';
 import { getMonthlyDevotion } from '../lib/monthlyDevotions';
 
+// "Today" is the UTC calendar date, not the visitor's local date, so for
+// part of the day a visitor far from UTC sees the next/previous day's feast.
 const today = new Date();
 const { label, color } = getLiturgicalDay(today);
 const feasts = await getFeastsForDate(today);

@@ -9,6 +9,7 @@ const MONTH_NAMES = [
 ];
 const DOW_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+// UTC calendar date, matching LiturgicalBanner - not the visitor's local date.
 const now = new Date();
 const todayYear = now.getUTCFullYear();
 const todayMonth = now.getUTCMonth() + 1;

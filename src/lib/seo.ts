@@ -1,15 +1,13 @@
+import { stripMarkdown } from './excerpt';
+
 export const SITE_NAME = 'Hallowed Tales';
 export const DEFAULT_DESCRIPTION =
   'Catholic legend, folk tradition, and the charming history behind the customs people still keep today.';
 
-// Plain-text meta description from an MDX excerpt: drops link/emphasis
-// markup, collapses whitespace, and truncates on a word boundary.
+// Plain-text meta description from an MDX excerpt: strips markup and
+// truncates on a word boundary.
 export function metaDescription(text: string | undefined, max = 160): string {
-  const plain = (text ?? '')
-    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
-    .replace(/[*_`#>]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  const plain = stripMarkdown(text ?? '');
   if (!plain) return DEFAULT_DESCRIPTION;
   if (plain.length <= max) return plain;
   const cut = plain.slice(0, max - 1);
