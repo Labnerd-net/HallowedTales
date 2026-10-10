@@ -46,7 +46,8 @@ const imagesField = (image: ImageFunction) =>
     .array(
       z.object({
         src: image(),
-        alt: z.string(),
+        // Required and non-empty: it's the only text a screen reader gets.
+        alt: z.string().min(1),
         caption: z.string().optional(),
         // Attribution/license text, e.g. "Wikimedia Commons, public domain"
         // or "Photo: Jane Doe, CC BY-SA 4.0". Required for anything not
@@ -62,6 +63,54 @@ const imagesField = (image: ImageFunction) =>
 // `featuredImage` in lib/images.ts.
 const featuredImageIndexField = z.number().int().min(0).optional();
 
+// Where the story is first attested. Free text for `approxDate`, not a date
+// type: precision ranges from "9th century" to "unknown" across entries.
+// Required on legends, optional elsewhere (see each collection).
+const earliestSourceShape = z.object({
+  citation: z.string(),
+  approxDate: z.string(),
+});
+
+// "What we actually know historically" contrast line, per the
+// provenance-over-verdict framing in
+// ../catholic-research/HallowedTales/Notes/Pillar 1.
+const historicalNoteField = z.string().optional();
+
+// Minor retellings of THIS story (changed detail, same throughline) -
+// the St. Nicholas window/chimney/pawnbroker case. Rendered as a "how this
+// story changed" section on the same page, not a separate entry.
+const variantsField = z
+  .array(
+    z.object({
+      label: z.string(),
+      detail: z.string(),
+      note: z.string().optional(),
+    })
+  )
+  .optional();
+
+// Links to OTHER full `legends` entries that share a motif or lineage but are
+// their own complete narrative - the St. Hubert / St. Eustace case. From any
+// collection, always into `legends`.
+const relatedLegendsField = z.array(z.string()).optional();
+
+const publishedField = z.boolean().default(false);
+
+// Object-level check shared by every collection: featuredImageIndex has to
+// point at a real images[] entry, or card art silently falls back/breaks.
+function checkFeaturedImage(
+  data: { images: unknown[]; featuredImageIndex?: number },
+  ctx: { addIssue: (issue: { code: 'custom'; path: string[]; message: string }) => void }
+) {
+  if (data.featuredImageIndex !== undefined && data.featuredImageIndex >= data.images.length) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['featuredImageIndex'],
+      message: `featuredImageIndex ${data.featuredImageIndex} is out of range for ${data.images.length} image(s)`,
+    });
+  }
+}
+
 const legends = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/legends' }),
   schema: ({ image }) => z.object({
@@ -71,37 +120,16 @@ const legends = defineCollection({
     // One legend can involve more than one saint (kept as an array rather
     // than special-casing joint stories later).
     saints: z.array(z.string()).min(1),
-    earliestSource: z.object({
-      citation: z.string(),
-      // Free text, not a date type: precision ranges from "9th century" to
-      // "unknown" across entries.
-      approxDate: z.string(),
-    }),
-    // "What we actually know historically" contrast line, per the
-    // provenance-over-verdict framing in
-    // ../catholic-research/HallowedTales/Notes/Pillar 1.
-    historicalNote: z.string().optional(),
-    // Minor retellings of THIS story (changed detail, same throughline) —
-    // the St. Nicholas window/chimney/pawnbroker case. Rendered as a
-    // "how this story changed" section on the same page, not a separate entry.
-    variants: z
-      .array(
-        z.object({
-          label: z.string(),
-          detail: z.string(),
-          note: z.string().optional(),
-        })
-      )
-      .optional(),
-    // Links to OTHER full entries that share a motif or lineage but are
-    // their own complete narrative — the St. Hubert / St. Eustace case.
-    relatedLegends: z.array(z.string()).optional(),
+    earliestSource: earliestSourceShape,
+    historicalNote: historicalNoteField,
+    variants: variantsField,
+    relatedLegends: relatedLegendsField,
     tags: tagsField,
-    published: z.boolean().default(false),
+    published: publishedField,
     // Homepage hero pick. At most one entry should set this - if more than
     // one does, index.astro just takes the first match.
     featured: z.boolean().optional(),
-  }),
+  }).superRefine(checkFeaturedImage),
 });
 
 const traditions = defineCollection({
@@ -137,18 +165,22 @@ const traditions = defineCollection({
     // date, not a whole-month custom.
     month: z.number().int().min(1).max(12).optional(),
     regions: z.array(z.string()).optional(),
-    earliestSource: z
-      .object({
-        citation: z.string(),
-        approxDate: z.string(),
-      })
-      .optional(),
-    historicalNote: z.string().optional(),
+    earliestSource: earliestSourceShape.optional(),
+    historicalNote: historicalNoteField,
     // Points at a `legends` entry this custom traces back to (e.g. the St.
     // Nicholas Day shoe custom -> the dowry-gold legend), not other traditions.
-    relatedLegends: z.array(z.string()).optional(),
+    relatedLegends: relatedLegendsField,
     tags: tagsField,
-    published: z.boolean().default(false),
+    published: publishedField,
+  }).superRefine((data, ctx) => {
+    checkFeaturedImage(data, ctx);
+    if (data.category === 'monthly-devotion' && data.month === undefined) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['month'],
+        message: "month (1-12) is required when category is 'monthly-devotion'",
+      });
+    }
   }),
 });
 
@@ -175,17 +207,12 @@ const relics = defineCollection({
       )
       .min(1),
     feastDay: feastDayField,
-    earliestSource: z
-      .object({
-        citation: z.string(),
-        approxDate: z.string(),
-      })
-      .optional(),
-    historicalNote: z.string().optional(),
-    relatedLegends: z.array(z.string()).optional(),
+    earliestSource: earliestSourceShape.optional(),
+    historicalNote: historicalNoteField,
+    relatedLegends: relatedLegendsField,
     tags: tagsField,
-    published: z.boolean().default(false),
-  }),
+    published: publishedField,
+  }).superRefine(checkFeaturedImage),
 });
 
 const phenomena = defineCollection({
@@ -202,21 +229,16 @@ const phenomena = defineCollection({
       'odor-of-sanctity',
     ]),
     saints: z.array(z.string()).min(1),
-    earliestSource: z
-      .object({
-        citation: z.string(),
-        approxDate: z.string(),
-      })
-      .optional(),
-    historicalNote: z.string().optional(),
+    earliestSource: earliestSourceShape.optional(),
+    historicalNote: historicalNoteField,
     // Set when this saint's case is ALSO published on the Register (the
     // Padre Pio dual-site case) so the page can link out instead of
     // duplicating the Register's evidentiary caveat in lore-site voice.
     registerSlug: z.string().optional(),
-    relatedLegends: z.array(z.string()).optional(),
+    relatedLegends: relatedLegendsField,
     tags: tagsField,
-    published: z.boolean().default(false),
-  }),
+    published: publishedField,
+  }).superRefine(checkFeaturedImage),
 });
 
 // Symbol-origin-story entries (Chi-Rho, scallop shell, Sacred Heart, crossed keys, ...).
@@ -235,25 +257,12 @@ const symbols = defineCollection({
     // Short "what it represents" line, distinct from the longer body copy.
     meaning: z.string(),
     saints: z.array(z.string()).optional(),
-    earliestSource: z
-      .object({
-        citation: z.string(),
-        approxDate: z.string(),
-      })
-      .optional(),
-    historicalNote: z.string().optional(),
+    earliestSource: earliestSourceShape.optional(),
+    historicalNote: historicalNoteField,
     // Different readings of the symbol (the keys' gold/silver meaning) or small
     // differences in how its origin is told - same shape as `legends.variants`,
     // reused here for interpretive variants as much as narrative ones.
-    variants: z
-      .array(
-        z.object({
-          label: z.string(),
-          detail: z.string(),
-          note: z.string().optional(),
-        })
-      )
-      .optional(),
+    variants: variantsField,
     // How the symbol's use changed across eras - the "catacombs -> labarum ->
     // sarcophagi -> Paschal candle -> heraldry" shape, not narrative variants.
     usageTimeline: z
@@ -264,10 +273,10 @@ const symbols = defineCollection({
         })
       )
       .optional(),
-    relatedLegends: z.array(z.string()).optional(),
+    relatedLegends: relatedLegendsField,
     tags: tagsField,
-    published: z.boolean().default(false),
-  }),
+    published: publishedField,
+  }).superRefine(checkFeaturedImage),
 });
 
 export const collections = { legends, traditions, relics, phenomena, symbols };

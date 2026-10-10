@@ -6,10 +6,11 @@ import { REGISTER_MIRACLE_SLUGS } from '../src/data/registerSlugs';
 import { SAINT_NAMES } from '../src/lib/saints';
 
 // Cross-reference checks the Zod schemas in content.config.ts can't express:
-// relatedLegends, saints, registerSlug and featuredImageIndex are all
-// free-form in the schema, so a typo would otherwise fail silently (a dead
-// related link, a missing same-saint section, a broken Register cross-link).
-// Covers every entry, drafts included.
+// relatedLegends, saints and registerSlug are all free-form in the schema, so
+// a typo would otherwise fail silently (a dead related link, a missing
+// same-saint section, a broken Register cross-link).
+// Covers every entry, drafts included. (featuredImageIndex bounds, image alt
+// text and monthly-devotion's month are checked by the schema itself.)
 
 const CONTENT_ROOT = join(import.meta.dirname, '..', 'src', 'content');
 
@@ -17,8 +18,7 @@ interface Frontmatter {
   saints?: string[];
   relatedLegends?: string[];
   registerSlug?: string;
-  images?: unknown[];
-  featuredImageIndex?: number;
+  featured?: boolean;
 }
 
 interface Entry {
@@ -45,6 +45,13 @@ describe('content cross-references', () => {
     expect(entries.length).toBeGreaterThan(0);
   });
 
+  it('at most one entry is the homepage featured pick', () => {
+    // The schema can't see across entries; index.astro would silently take
+    // whichever matched first.
+    const featured = entries.filter((e) => e.data.featured).map((e) => e.id);
+    expect(featured.length, `featured: ${featured.join(', ')}`).toBeLessThanOrEqual(1);
+  });
+
   it.each(entries.map((e) => [e.id, e] as const))('%s', (_id, entry) => {
     for (const slug of entry.data.relatedLegends ?? []) {
       expect(legendSlugs.has(slug), `relatedLegends: no legend "${slug}"`).toBe(true);
@@ -61,13 +68,6 @@ describe('content cross-references', () => {
         REGISTER_MIRACLE_SLUGS.has(entry.data.registerSlug),
         `registerSlug: "${entry.data.registerSlug}" is not a published Register miracle`
       ).toBe(true);
-    }
-
-    if (entry.data.featuredImageIndex !== undefined) {
-      expect(
-        entry.data.featuredImageIndex,
-        'featuredImageIndex is out of range for images[]'
-      ).toBeLessThan(entry.data.images?.length ?? 0);
     }
   });
 });
