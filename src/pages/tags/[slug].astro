@@ -22,7 +22,7 @@ const entries = await entriesForTag(tag.slug);
 
 <Layout title={`Tagged: ${tagLabel(tag.slug)}`}>
   <main class="mx-auto max-w-5xl px-8 py-16">
-    <p class="mb-2 font-display text-sm uppercase tracking-wide text-gold">Tag</p>
+    <p class="mb-2 font-display text-sm uppercase tracking-wide text-gold-text">Tag</p>
     <h1 class="mb-8 font-display text-4xl font-semibold text-ink">{tagLabel(tag.slug)}</h1>
     <div class="grid gap-6 md:grid-cols-3">
       {entries.map((entry) => (

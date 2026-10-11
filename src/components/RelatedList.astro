@@ -12,7 +12,7 @@ const { links, heading = 'Related on this site' } = Astro.props;
 {links.length > 0 && (
   <div class="mx-auto max-w-3xl px-8 pb-16">
     <div class="rounded-r-lg border-l-4 border-gold bg-surface p-5">
-      <p class="mb-3 font-display text-sm uppercase tracking-wide text-gold">{heading}</p>
+      <p class="mb-3 font-display text-sm uppercase tracking-wide text-gold-text">{heading}</p>
       <ul class="space-y-2">
         {links.map((link) => (
           <li>

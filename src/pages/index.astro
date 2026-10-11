@@ -49,7 +49,7 @@ const countTextClass: Record<string, string> = {
   accent: 'text-accent',
   ruby: 'text-ruby',
   'liturgical-green': 'text-liturgical-green',
-  gold: 'text-gold',
+  gold: 'text-gold-text',
   'liturgical-violet': 'text-liturgical-violet',
 };
 const borderClass: Record<string, string> = {
@@ -130,7 +130,7 @@ const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 
           <span class="text-xl leading-none font-semibold">{nearFeastDay.day}</span>
         </div>
         <div class="min-w-0">
-          <p class="text-xs font-medium tracking-wide text-gold uppercase">Coming up soon</p>
+          <p class="text-xs font-medium tracking-wide text-gold-text uppercase">Coming up soon</p>
           <p class="truncate font-display text-lg font-semibold text-ink">{nearFeastDay.title}</p>
           <p class="truncate text-sm text-ink-soft">{nearFeastDay.excerpt}</p>
         </div>
