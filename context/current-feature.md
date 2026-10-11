@@ -4,6 +4,7 @@ _No active feature._
 
 ## History
 
+- 2026-10-10 - Calendar "Back to today" link under the month heading, shown only when the displayed month is not the current UTC month.
 - 2026-10-10 - Calendar season bands: each day on `/calendar` (desktop cell and mobile agenda row) gets a liturgical season color bar from `getLiturgicalDay`, with the season name as `title` and screen-reader text, plus a season color key in the legend. Color-to-token map shared with the banner via `lib/liturgical/barClass.ts`.
 - 2026-10-10 - Calendar was unlinked: added it to the nav (`NAV_LINKS`) and made the banner's "Today in the Church calendar" text link to `/calendar`. Brand name no longer wraps at the `lg` width, and nav link gap tightens between `lg` and `xl`.
 - 2026-10-10 - Accessibility and calendar grid (#26, #13): skip link and `#content` target, `aria-current` on nav via a `NAV_LINKS` array, mobile menu closes on Escape (refocusing the toggle), on tabbing out, and at the `lg` breakpoint; lightbox dialog labels; search dialog close button and focus ring. Contrast: new `--color-gold-text` token for small gold text, lighter dark-mode accent/ruby/green/violet, removed `ink-soft/70` on credits. Calendar grid pads to a multiple of 7 and arrows disable at Jan 2020 / Dec 2099.

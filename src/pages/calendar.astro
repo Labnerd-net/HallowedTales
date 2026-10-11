@@ -96,6 +96,9 @@ const agendaDays = Array.from({ length: daysInMonth }, (_, i) => i + 1).filter((
       <div class="text-center">
         <p class="text-xs font-medium tracking-wide text-ink-soft uppercase">Feast Day Calendar</p>
         <h1 class="font-display text-3xl font-semibold text-ink">{monthName} {year}</h1>
+        {!isCurrentMonth && (
+          <a href="/calendar" class="text-xs text-accent hover:underline">Back to today</a>
+        )}
       </div>
       {hasNext ? (
         <a
