@@ -27,11 +27,11 @@ const dialogId = `gallery-dialog-${crypto.randomUUID()}`;
   {(caption || credit) && (
     <figcaption class="px-4 py-3 text-sm text-ink-soft">
       {caption && <span>{caption}</span>}
-      {credit && <span class="mt-1 block text-xs text-ink-soft/70">{credit}</span>}
+      {credit && <span class="mt-1 block text-xs text-ink-soft">{credit}</span>}
     </figcaption>
   )}
 
-  <dialog id={dialogId} class="gallery-dialog max-h-[90vh] max-w-[90vw] rounded-lg bg-surface p-0">
+  <dialog id={dialogId} aria-label={alt ? `Enlarged image: ${alt}` : 'Enlarged image'} class="gallery-dialog max-h-[90vh] max-w-[90vw] rounded-lg bg-surface p-0">
     <div class="relative">
       <button
         type="button"
@@ -50,7 +50,7 @@ const dialogId = `gallery-dialog-${crypto.randomUUID()}`;
       {(caption || credit) && (
         <figcaption class="px-4 py-3 text-sm text-ink-soft">
           {caption && <span>{caption}</span>}
-          {credit && <span class="mt-1 block text-xs text-ink-soft/70">{credit}</span>}
+          {credit && <span class="mt-1 block text-xs text-ink-soft">{credit}</span>}
         </figcaption>
       )}
     </div>

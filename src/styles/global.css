@@ -23,6 +23,9 @@
   --color-accent: #2b4c8c;
   --color-accent-deep: #17294f;
   --color-gold: #d4a017;
+  /* Gold as small text on canvas/surface: --color-gold itself is ~2:1 there in
+     light mode. Use this for text, keep --color-gold for fills and borders. */
+  --color-gold-text: #7d5a05;
   --color-ruby: #a3203b;
   /* Always dark, never flips - for text sitting on a gold fill, which stays
      a bright/warm hue in both modes rather than inverting like accent/ruby. */
@@ -56,12 +59,13 @@
   --color-surface-alt: #343f6e;
   --color-ink: #f3e7d3;
   --color-ink-soft: #c9b79a;
-  --color-accent: #5d84d9;
+  --color-accent: #8fadf0;
   --color-gold: #e3b537;
-  --color-ruby: #d1476b;
+  --color-gold-text: #e3b537;
+  --color-ruby: #e87a98;
 
-  --color-liturgical-violet: #9b6fd1;
-  --color-liturgical-green: #4fa579;
+  --color-liturgical-violet: #b895e6;
+  --color-liturgical-green: #66bd91;
   --color-liturgical-rose: #e8a8bc;
 }
 

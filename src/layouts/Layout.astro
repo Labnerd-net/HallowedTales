@@ -34,6 +34,18 @@ interface Props {
 
 const { title, draft = false, description = DEFAULT_DESCRIPTION, image, type = 'website' } = Astro.props;
 
+const NAV_LINKS = [
+  { href: '/legends', label: 'Legends' },
+  { href: '/traditions', label: 'Folk Traditions' },
+  { href: '/relics', label: 'Relics' },
+  { href: '/symbols', label: 'Symbols' },
+  { href: '/phenomena', label: 'Mystical Phenomena' },
+  { href: '/tags', label: 'Tags' },
+  { href: '/random', label: 'Random' },
+];
+const isCurrent = (href: string) =>
+  Astro.url.pathname === href || Astro.url.pathname.startsWith(`${href}/`);
+
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const shareImage = image
   ? new URL((await getImage({ src: image, width: 1200, format: 'jpeg' })).src, Astro.site)
@@ -91,17 +103,19 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? 'f351c3f0-12b5-4603-8fad-f0cd
         Draft - not yet published. This page isn't linked from anywhere else on the site.
       </div>
     )}
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:rounded-md focus:bg-gold focus:px-4 focus:py-2 focus:text-ink-fixed"
+    >
+      Skip to main content
+    </a>
     <LiturgicalBanner server:defer />
     <nav class="relative z-50 flex items-center justify-between gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft lg:grid lg:grid-cols-[1fr_auto_1fr]">
       <BrandMark />
       <div class="hidden items-center justify-center gap-6 lg:flex">
-        <a href="/legends" class="hover:text-ink">Legends</a>
-        <a href="/traditions" class="hover:text-ink">Folk Traditions</a>
-        <a href="/relics" class="hover:text-ink">Relics</a>
-        <a href="/symbols" class="hover:text-ink">Symbols</a>
-        <a href="/phenomena" class="hover:text-ink">Mystical Phenomena</a>
-        <a href="/tags" class="hover:text-ink">Tags</a>
-        <a href="/random" class="hover:text-ink">Random</a>
+        {NAV_LINKS.map((link) => (
+          <a href={link.href} class="hover:text-ink" aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+        ))}
       </div>
       <div class="flex items-center gap-3 lg:justify-end">
         <Search />
@@ -126,13 +140,9 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? 'f351c3f0-12b5-4603-8fad-f0cd
         id="nav-menu"
         class="absolute inset-x-0 top-full hidden flex-col gap-1 border-t border-surface bg-surface-alt px-4 py-3 lg:hidden"
       >
-        <a href="/legends" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Legends</a>
-        <a href="/traditions" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Folk Traditions</a>
-        <a href="/relics" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Relics</a>
-        <a href="/symbols" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Symbols</a>
-        <a href="/phenomena" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Mystical Phenomena</a>
-        <a href="/tags" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Tags</a>
-        <a href="/random" class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink">Random</a>
+        {NAV_LINKS.map((link) => (
+          <a href={link.href} class="rounded-md px-2 py-2 hover:bg-surface hover:text-ink" aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
+        ))}
       </div>
     </nav>
     <script>
@@ -164,11 +174,29 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? 'f351c3f0-12b5-4603-8fad-f0cd
         setMenuOpen(false);
       });
 
+      // Disclosure pattern, not a modal: no focus trap, but Escape closes the
+      // menu and hands focus back to the button, and tabbing past the last
+      // link closes it rather than leaving it open behind the page.
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') setMenuOpen(false);
+        if (event.key !== 'Escape' || menu?.classList.contains('hidden')) return;
+        setMenuOpen(false);
+        toggle?.focus();
+      });
+
+      // A menu left open while the window widens past `lg` would keep
+      // aria-expanded="true" on a toggle that is no longer shown.
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+        if (event.matches) setMenuOpen(false);
+      });
+
+      menu?.addEventListener('focusout', (event) => {
+        const next = event.relatedTarget as Node | null;
+        if (next && !menu.contains(next) && next !== toggle) setMenuOpen(false);
       });
     </script>
-    <slot />
+    <div id="content" tabindex="-1" class="outline-none">
+      <slot />
+    </div>
 
     <footer class="mt-16 border-t border-surface bg-surface-alt px-4 py-8 text-center text-sm text-ink-soft">
       <p class="mx-auto max-w-2xl">

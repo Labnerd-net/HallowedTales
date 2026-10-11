@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20, #21, #29, #36 (2026-10-10). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20, #21, #13, #26, #29, #36 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -28,7 +28,7 @@ _None._
 _None._
 
 ### Low
-- **#13 [src/pages/calendar.astro:60-63,83-86]**: Grid always padded to 42 cells (blank sixth row on 5-week months); "next" past Dec 2099 silently clamps. Pad to a multiple of 7; disable the link at year bounds.
+_None._
 
 ---
 
@@ -54,7 +54,6 @@ _None._
 - **#23 [src/layouts/Layout.astro:60-134]**: Desktop/mobile nav links duplicated; menu script inline. Drive from a `NAV_LINKS` array (derivable from `PILLARS`) and extract `Nav.astro`.
 - **#24 [.github/workflows/ci.yml, tsconfig.json:6]**: CLAUDE.md pipeline says lint, but there is no lint tool or CI step. `tests/` and `scripts/` are not typechecked; actions pinned by tag not SHA. Add ESLint (`eslint-plugin-astro`) or Biome, include `tests` in tsconfig, pin actions.
 - **#25 [src/pages/index.astro:49, related.ts:46,78, tagArchive.ts:29,36,59]**: (index.astro part done 2026-10-09; remaining: related.ts, tagArchive.ts) `entry.data as {...}` casts; use `isPublished` and a typed collection union; derive `Badge` from `COLLECTION_LABELS`.
-- **#26 [src/layouts/Layout.astro, LightboxFigure.astro, ThemeToggle]**: Add skip link and `<main>` landmark, `aria-current="page"`, `aria-controls` and focus trap for the mobile menu; verify `<dialog>` lightbox focus and `text-ink-soft` contrast in both themes.
 - **#27 [src/lib/excerpt.ts, src/content.config.ts]**: Add an optional `description` frontmatter field used for cards, meta description, and OG; keep `excerptFrom` as fallback and harden it (#12).
 - **#28 [src/pages/index.astro:14-45]**: Category hero images imported from specific entries' content folders; moving an entry breaks the homepage. Move to `src/assets/` or derive via `featuredImage`.
 
@@ -91,8 +90,8 @@ _None._
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
 | Security | 0 | 0 | 1 | 1 |
-| Bugs | 0 | 0 | 1 | 1 |
+| Bugs | 0 | 0 | 0 | 0 |
 | Performance | 0 | 1 | 1 | 2 |
-| Improvements & Refactors | 0 | 7 | 4 | 11 |
+| Improvements & Refactors | 0 | 6 | 4 | 10 |
 | Feature Ideas | 1 | 6 | 3 | 10 |
-| **Total** | 1 | 14 | 10 | 25 |
+| **Total** | 1 | 13 | 9 | 23 |
