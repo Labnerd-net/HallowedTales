@@ -51,6 +51,7 @@ export const TAG_LABELS = {
   'ireland': 'Ireland',
   'jesuits': 'Jesuits',
   'joseph-of-cupertino': 'Joseph of Cupertino',
+  'kateri-tekakwitha': 'Kateri Tekakwitha',
   'last-supper': 'Last Supper',
   'legend-migration': 'Legend Migration',
   'legend-vs-biology': 'Legend vs. Biology',
