@@ -123,5 +123,4 @@ export const REGISTER_MIRACLE_SLUGS: ReadonlySet<string> = new Set([
   'our-lady-of-the-rosary-ratisbonne',
   'stigmata-of-padre-pio',
   'tilma-of-guadalupe',
-  'vanishing-of-smallpox-scars',
 ]);
