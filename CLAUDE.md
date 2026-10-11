@@ -97,7 +97,7 @@ with the Worker, FTS5 for search) is the planned option rather than Neon/Postgre
 | API layer | **Not built.** Hono (mounted at `/api/v1/*`) only if/when a public API is actually wanted |
 | Hosting | Cloudflare Workers (with static assets) |
 | Relational data | **Not built; no DB.** Tags, saint index, and cross-links are derived at build time from content files. If a runtime relational need arises: Cloudflare D1 (SQLite) via Drizzle (`drizzle-orm/d1`), never a home for prose content. |
-| Search | **Not built.** Planned: Pagefind — static, build-time search index over rendered Content Collection pages, served client-side from Cloudflare's CDN. No DB in the loop. D1's FTS5 extension is available if structured search over relational metadata (tags, saint index) is ever needed. |
+| Search | **Pagefind**, built. `npm run build` runs `pagefind --site dist/client` after `astro build`; only published entry pages carrying `data-pagefind-body` (see `EntryPage.astro`) are indexed, so drafts stay out. UI is `Search.astro` (a dialog in the nav) calling `/pagefind/pagefind.js` directly; the CSP allows `'wasm-unsafe-eval'` for it. No DB in the loop. D1's FTS5 remains available if structured search over relational metadata is ever needed. |
 | Validation + types | Zod — shared between content collection schemas and any API routes |
 | Styling | Tailwind v4 |
 | Testing | Vitest (unit); Playwright if/when e2e is warranted |
@@ -181,4 +181,4 @@ becomes a content file in this repo, reviewed via a normal PR (see `catholic-res
 3. Static pages rendering from content collections
 4. Vitest unit tests (done)
 5. GitHub Actions CI/CD (done: typecheck, vitest)
-6. Deferred, not built, only if a real need appears: search (Pagefind), Drizzle/D1, Hono API
+6. Deferred, not built, only if a real need appears: Drizzle/D1, Hono API

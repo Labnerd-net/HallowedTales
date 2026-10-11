@@ -4,6 +4,7 @@ _No active feature._
 
 ## History
 
+- 2026-10-10 - Search (#36) and draft exclusion from the index (#29): Pagefind runs after `astro build`; published entry pages carry `data-pagefind-body` plus title/pillar metadata; `Search.astro` dialog in the nav; CSP gains `'wasm-unsafe-eval'`. `random.astro` and the sitemap already filter via `isPublished`.
 - 2026-10-10 - Schema fragments and calendar tests (#21, part of #42): shared `earliestSourceShape`/`variantsField`/`historicalNoteField`/`relatedLegendsField`/`publishedField` in `content.config.ts`; new build-time checks for `featuredImageIndex` bounds, non-empty `images[].alt`, and `month` on `monthly-devotion`; at-most-one-`featured` in the content-integrity test. Added `vitest.config.ts` (aliases `astro:content` to a stub) and tests for `easter.ts`, `feasts.ts`, `feastDays.ts`.
 - 2026-10-10 - Security headers and CSP (#1): Astro `security.csp` meta (hashed bundled scripts/styles, theme-init script hashed from `lib/themeInit.ts`, Umami allowed), `nosniff`/Referrer-Policy/X-Frame-Options/frame-ancestors via `public/_headers` (static) and `src/middleware.ts` (on-demand). Hero inline styles became Tailwind classes; lightbox CSS moved to `global.css`.
 - 2026-10-10 - Validate `feastDay` (#5): shared `feastDayField` in `content.config.ts`; `month` is an enum of Jan-Dec and `day` must be valid for the month unless `easterOffset` is set, so typos fail the build instead of silently dropping the entry from the calendar.
