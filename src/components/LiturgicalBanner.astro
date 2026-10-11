@@ -43,7 +43,7 @@ const colorLabel = color[0].toUpperCase() + color.slice(1);
       {devotion.href ? <a href={devotion.href} class="text-accent hover:underline">{devotion.label}</a> : devotion.label}
     </p>
     <p class="text-right">
-      Today in the Church calendar: {label} &middot; {colorLabel}
+      <a href="/calendar" class="hover:underline">Today in the Church calendar: {label} &middot; {colorLabel}</a>
     </p>
   </div>
 </div>

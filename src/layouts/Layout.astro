@@ -40,6 +40,7 @@ const NAV_LINKS = [
   { href: '/relics', label: 'Relics' },
   { href: '/symbols', label: 'Symbols' },
   { href: '/phenomena', label: 'Mystical Phenomena' },
+  { href: '/calendar', label: 'Calendar' },
   { href: '/tags', label: 'Tags' },
   { href: '/random', label: 'Random' },
 ];
@@ -112,7 +113,7 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? 'f351c3f0-12b5-4603-8fad-f0cd
     <LiturgicalBanner server:defer />
     <nav class="relative z-50 flex items-center justify-between gap-4 bg-surface-alt px-4 py-3 text-sm font-medium text-ink-soft lg:grid lg:grid-cols-[1fr_auto_1fr]">
       <BrandMark />
-      <div class="hidden items-center justify-center gap-6 lg:flex">
+      <div class="hidden items-center justify-center gap-4 lg:flex xl:gap-6">
         {NAV_LINKS.map((link) => (
           <a href={link.href} class="hover:text-ink" aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>
         ))}
