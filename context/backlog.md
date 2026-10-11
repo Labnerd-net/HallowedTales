@@ -2,7 +2,7 @@
 
 > Generated: 2026-10-09
 > Focus: Full audit
-> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20, #21 (2026-10-10). Item numbers are not renumbered.
+> Completed and removed: #4, #6, #7, #8, #9, #10, #11, #12, #16, #31, #46 (2026-10-09); #1, #3, #5, #14, #15, #17, #20, #21, #29, #36 (2026-10-10). Item numbers are not renumbered.
 
 ---
 
@@ -57,7 +57,6 @@ _None._
 - **#26 [src/layouts/Layout.astro, LightboxFigure.astro, ThemeToggle]**: Add skip link and `<main>` landmark, `aria-current="page"`, `aria-controls` and focus trap for the mobile menu; verify `<dialog>` lightbox focus and `text-ink-soft` contrast in both themes.
 - **#27 [src/lib/excerpt.ts, src/content.config.ts]**: Add an optional `description` frontmatter field used for cards, meta description, and OG; keep `excerptFrom` as fallback and harden it (#12).
 - **#28 [src/pages/index.astro:14-45]**: Category hero images imported from specific entries' content folders; moving an entry breaks the homepage. Move to `src/assets/` or derive via `featuredImage`.
-- **#29 [src/pages/*/[slug].astro, future sitemap/Pagefind]**: Drafts are emitted by `getStaticPaths`. Ensure they are excluded from sitemap and search index, and consider skipping them in production builds. `random.astro` filters inline instead of via `isPublished`.
 
 ### Low
 - **#30 [scripts/list-content.mjs:22,31]**: Regex frontmatter parsing (`split("---")[1]`), assumes `index.mdx`, no npm script. (Em dash fixed 2026-10-09.) Use a real parser.
@@ -71,7 +70,6 @@ _None._
 
 ### High
 - **#35 [partially done 2026-10-09]**: Remaining: a dedicated `og-default.png` (currently `icon-512.png`).
-- **#36 [astro.config.mjs, Layout.astro]**: Pagefind is in the documented stack but absent. Add `astro-pagefind` or a post-build `pagefind --site dist/client`, `data-pagefind-body` on `<main>`, ignore nav/footer/banner and drafts, and a search UI in the nav. Update `build`/`deploy` scripts.
 
 ### Medium
 - **#37 [new src/pages/rss.xml.ts]**: RSS feed. Needs an optional `publishedAt` in the schema, or a feast-day feed from `lib/feastDays.ts` with no schema change.
@@ -95,6 +93,6 @@ _None._
 | Security | 0 | 0 | 1 | 1 |
 | Bugs | 0 | 0 | 1 | 1 |
 | Performance | 0 | 1 | 1 | 2 |
-| Improvements & Refactors | 0 | 8 | 4 | 12 |
-| Feature Ideas | 2 | 6 | 3 | 11 |
-| **Total** | 2 | 15 | 10 | 27 |
+| Improvements & Refactors | 0 | 7 | 4 | 11 |
+| Feature Ideas | 1 | 6 | 3 | 10 |
+| **Total** | 1 | 14 | 10 | 25 |

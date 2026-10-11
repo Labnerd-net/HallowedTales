@@ -30,7 +30,8 @@ export default defineConfig({
         "form-action 'self'",
       ],
       scriptDirective: {
-        resources: ["'self'", UMAMI_ORIGIN],
+        // wasm-unsafe-eval: Pagefind's search engine is WebAssembly.
+        resources: ["'self'", "'wasm-unsafe-eval'", UMAMI_ORIGIN],
         hashes: [themeInitHash],
       },
     },

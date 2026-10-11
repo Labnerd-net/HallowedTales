@@ -1,0 +1,137 @@
+---
+// Site search over the Pagefind index that `npm run build` writes to
+// /pagefind/ (only entry pages carrying data-pagefind-body are indexed - see
+// EntryPage.astro). The index doesn't exist under `astro dev`, so the dialog
+// says so rather than failing silently.
+---
+
+<button
+  type="button"
+  id="search-open"
+  class="flex h-8 w-8 items-center justify-center rounded-md text-ink-soft hover:text-ink"
+  aria-label="Search"
+  aria-haspopup="dialog"
+>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-5 w-5" aria-hidden="true">
+    <circle cx="11" cy="11" r="7"></circle>
+    <path d="M20 20l-3.5-3.5"></path>
+  </svg>
+</button>
+
+<dialog
+  id="search-dialog"
+  aria-label="Search stories"
+  class="mx-auto mt-[10vh] mb-auto w-[min(36rem,92vw)] rounded-lg bg-surface p-0 text-ink shadow-xl backdrop:bg-black/60"
+>
+  <div class="p-5">
+    <label for="search-input" class="mb-2 block font-display text-sm tracking-wide text-gold uppercase">Search</label>
+    <input
+      id="search-input"
+      type="search"
+      autocomplete="off"
+      placeholder="Search legends, traditions, relics..."
+      class="w-full rounded-md border border-gold/50 bg-canvas px-3 py-2 text-ink placeholder:text-ink-soft focus:border-gold focus:outline-none"
+    />
+    <p id="search-status" class="mt-3 text-sm text-ink-soft" role="status" aria-live="polite"></p>
+    <ul id="search-results" class="mt-2 max-h-[55vh] space-y-3 overflow-y-auto"></ul>
+  </div>
+</dialog>
+
+<script>
+  interface PagefindResult {
+    data: () => Promise<{ url: string; excerpt: string; meta: { title?: string; pillar?: string } }>;
+  }
+  interface Pagefind {
+    debouncedSearch: (query: string, options?: object, wait?: number) => Promise<{ results: PagefindResult[] } | null>;
+  }
+
+  const openButton = document.getElementById('search-open');
+  const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
+  const status = document.getElementById('search-status');
+  const list = document.getElementById('search-results');
+
+  const MAX_RESULTS = 8;
+  let pagefind: Promise<Pagefind | null> | undefined;
+
+  // Not a static import: the index is generated after `astro build`, so
+  // there is nothing for Vite to resolve at bundle time.
+  const PAGEFIND_URL = '/pagefind/pagefind.js';
+  function loadPagefind(): Promise<Pagefind | null> {
+    pagefind ??= import(/* @vite-ignore */ PAGEFIND_URL).then(
+      (mod) => mod as Pagefind,
+      () => null
+    );
+    return pagefind;
+  }
+
+  function setStatus(text: string) {
+    if (status) status.textContent = text;
+  }
+
+  async function runSearch(query: string) {
+    if (!list) return;
+    if (query.trim().length < 2) {
+      list.replaceChildren();
+      setStatus('');
+      return;
+    }
+    const pf = await loadPagefind();
+    if (!pf) {
+      list.replaceChildren();
+      setStatus('Search is only available on the built site.');
+      return;
+    }
+    const search = await pf.debouncedSearch(query, {}, 150);
+    if (!search) return; // superseded by a newer keystroke
+
+    const hits = await Promise.all(search.results.slice(0, MAX_RESULTS).map((r) => r.data()));
+    list.replaceChildren(
+      ...hits.map((hit) => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = hit.url;
+        link.className = 'block rounded-md p-2 hover:bg-surface-alt';
+
+        if (hit.meta.pillar) {
+          const pillar = document.createElement('span');
+          pillar.className = 'block text-xs font-medium tracking-wide text-ink-soft uppercase';
+          pillar.textContent = hit.meta.pillar;
+          link.append(pillar);
+        }
+        const title = document.createElement('span');
+        title.className = 'block font-display text-lg font-semibold text-accent';
+        title.textContent = hit.meta.title ?? hit.url;
+        link.append(title);
+
+        // Pagefind escapes the page text and wraps matches in <mark>.
+        const excerpt = document.createElement('span');
+        excerpt.className = 'block text-sm text-ink-soft [&_mark]:rounded-sm [&_mark]:bg-gold/40 [&_mark]:text-ink';
+        excerpt.innerHTML = hit.excerpt;
+        link.append(excerpt);
+
+        li.append(link);
+        return li;
+      })
+    );
+    setStatus(
+      hits.length === 0
+        ? `No stories found for "${query.trim()}".`
+        : `${search.results.length} ${search.results.length === 1 ? 'result' : 'results'}`
+    );
+  }
+
+  openButton?.addEventListener('click', () => {
+    dialog?.showModal();
+    input?.focus();
+    // Warm the index while the visitor is still typing.
+    void loadPagefind();
+  });
+
+  input?.addEventListener('input', () => void runSearch(input.value));
+
+  // Click on the backdrop (the dialog element itself, outside its content).
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+</script>
