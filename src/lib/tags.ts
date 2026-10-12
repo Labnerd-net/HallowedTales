@@ -98,7 +98,7 @@ export const TAG_LABELS = {
   'scala-sancta': 'Scala Sancta',
   'seamless-robe': 'Seamless Robe',
   'snake-legend': 'Snake Legend',
-  'st-helena': 'St. Helena',
+  'st-helena': 'Saint Helena',
   'st-joseph': 'St. Joseph',
   'stag-vision': 'Stag Vision',
   'stigmata': 'Stigmata',

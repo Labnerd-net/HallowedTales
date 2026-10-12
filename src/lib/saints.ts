@@ -9,6 +9,7 @@ export const SAINT_NAMES: Record<string, string> = {
   'eustace-of-rome': 'Eustace of Rome',
   'francis-of-assisi': 'Francis of Assisi',
   'george-of-lydda': 'George of Lydda',
+  'helena-of-constantinople': 'Helena of Constantinople',
   'hubert-of-liege': 'Hubert of Liège',
   'james-the-great': 'James the Great',
   'jerome-of-stridon': 'Jerome of Stridon',

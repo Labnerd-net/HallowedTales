@@ -21,28 +21,38 @@ const toLink = (entry: AnyEntry): RelatedLink => ({
   collection: entry.collection,
 });
 
-// relatedLegends is a slug array that always points into the `legends`
-// collection, from any of the four collections (including legends itself,
-// for the St. Hubert / St. Eustace peer case).
+// Collections whose entries relatedLegends[] is allowed to cite, despite the
+// field's name - originally legends-only (the St. Hubert / St. Eustace peer
+// case), broadened to symbols (e.g. a symbol's own founding-legend) and
+// relics (a biography linking out to its saint's relic, e.g. Helena ->
+// true-cross) as those cross-pillar links came up. Traditions/phenomena/
+// biographies can cite into these three but aren't themselves citable
+// targets - nothing currently points a story back at a devotion or a life.
+const CITABLE_COLLECTIONS: readonly Collection[] = ['legends', 'symbols', 'relics'];
+
+// relatedLegends is a slug array that points into one of CITABLE_COLLECTIONS,
+// from any collection (including a citable one citing a peer in the same
+// collection, as with Hubert/Eustace).
 export async function resolveRelatedLegends(slugs: string[] | undefined): Promise<RelatedLink[]> {
   if (!slugs || slugs.length === 0) return [];
-  const legends = await getPublished('legends');
-  const bySlug = new Map(legends.map((e) => [e.id, e]));
+  const citable = (await Promise.all(CITABLE_COLLECTIONS.map(getPublished))).flat();
+  const bySlug = new Map(citable.map((e) => [e.id, e]));
   return slugs.flatMap((slug) => {
-    const legend = bySlug.get(slug);
-    return legend ? [toLink(legend)] : [];
+    const target = bySlug.get(slug);
+    return target ? [toLink(target)] : [];
   });
 }
 
 // The reverse of resolveRelatedLegends: every entry, in any collection, whose
-// relatedLegends[] cites this legend. Derived rather than hand-maintained so
-// a tradition/relic/phenomenon page linking to a legend doesn't require a
-// second, easily-forgotten edit on the legend's own frontmatter.
-export async function findReferencingEntries(legendSlug: string): Promise<RelatedLink[]> {
+// relatedLegends[] cites this one. Derived rather than hand-maintained so a
+// tradition/relic/phenomenon/biography linking to a legend (or relic, or
+// symbol) doesn't require a second, easily-forgotten edit on the target's
+// own frontmatter.
+export async function findReferencingEntries(collection: Collection, id: string): Promise<RelatedLink[]> {
   const all = await getAllPublished();
   return all
-    .filter((entry) => !(entry.collection === 'legends' && entry.id === legendSlug))
-    .filter((entry) => entry.data.relatedLegends?.includes(legendSlug))
+    .filter((entry) => !(entry.collection === collection && entry.id === id))
+    .filter((entry) => entry.data.relatedLegends?.includes(id))
     .map(toLink);
 }
 
@@ -87,10 +97,9 @@ export async function buildRelatedSections(entry: AnyEntry): Promise<RelatedSect
   const unseen = (link: RelatedLink) => (seen.has(link.href) ? false : (seen.add(link.href), true));
 
   const forward = await resolveRelatedLegends(entry.data.relatedLegends);
-  const backward =
-    entry.collection === 'legends' || entry.collection === 'symbols'
-      ? await findReferencingEntries(entry.id)
-      : [];
+  const backward = CITABLE_COLLECTIONS.includes(entry.collection)
+    ? await findReferencingEntries(entry.collection, entry.id)
+    : [];
   const related = [...forward, ...backward].filter(unseen);
 
   const saints = 'saints' in entry.data ? entry.data.saints : undefined;

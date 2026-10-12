@@ -26,8 +26,12 @@ interface Entry {
   data: Frontmatter;
 }
 
+// Collections relatedLegends is allowed to cite - must match CITABLE_COLLECTIONS
+// in src/lib/related.ts, which is what actually resolves the link at runtime.
+const CITABLE_COLLECTIONS = new Set(['legends', 'symbols', 'relics']);
+
 const entries: Entry[] = [];
-const legendSlugs = new Set<string>();
+const citableSlugs = new Set<string>();
 
 for (const collection of readdirSync(CONTENT_ROOT, { withFileTypes: true })) {
   if (!collection.isDirectory()) continue;
@@ -36,7 +40,7 @@ for (const collection of readdirSync(CONTENT_ROOT, { withFileTypes: true })) {
     const raw = readFileSync(join(CONTENT_ROOT, collection.name, dir.name, 'index.mdx'), 'utf-8');
     const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     entries.push({ id: `${collection.name}/${dir.name}`, data: (match ? parse(match[1]) : {}) as Frontmatter });
-    if (collection.name === 'legends') legendSlugs.add(dir.name);
+    if (CITABLE_COLLECTIONS.has(collection.name)) citableSlugs.add(dir.name);
   }
 }
 
@@ -54,7 +58,7 @@ describe('content cross-references', () => {
 
   it.each(entries.map((e) => [e.id, e] as const))('%s', (_id, entry) => {
     for (const slug of entry.data.relatedLegends ?? []) {
-      expect(legendSlugs.has(slug), `relatedLegends: no legend "${slug}"`).toBe(true);
+      expect(citableSlugs.has(slug), `relatedLegends: no legend/symbol/relic "${slug}"`).toBe(true);
     }
 
     // Every saint needs a SAINT_NAMES entry (src/lib/saints.ts): the slug is
