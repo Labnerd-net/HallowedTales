@@ -13,6 +13,11 @@ export interface PillarMeta {
   accentClass: 'accent' | 'ruby' | 'liturgical-green' | 'gold' | 'liturgical-violet' | 'sepia';
 }
 
+// Order here drives the homepage "Explore by Category" grid and (via
+// NAV_LINKS in Layout.astro, kept in sync by hand) the nav - legends and
+// biographies lead together since they're the most conceptually linked pair
+// (a single-motif tale vs. the whole life, and biographies link out to
+// legends), not sorted by content depth.
 export const PILLARS: PillarMeta[] = [
   {
     key: 'legends',
@@ -23,6 +28,16 @@ export const PILLARS: PillarMeta[] = [
     href: '/legends',
     accentVar: '--color-accent',
     accentClass: 'accent',
+  },
+  {
+    key: 'biographies',
+    label: 'Saint Biographies',
+    badge: 'Biography',
+    description:
+      'The whole arc of a life - childhood, conversion, founding work, death - told plainly, beyond any single legend.',
+    href: '/biographies',
+    accentVar: '--color-sepia',
+    accentClass: 'sepia',
   },
   {
     key: 'traditions',
@@ -63,16 +78,6 @@ export const PILLARS: PillarMeta[] = [
     href: '/phenomena',
     accentVar: '--color-liturgical-violet',
     accentClass: 'liturgical-violet',
-  },
-  {
-    key: 'biographies',
-    label: 'Saint Biographies',
-    badge: 'Biography',
-    description:
-      'The whole arc of a life - childhood, conversion, founding work, death - told plainly, beyond any single legend.',
-    href: '/biographies',
-    accentVar: '--color-sepia',
-    accentClass: 'sepia',
   },
 ];
 
