@@ -15,6 +15,10 @@ import palmSundayProcession from '../content/traditions/palm-sunday-palms/palm-s
 import santoCaliz from '../content/relics/holy-grail/santo-caliz.jpg';
 import catacombChiRho from '../content/symbols/chi-rho/catacomb-of-callixtus-chi-rho.jpg';
 import padrePio1944 from '../content/phenomena/padre-pio-bilocation/padre-pio-1944.jpg';
+// Temporary placeholder - Kateri Tekakwitha is slated to migrate from
+// `legends` into `biographies` once the pillar has its own published
+// entries (see Pillar 6 notes); swap for a real biography's image then.
+import kateriTekakwitha from '../content/legends/kateri-tekakwitha/chauchetiere-kateri-tekakwitha-1690.jpg';
 
 // Picked from a set of candidates on a temp preview page - see commit
 // history for the comparison. One representative image per category for
@@ -41,6 +45,10 @@ const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string }>
     src: padrePio1944,
     alt: 'Black and white photo of Padre Pio celebrating Mass in Italy',
   },
+  biographies: {
+    src: kateriTekakwitha,
+    alt: 'Period illustration of Kateri Tekakwitha by Father Claude Chauchetière, c. 1690',
+  },
 };
 
 // Tailwind's scanner needs literal class strings, not `text-${var}` -
@@ -51,6 +59,7 @@ const countTextClass: Record<string, string> = {
   'liturgical-green': 'text-liturgical-green',
   gold: 'text-gold-text',
   'liturgical-violet': 'text-liturgical-violet',
+  sepia: 'text-sepia',
 };
 const borderClass: Record<string, string> = {
   accent: 'border-accent',
@@ -58,15 +67,17 @@ const borderClass: Record<string, string> = {
   'liturgical-green': 'border-liturgical-green',
   gold: 'border-gold',
   'liturgical-violet': 'border-liturgical-violet',
+  sepia: 'border-sepia',
 };
 
-const [publishedLegends, publishedTraditions, publishedRelics, publishedSymbols, publishedPhenomena] =
+const [publishedLegends, publishedTraditions, publishedRelics, publishedSymbols, publishedPhenomena, publishedBiographies] =
   await Promise.all([
     getPublished('legends'),
     getPublished('traditions'),
     getPublished('relics'),
     getPublished('symbols'),
     getPublished('phenomena'),
+    getPublished('biographies'),
   ]);
 
 const countByPillar: Record<PillarKey, number> = {
@@ -75,6 +86,7 @@ const countByPillar: Record<PillarKey, number> = {
   relics: publishedRelics.length,
   symbols: publishedSymbols.length,
   phenomena: publishedPhenomena.length,
+  biographies: publishedBiographies.length,
 };
 
 const featured = publishedLegends.find((entry) => entry.data.featured) ?? publishedLegends[0];
@@ -86,19 +98,21 @@ function pickRandom<T>(items: T[]): T | undefined {
   return items.length ? items[Math.floor(Math.random() * items.length)] : undefined;
 }
 
-// Sidebar mixes a random entry from the other four pillars, plus one more
+// Sidebar mixes a random entry from the other five pillars, plus one more
 // random legend (excluding whichever is the featured pick).
 const randomLegend = pickRandom(publishedLegends.filter((entry) => entry.id !== featured?.id));
 const randomTradition = pickRandom(publishedTraditions);
 const randomRelic = pickRandom(publishedRelics);
 const randomSymbol = pickRandom(publishedSymbols);
 const randomPhenomenon = pickRandom(publishedPhenomena);
+const randomBiography = pickRandom(publishedBiographies);
 
 const sidebarStories = [
   randomTradition && { entry: randomTradition, collection: 'traditions', pillarKey: 'traditions' as const, badge: 'Folk Tradition' },
   randomRelic && { entry: randomRelic, collection: 'relics', pillarKey: 'relics' as const, badge: 'Relic & Legend' },
   randomSymbol && { entry: randomSymbol, collection: 'symbols', pillarKey: 'symbols' as const, badge: 'Symbol' },
   randomPhenomenon && { entry: randomPhenomenon, collection: 'phenomena', pillarKey: 'phenomena' as const, badge: 'Mystical Phenomenon' },
+  randomBiography && { entry: randomBiography, collection: 'biographies', pillarKey: 'biographies' as const, badge: 'Biography' },
   randomLegend && { entry: randomLegend, collection: 'legends', pillarKey: 'legends' as const, badge: 'Legend' },
 ]
   .filter((s): s is NonNullable<typeof s> => Boolean(s))
@@ -178,7 +192,7 @@ const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 
     <section class="mt-14 border-t border-surface-alt pt-10">
       <div class="mb-6">
         <h2 class="font-display text-3xl font-semibold text-ink">Explore by Category</h2>
-        <p class="mt-2 text-sm text-ink-soft">Five ways into the lore - start wherever pulls you in.</p>
+        <p class="mt-2 text-sm text-ink-soft">Six ways into the lore - start wherever pulls you in.</p>
       </div>
       <div class="flex flex-wrap justify-center gap-6">
         {PILLARS.map((pillar) => (

@@ -41,6 +41,12 @@
   --color-liturgical-green: #2f6b4f;
   --color-liturgical-rose: #d98ba0;
 
+  /* Pillar 6 (Saint Biographies) accent - a warm sepia/parchment brown for
+     the "whole life, chronicle" framing, distinct from gold's devotional-art
+     hue and from liturgical-rose, which is already spoken for by the
+     Advent/rose-Sunday banner (lib/liturgical/barClass.ts). */
+  --color-sepia: #8b5e34;
+
   --font-display: "Cormorant Garamond", serif;
   --font-body: "Lora", serif;
 }
@@ -67,6 +73,7 @@
   --color-liturgical-violet: #b895e6;
   --color-liturgical-green: #66bd91;
   --color-liturgical-rose: #e8a8bc;
+  --color-sepia: #d9a66c;
 }
 
 body {

@@ -40,12 +40,17 @@ export interface ContentFeastDay {
   day: number;
 }
 
-// Every traditions/relics entry that carries a feastDay, with the
-// collection-scan done once so both the homepage "upcoming" list and the
-// calendar page's month lookup can share it.
+// Every traditions/relics/biographies entry that carries a feastDay, with
+// the collection-scan done once so both the homepage "upcoming" list and the
+// calendar page's month lookup can share it. Biographies joined in once that
+// pillar started carrying its saint's own liturgical feast day.
 async function getFeastDayEntries(): Promise<FeastDayEntry[]> {
-  const [traditions, relics] = await Promise.all([getPublished('traditions'), getPublished('relics')]);
-  return [...traditions, ...relics].flatMap((entry) =>
+  const [traditions, relics, biographies] = await Promise.all([
+    getPublished('traditions'),
+    getPublished('relics'),
+    getPublished('biographies'),
+  ]);
+  return [...traditions, ...relics, ...biographies].flatMap((entry) =>
     entry.data.feastDay
       ? [{
           href: hrefFor(entry.collection, entry.id),

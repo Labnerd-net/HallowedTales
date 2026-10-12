@@ -15,7 +15,7 @@ export interface TagEntryCard {
   featuredImageIndex?: number;
 }
 
-// Every published entry, across all five collections, carrying a given tag.
+// Every published entry, across all six collections, carrying a given tag.
 // Powers /tags/[slug] - the actual "see everything with this tag" page the
 // chips on each entry's detail page link out to.
 export async function entriesForTag(tagSlug: string): Promise<TagEntryCard[]> {

@@ -1,7 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { isPublished } from './published';
 
-export const COLLECTIONS = ['legends', 'traditions', 'relics', 'phenomena', 'symbols'] as const;
+export const COLLECTIONS = ['legends', 'traditions', 'relics', 'phenomena', 'symbols', 'biographies'] as const;
 export type Collection = (typeof COLLECTIONS)[number];
 
 // Discriminated on `collection`, so narrowing on `entry.collection` gives the
@@ -17,7 +17,7 @@ async function loadAllPublished(): Promise<AnyEntry[]> {
 
 let cache: Promise<AnyEntry[]> | undefined;
 
-// Every published entry across all five collections. Memoized in production
+// Every published entry across all six collections. Memoized in production
 // so a build (or a long-lived Worker isolate) reads each collection once
 // rather than once per page per helper; in dev it re-reads so content edits
 // show up without restarting the server.

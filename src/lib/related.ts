@@ -6,6 +6,7 @@ export const COLLECTION_LABELS: Record<Collection, string> = {
   relics: 'Relic & Legend',
   phenomena: 'Mystical Phenomenon',
   symbols: 'Symbol',
+  biographies: 'Biography',
 };
 
 export interface RelatedLink {
