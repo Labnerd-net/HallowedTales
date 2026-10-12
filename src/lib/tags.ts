@@ -101,6 +101,7 @@ export const TAG_LABELS = {
   'st-helena': 'St. Helena',
   'st-joseph': 'St. Joseph',
   'stag-vision': 'Stag Vision',
+  'stigmata': 'Stigmata',
   'symbol-origin': 'Symbol Origin',
   'teresa-of-avila': 'Teresa of Avila',
   'true-cross': 'True Cross',
