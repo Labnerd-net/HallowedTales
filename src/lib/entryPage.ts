@@ -64,6 +64,18 @@ export function heroData(entry: AnyEntry): EntryHeroData {
         ...(noteHref && { note: SAINT_REGISTER_NOTE, noteHref, noteLabel: 'Visit The Miracle Register' }),
       };
     }
+    case 'biographies': {
+      const { saints, earliestSource, feastDay } = entry.data;
+      const noteHref = registerSaintHref(saints);
+      return {
+        meta: compact([
+          formatSaints(saints),
+          feastDay && `Feast day: ${feastDay.month} ${feastDay.day}`,
+          `Earliest source: ${earliestSource.approxDate}`,
+        ]),
+        ...(noteHref && { note: SAINT_REGISTER_NOTE, noteHref, noteLabel: 'Visit The Miracle Register' }),
+      };
+    }
   }
 }
 
@@ -82,5 +94,9 @@ export function cardMeta(entry: AnyEntry): string {
       return tagLabel(entry.data.phenomenonType);
     case 'symbols':
       return entry.data.meaning;
+    case 'biographies':
+      return entry.data.feastDay
+        ? `Feast day: ${entry.data.feastDay.month} ${entry.data.feastDay.day}`
+        : entry.data.earliestSource.approxDate;
   }
 }

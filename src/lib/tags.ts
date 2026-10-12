@@ -1,4 +1,4 @@
-// Canonical tag vocabulary for the `tags[]` field shared by all five content
+// Canonical tag vocabulary for the `tags[]` field shared by all six content
 // collections. Unlike `saints.ts`, this is a closed set rather than a
 // display-name lookup with a humanize() fallback: tags exist specifically to
 // power cross-entry discovery (browse-by-tag, search facets), so a typo or

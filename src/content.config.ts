@@ -2,7 +2,7 @@ import { defineCollection, z, type ImageFunction } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { TAG_SLUGS } from './lib/tags';
 
-// Shared across all five collections - see src/lib/tags.ts for why this is
+// Shared across all six collections - see src/lib/tags.ts for why this is
 // a closed enum rather than z.array(z.string()).
 const FEAST_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
 // Feb allows 29 since the feast recurs every year, not in one specific one.
@@ -35,7 +35,7 @@ const feastDayField = z
 
 const tagsField = z.array(z.enum(TAG_SLUGS)).optional();
 
-// Shared across all five collections: a photo of a relic/location, or a
+// Shared across all six collections: a photo of a relic/location, or a
 // period illustration/artwork for legends and phenomena that have no
 // photographable subject. Images live alongside their entry's content file
 // so Astro's image() helper can validate the path and optimize the output.
@@ -279,4 +279,28 @@ const symbols = defineCollection({
   }).superRefine(checkFeaturedImage),
 });
 
-export const collections = { legends, traditions, relics, phenomena, symbols };
+// Condensed, sourced saint biographies - the whole life, told plainly, with
+// any legendary material (the Patrick-and-the-snakes shape) linked out to
+// its own `legends` entry via relatedLegends rather than retold inline. See
+// ../catholic-research/HallowedTales/Notes/Pillar 6 - Saint Biographies.md
+// for the full scope decision. One entry = one life, unlike `legends`/
+// `phenomena` where `saints` can hold more than one name.
+const biographies = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/biographies' }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    images: imagesField(image),
+    featuredImageIndex: featuredImageIndexField,
+    saints: z.array(z.string()).length(1),
+    earliestSource: earliestSourceShape,
+    historicalNote: historicalNoteField,
+    // The saint's own liturgical feast day - feeds the homepage "upcoming
+    // feast days" tile and the /calendar overlay, same as traditions/relics.
+    feastDay: feastDayField,
+    relatedLegends: relatedLegendsField,
+    tags: tagsField,
+    published: publishedField,
+  }).superRefine(checkFeaturedImage),
+});
+
+export const collections = { legends, traditions, relics, phenomena, symbols, biographies };

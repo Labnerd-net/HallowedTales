@@ -1,6 +1,6 @@
 // Shared pillar metadata (labels, badges, hrefs, accent colors) used by the
 // homepage's "Explore by Category" grid and sidebar.
-export type PillarKey = 'legends' | 'traditions' | 'relics' | 'symbols' | 'phenomena';
+export type PillarKey = 'legends' | 'traditions' | 'relics' | 'symbols' | 'phenomena' | 'biographies';
 
 export interface PillarMeta {
   key: PillarKey;
@@ -10,7 +10,7 @@ export interface PillarMeta {
   href: string;
   // CSS custom property name backing this pillar's accent (see global.css).
   accentVar: string;
-  accentClass: 'accent' | 'ruby' | 'liturgical-green' | 'gold' | 'liturgical-violet';
+  accentClass: 'accent' | 'ruby' | 'liturgical-green' | 'gold' | 'liturgical-violet' | 'sepia';
 }
 
 export const PILLARS: PillarMeta[] = [
@@ -63,6 +63,16 @@ export const PILLARS: PillarMeta[] = [
     href: '/phenomena',
     accentVar: '--color-liturgical-violet',
     accentClass: 'liturgical-violet',
+  },
+  {
+    key: 'biographies',
+    label: 'Saint Biographies',
+    badge: 'Biography',
+    description:
+      'The whole arc of a life - childhood, conversion, founding work, death - told plainly, beyond any single legend.',
+    href: '/biographies',
+    accentVar: '--color-sepia',
+    accentClass: 'sepia',
   },
 ];
 

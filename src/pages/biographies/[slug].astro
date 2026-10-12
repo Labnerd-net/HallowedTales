@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import EntryPage from '../../components/EntryPage.astro';
+
+export const prerender = true;
+
+// Every entry gets a real static page here, published or not - this is what
+// makes a draft's own URL shareable. Discovery (listings, related links,
+// feast lookups) is gated separately via `isPublished`; this file is not.
+export async function getStaticPaths() {
+  const entries = await getCollection('biographies');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<EntryPage entry={entry} />

@@ -2,7 +2,7 @@
 import CardThumb from './CardThumb.astro';
 import type { EntryImage } from '../lib/images';
 
-export type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon' | 'Symbol';
+export type Badge = 'Legend' | 'Folk Tradition' | 'Relic & Legend' | 'Mystical Phenomenon' | 'Symbol' | 'Biography';
 
 interface Props {
   href: string;
@@ -16,12 +16,13 @@ interface Props {
 
 const { href, badge, title, excerpt, meta, images, featuredImageIndex } = Astro.props;
 
-const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet' | 'gold'> = {
+const accentByBadge: Record<Badge, 'accent' | 'ruby' | 'liturgical-green' | 'liturgical-violet' | 'gold' | 'sepia'> = {
   Legend: 'accent',
   'Folk Tradition': 'ruby',
   'Relic & Legend': 'liturgical-green',
   'Mystical Phenomenon': 'liturgical-violet',
   Symbol: 'gold',
+  Biography: 'sepia',
 };
 const accentClass = accentByBadge[badge];
 
@@ -31,6 +32,7 @@ const borderClass = {
   'liturgical-green': 'border-liturgical-green',
   'liturgical-violet': 'border-liturgical-violet',
   gold: 'border-gold',
+  sepia: 'border-sepia',
 }[accentClass];
 
 const bgClass = {
@@ -39,6 +41,7 @@ const bgClass = {
   'liturgical-green': 'bg-liturgical-green',
   'liturgical-violet': 'bg-liturgical-violet',
   gold: 'bg-gold',
+  sepia: 'bg-sepia',
 }[accentClass];
 
 const textClass = {
@@ -47,6 +50,7 @@ const textClass = {
   'liturgical-green': 'text-liturgical-green',
   'liturgical-violet': 'text-liturgical-violet',
   gold: 'text-gold-text',
+  sepia: 'text-sepia',
 }[accentClass];
 
 // Gold's a bright/warm fill in both themes (see global.css), so it needs the
