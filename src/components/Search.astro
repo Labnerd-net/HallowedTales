@@ -44,11 +44,23 @@
 
 <script>
   interface PagefindResult {
-    data: () => Promise<{ url: string; excerpt: string; meta: { title?: string; pillar?: string } }>;
+    data: () => Promise<{ url: string; excerpt: string; meta: { title?: string; category?: string } }>;
   }
   interface Pagefind {
     debouncedSearch: (query: string, options?: object, wait?: number) => Promise<{ results: PagefindResult[] } | null>;
   }
+
+  // Same badge/accent pairing as LegendCard.astro, duplicated here since
+  // Tailwind's scanner needs literal class strings and this runs as its own
+  // client-side script rather than sharing LegendCard's markup.
+  const categoryClasses: Record<string, { bg: string; text: string }> = {
+    Legend: { bg: 'bg-accent', text: 'text-canvas' },
+    'Folk Tradition': { bg: 'bg-ruby', text: 'text-canvas' },
+    'Relic & Legend': { bg: 'bg-liturgical-green', text: 'text-canvas' },
+    'Mystical Phenomenon': { bg: 'bg-liturgical-violet', text: 'text-canvas' },
+    Symbol: { bg: 'bg-gold', text: 'text-ink-fixed' },
+    Biography: { bg: 'bg-sepia', text: 'text-canvas' },
+  };
 
   const openButton = document.getElementById('search-open');
   const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
@@ -98,11 +110,14 @@
         link.href = hit.url;
         link.className = 'block rounded-md p-2 hover:bg-surface-alt';
 
-        if (hit.meta.pillar) {
-          const pillar = document.createElement('span');
-          pillar.className = 'block text-xs font-medium tracking-wide text-ink-soft uppercase';
-          pillar.textContent = hit.meta.pillar;
-          link.append(pillar);
+        if (hit.meta.category) {
+          const classes = categoryClasses[hit.meta.category];
+          const tag = document.createElement('span');
+          tag.className = classes
+            ? `mb-1 inline-block rounded-full px-2 py-0.5 text-xs font-medium tracking-wide uppercase ${classes.bg} ${classes.text}`
+            : 'mb-1 block text-xs font-medium tracking-wide text-ink-soft uppercase';
+          tag.textContent = hit.meta.category;
+          link.append(tag);
         }
         const title = document.createElement('span');
         title.className = 'block font-display text-lg font-semibold text-accent';
