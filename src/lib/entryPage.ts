@@ -17,6 +17,8 @@ const compact = (items: (string | undefined)[]): string[] => items.filter((i): i
 const SAINT_REGISTER_NOTE = 'This saint also has a documented miracle case on The Miracle Register.';
 const PHENOMENON_REGISTER_NOTE =
   'This same case is also documented on The Miracle Register, written in a voice explicit about the evidence it rests on.';
+const RELIC_REGISTER_NOTE =
+  'This relic is also documented on The Miracle Register, written in a voice explicit about the evidence it rests on.';
 
 // The per-pillar parts of a detail-page hero: the meta line and the optional
 // Miracle Register cross-link.
@@ -41,8 +43,15 @@ export function heroData(entry: AnyEntry): EntryHeroData {
       };
     }
     case 'relics': {
-      const { cluster, claimedLocations } = entry.data;
-      return { meta: [titleCaseSlug(cluster), claimedLocations.map((loc) => loc.site).join(' / ')] };
+      const { cluster, claimedLocations, registerSlug } = entry.data;
+      return {
+        meta: [titleCaseSlug(cluster), claimedLocations.map((loc) => loc.site).join(' / ')],
+        ...(registerSlug && {
+          note: RELIC_REGISTER_NOTE,
+          noteHref: registerMiracleHref(registerSlug),
+          noteLabel: 'View the Register entry',
+        }),
+      };
     }
     case 'phenomena': {
       const { phenomenonType, saints, registerSlug } = entry.data;
