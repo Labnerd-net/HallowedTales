@@ -209,6 +209,11 @@ const relics = defineCollection({
     feastDay: feastDayField,
     earliestSource: earliestSourceShape.optional(),
     historicalNote: historicalNoteField,
+    // Set when this relic is ALSO published on the Register (the
+    // Tilma of Guadalupe case) so the page can link out instead of
+    // adjudicating contested evidence in lore-site voice. Same pattern as
+    // `phenomena.registerSlug` below.
+    registerSlug: z.string().optional(),
     relatedLegends: relatedLegendsField,
     tags: tagsField,
     published: publishedField,
