@@ -70,6 +70,7 @@ export const TAG_LABELS = {
   'may-crowning': 'May Crowning',
   'napoleonic-era': 'Napoleonic Era',
   'nicholas-of-flue': 'Nicholas of Flue',
+  'nicholas-of-myra': 'Nicholas of Myra',
   'notre-dame': 'Notre-Dame',
   'odor-of-sanctity': 'Odor of Sanctity',
   'our-lady-of-loreto': 'Our Lady of Loreto',
