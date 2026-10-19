@@ -54,6 +54,12 @@ const imagesField = (image: ImageFunction) =>
         // self-authored.
         credit: z.string().optional(),
         kind: z.enum(['photo', 'illustration', 'artwork']).default('photo'),
+        // Vertical crop anchor for card thumbnails, 0 (top of the image) to
+        // 100 (bottom). Defaults to 50 (center). The thumbnail box is a
+        // short, wide strip, so a tall portrait gets cropped down to a
+        // sliver of its height - this picks which sliver. Set it when the
+        // default center crop misses the subject (see CardThumb.astro).
+        focalY: z.number().min(0).max(100).default(50),
       })
     )
     .min(1);
