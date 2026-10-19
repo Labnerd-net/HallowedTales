@@ -1,7 +1,6 @@
 import { getAllPublished, hrefFor } from './collections';
 import { COLLECTION_LABELS } from './related';
 import { tagLabel } from './tags';
-import { excerptFrom } from './excerpt';
 import type { EntryImage } from './images';
 import type { Badge } from '../components/LegendCard.astro';
 
@@ -9,7 +8,6 @@ export interface TagEntryCard {
   href: string;
   badge: Badge;
   title: string;
-  excerpt: string;
   meta: string;
   images: EntryImage[];
   featuredImageIndex?: number;
@@ -26,7 +24,6 @@ export async function entriesForTag(tagSlug: string): Promise<TagEntryCard[]> {
       href: hrefFor(entry.collection, entry.id),
       badge: COLLECTION_LABELS[entry.collection] as Badge,
       title: entry.data.title,
-      excerpt: excerptFrom(entry.body),
       meta: entry.data.earliestSource?.approxDate ?? '',
       images: entry.data.images,
       featuredImageIndex: entry.data.featuredImageIndex,
