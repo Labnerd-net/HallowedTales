@@ -107,6 +107,7 @@ export const TAG_LABELS = {
   'stigmata': 'Stigmata',
   'symbol-origin': 'Symbol Origin',
   'teresa-of-avila': 'Teresa of Avila',
+  'thomas-aquinas': 'Thomas Aquinas',
   'tilma-of-guadalupe': 'Tilma of Guadalupe',
   'true-cross': 'True Cross',
   'veil-of-veronica': 'Veil of Veronica',

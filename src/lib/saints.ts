@@ -27,6 +27,7 @@ export const SAINT_NAMES: Record<string, string> = {
   'peter-the-apostle': 'Peter the Apostle',
   'philip-neri': 'Philip Neri',
   'teresa-of-avila': 'Teresa of Avila',
+  'thomas-aquinas': 'Thomas Aquinas',
 };
 
 const LOWERCASE_WORDS = new Set(['of', 'the', 'van', 'von', 'der', 'da', 'de']);
