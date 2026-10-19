@@ -4,7 +4,6 @@ import LegendCard from './LegendCard.astro';
 import type { Badge } from './LegendCard.astro';
 import { getPublished, hrefFor, type Collection } from '../lib/collections';
 import { cardMeta } from '../lib/entryPage';
-import { excerptFrom } from '../lib/excerpt';
 import { pillarFor } from '../lib/pillarMeta';
 import { COLLECTION_LABELS } from '../lib/related';
 
@@ -26,7 +25,6 @@ const entries = await getPublished(collection);
           href={hrefFor(collection, entry.id)}
           badge={COLLECTION_LABELS[collection] as Badge}
           title={entry.data.title}
-          excerpt={excerptFrom(entry.body)}
           meta={cardMeta(entry)}
           images={entry.data.images}
           featuredImageIndex={entry.data.featuredImageIndex}

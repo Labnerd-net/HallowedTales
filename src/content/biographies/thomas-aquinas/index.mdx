@@ -5,6 +5,7 @@ images:
     alt: "Painting of Saint Thomas Aquinas in Dominican habit, half-length, holding an open book in one hand and a small model of a church in the other, against a gold background, with a halo"
     caption: "Saint Thomas Aquinas, Carlo Crivelli, 1476, tempera on panel"
     credit: "Carlo Crivelli, Wikimedia Commons, public domain"
+    focalY: 22
 saints:
   - thomas-aquinas
 earliestSource:
@@ -30,6 +31,17 @@ tags:
   - thomas-aquinas
 published: true
 ---
+
+import InlineImage from '../../../components/InlineImage.astro';
+import crivelliPortrait from './crivelli-saint-thomas-aquinas.jpg';
+
+<InlineImage
+  src={crivelliPortrait}
+  alt="Painting of Saint Thomas Aquinas in Dominican habit, half-length, holding an open book in one hand and a small model of a church in the other, against a gold background, with a halo"
+  caption="Saint Thomas Aquinas, Carlo Crivelli, 1476, tempera on panel"
+  credit="Carlo Crivelli, Wikimedia Commons, public domain"
+  side="right"
+/>
 
 Thomas Aquinas was born around 1225 at Roccasecca, a hill town in what was then the Kingdom of Sicily and is now the Italian region of Lazio, the youngest of nine children of Landulf, lord of Roccasecca, and his wife Theodora. As the family's youngest son, Thomas was given to the great Benedictine abbey of Monte Cassino as a child oblate at about five or six years old, in the hope that he would grow up to become its abbot, a position that would have brought real standing to the family. He stayed at the abbey until his early teens, when fighting between Emperor Frederick II and Pope Gregory IX disrupted monastic life there, and he was sent instead to continue his education at the University of Naples.
 

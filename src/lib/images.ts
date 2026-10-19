@@ -6,6 +6,7 @@ export interface EntryImage {
   caption?: string;
   credit?: string;
   kind: 'photo' | 'illustration' | 'artwork';
+  focalY: number;
 }
 
 // Resolves which image represents an entry on card art (homepage, pillar
