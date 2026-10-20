@@ -59,7 +59,11 @@ const imagesField = (image: ImageFunction) =>
         // short, wide strip, so a tall portrait gets cropped down to a
         // sliver of its height - this picks which sliver. Set it when the
         // default center crop misses the subject (see CardThumb.astro).
-        focalY: z.number().min(0).max(100).default(50),
+        // Integer-only: astro.config.mjs CSP-hashes every "object-position:
+        // center N%" string CardThumb.astro can emit (one per integer 0-100)
+        // so the inline style attribute isn't dropped by style-src-attr - a
+        // fractional value would render a style with no matching hash.
+        focalY: z.number().int().min(0).max(100).default(50),
       })
     )
     .min(1);

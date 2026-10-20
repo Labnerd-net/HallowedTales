@@ -13,6 +13,19 @@ const CF_BEACON_SCRIPT = 'https://static.cloudflareinsights.com';
 const CF_BEACON_CONNECT = 'https://cloudflareinsights.com';
 const themeInitHash = `sha256-${createHash('sha256').update(THEME_INIT_SCRIPT).digest('base64')}`;
 
+// CardThumb.astro sets a per-image `style="object-position: center N%"`
+// attribute (N = an entry's `focalY`, an integer 0-100 - see
+// content.config.ts) so each card thumbnail can crop to a different focal
+// point. Hash-sources only match <style> elements, not inline style
+// attributes, unless the hash is placed on style-src-attr (CSP3) - so every
+// possible value gets its own hash here rather than relying on style-src's
+// existing element hashes or 'unsafe-inline' (which hashes present would
+// make browsers ignore anyway).
+const objectPositionHashes = Array.from({ length: 101 }, (_, focalY) => ({
+  hash: `sha256-${createHash('sha256').update(`object-position: center ${focalY}%`).digest('base64')}`,
+  kind: 'attribute',
+}));
+
 export default defineConfig({
   site: 'https://hallowedtales.com',
   output: 'server',
@@ -37,6 +50,13 @@ export default defineConfig({
         // wasm-unsafe-eval: Pagefind's search engine is WebAssembly.
         resources: ["'self'", "'wasm-unsafe-eval'", UMAMI_ORIGIN, CF_BEACON_SCRIPT],
         hashes: [themeInitHash],
+      },
+      styleDirective: {
+        // 'unsafe-hashes': hash-sources only match <style> element content by
+        // default: CSP still requires this keyword to let a hash match an
+        // inline style *attribute* instead, even on style-src-attr.
+        resources: [{ resource: "'unsafe-hashes'", kind: 'attribute' }],
+        hashes: objectPositionHashes,
       },
     },
   },
