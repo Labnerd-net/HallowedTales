@@ -20,31 +20,39 @@ import kateriTekakwitha from '../content/biographies/kateri-tekakwitha/chaucheti
 // Picked from a set of candidates on a temp preview page - see commit
 // history for the comparison. One representative image per category for
 // the "Explore by Category" grid, distinct from CardThumb's per-entry
-// `images` frontmatter.
-const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string }> = {
+// `images` frontmatter. `focalY` works the same as the entry-level field
+// in content.config.ts (0-100, vertical crop anchor) but is hand-set here
+// since these aren't content-collection entries.
+const categoryHeroImages: Record<PillarKey, { src: ImageMetadata; alt: string; focalY: number }> = {
   legends: {
     src: georgeAndDragon,
     alt: 'Painting of Saint George on horseback spearing the dragon while the princess holds it on a leash made from her girdle',
+    focalY: 50,
   },
   traditions: {
     src: palmSundayProcession,
     alt: 'Photo of a priest in red vestments walking down an aisle of parishioners holding tall woven palm fronds during a Palm Sunday procession',
+    focalY: 50,
   },
   relics: {
     src: santoCaliz,
     alt: 'The Santo Caliz, an agate cup in a gold medieval mounting, displayed in Valencia Cathedral',
+    focalY: 50,
   },
   symbols: {
     src: catacombChiRho,
     alt: 'A Chi-Rho symbol scratched into a stone tablet in the Catacombs of San Callisto, Rome',
+    focalY: 50,
   },
   phenomena: {
     src: padrePio1944,
     alt: 'Black and white photo of Padre Pio celebrating Mass in Italy',
+    focalY: 50,
   },
   biographies: {
     src: kateriTekakwitha,
     alt: 'Period illustration of Kateri Tekakwitha by Father Claude Chauchetière, c. 1690',
+    focalY: 50,
   },
 };
 
@@ -204,6 +212,7 @@ const nearFeastDay = upcomingFeastDays.find((feastDay) => feastDay.daysUntil <= 
                 alt={categoryHeroImages[pillar.key].alt}
                 width={640}
                 class="h-full w-full object-cover"
+                style={`object-position: center ${categoryHeroImages[pillar.key].focalY}%`}
               />
             </div>
             <div class="p-6">
