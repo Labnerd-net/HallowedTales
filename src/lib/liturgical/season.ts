@@ -1,4 +1,5 @@
 import { getEaster, resolveMovableFeast } from './easter';
+import { utcDate, addDays, lastSundayBefore, baptismOfTheLord } from './anchoredFeasts';
 
 export type LiturgicalColor = 'violet' | 'white' | 'green' | 'red' | 'rose';
 
@@ -9,48 +10,12 @@ export interface LiturgicalDay {
 
 const DAY_MS = 86_400_000;
 
-function utcDate(year: number, month: number, day: number): Date {
-  return new Date(Date.UTC(year, month - 1, day));
-}
-
-function addDays(date: Date, days: number): Date {
-  return new Date(date.getTime() + days * DAY_MS);
-}
-
-// Most recent Sunday that is strictly before `date`.
-function lastSundayBefore(date: Date): Date {
-  const weekday = date.getUTCDay(); // 0 = Sunday
-  const back = weekday === 0 ? 7 : weekday;
-  return addDays(date, -back);
-}
-
-// First Sunday that is strictly after `date`.
-function firstSundayAfter(date: Date): Date {
-  const weekday = date.getUTCDay();
-  const forward = 7 - weekday;
-  return addDays(date, forward);
-}
-
 function sameDay(a: Date, b: Date): boolean {
   return a.getTime() === b.getTime();
 }
 
 function startOfUTCDay(date: Date): Date {
   return utcDate(date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
-}
-
-/**
- * Baptism of the Lord, under the fixed-Epiphany (Jan 6) convention TMR's
- * feast data uses - not the US transferred-to-Sunday convention. Normally
- * the Sunday after Jan 6; if Jan 6 itself is a Sunday (so it can be kept as
- * Epiphany), Baptism moves to the following Monday instead.
- */
-function baptismOfTheLord(year: number): Date {
-  const epiphany = utcDate(year, 1, 6);
-  if (epiphany.getUTCDay() === 0) {
-    return addDays(epiphany, 1);
-  }
-  return firstSundayAfter(epiphany);
 }
 
 /** The four Sundays of Advent for the Christmas falling in `year`. */

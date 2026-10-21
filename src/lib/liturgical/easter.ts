@@ -1,6 +1,5 @@
-// Ported from TheMiracleRegister's src/lib/easter.ts - same Meeus/Jones/Butcher
-// algorithm, kept in sync by hand rather than shared at runtime, since the two
-// sites are separate deploys with no shared dependency.
+// Generated from catholic-research/scripts/templates/easter.ts by scripts/sync-feasts.ts.
+// Do not edit by hand - change the template there and re-run the sync.
 
 // Meeus/Jones/Butcher algorithm — returns Easter Sunday in UTC for a given year
 export function getEaster(year: number): Date {

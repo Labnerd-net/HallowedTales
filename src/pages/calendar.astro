@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getFixedFeasts, getMovableFeastsInMonth } from '../lib/feasts';
+import { getFixedFeasts, getMovableFeastsInMonth, getAnchoredFeastsInMonth } from '../lib/feasts';
 import { getContentFeastDaysInMonth } from '../lib/feastDays';
 import { getLiturgicalDay } from '../lib/liturgical/season';
 import { barClass } from '../lib/liturgical/barClass';
@@ -38,6 +38,7 @@ const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
 const firstDayOfWeek = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
 
 const movableThisMonth = getMovableFeastsInMonth(year, month);
+const anchoredThisMonth = getAnchoredFeastsInMonth(year, month);
 const contentThisMonth = await getContentFeastDaysInMonth(year, month);
 
 interface DayCell {
@@ -56,6 +57,9 @@ for (let day = 1; day <= daysInMonth; day++) {
   }
 }
 for (const feast of movableThisMonth) {
+  getCell(feast.day).feasts.push(feast.name);
+}
+for (const feast of anchoredThisMonth) {
   getCell(feast.day).feasts.push(feast.name);
 }
 for (const entry of contentThisMonth) {
