@@ -74,6 +74,7 @@ export const TAG_LABELS = {
   'notre-dame': 'Notre-Dame',
   'odor-of-sanctity': 'Odor of Sanctity',
   'our-lady-of-loreto': 'Our Lady of Loreto',
+  'our-lady-of-prompt-succor': 'Our Lady of Prompt Succor',
   'our-lady-of-sorrows': 'Our Lady of Sorrows',
   'padre-pio': 'Padre Pio',
   'palm-sunday': 'Palm Sunday',
