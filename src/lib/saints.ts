@@ -20,6 +20,7 @@ export const SAINT_NAMES: Record<string, string> = {
   'kateri-tekakwitha': 'Kateri Tekakwitha',
   'margaret-mary-alacoque': 'Margaret Mary Alacoque',
   'mary-mother-of-god': 'Mary, Mother of God',
+  'monica': 'Monica',
   'nicholas-of-flue': 'Nicholas of Flue',
   'nicholas-of-myra': 'Nicholas of Myra',
   'padre-pio': 'Padre Pio',
