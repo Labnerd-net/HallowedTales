@@ -55,3 +55,8 @@ dev/build/test).
 
 [The Miracle Register](https://themiracleregister.org) - the evidentiary counterpart, for
 documented and medically reviewed cases.
+
+## License
+
+All rights reserved - see [LICENSE](./LICENSE). This repository is public for portfolio
+review, not for reuse.
