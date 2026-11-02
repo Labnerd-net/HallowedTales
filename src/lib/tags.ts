@@ -68,6 +68,7 @@ export const TAG_LABELS = {
   'marian-devotion': 'Marian Devotion',
   'marian-shrine': 'Marian Shrine',
   'may-crowning': 'May Crowning',
+  'monica': 'Monica',
   'napoleonic-era': 'Napoleonic Era',
   'nicholas-of-flue': 'Nicholas of Flue',
   'nicholas-of-myra': 'Nicholas of Myra',
