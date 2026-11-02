@@ -78,7 +78,16 @@ Register. Want the folklore and traditions around them? → HallowedTales."
   narration for the documented facts, explicit attribution for the testimony-sourced ones). Full
   models, confirmed good: `../catholic-research/HallowedTales/Notes/legends/Francis and the Wolf
   of Gubbio - tone model.md`, `George and the Dragon - tone model.md`,
-  `../biographies/Monica - tone model.md`, `Thomas Aquinas - tone model.md`.
+  `../biographies/Monica - tone model.md`, `Thomas Aquinas - tone model.md`, `Helena of
+  Constantinople - tone model.md`, `Kateri Tekakwitha - tone model.md`, `Nicholas of Myra - tone
+  model.md`, `Patrick of Ireland - tone model.md`.
+  **Scope (decided 2026-11-02):** the two-part structure applies to `legends`, `biographies`,
+  `phenomena`, and `relics` - any entry with one bounded narrative and a legend-vs-documented
+  split worth explaining once at the end. `traditions` and `symbols` are inherently multi-era
+  catalogs (a custom or image traced across centuries) that already interleave sourcing caveats
+  throughout rather than resolving into one story-then-verdict shape; don't force a closing
+  section onto those. The broader house-voice rules (no invented dialogue, attribution without
+  self-explaining "why," first-mention clause) still apply everywhere.
 
 ## Content Pillars
 
@@ -89,7 +98,7 @@ Register. Want the folklore and traditions around them? → HallowedTales."
 | 3 | Biblical artifacts and legendary relics (True Cross, Holy Grail, Ark of the Covenant, etc.) | Confirmed for the Catholic-veneration-tradition relic cluster (True Cross, Holy Lance, Crown of Thorns, etc.). Shared-Old-Testament-origin "legendary quest" entries (Ark of the Covenant, Noah's Ark, Grail, Prester John) are not excluded but evaluated case by case. Shroud of Turin / Sudarium of Oviedo stay excluded (too close to the Register's contested-evidence territory). See `../catholic-research/HallowedTales/Notes/Pillar 3 - Biblical Artifacts and Legendary Relics.md`. |
 | 4 | Mystical phenomena from saints' lives (bilocation, levitation, inedia, luminosity, odor of sanctity) | Confirmed. Can overlap with the Register case-by-case (e.g. Padre Pio's bilocation lives on both) — see Pillar 4 note for the rule. |
 | 5 | Catholic symbols (Chi-Rho, scallop shell, crossed keys, Sacred Heart, pelican, Tau cross, etc.) — meaning, origin, and how usage changed across eras | Confirmed. Split out from Pillar 1 rather than folded into legends: some entries anchor to one saint's experience (scallop shell, keys of St. Peter) and would fit the `legends` shape, but others (fish/ichthys, Chi-Rho, the pelican) have no single saint to anchor to, and the content is "what it means + how it's been used over time," not a narrative with retellings. See `../catholic-research/HallowedTales/Notes/Pillar 5 - Symbols.md`. |
-| 6 | Saint biographies — full cradle-to-grave lives, condensed and warmly told, distinct from Pillar 1's single-motif legends | Confirmed 2026-10-11, built: `biographies` collection, routes, and templates all exist (Francis of Assisi, Helena of Constantinople, Kateri Tekakwitha, Nicholas of Myra, Patrick of Ireland, Thomas Aquinas). The default is a biography linking out to a Pillar 1 legend about the same saint rather than retelling it inline (e.g. Patrick's biography links to the existing Patrick-and-the-snakes legend). Thomas Aquinas is a deliberate exception (decided 2026-11-02): its two legendary episodes (the girdle-of-purity vision, the crucifix vision) are told inline rather than split into separate legend entries, and the standalone legend pages that used to carry them were retired as duplicates - see `../catholic-research/HallowedTales/Notes/biographies/Thomas Aquinas - tone model.md`. Helena and Kateri still have the same short-bio/"full-story" duplication Aquinas had; not yet resolved. See `../catholic-research/HallowedTales/Notes/Pillar 6 - Saint Biographies.md`. |
+| 6 | Saint biographies — full cradle-to-grave lives, condensed and warmly told, distinct from Pillar 1's single-motif legends | Confirmed 2026-10-11, built: `biographies` collection, routes, and templates all exist (Francis of Assisi, Helena of Constantinople, Kateri Tekakwitha, Nicholas of Myra, Patrick of Ireland, Thomas Aquinas). The default is a biography linking out to a Pillar 1 legend about the same saint rather than retelling it inline (e.g. Patrick's biography links to the existing Patrick-and-the-snakes legend). Thomas Aquinas is a deliberate exception (decided 2026-11-02): its two legendary episodes (the girdle-of-purity vision, the crucifix vision) are told inline rather than split into separate legend entries, and the standalone legend pages that used to carry them were retired as duplicates - see `../catholic-research/HallowedTales/Notes/biographies/Thomas Aquinas - tone model.md`. Helena and Kateri had the same short-bio/"full-story" duplication Aquinas had; resolved 2026-11-02 (duplicates deleted, surviving entries rewritten to the confirmed tone model). See `../catholic-research/HallowedTales/Notes/Pillar 6 - Saint Biographies.md`. |
 
 First-pass content research for each pillar lives in
 `../catholic-research/HallowedTales/Notes/Pillar N - *.md`. Treat those
