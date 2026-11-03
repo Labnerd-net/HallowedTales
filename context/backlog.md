@@ -13,7 +13,7 @@
 _None identified._
 
 ### Medium
-- **#6 [src/components/EntryPage.astro:49]**: `data-pagefind-meta="title:...,category:..."` breaks for any title containing a comma, because Pagefind splits on commas with no escaping. At least 17 titles are affected (e.g. "May, the Month of Mary" shows as "May" in search results). Fix: put the title last (`category:X, title:Y`) or use an element with `data-pagefind-meta="title"`. Add a test over all titles.
+_None identified._
 
 ### Low
 - **#7 [src/lib/feastDays.ts:79-93]**: A fixed Feb 29 feast resolves to Mar 1 in non-leap years via `Date.UTC`. The schema allows Feb 29 but no entry uses it yet (latent). Fix: if the resulting month differs, skip or clamp to Feb 28; add a test.
@@ -93,8 +93,8 @@ _None identified._
 
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
-| Bugs | 0 | 1 | 2 | 3 |
+| Bugs | 0 | 0 | 2 | 2 |
 | Performance | 0 | 2 | 2 | 4 |
 | Improvements & Refactors | 0 | 8 | 8 | 16 |
 | Feature Ideas | 3 | 7 | 6 | 16 |
-| **Total** | 3 | 18 | 18 | 39 |
+| **Total** | 3 | 17 | 18 | 38 |
