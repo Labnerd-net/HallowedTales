@@ -8,6 +8,7 @@ import type { AnyEntry } from '../lib/collections';
 import { heroData } from '../lib/entryPage';
 import { excerptFrom } from '../lib/excerpt';
 import { featuredImage } from '../lib/images';
+import { pagefindMeta } from '../lib/pagefindMeta';
 import { COLLECTION_LABELS, buildRelatedSections } from '../lib/related';
 import { metaDescription } from '../lib/seo';
 
@@ -46,7 +47,7 @@ const hero = heroData(entry);
   <main
     class="mx-auto max-w-3xl px-8 pt-10 pb-20"
     data-pagefind-body={entry.data.published ? '' : undefined}
-    data-pagefind-meta={`title:${entry.data.title}, category:${COLLECTION_LABELS[entry.collection]}`}
+    data-pagefind-meta={pagefindMeta(entry.data.title, COLLECTION_LABELS[entry.collection])}
   >
     <div class="legend-body font-body text-ink">
       <Content />
