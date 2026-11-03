@@ -66,7 +66,7 @@ _None identified._
 
 ### High
 - **#29 [new src/pages/saints/]** (was #38): Derived `/saints/[slug]` hubs grouping biography, legends, phenomena and symbols per saint, from `saints[]` and `SAINT_NAMES` (optionally extended with `feast` and `patronOf`). Natural single home for the Register cross-link, removing the repeated note from every hero.
-- **#30 [src/layouts/Layout.astro footer, new about page]** (was #44, promoted): The footer is one disclaimer paragraph with no nav, no about page and no Register cross-link beyond the hero note, though the cross-link is core positioning. Add footer nav, an about page carrying the positioning copy, and breadcrumbs on detail pages.
+- **#30 [detail pages]** (was #44, mostly done 2026-11-03: footer nav and `/about` added): Remaining: breadcrumbs or pillar links on detail pages.
 
 ### Medium
 - **#32 [src/pages/*/index.astro, PillarIndex.astro]** (was #39): Listings are in glob order. Sort traditions by feast month, biographies by feast day, legends by `earliestSource.approxDate`; add filters from unused schema fields (`traditions.category`, `phenomena.phenomenonType`, `relics.cluster`, `regions`).

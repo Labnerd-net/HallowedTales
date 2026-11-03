@@ -12,6 +12,7 @@ export const prerender = true;
 export const GET: APIRoute = async ({ site }) => {
   const paths = ['/', '/calendar'];
   const prerendered: string[] = [
+    '/about/',
     '/tags/',
     ...COLLECTIONS.map((c) => `/${c}/`),
     ...(await getAllPublished()).map((entry) => `${hrefFor(entry.collection, entry.id)}/`),

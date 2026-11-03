@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout
+  title="About"
+  description="HallowedTales gathers Catholic legend, folk tradition, and the history behind the customs people still keep - told as stories, not as a verification record."
+>
+  <main class="mx-auto max-w-3xl px-8 py-16">
+    <p class="mb-2 font-display text-sm uppercase tracking-wide text-gold-text">About</p>
+    <h1 class="mb-8 font-display text-4xl font-semibold text-ink">The stories behind the faith</h1>
+
+    <div class="space-y-5 font-body text-base leading-relaxed text-ink">
+      <p>
+        HallowedTales collects the stories that have grown up around the Catholic faith: the legend of a
+        saint and a wolf, the custom of leaving shoes by the door on Saint Nicholas Day, the relic
+        that pilgrims have traveled to for centuries, the symbol on a church wall that most people
+        walk past. They are the kind of stories passed along by parish, family, and tradition.
+      </p>
+
+      <h2 class="!mt-10 font-display text-2xl font-semibold text-ink">How the stories are told</h2>
+      <p>
+        Each entry tells the story as people have told it, then places it in its own history: where it
+        first appears, how it changed along the way, and what the historical record does and does not
+        support. Tradition is presented as tradition. Nothing here is offered as documented fact unless
+        it is one.
+      </p>
+      <p>
+        The tone is warm and curious. Stories that can only be told through horror, gore, or fear are
+        left out, and so is anything outside the Catholic tradition itself.
+      </p>
+
+      <h2 class="!mt-10 font-display text-2xl font-semibold text-ink">What is here</h2>
+      <ul class="space-y-2">
+        <li><a href="/legends" class="font-medium text-accent hover:underline">Legends</a> - saint-and-creature stories, patronage origins, founding and shrine legends</li>
+        <li><a href="/biographies" class="font-medium text-accent hover:underline">Saint Biographies</a> - whole lives, told plainly</li>
+        <li><a href="/traditions" class="font-medium text-accent hover:underline">Folk Traditions</a> - feast-day customs, food, and the practices handed down in families</li>
+        <li><a href="/relics" class="font-medium text-accent hover:underline">Relics and Legendary Artifacts</a> - the True Cross, the Holy Lance, and the objects whose stories outlasted the evidence</li>
+        <li><a href="/symbols" class="font-medium text-accent hover:underline">Symbols</a> - what they mean and how their use has changed</li>
+        <li><a href="/phenomena" class="font-medium text-accent hover:underline">Mystical Phenomena</a> - the reports that cling to certain saints' lives</li>
+        <li><a href="/calendar" class="font-medium text-accent hover:underline">The Calendar</a> - feast days and liturgical seasons, with the stories that belong to each day</li>
+      </ul>
+
+      <h2 class="!mt-10 font-display text-2xl font-semibold text-ink">A companion to The Miracle Register</h2>
+      <p>
+        If you want the documented record, with sources and medical review, visit{' '}
+        <a href="https://themiracleregister.org" class="font-medium text-accent hover:underline">The Miracle Register</a>. It holds itself to a strict
+        standard of evidence, which is exactly why this site is a separate place: lore cannot meet that
+        standard, and it should not have to. Where a story here overlaps a verified case, the entry
+        points you across.
+      </p>
+
+      <h2 class="!mt-10 font-display text-2xl font-semibold text-ink">About the project</h2>
+      <p>
+        HallowedTales is an independent project. The source code is public on{' '}
+        <a href="https://github.com/Labnerd-net/HallowedTales" class="font-medium text-accent hover:underline">GitHub</a>.
+      </p>
+    </div>
+  </main>
+</Layout>
