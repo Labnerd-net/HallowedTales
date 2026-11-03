@@ -4,6 +4,7 @@ _No active feature._
 
 ## History
 
+- 2026-11-03 - Portfolio README: rewrote README.md around engineering highlights and design decisions, added four cropped WebP screenshots in `docs/` (kept out of `public/` so they do not ship), corrected the entry count to nearly 60. Backlog skill now splits security findings into a gitignored `context/backlog-security.md`; backlog regenerated.
 - 2026-10-10 - Calendar "Back to today" link under the month heading, shown only when the displayed month is not the current UTC month.
 - 2026-10-10 - Calendar season bands: each day on `/calendar` (desktop cell and mobile agenda row) gets a liturgical season color bar from `getLiturgicalDay`, with the season name as `title` and screen-reader text, plus a season color key in the legend. Color-to-token map shared with the banner via `lib/liturgical/barClass.ts`.
 - 2026-10-10 - Calendar was unlinked: added it to the nav (`NAV_LINKS`) and made the banner's "Today in the Church calendar" text link to `/calendar`. Brand name no longer wraps at the `lg` width, and nav link gap tightens between `lg` and `xl`.
