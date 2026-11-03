@@ -51,7 +51,7 @@ const isCurrent = (href: string) =>
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const shareImage = image
   ? new URL((await getImage({ src: image, width: 1200, format: 'jpeg' })).src, Astro.site)
-  : new URL('/icon-512.png', Astro.site);
+  : new URL('/og-default.png', Astro.site);
 const fullTitle = `${title} - ${SITE_NAME}`;
 
 const jsonLd =
@@ -87,7 +87,7 @@ const umamiId = import.meta.env.PUBLIC_UMAMI_ID ?? 'f351c3f0-12b5-4603-8fad-f0cd
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical.href} />
     <meta property="og:image" content={shareImage.href} />
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={shareImage.href} />

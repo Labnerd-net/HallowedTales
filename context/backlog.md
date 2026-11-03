@@ -68,7 +68,6 @@ _None identified._
 ### High
 - **#29 [new src/pages/saints/]** (was #38): Derived `/saints/[slug]` hubs grouping biography, legends, phenomena and symbols per saint, from `saints[]` and `SAINT_NAMES` (optionally extended with `feast` and `patronOf`). Natural single home for the Register cross-link, removing the repeated note from every hero.
 - **#30 [src/layouts/Layout.astro footer, new about page]** (was #44, promoted): The footer is one disclaimer paragraph with no nav, no about page and no Register cross-link beyond the hero note, though the cross-link is core positioning. Add footer nav, an about page carrying the positioning copy, and breadcrumbs on detail pages.
-- **#31 [public/]** (was #35): Dedicated 1200x630 `og-default.png`; all non-entry pages currently share `icon-512.png` with `twitter:card=summary`.
 
 ### Medium
 - **#32 [src/pages/*/index.astro, PillarIndex.astro]** (was #39): Listings are in glob order. Sort traditions by feast month, biographies by feast day, legends by `earliestSource.approxDate`; add filters from unused schema fields (`traditions.category`, `phenomena.phenomenonType`, `relics.cluster`, `regions`).
@@ -80,7 +79,7 @@ _None identified._
 - **#38 [legend pages, src/lib/related.ts]**: Derived "In this saint's life" strip on legend pages pointing up to the biography, computed from `saints`. Helps the unresolved Helena/Kateri duplication.
 
 ### Low
-- **#39 [public/]** (was #43): Web manifest; `icon-512.png` exists but is unreferenced. Do together with #31.
+- **#39 [public/]** (was #43): Web manifest; `icon-512.png` exists but is unreferenced.
 - **#40 [src/pages/index.astro, calendar.astro, LiturgicalBanner.astro]** (was #45): Deterministic date-seeded "story of the day" (better caching than per-request random), link calendar entries to monthly devotions, season-relevant banner links, printable feast list.
 - **#41 [EntryPage.astro, global.css]**: Copy-link/Web Share button and print stylesheet for entry pages, since stories get shared out of context.
 - **#42 [src/lib/excerpt.ts, cardMeta]**: Reading-time chip on cards.
@@ -96,5 +95,5 @@ _None identified._
 | Bugs | 0 | 0 | 2 | 2 |
 | Performance | 0 | 2 | 2 | 4 |
 | Improvements & Refactors | 0 | 8 | 8 | 16 |
-| Feature Ideas | 3 | 7 | 6 | 16 |
-| **Total** | 3 | 17 | 18 | 38 |
+| Feature Ideas | 2 | 7 | 6 | 15 |
+| **Total** | 2 | 17 | 18 | 37 |
