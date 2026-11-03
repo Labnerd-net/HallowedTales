@@ -1,6 +1,8 @@
 # HallowedTales
 
 [![CI](https://github.com/Labnerd-net/HallowedTales/actions/workflows/ci.yml/badge.svg)](https://github.com/Labnerd-net/HallowedTales/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](#licensing)
 
 **Live site: [hallowedtales.com](https://hallowedtales.com)**
 
@@ -28,7 +30,7 @@ cannot meet that bar, and mixing the two would erode the Register's core promise
 separate site with its own data shape, tone and audience. The two cross-link wherever a story
 overlaps a verified case.
 
-## Engineering highlights
+## Engineering Highlights
 
 - **No database, by design.** Cross-links, back-links, same-saint sections, tags and the saint
   index are all derived at build time from the content files. The relational needs are small
@@ -89,7 +91,7 @@ with its own Zod schema in `src/content.config.ts`:
 Every entry separates the legend as told from what the historical record supports, rather than
 presenting tradition as documented fact.
 
-## Stack
+## Tech Stack
 
 - [Astro](https://astro.build) with the Cloudflare adapter, deployed to Cloudflare Workers
 - TypeScript, Markdown/MDX content, Zod-validated frontmatter
@@ -98,7 +100,7 @@ presenting tradition as documented fact.
 - Vitest for unit and content-level tests
 - GitHub Actions for CI
 
-## Local development
+## Local Development
 
 ```
 npm install
@@ -116,7 +118,7 @@ dev, build or test).
 [The Miracle Register](https://themiracleregister.org) - the evidentiary counterpart, for
 documented and medically reviewed cases.
 
-## License
+## Licensing
 
-All rights reserved - see [LICENSE](./LICENSE). This repository is public so the code and
-approach can be reviewed as a portfolio piece, not for reuse.
+- **Code:** [MIT](LICENSE).
+- **Content** (saint and miracle lore write-ups, and other text published on the site): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Attribute as "HallowedTales, hallowedtales.com, CC BY 4.0". Provided without warranty.
