@@ -80,6 +80,28 @@ describe('getContentFeastDaysInMonth', () => {
   });
 });
 
+describe('leap-day feasts', () => {
+  beforeEach(() => {
+    fixtures.traditions = [entry('leap', 'traditions', { month: 'Feb', day: '29' })];
+    fixtures.relics = [];
+  });
+  it('lands on Feb 28 in a common year, not Mar 1', async () => {
+    expect(await getContentFeastDaysInMonth(2027, 2)).toEqual([
+      { href: '/traditions/leap', title: 'Title leap', day: 28 },
+    ]);
+    expect(await getContentFeastDaysInMonth(2027, 3)).toEqual([]);
+  });
+  it('stays on Feb 29 in a leap year', async () => {
+    expect(await getContentFeastDaysInMonth(2028, 2)).toEqual([
+      { href: '/traditions/leap', title: 'Title leap', day: 29 },
+    ]);
+  });
+  it('resolves the next occurrence to Feb 28 when next year is a common year', async () => {
+    const upcoming = await getUpcomingFeastDays(1, d(2026, 3, 1));
+    expect(upcoming[0].daysUntil).toBe(364);
+  });
+});
+
 describe('getFeastsForDate', () => {
   it('puts this site\'s entries before reference-calendar feasts', async () => {
     const feasts = await getFeastsForDate(d(2026, 12, 6));
