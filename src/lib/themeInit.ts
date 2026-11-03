@@ -4,7 +4,8 @@
 // written inline in Layout.astro) so astro.config.mjs can hash this exact
 // text for the CSP; editing it here updates the hash automatically.
 export const THEME_INIT_SCRIPT = `(function () {
-  var stored = localStorage.getItem('theme');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
   var choice = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
   var resolved = choice === 'system'
     ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')

@@ -4,6 +4,7 @@ _No active feature._
 
 ## History
 
+- 2026-11-03 - Small fixes (backlog #7, #8, security #4): Feb 29 feasts clamp to Feb 28 in common years via `fixedDate` in `feastDays.ts` (was rolling into Mar 1), with tests; `localStorage` reads/writes in `themeInit.ts` and `ThemeToggle.astro` are try/catch-wrapped so blocked storage no longer breaks the theme toggle; CI actions pinned to commit SHAs with a weekly Dependabot check for them. Typechecking `tests/` still needs `@types/node` (left in #16).
 - 2026-11-03 - Default share image (backlog #31): added `public/og-default.png` (1200x630, brand fonts and colors), used as the og/twitter image on pages without their own image, and `twitter:card` is now always `summary_large_image`.
 - 2026-11-03 - Fix search titles truncated at the first comma (backlog #6): `data-pagefind-meta` now built by `lib/pagefindMeta.ts` with the title last (Pagefind only allows commas in the final inline value) and a guard that the category label has no comma; unit test added.
 - 2026-11-03 - Portfolio README: rewrote README.md around engineering highlights and design decisions, added four cropped WebP screenshots in `docs/` (kept out of `public/` so they do not ship), corrected the entry count to nearly 60. Backlog skill now splits security findings into a gitignored `context/backlog-security.md`; backlog regenerated.

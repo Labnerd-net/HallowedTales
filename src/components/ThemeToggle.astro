@@ -61,7 +61,12 @@ const choices = [
   const media = window.matchMedia('(prefers-color-scheme: dark)');
 
   function getStoredChoice(): ThemeChoice {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch {
+      // Storage blocked (private mode, embedded webview): fall back to system.
+    }
     return stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
   }
 
@@ -81,7 +86,11 @@ const choices = [
   }
 
   function setChoice(choice: ThemeChoice) {
-    localStorage.setItem(STORAGE_KEY, choice);
+    try {
+      localStorage.setItem(STORAGE_KEY, choice);
+    } catch {
+      // Choice still applies for this page view, it just will not persist.
+    }
     applyResolved(resolve(choice));
     syncButtons(choice);
   }

@@ -62,6 +62,13 @@ async function getFeastDayEntries(): Promise<FeastDayEntry[]> {
   );
 }
 
+// UTC date for a fixed feast, clamping the day to the month's length so a
+// Feb 29 feast lands on Feb 28 in common years instead of rolling into Mar 1.
+function fixedDate(year: number, month: number, day: number): Date {
+  const lastDay = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(year, month, Math.min(day, lastDay)));
+}
+
 // Next calendar occurrence of a feast day on or after `from`, rolling over
 // to next year if this year's date has already passed. Movable feasts
 // (easterOffset set) are resolved off that year's Easter Sunday instead of
@@ -78,9 +85,9 @@ function resolveNextOccurrence(feastDay: FeastDay, from: Date): Date {
 
   const month = MONTH_INDEX[feastDay.month];
   const day = Number(feastDay.day);
-  const thisYear = new Date(Date.UTC(year, month, day));
+  const thisYear = fixedDate(year, month, day);
   if (thisYear.getTime() >= fromUTC) return thisYear;
-  return new Date(Date.UTC(year + 1, month, day));
+  return fixedDate(year + 1, month, day);
 }
 
 // This feast day's date within a specific year (not "next occurrence" -
@@ -90,7 +97,7 @@ function resolveDateInYear(feastDay: FeastDay, year: number): Date {
   if (feastDay.easterOffset !== undefined) {
     return new Date(getEaster(year).getTime() + feastDay.easterOffset * 86_400_000);
   }
-  return new Date(Date.UTC(year, MONTH_INDEX[feastDay.month], Number(feastDay.day)));
+  return fixedDate(year, MONTH_INDEX[feastDay.month], Number(feastDay.day));
 }
 
 function truncate(text: string, maxLen: number): string {

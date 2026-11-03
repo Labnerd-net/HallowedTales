@@ -16,8 +16,7 @@ _None identified._
 _None identified._
 
 ### Low
-- **#7 [src/lib/feastDays.ts:79-93]**: A fixed Feb 29 feast resolves to Mar 1 in non-leap years via `Date.UTC`. The schema allows Feb 29 but no entry uses it yet (latent). Fix: if the resulting month differs, skip or clamp to Feb 28; add a test.
-- **#8 [src/lib/themeInit.ts:7, src/components/ThemeToggle.astro:64,84,89]**: `localStorage` is used with no try/catch. With storage blocked, `syncButtons(getStoredChoice())` throws at module load and the toggle never works. Wrap reads and writes in safe helpers; keep the init script ES5 (the CSP hash is derived automatically).
+_None identified._
 
 ---
 
@@ -45,7 +44,7 @@ _None identified._
 - **#13 [src/lib/pillarMeta.ts, collections.ts, related.ts, tagArchive.ts, random.astro, index.astro:117-122, Search.astro:56-63]** (was #22): `PILLARS`, `COLLECTIONS`, `PillarKey` and `COLLECTION_LABELS` are overlapping sources. Make `COLLECTIONS` the source, derive `PillarKey = Collection`, make `PILLARS` a `Record<Collection, ...>`, and use `pillar.badge` instead of casts. Build the homepage `sidebarStories` by mapping `PILLARS`, and replace `Search.astro`'s hard-coded `categoryClasses` so a seventh pillar cannot fall through unstyled. Fix stale comments in `pillarMeta.ts` and `index.astro`.
 - **#14 [src/pages/*/[slug].astro, */index.astro]**: Six near-identical `[slug].astro` files plus six two-line index wrappers. Replace with `[collection]/[slug].astro` and `[collection]/index.astro` validated against `COLLECTIONS`. Check static path generation and `tags`/`random` route conflicts first.
 - **#15 [src/layouts/Layout.astro:38-134]** (was #23, partly done): `NAV_LINKS` exists, but the desktop and mobile `.map()` blocks and the inline menu script (~55 lines) remain. Derive pillar entries from `PILLARS`, add Calendar/Tags/Random, extract `Nav.astro`.
-- **#16 [.github/workflows/ci.yml, tsconfig.json:6]** (was #24): No lint tool or CI step despite CLAUDE.md listing one, and `tests/` and `scripts/` are not typechecked. Add ESLint (`eslint-plugin-astro`) or Biome and include `tests` and `scripts` in tsconfig. See security backlog #4 for the related CI item.
+- **#16 [.github/workflows/ci.yml, tsconfig.json:6]** (was #24): No lint tool or CI step despite CLAUDE.md listing one, and `tests/` and `scripts/` are not typechecked (including `tests` in tsconfig fails without `@types/node` as a devDependency). Add ESLint (`eslint-plugin-astro`) or Biome and include `tests` and `scripts` in tsconfig.
 - **#17 [src/lib/entryPage.ts]**: The Register note logic is repeated five times with near-identical constants; fold into one `registerNote(entry)` helper. Feast days are formatted three different ways ("Mar 19", "Feast day: Mar 19"); add `formatFeastDay()`. Movable feasts with `day: "varies"` render as "Mar varies"; use `easterOffset` to show a name or "Varies".
 - **#18 [tests/content-rules.test.ts, content-integrity.test.ts, scripts/list-content.mjs]** (was #30): Each re-implements frontmatter parsing and file walking (the script with regex `split("---")[1]`). Share a `tests/helpers/content.ts`, use the `yaml` package already in devDependencies, and add an `npm run content:list` script.
 - **#19 [src/components/EntryPage.astro, Search.astro]**: Pagefind only indexes `data-pagefind-body` with title/category meta. Add `data-pagefind-filter` for category/saints/tags, `data-pagefind-meta="image"` for thumbnails, and index the hero text (or weight it) so saint names in subtitles are searchable.
@@ -92,8 +91,8 @@ _None identified._
 
 | Category | High | Medium | Low | Total |
 |----------|------|--------|-----|-------|
-| Bugs | 0 | 0 | 2 | 2 |
+| Bugs | 0 | 0 | 0 | 0 |
 | Performance | 0 | 2 | 2 | 4 |
 | Improvements & Refactors | 0 | 8 | 8 | 16 |
 | Feature Ideas | 2 | 7 | 6 | 15 |
-| **Total** | 2 | 17 | 18 | 37 |
+| **Total** | 2 | 17 | 16 | 35 |
