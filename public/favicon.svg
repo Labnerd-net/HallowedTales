@@ -1,5 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
-  <g stroke="#8a5a2b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <style>
+    /* Safari ignores this media query for favicons and always uses the
+       plain stroke attribute below as a light/dark compromise. */
+    .keys { stroke: #9c7a42; }
+    @media (prefers-color-scheme: light) { .keys { stroke: #4a2e14; } }
+    @media (prefers-color-scheme: dark) { .keys { stroke: #e0b974; } }
+  </style>
+  <g class="keys" stroke="#9c7a42" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
     <!-- key 1: top-left to bottom-right -->
     <line x1="65" y1="65" x2="155" y2="155"/>
     <circle cx="65" cy="65" r="16" fill="none"/>
